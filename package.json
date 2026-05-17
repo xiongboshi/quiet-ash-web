@@ -9,6 +9,7 @@
     "start": "next start",
     "start:lan": "next start -H 0.0.0.0",
     "lint": "eslint",
+    "icons": "node scripts/generate-icons.mjs",
     "knockout-seal": "node scripts/knockout-quote-seal.mjs",
     "knockout-mat": "node scripts/knockout-png-mat.mjs"
   },
