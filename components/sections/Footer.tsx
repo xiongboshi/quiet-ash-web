@@ -82,12 +82,6 @@ export function Footer(props: FooterProps = {}) {
             <p className="mb-0 font-[family-name:var(--font-sans)] text-[16px] font-normal leading-[1.75] text-[rgba(255,255,255,0.58)] lg:mt-8">
               {p.body}
             </p>
-            <a
-              href={`mailto:${siteContact.email}`}
-              className="qa-cta qa-cta--still mt-6 inline-block font-[family-name:var(--font-sans)] text-[13px] font-normal tracking-[0.04em] text-[rgba(255,255,255,0.72)] no-underline normal-case transition-none hover:text-white"
-            >
-              {siteContact.email}
-            </a>
             <p className="mt-10 font-[family-name:var(--font-sans)] text-[11px] font-normal uppercase leading-[2] tracking-[0.16em] text-[rgba(255,255,255,0.32)] lg:mt-12">
               © {year} {p.title}. {p.legal}
             </p>
@@ -123,26 +117,28 @@ export function Footer(props: FooterProps = {}) {
           </div>
 
           <div className="max-w-xs lg:mt-0">
-            <p className={colHeadingClass}>{columns.newsletterTitle}</p>
+            <p className={colHeadingClass}>{columns.contactTitle}</p>
             <p className="m-0 font-[family-name:var(--font-sans)] text-[13px] font-normal leading-[1.65] text-[rgba(255,255,255,0.32)]">
-              {columns.newsletterBlurb}
+              {columns.contactBlurb}
             </p>
-            <div className="mt-8 flex h-[42px] items-end border-b border-white/10">
-              <input
-                type="email"
-                name="newsletter-email"
-                autoComplete="email"
-                placeholder="Your email"
-                className="min-w-0 flex-1 bg-transparent pb-1 font-[family-name:var(--font-sans)] text-[15px] text-[rgba(255,255,255,0.64)] outline-none placeholder:text-[rgba(255,255,255,0.22)]"
-                aria-label="Your email for the newsletter"
-              />
+            <p className="mt-[18px] mb-[8px] font-[family-name:var(--font-sans)] text-[11px] font-normal uppercase tracking-[0.2em] text-[rgba(255,255,255,0.48)]">
+              {columns.contactLinkTitle}
+            </p>
+            <a
+              href={`mailto:${siteContact.email}`}
+              className="qa-cta qa-cta--still group flex min-h-[42px] items-end gap-3 border-b border-white/10 pb-1 no-underline transition-none hover:text-white"
+              aria-label={`${columns.contactLinkTitle}: ${siteContact.email}`}
+            >
+              <span className="min-w-0 flex-1 break-all font-[family-name:var(--font-sans)] text-[15px] font-normal tracking-[0.02em] text-[rgba(255,255,255,0.72)] normal-case group-hover:text-white">
+                {siteContact.email}
+              </span>
               <span
-                className="shrink-0 pb-1 font-[family-name:var(--font-sans)] text-[11px] tracking-[0.14em] text-[rgba(255,255,255,0.34)]"
+                className="shrink-0 pb-0.5 font-[family-name:var(--font-sans)] text-[11px] tracking-[0.14em] text-[rgba(255,255,255,0.34)] transition-colors group-hover:text-[rgba(255,255,255,0.72)]"
                 aria-hidden
               >
                 →
               </span>
-            </div>
+            </a>
           </div>
 
           <div className="mt-10 lg:mt-0">

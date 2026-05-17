@@ -102,17 +102,14 @@ export const defaultFooter = {
       { label: "Returns", href: "/returns" },
       { label: "FAQ", href: "/faq" },
     ],
-    newsletterTitle: "Letters on quiet living",
-    newsletterBlurb:
-      "Reflections, new rituals, and quiet things, delivered thoughtfully.",
+    contactTitle: "Contact",
+    contactBlurb:
+      "Orders, care, and quiet questions — we read every message by hand.",
+    contactLinkTitle: "Contact us",
     followTitle: "Follow",
     follow: [
       { label: "Instagram", href: siteContact.instagram, external: true },
       { label: "Pinterest", href: siteContact.pinterest, external: true },
-      {
-        label: siteContact.email,
-        href: `mailto:${siteContact.email}`,
-      },
     ],
   },
   legal: "All rights reserved.",
