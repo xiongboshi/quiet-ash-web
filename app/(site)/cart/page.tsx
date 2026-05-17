@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   description:
     "Objects gathered for your space — Quiet Ash cart with calm, editorial checkout.",
   alternates: { canonical: "/cart" },
+  robots: { index: false, follow: false },
 };
 
 export default function CartPage() {
