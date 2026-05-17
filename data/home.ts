@@ -109,7 +109,10 @@ export const defaultFooter = {
     follow: [
       { label: "Instagram", href: siteContact.instagram, external: true },
       { label: "Pinterest", href: siteContact.pinterest, external: true },
-      { label: "Email", href: `mailto:${siteContact.email}` },
+      {
+        label: siteContact.email,
+        href: `mailto:${siteContact.email}`,
+      },
     ],
   },
   legal: "All rights reserved.",

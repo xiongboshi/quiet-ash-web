@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { defaultFooter } from "@/data/home";
+import { siteContact } from "@/data/site";
 
 export type FooterProps = Partial<typeof defaultFooter>;
 
@@ -18,7 +19,19 @@ function FooterLink({
 }) {
   const cls = `qa-cta qa-cta--still ${className}`;
   const external =
-    item.external ?? /^https?:\/\//i.test(item.href);
+    item.external ??
+    (/^https?:\/\//i.test(item.href) && !item.href.startsWith("mailto:"));
+
+  if (item.href.startsWith("mailto:")) {
+    return (
+      <a
+        href={item.href}
+        className={`${cls} normal-case tracking-[0.04em]`}
+      >
+        {item.label}
+      </a>
+    );
+  }
 
   if (external) {
     return (
@@ -69,6 +82,12 @@ export function Footer(props: FooterProps = {}) {
             <p className="mb-0 font-[family-name:var(--font-sans)] text-[16px] font-normal leading-[1.75] text-[rgba(255,255,255,0.58)] lg:mt-8">
               {p.body}
             </p>
+            <a
+              href={`mailto:${siteContact.email}`}
+              className="qa-cta qa-cta--still mt-6 inline-block font-[family-name:var(--font-sans)] text-[13px] font-normal tracking-[0.04em] text-[rgba(255,255,255,0.72)] no-underline normal-case transition-none hover:text-white"
+            >
+              {siteContact.email}
+            </a>
             <p className="mt-10 font-[family-name:var(--font-sans)] text-[11px] font-normal uppercase leading-[2] tracking-[0.16em] text-[rgba(255,255,255,0.32)] lg:mt-12">
               © {year} {p.title}. {p.legal}
             </p>
@@ -126,7 +145,7 @@ export function Footer(props: FooterProps = {}) {
             </div>
           </div>
 
-          <div className="hidden lg:mt-0 lg:block">
+          <div className="mt-10 lg:mt-0">
             <p className={colHeadingClass}>{columns.followTitle}</p>
             <ul className="m-0 flex list-none flex-col gap-0 p-0">
               {columns.follow.map((item) => (
