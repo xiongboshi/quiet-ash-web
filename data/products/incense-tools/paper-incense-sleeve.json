@@ -1,0 +1,34 @@
+{
+  "slug": "paper-incense-sleeve",
+  "title": "Black Ash Vase",
+  "material": "Stoneware",
+  "origin": "Japan",
+  "line": "For a branch, or for nothing.",
+  "priceDisplay": "$72",
+  "image": "/images/generated/product-tea-bowl.png",
+  "universe": "ritual",
+  "seriesSlugs": ["making-incense"],
+  "featured": false,
+  "description": "A narrow vessel for a single stem or an empty corner — matte stoneware that prefers shadow to spotlight.",
+  "dimensions": "Ø9cm x H22cm",
+  "finish": "Matte charcoal glaze",
+  "care": "Hand wash only",
+  "gallery": [
+    "/images/generated/product-tea-bowl.png",
+    "/images/generated/ritual-smoke-void.png",
+    "/images/generated/product-brass-stand.png",
+    "/images/generated/ritual-evening-linen.png",
+    "/images/generated/product-oak-tray.png"
+  ],
+  "narrativeTitle": "Emptiness as composition — the wall reads differently with one stem.",
+  "narrativeBody": "Stoneware here is not loud; it holds light the way paper holds ink — slowly, without argument.",
+  "narrativeImage": "/images/generated/ritual-smoke-void.png",
+  "pairsWith": ["brass-incense-stand", "linen-cloth", "ceramic-tea-cup"],
+  "atmosphereQuote": "Sometimes the object is there to teach you what not to fill.",
+  "atmosphereImage": "/images/generated/ritual-evening-linen.png",
+  "relatedEssaySlugs": [
+    "forgotten-incense-culture",
+    "king-of-incense",
+    "night-incense-ritual"
+  ]
+}

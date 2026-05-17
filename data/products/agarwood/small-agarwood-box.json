@@ -1,0 +1,34 @@
+{
+  "slug": "small-agarwood-box",
+  "title": "Agarwood Keeper",
+  "material": "Walnut",
+  "origin": "Japan",
+  "line": "Resin, time, closed lid.",
+  "priceDisplay": "$210",
+  "image": "/images/generated/product-agarwood-box.png",
+  "universe": "incense",
+  "seriesSlugs": ["incense-culture"],
+  "featured": true,
+  "description": "A small vault for resin that improves when respected — walnut, tight grain, a lid that asks you to pause before opening.",
+  "dimensions": "12cm x 8cm x H5cm",
+  "finish": "Hand-rubbed oil",
+  "care": "Keep closed; avoid moisture",
+  "gallery": [
+    "/images/generated/product-agarwood-box.png",
+    "/images/generated/ritual-smoke-void.png",
+    "/images/generated/product-brass-stand.png",
+    "/images/generated/ritual-incense-writing.png",
+    "/images/generated/product-oak-tray.png"
+  ],
+  "narrativeTitle": "Depth training begins with a closed box.",
+  "narrativeBody": "Agarwood is not a trend note — it is time made legible. The keeper is the first discipline: wait, then open.",
+  "narrativeImage": "/images/generated/ritual-smoke-void.png",
+  "pairsWith": ["brass-incense-stand", "paper-incense-sleeve", "wood-tray"],
+  "atmosphereQuote": "The reward is quieter: a room that remembers you differently.",
+  "atmosphereImage": "/images/generated/product-agarwood-box.png",
+  "relatedEssaySlugs": [
+    "what-is-agarwood",
+    "king-of-incense",
+    "agarwood-time-rain-injury"
+  ]
+}

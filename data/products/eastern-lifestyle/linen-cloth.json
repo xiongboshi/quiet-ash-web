@@ -1,0 +1,33 @@
+{
+  "slug": "linen-cloth",
+  "title": "Linen Tea Cloth",
+  "material": "Linen",
+  "origin": "Lithuania",
+  "line": "Absorbent, soft, made to age.",
+  "priceDisplay": "$36",
+  "image": "/images/products/linen.svg",
+  "universe": "textile",
+  "seriesSlugs": ["scholar-rituals", "ash-and-time"],
+  "featured": false,
+  "description": "A cloth for spills, steam, and the small dignity of a tray — linen that softens with washing instead of pretending to stay new.",
+  "dimensions": "45cm x 45cm",
+  "care": "Machine wash cold, line dry",
+  "gallery": [
+    "/images/products/linen.svg",
+    "/images/generated/ritual-tea-rain.png",
+    "/images/generated/product-tea-bowl.png",
+    "/images/generated/product-oak-tray.png",
+    "/images/generated/ritual-evening-linen.png"
+  ],
+  "narrativeTitle": "Under bowl and kettle — a quiet layer of care.",
+  "narrativeBody": "Linen darkens where water touches; that is not wear, it is a map of evenings.",
+  "narrativeImage": "/images/generated/ritual-tea-rain.png",
+  "pairsWith": ["ceramic-tea-cup", "wood-tray", "brass-incense-stand"],
+  "atmosphereQuote": "The tray looks different when linen remembers the steam.",
+  "atmosphereImage": "/images/generated/product-oak-tray.png",
+  "relatedEssaySlugs": [
+    "agarwood-time-rain-injury",
+    "why-scholars-burned-incense",
+    "good-incense-not-loud"
+  ]
+}

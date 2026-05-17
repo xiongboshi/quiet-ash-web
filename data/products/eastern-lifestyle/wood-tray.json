@@ -1,0 +1,34 @@
+{
+  "slug": "wood-tray",
+  "title": "Quiet Desk Tray",
+  "material": "Charcoal Oak",
+  "origin": "Korea",
+  "line": "For papers, incense, or notes.",
+  "priceDisplay": "$145",
+  "image": "/images/generated/product-oak-tray.png",
+  "universe": "wood",
+  "seriesSlugs": ["incense-culture", "ash-and-time"],
+  "featured": true,
+  "description": "A shallow tray that gathers what the day scattered — oak oiled to a soft charcoal, edges eased for hands that move slowly.",
+  "dimensions": "38cm x 24cm x H2.5cm",
+  "finish": "Food-safe oil",
+  "care": "Wipe with dry cloth; re-oil occasionally",
+  "gallery": [
+    "/images/generated/product-oak-tray.png",
+    "/images/generated/ritual-incense-writing.png",
+    "/images/generated/product-brass-stand.png",
+    "/images/generated/product-tea-bowl.png",
+    "/images/generated/ritual-evening-linen.png"
+  ],
+  "narrativeTitle": "A perimeter for the desk — nothing leaves without intention.",
+  "narrativeBody": "Oak darkens where hands rest; the grain keeps score of evenings without commentary.",
+  "narrativeImage": "/images/generated/ritual-incense-writing.png",
+  "pairsWith": ["brass-incense-stand", "ceramic-tea-cup", "linen-cloth"],
+  "atmosphereQuote": "Order is not rigidity — it is room for the ritual to begin.",
+  "atmosphereImage": "/images/generated/product-oak-tray.png",
+  "relatedEssaySlugs": [
+    "incense-ink-silence",
+    "why-scholars-burned-incense",
+    "night-incense-ritual"
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "slug": "ceramic-tea-cup",
+  "title": "Stone Glaze Tea Bowl",
+  "material": "Stoneware",
+  "origin": "Japan",
+  "line": "Warm hand feel. For slow tea.",
+  "priceDisplay": "$85",
+  "image": "/images/generated/product-tea-bowl.png",
+  "universe": "tea",
+  "seriesSlugs": ["scholar-rituals", "incense-culture"],
+  "featured": true,
+  "description": "Before ink meets paper is a different story — here, before water meets leaf, the hands find weight. One bowl, one slower clock. Stock is intentionally limited while finishing varies by kiln.",
+  "availabilityNote": "Current availability is announced quietly to the list.",
+  "dimensions": "Ø11cm x H7cm",
+  "capacity": "Approx. 280ml",
+  "finish": "Matte glaze",
+  "care": "Hand wash only",
+  "gallery": [
+    "/images/generated/product-tea-bowl.png",
+    "/images/generated/ritual-tea-rain.png",
+    "/images/generated/ritual-evening-linen.png",
+    "/images/generated/product-oak-tray.png",
+    "/images/products/linen.svg"
+  ],
+  "narrativeTitle": "Made for quiet moments. Held by hand. Used without hurry.",
+  "narrativeBody": "Each bowl carries slight variations from the kiln — glaze depth, a softer rim, the way light rests on the foot. That is the point of hand-finished stoneware: not sameness, but continuity.",
+  "narrativeImage": "/images/generated/ritual-evening-linen.png",
+  "usedInRituals": [
+    {
+      "slug": "tea-after-rain",
+      "title": "Tea After Rain",
+      "blurb": "Warmth returning to the body."
+    },
+    {
+      "slug": "evening-room-ritual",
+      "title": "Evening Quiet",
+      "blurb": "A pause before the day ends."
+    },
+    {
+      "slug": "quiet-desk-ritual",
+      "title": "Before Writing",
+      "blurb": "Clearing the thoughts."
+    }
+  ],
+  "pairsWith": [
+    {
+      "slug": "linen-cloth",
+      "title": "Linen Tea Cloth",
+      "materialLine": "Natural Linen",
+      "priceDisplay": "$28"
+    },
+    {
+      "slug": "wood-tray",
+      "title": "Walnut Tea Tray",
+      "materialLine": "Blackened Walnut",
+      "priceDisplay": "$58"
+    },
+    {
+      "slug": "brass-incense-stand",
+      "title": "Evening Incense Stand",
+      "materialLine": "Brass",
+      "priceDisplay": "$42"
+    }
+  ],
+  "detailsDisclaimer": "Due to the nature of hand-finished ceramics, size and color may vary slightly.",
+  "atmosphereQuote": "The beauty of this bowl is in what it holds, and how it makes you slow down.",
+  "atmosphereImage": "/images/generated/ritual-tea-rain.png",
+  "relatedEssaySlugs": [
+    "why-scholars-burned-incense",
+    "good-incense-not-loud",
+    "night-incense-ritual"
+  ],
+  "featureBullets": [
+    "Ships worldwide",
+    "Wrapped in linen cloth",
+    "Hand-finished variations may occur",
+    "Easy returns"
+  ]
+}

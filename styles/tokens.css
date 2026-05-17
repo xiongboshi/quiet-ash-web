@@ -1,0 +1,72 @@
+/**
+ * Quiet Ash — reference spec tokens (screenshot / pixel spec).
+ * Imported from app/globals.css
+ */
+:root {
+  --qa-bg: #e2ddd6;
+  --qa-void: #0b0b0b;
+  --qa-footer-void: #050505;
+  --qa-bg-soft: #e8e4dc;
+  --qa-text: #1a1a1a;
+  --qa-muted: #6f6a63;
+  --qa-border: #ddd7cf;
+  --qa-quote-ink: #342e29;
+
+  /* Container — max 1440; padding 48 / 24 / 16 */
+  --qa-container-width: 1680px;
+  --qa-container-px: 16px;
+
+  /* Section rhythm (homepage bands) */
+  --qa-section-pad-feature: 120px;
+  --qa-section-pad-objects: 120px;
+  --qa-section-pad-dark: 110px;
+  --qa-section-pad-journal: 120px;
+  --qa-section-pad-quote: 180px;
+
+  --qa-eyebrow-size: 12px;
+  --qa-eyebrow-tracking: 0.22em;
+
+  --qa-link-size: 13px;
+  --qa-link-tracking: 0.18em;
+
+  --qa-body-size: 17px;
+  --qa-body-leading: 32px;
+  --qa-body-size-sm: 15px;
+
+  --qa-section-padding-y: 140px;
+
+  --qa-card-gap: 28px;
+
+  --qa-media-radius: 0px;
+  --qa-media-shadow: 0 28px 80px -36px rgba(28, 20, 16, 0.28);
+  --qa-media-shadow-soft: 0 18px 48px -28px rgba(28, 20, 16, 0.2);
+  --qa-media-shadow-archival: 0 12px 40px -24px rgba(28, 20, 16, 0.14);
+  --qa-media-hover-scale: 1.02;
+  --qa-media-hover-archival: 1.008;
+  --qa-media-transition: opacity 520ms ease, transform 700ms ease;
+
+  /* Legacy rhythm — inner pages / older sections */
+  --qa-rhythm-after-hero: clamp(2.75rem, 9vw, 5.25rem);
+  --qa-space-editorial-y: clamp(3.35rem, 8.5vw, 6.25rem);
+  --qa-space-editorial-y-loose: clamp(4.35rem, 11vw, 8.25rem);
+  --qa-space-objects-y: clamp(2.85rem, 6.5vw, 5.5rem);
+  --qa-space-transition-y: clamp(3.75rem, 11vw, 7.5rem);
+  --qa-space-dark-y: clamp(5rem, 13vw, 9.5rem);
+  --qa-breath-full: clamp(2rem, 5.5vw, 4rem);
+  --qa-breath-tight: clamp(1.15rem, 3.5vw, 2.35rem);
+
+  --qa-font-serif: var(--font-serif), "Cormorant Garamond", ui-serif, serif;
+  --qa-font-sans: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --qa-container-px: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --qa-container-px: 48px;
+  }
+}

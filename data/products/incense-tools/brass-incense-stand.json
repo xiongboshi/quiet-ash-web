@@ -1,0 +1,34 @@
+{
+  "slug": "brass-incense-stand",
+  "title": "Bronze Incense Holder",
+  "material": "Bronze",
+  "origin": "Japan",
+  "line": "Small, steady, balanced.",
+  "priceDisplay": "$68",
+  "image": "/images/generated/product-brass-stand.png",
+  "universe": "incense",
+  "seriesSlugs": ["incense-culture", "making-incense"],
+  "featured": true,
+  "description": "A low stand for a single coal — enough height for attention, not theatre. Bronze ages quietly; patina is part of the ritual.",
+  "dimensions": "Ø6.5cm x H3.5cm",
+  "finish": "Warm patina",
+  "care": "Wipe dry after use",
+  "gallery": [
+    "/images/generated/product-brass-stand.png",
+    "/images/generated/ritual-smoke-void.png",
+    "/images/generated/ritual-incense-writing.png",
+    "/images/generated/product-oak-tray.png",
+    "/images/generated/product-tea-bowl.png"
+  ],
+  "narrativeTitle": "Heat at the right height — smoke that remembers the room.",
+  "narrativeBody": "The stand is a small anchor: it keeps the line thin, the ash honest, and the desk from becoming a stage.",
+  "narrativeImage": "/images/generated/ritual-smoke-void.png",
+  "pairsWith": ["paper-incense-sleeve", "small-agarwood-box", "wood-tray"],
+  "atmosphereQuote": "When the line rises thin, the room learns its own metronome.",
+  "atmosphereImage": "/images/generated/ritual-incense-writing.png",
+  "relatedEssaySlugs": [
+    "why-scholars-burned-incense",
+    "incense-patience",
+    "good-incense-not-loud"
+  ]
+}
