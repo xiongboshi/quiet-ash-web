@@ -263,11 +263,12 @@
   content: "";
   position: absolute;
   inset: 0;
+  /* Poster art already includes pastel fill — light scrim for left copy only */
   background: linear-gradient(
     105deg,
-    color-mix(in srgb, var(--mood-poster-bg) 47%, transparent) 0%,
-    color-mix(in srgb, var(--mood-poster-bg) 36%, transparent) 38%,
-    transparent 55%
+    color-mix(in srgb, var(--mood-poster-bg) 22%, transparent) 0%,
+    color-mix(in srgb, var(--mood-poster-bg) 12%, transparent) 32%,
+    transparent 48%
   );
   pointer-events: none;
 }

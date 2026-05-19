@@ -9,7 +9,7 @@ function MoodPosterCard({ mood }: { mood: BrandMood }) {
   return (
     <Link
       href={mood.href}
-      className="qa-mood-poster group relative flex w-[calc(100%-10px)] min-h-[308px] flex-col overflow-hidden rounded-[4px] no-underline justify-self-center sm:min-h-[340px] lg:min-h-[380px]"
+      className="qa-mood-poster group relative flex w-full min-h-[308px] flex-col overflow-hidden rounded-[4px] no-underline sm:min-h-[340px] md:w-[calc(100%-10px)] md:justify-self-center lg:min-h-[380px]"
       style={
         {
           "--mood-poster-bg": mood.posterBg,
@@ -22,11 +22,17 @@ function MoodPosterCard({ mood }: { mood: BrandMood }) {
         aria-hidden
       >
         <Image
+          key={mood.imageSrc}
           src={mood.imageSrc}
           alt={mood.imageAlt}
           fill
-          className="qa-mood-poster-photo object-cover object-center"
-          sizes="(max-width: 640px) 50vw, 320px"
+          className="qa-mood-poster-photo object-cover"
+          style={
+            mood.imageObjectPosition
+              ? { objectPosition: mood.imageObjectPosition }
+              : undefined
+          }
+          sizes="(max-width: 1023px) 100vw, 320px"
           unoptimized
         />
       </div>
@@ -60,7 +66,7 @@ export function MoodPosterGrid() {
     >
       <div className="mx-auto max-w-[min(100%,1680px)]">
         <h2 className="qa-mood-section-heading">{moods.eyebrow}</h2>
-        <div className="mt-12 grid grid-cols-2 gap-4 sm:mt-14 sm:gap-5 lg:grid-cols-5 lg:gap-5">
+        <div className="mt-12 grid grid-cols-1 gap-4 sm:mt-14 sm:gap-5 md:grid-cols-2 lg:grid-cols-5 lg:gap-5">
           {brandMoods.map((mood) => (
             <MoodPosterCard key={mood.slug} mood={mood} />
           ))}

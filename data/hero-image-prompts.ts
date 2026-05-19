@@ -67,3 +67,36 @@ export const HERO_SLIDE_01_OUTPUT = {
   /** Source drop (Cursor assets) */
   assetBasename: "mood-hero-slide-01-citrus.png",
 } as const;
+
+/** Slide 03 — Sleep / dusk calm (INS mood hero series; replaces legacy cinematic). */
+export const HERO_SLIDE_03_SCENE = `Mood Incense homepage hero still life — same campaign series as Citrus Reset slide.
+Canvas: wide landscape 1920×1080, left ~55% clean negative space for typography overlay (no text in image).
+
+TIME: 4pm warm window light from upper left — golden soft side light, same exposure and shadow length as citrus hero, NOT cool morning, NOT dark cinematic, NOT scholar desk.
+
+SURFACE: warm ivory linen on pale cream marble, bottom third; soft organic folds; tactile stone.
+
+BACKGROUND: soft warm cream wall, subtle gradient, blurred botanical leaf shadows upper left, gentle light bloom.
+
+MAIN PRODUCT (center-right):
+Horizontal matte lilac-lavender mood incense carton, same pack proportion as citrus slide (~460×120), rotated about -6 degrees.
+Pack reads minimal premium: "MOON SLEEP" mood incense, short sticks — crisp print on box only.
+
+PURPLE CRYSTAL HOLDER (right of box):
+Translucent raw amethyst crystal chunk, same scale family as green crystal on slide 01.
+One thin brown incense stick, glowing tip, delicate S-curve smoke up-right.
+
+ATMOSPHERE: floating dust motes, soft film grain, shallow depth of field, 50mm editorial lifestyle.
+INS soft-living emotional incense — young minimal, NOT zen temple, NOT dark luxury, NOT calligraphy desk.
+
+FORBIDDEN: UI, nav, watermark, pure black BG, vertical box, lemons (reserved for slide 01), brown scholar props, blue cold cast.`;
+
+export const heroSlide03Prompt = buildImagePrompt(
+  HERO_SLIDE_03_SCENE,
+  "afternoon",
+);
+
+export const HERO_SLIDE_03_OUTPUT = {
+  publicPath: "/images/generated/mood-hero-slide-03-sleep.png",
+  assetBasename: "mood-hero-slide-03-sleep.png",
+} as const;

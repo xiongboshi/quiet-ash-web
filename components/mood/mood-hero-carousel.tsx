@@ -68,6 +68,11 @@ export function MoodHeroCarousel({ hero, promo }: Props) {
               fill
               priority={i === 0}
               className="qa-mood-hero-bg object-cover"
+              style={
+                "objectPosition" in slide && slide.objectPosition
+                  ? { objectPosition: slide.objectPosition }
+                  : undefined
+              }
               sizes="100vw"
               unoptimized
             />

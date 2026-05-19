@@ -55,9 +55,9 @@ export const brandHome = {
           "Editorial still life: incense with soft smoke, warm daylight and citrus on cream surface",
       },
       {
-        backgroundSrc: "/images/generated/hero-cinematic02.png",
+        backgroundSrc: "/images/generated/mood-hero-slide-03-sleep.png",
         backgroundAlt:
-          "Quiet Ash mood incense in warm cinematic daylight with soft shadows",
+          "Moon Sleep mood incense: horizontal lilac pack, purple amethyst crystal, S-curve smoke on warm ivory marble, 4pm sunlight",
       },
     ] as const,
     badge: "10.5cm short sticks",

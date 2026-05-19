@@ -18,6 +18,8 @@ export type BrandMood = {
   icon: MoodIconId;
   imageSrc: string;
   imageAlt: string;
+  /** Portrait lifestyle crops — keep subject clear under left copy */
+  imageObjectPosition?: string;
   href: string;
 };
 
@@ -28,8 +30,9 @@ export const brandMoods: BrandMood[] = [
     tagline: "Find peace in the little moments.",
     posterBg: "#c5d6c3",
     icon: "calm",
-    imageSrc: "/images/generated/products/brass-incense-stand/atmosphere.png",
-    imageAlt: "Green crystal incense holder, Calm mood",
+    imageSrc: "/images/generated/mood-poster-calm.png",
+    imageAlt: "Green fluorite crystal incense holder on sage pastel, Calm mood",
+    imageObjectPosition: "68% 72%",
     href: SHOP_INDEX,
   },
   {
@@ -38,8 +41,9 @@ export const brandMoods: BrandMood[] = [
     tagline: "Bright mood. Boost your good vibes.",
     posterBg: "#f2e8a8",
     icon: "energy",
-    imageSrc: "/images/generated/products/wood-tray/atmosphere.png",
-    imageAlt: "Yellow crystal incense holder, Energy mood",
+    imageSrc: "/images/generated/mood-poster-energy.png",
+    imageAlt: "Yellow citrine crystal incense holder on butter yellow pastel, Energy mood",
+    imageObjectPosition: "68% 72%",
     href: SHOP_INDEX,
   },
   {
@@ -48,8 +52,9 @@ export const brandMoods: BrandMood[] = [
     tagline: "Slow down and drift into dream.",
     posterBg: "#d8cfe8",
     icon: "sleep",
-    imageSrc: "/images/generated/products/small-agarwood-box/atmosphere.png",
-    imageAlt: "Purple crystal incense holder, Sleep mood",
+    imageSrc: "/images/generated/mood-poster-sleep.png",
+    imageAlt: "Purple amethyst crystal incense holder on lavender pastel, Sleep mood",
+    imageObjectPosition: "68% 72%",
     href: SHOP_INDEX,
   },
   {
@@ -58,8 +63,9 @@ export const brandMoods: BrandMood[] = [
     tagline: "Stay present, clear mind, better flow.",
     posterBg: "#e8cfc6",
     icon: "focus",
-    imageSrc: "/images/generated/products/paper-incense-sleeve/atmosphere.png",
-    imageAlt: "Pink crystal incense holder, Focus mood",
+    imageSrc: "/images/generated/mood-poster-focus.png",
+    imageAlt: "Pink rose quartz crystal incense holder on peach pastel, Focus mood",
+    imageObjectPosition: "68% 72%",
     href: SHOP_INDEX,
   },
   {
@@ -68,8 +74,9 @@ export const brandMoods: BrandMood[] = [
     tagline: "Comforting scents for grey days.",
     posterBg: "#c5d5e3",
     icon: "rainy-day",
-    imageSrc: "/images/generated/products/ceramic-tea-cup/atmosphere.png",
-    imageAlt: "Blue crystal incense holder, Rainy Day mood",
+    imageSrc: "/images/generated/mood-poster-rainy-day.png",
+    imageAlt: "Blue-grey celestite crystal incense holder on rain blue pastel, Rainy Day mood",
+    imageObjectPosition: "68% 72%",
     href: SHOP_INDEX,
   },
 ];
