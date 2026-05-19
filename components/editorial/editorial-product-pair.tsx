@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SHOP_INDEX, shopPath } from "@/lib/site-paths";
 import type { CatalogProduct } from "@/lib/catalog";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { Container } from "@/components/ui/Container";
@@ -42,7 +43,7 @@ export function EditorialProductPair({ intro, products }: Props) {
         </div>
         <p className="mt-14 lg:mt-16">
           <Link
-            href="/objects"
+            href={SHOP_INDEX}
             className="qa-meta text-[var(--wood)] underline decoration-[color-mix(in_srgb,var(--wood)_28%,transparent)] underline-offset-[0.35em] transition-opacity duration-[var(--motion-base)] hover:opacity-70"
           >
             View all objects

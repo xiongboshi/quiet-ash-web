@@ -29,7 +29,7 @@ export function ArchiveStrandContents({ essays }: Props) {
             />
           ) : null}
           <Link
-            href={`/essays/${e.slug}`}
+            href={`/journal/${e.slug}`}
             className="grid gap-x-[var(--space-block)] gap-y-[var(--rhythm-xs)] py-7 no-underline sm:grid-cols-[minmax(2.5rem,auto)_1fr] lg:py-[var(--rhythm-md)]"
           >
             <span className="qa-meta pt-[0.2em] tabular-nums tracking-[0.18em] text-[var(--wood)] opacity-75">

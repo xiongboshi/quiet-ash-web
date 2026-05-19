@@ -14,6 +14,7 @@ import {
 } from "@/lib/archive";
 import { getEssaysInSeries } from "@/lib/essays";
 import { getAllSeries, getSeriesBySlug } from "@/lib/series";
+import { JOURNAL_INDEX } from "@/lib/site-paths";
 
 /** Always read `content/essays` from disk (local MDX edits show without stale prerender). */
 export const dynamic = "force-dynamic";
@@ -28,23 +29,23 @@ export async function generateMetadata({
   const sp = (await searchParams) ?? {};
   const activeSlug = resolveActiveCollectionSlug(sp.collection);
   const series = getSeriesBySlug(activeSlug);
-  if (!series) return { title: "Essays" };
+  if (!series) return { title: "Journal" };
   const isPrimary = activeSlug === PRIMARY_ARCHIVE_SERIES_SLUG;
   const description = (series.tagline || series.description)
     .replace(/\s+/g, " ")
     .trim();
   return {
-    title: `${series.title} · Essays`,
+    title: `${series.title} · Journal`,
     description,
     alternates: {
       canonical: isPrimary
-        ? "/essays"
-        : `/essays?collection=${encodeURIComponent(activeSlug)}`,
+        ? JOURNAL_INDEX
+        : `${JOURNAL_INDEX}?collection=${encodeURIComponent(activeSlug)}`,
     },
   };
 }
 
-export default async function EssaysPage({ searchParams }: PageProps) {
+export default async function JournalPage({ searchParams }: PageProps) {
   const sp = (await searchParams) ?? {};
   const activeSlug = resolveActiveCollectionSlug(sp.collection);
   const series = getSeriesBySlug(activeSlug);
@@ -66,7 +67,7 @@ export default async function EssaysPage({ searchParams }: PageProps) {
           />
           <section
             className="pb-16 pt-10 sm:pt-12"
-            aria-label="Essay archive"
+            aria-label="Journal archive"
           >
             <div className={essaysArchiveShellClass}>
               <div className="mb-10">
@@ -107,32 +108,32 @@ export default async function EssaysPage({ searchParams }: PageProps) {
 
             <section
               className="min-w-0 pb-16 pt-10 sm:pt-12 lg:pb-20"
-              aria-label="Essay archive"
+              aria-label="Journal archive"
             >
-                <div className="grid grid-cols-1 items-start gap-0 lg:grid-cols-[minmax(0,1fr)_240px] lg:gap-x-[72px]">
-                  <main className="min-w-0 max-w-none">
-                    {threadsLine ? (
-                      <p className="mb-10 max-w-[52ch] font-[family-name:var(--font-sans)] text-[12px] font-normal normal-case leading-relaxed tracking-[0.06em] text-[color-mix(in_srgb,var(--wood)_50%,var(--ash))] lg:mb-12">
-                        {threadsLine}
-                      </p>
-                    ) : null}
+              <div className="grid grid-cols-1 items-start gap-0 lg:grid-cols-[minmax(0,1fr)_240px] lg:gap-x-[72px]">
+                <main className="min-w-0 max-w-none">
+                  {threadsLine ? (
+                    <p className="mb-10 max-w-[52ch] font-[family-name:var(--font-sans)] text-[12px] font-normal normal-case leading-relaxed tracking-[0.06em] text-[color-mix(in_srgb,var(--wood)_50%,var(--ash))] lg:mb-12">
+                      {threadsLine}
+                    </p>
+                  ) : null}
 
-                    <ArchiveStrandContents essays={essays} />
+                  <ArchiveStrandContents essays={essays} />
 
-                    <RelatedCollectionsRow
-                      seriesList={seriesList}
-                      excludeSlug={activeSlug}
-                    />
-                  </main>
+                  <RelatedCollectionsRow
+                    seriesList={seriesList}
+                    excludeSlug={activeSlug}
+                  />
+                </main>
 
-                  <aside className="hidden min-w-0 lg:block">
-                    <ArchiveMarginalia
-                      series={series}
-                      essayCount={essays.length}
-                      className="sticky top-[120px]"
-                    />
-                  </aside>
-                </div>
+                <aside className="hidden min-w-0 lg:block">
+                  <ArchiveMarginalia
+                    series={series}
+                    essayCount={essays.length}
+                    className="sticky top-[120px]"
+                  />
+                </aside>
+              </div>
             </section>
           </div>
         </div>

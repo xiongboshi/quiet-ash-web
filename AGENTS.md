@@ -1,7 +1,7 @@
 <!-- BEGIN:quietash-brand -->
 ## Brand direction (UI / marketing)
 
-**Canonical:** [docs/QUIET-ASH-BRAND-DIRECTION.md](docs/QUIET-ASH-BRAND-DIRECTION.md) — modern emotional incense, soft living, mood merchandising, pastel + cream UI. Homepage: `components/mood/*` · tokens: `styles/mood-tokens.css`.
+**Canonical:** [docs/QUIET-ASH-BRAND-DIRECTION.md](docs/QUIET-ASH-BRAND-DIRECTION.md) · **visual lock:** [docs/QUIET-ASH-VISUAL-ART-DIRECTION-LOCK.md](docs/QUIET-ASH-VISUAL-ART-DIRECTION-LOCK.md). Homepage: `components/mood/*` · `styles/mood-tokens.css` · `styles/mood-home.css`.
 
 Do **not** apply scholar-incense / dark editorial / heavy oriental patterns to the marketing homepage.
 <!-- END:quietash-brand -->

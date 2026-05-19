@@ -30,7 +30,7 @@ function RitualCardLink({
   if (cinema) {
     return (
       <Link
-        href={`/rituals/${r.slug}`}
+        href={`/moods/${r.slug}`}
         className="qa-cta qa-cta--still group block min-w-0 no-underline"
       >
         <div className="relative h-[240px] w-full overflow-hidden bg-[#cac4ba]">
@@ -59,7 +59,7 @@ function RitualCardLink({
       : "aspect-[5/4] bg-[#141110]";
 
   return (
-    <Link href={`/rituals/${r.slug}`} className="qa-cta group block min-w-0 no-underline">
+    <Link href={`/moods/${r.slug}`} className="qa-cta group block min-w-0 no-underline">
       <div
         className={`qa-media-frame qa-media-frame--archival relative w-full overflow-hidden ${frameClass}`}
       >
@@ -114,7 +114,7 @@ export function RitualCarousel({
               </p>
             </div>
             <Link
-              href="/rituals"
+              href="/moods"
               className="qa-cta qa-cta--still shrink-0 self-start pb-0.5 font-[family-name:var(--font-sans)] text-[11px] font-medium uppercase tracking-[0.12em] text-[#1a1a1a] underline decoration-[color-mix(in_srgb,#1a1a1a_22%,transparent)] underline-offset-[6px] transition-opacity duration-[600ms] ease-out hover:opacity-70 lg:self-end"
             >
               View all rituals
@@ -126,7 +126,7 @@ export function RitualCarousel({
             {rituals.map((r) => (
               <article key={r.slug} className="m-0 border-0 p-0">
                 <Link
-                  href={`/rituals/${r.slug}`}
+                  href={`/moods/${r.slug}`}
                   className="qa-cta qa-cta--still block min-w-0 no-underline transition-none"
                 >
                   <figure className="relative mb-0 aspect-[16/10] w-full overflow-hidden bg-[#cac4ba]">
@@ -188,7 +188,7 @@ export function RitualCarousel({
             </h2>
           </div>
           <Link
-            href="/rituals"
+            href="/moods"
             className="qa-meta shrink-0 justify-self-start text-[var(--qa-muted)] underline decoration-[color-mix(in_srgb,var(--qa-muted)_28%,transparent)] underline-offset-[6px] transition-opacity duration-[600ms] ease-out hover:opacity-70 sm:justify-self-end sm:pb-0.5 sm:text-right"
           >
             View all rituals

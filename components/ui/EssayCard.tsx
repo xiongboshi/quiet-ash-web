@@ -28,7 +28,7 @@ export function EssayCard({
 
   return (
     <Link
-      href={`/essays/${essay.slug}`}
+      href={`/journal/${essay.slug}`}
       className="qa-cta group block min-w-0 shrink-0 no-underline sm:min-w-0"
     >
       <div

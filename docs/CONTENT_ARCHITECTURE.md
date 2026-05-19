@@ -12,8 +12,8 @@ This is **not** a traditional blog.
 
 | Pillar | Storage | Resolved by | Routes |
 |--------|-----------|-------------|--------|
-| **Rituals** | `content/rituals/*.mdx` | `lib/rituals.ts` | `/rituals`, `/rituals/[slug]` |
-| **Essays** | `content/essays/{series-slug}/*.mdx` | `lib/essays.ts` | `/essays`, `/essays/[slug]` |
+| **Rituals** | `content/rituals/*.mdx` | `lib/rituals.ts` | `/moods`, `/moods/[slug]` |
+| **Essays** | `content/essays/{series-slug}/*.mdx` | `lib/essays.ts` | `/Journal`, `/Journal/[slug]` |
 | **Objects** | `data/products/<category>/*.json` | `lib/catalog.ts` | `/objects`, `/objects/[slug]` |
 
 **Series registration (essays):** Each essay folder under `content/essays/` must have a matching **`content/series/{slug}.mdx`** — see `lib/essays.ts` warnings in dev.

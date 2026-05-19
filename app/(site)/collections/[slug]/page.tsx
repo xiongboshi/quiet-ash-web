@@ -81,7 +81,7 @@ export default async function CollectionPage({ params }: Props) {
           />
           <p className="mt-14">
             <Link
-              href="/essays"
+              href="/journal"
               className="qa-meta text-[var(--wood)] underline decoration-[color-mix(in_srgb,var(--wood)_30%,transparent)] underline-offset-[0.3em]"
             >
               Read related essays

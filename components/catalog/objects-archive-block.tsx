@@ -20,7 +20,7 @@ const sortLabels: Record<SortId, string> = {
   "title-desc": "Title Z–A",
 };
 
-/** Same cap as `/rituals` mobile row — ALL + active + fill; rest in More. */
+/** Same cap as `/moods` mobile row — ALL + active + fill; rest in More. */
 const MOBILE_INLINE_FILTER_MAX = 3;
 
 const filterBtnClass = (active: boolean) =>

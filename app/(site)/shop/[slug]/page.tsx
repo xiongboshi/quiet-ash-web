@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SHOP_INDEX, shopPath } from "@/lib/site-paths";
 import { notFound } from "next/navigation";
 import { ObjectDetailLayout } from "@/components/objects/object-detail-layout";
 import { getAllProducts, getProductBySlug } from "@/lib/catalog";
@@ -16,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: p.title,
     description: p.line,
-    alternates: { canonical: `/objects/${slug}` },
+    alternates: { canonical: shopPath(slug) },
   };
 }
 

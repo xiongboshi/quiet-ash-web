@@ -10,12 +10,18 @@ const nextConfig: NextConfig = {
   ],
   async redirects() {
     return [
-      { source: "/posts", destination: "/essays", permanent: true },
-      { source: "/posts/:slug", destination: "/essays/:slug", permanent: true },
-      { source: "/series", destination: "/essays", permanent: true },
-      { source: "/series/:slug", destination: "/essays", permanent: true },
-      { source: "/library", destination: "/essays", permanent: true },
-      { source: "/archive", destination: "/essays", permanent: true },
+      { source: "/objects", destination: "/shop", permanent: true },
+      { source: "/objects/:slug", destination: "/shop/:slug", permanent: true },
+      { source: "/rituals", destination: "/moods", permanent: true },
+      { source: "/rituals/:slug", destination: "/moods/:slug", permanent: true },
+      { source: "/essays", destination: "/journal", permanent: true },
+      { source: "/essays/:slug", destination: "/journal/:slug", permanent: true },
+      { source: "/posts", destination: "/journal", permanent: true },
+      { source: "/posts/:slug", destination: "/journal/:slug", permanent: true },
+      { source: "/series", destination: "/journal", permanent: true },
+      { source: "/series/:slug", destination: "/journal", permanent: true },
+      { source: "/library", destination: "/journal", permanent: true },
+      { source: "/archive", destination: "/journal", permanent: true },
     ];
   },
 };

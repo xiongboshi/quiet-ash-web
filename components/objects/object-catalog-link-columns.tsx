@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { SHOP_INDEX, shopPath } from "@/lib/site-paths";
 import Link from "next/link";
 import type { CatalogProduct } from "@/lib/catalog";
 import { pairOverrideFor } from "@/lib/catalog";
@@ -59,7 +60,7 @@ export function ObjectCatalogLinkColumns({
           <div key={`catalog-link-row-${gridRow}`} className="contents">
             {ritualEntry ? (
               <Link
-                href={`/rituals/${ritualEntry.ritual.slug}`}
+                href={`/moods/${ritualEntry.ritual.slug}`}
                 className={`${OBJECT_ROW_LINK} col-start-1`}
                 style={{ gridRow }}
               >
@@ -131,7 +132,7 @@ function PairRowLink({
 
   return (
     <Link
-      href={`/objects/${pairProduct.slug}`}
+      href={shopPath(pairProduct.slug)}
       className={`${OBJECT_ROW_LINK} col-start-2`}
       style={{ gridRow }}
     >

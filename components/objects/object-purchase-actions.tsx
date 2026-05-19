@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SHOP_INDEX, shopPath } from "@/lib/site-paths";
 
 const ritualClass =
   "qa-cta qa-cta--still inline-flex items-center justify-center gap-2 border border-[color-mix(in_srgb,#1a1816_12%,transparent)] bg-[#e8e4dc] px-4 py-3.5 font-[family-name:var(--font-sans)] text-[11px] font-medium uppercase tracking-[0.2em] text-[#1a1816] no-underline transition-opacity duration-[500ms] ease-out hover:opacity-85";
@@ -35,8 +36,8 @@ type Props = {
 
 /** Stacked CTAs in the hero column — desktop only. */
 export function ObjectPurchaseActionsInline({
-  ritualHref = "/rituals",
-  buyHref = "/objects",
+  ritualHref = "/moods",
+  buyHref = SHOP_INDEX,
 }: Props) {
   return (
     <div className="mt-10 hidden w-full max-w-full flex-col gap-3 lg:flex">
@@ -56,8 +57,8 @@ export function ObjectPurchaseActionsInline({
 
 /** Fixed bottom bar on small screens — left add, right buy. */
 export function ObjectMobilePurchaseDock({
-  ritualHref = "/rituals",
-  buyHref = "/objects",
+  ritualHref = "/moods",
+  buyHref = SHOP_INDEX,
 }: Props) {
   return (
     <div

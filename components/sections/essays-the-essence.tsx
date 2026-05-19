@@ -6,7 +6,7 @@ const ESSAYS_ESSENCE_FALLBACK_IMG =
   "/images/generated/series-incense-culture.png";
 
 /**
- * Essays index — same {@link EssenceBand} shell as `/rituals` and `/objects`.
+ * Essays index — same {@link EssenceBand} shell as `/moods` and `/objects`.
  */
 export function EssaysTheEssence({ series }: { series: SeriesMeta }) {
   const body =

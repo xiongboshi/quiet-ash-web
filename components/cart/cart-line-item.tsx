@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { SHOP_INDEX, shopPath } from "@/lib/site-paths";
 import Link from "next/link";
 import type { CartItem } from "@/lib/cart/types";
 import { formatMoney } from "@/lib/cart/pricing";
@@ -30,7 +31,7 @@ function LineCopy({
 }: Props & { showMobileControls: boolean }) {
   return (
     <div className="min-w-0 flex-1">
-      <Link href={`/objects/${item.slug}`} className={CART_LINE_TITLE}>
+      <Link href={shopPath(item.slug)} className={CART_LINE_TITLE}>
         {item.title}
       </Link>
       {item.line ? <p className={CART_LINE_DESC}>{item.line}</p> : null}
@@ -38,7 +39,7 @@ function LineCopy({
         <p className={CART_LINE_META}>
           Appears in:{" "}
           <Link
-            href={`/rituals/${item.ritualSlug}`}
+            href={`/moods/${item.ritualSlug}`}
             className="qa-cta qa-cta--still text-[color-mix(in_srgb,#1A1A1A_88%,#6F6A63)] underline decoration-[color-mix(in_srgb,#6F6A63_40%,transparent)] underline-offset-[3px]"
           >
             {item.ritualTitle}
@@ -71,7 +72,7 @@ export function CartLineItem({ item, onDecrease, onIncrease, onRemove }: Props) 
   return (
     <article className="border-b border-[#DDD7CF] py-7 last:border-b-0 lg:py-9">
       <div className="flex gap-4 lg:hidden">
-        <Link href={`/objects/${item.slug}`} className={CART_LINE_IMAGE}>
+        <Link href={shopPath(item.slug)} className={CART_LINE_IMAGE}>
           <Image
             src={item.image}
             alt=""
@@ -92,7 +93,7 @@ export function CartLineItem({ item, onDecrease, onIncrease, onRemove }: Props) 
 
       <div className={`hidden ${CART_TABLE_GRID}`}>
         <div className="flex gap-6 xl:gap-7">
-          <Link href={`/objects/${item.slug}`} className={CART_LINE_IMAGE}>
+          <Link href={shopPath(item.slug)} className={CART_LINE_IMAGE}>
             <Image
               src={item.image}
               alt=""

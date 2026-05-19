@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { SHOP_INDEX, shopPath } from "@/lib/site-paths";
 import Link from "next/link";
 import type { CatalogProduct } from "@/lib/catalog";
 import type { EssayMeta } from "@/lib/essays";
@@ -239,8 +240,8 @@ const OBJECT_HERO_PRICE =
 export function ObjectDetailLayout({ product }: Props) {
   const ritualsRows = resolveRitualsForProduct(product);
   const ritualHref = ritualsRows[0]
-    ? `/rituals/${ritualsRows[0].ritual.slug}`
-    : "/rituals";
+    ? `/moods/${ritualsRows[0].ritual.slug}`
+    : "/moods";
   const paired = getPairedProductsFor(product, 3);
   const relatedEssays = resolveRelatedEssays(product);
   const heroGallery = resolveHeroGallery(product);
@@ -274,7 +275,7 @@ export function ObjectDetailLayout({ product }: Props) {
             productTitle={product.title}
             infoMain={
               <>
-              <EditorialBackLink fallbackHref="/objects" />
+              <EditorialBackLink fallbackHref={SHOP_INDEX} />
               <p className={`${OBJECT_HERO_PRICE} mt-0 lg:hidden`}>
                 <span className="underline decoration-[rgba(15,14,13,0.35)] decoration-1 underline-offset-[5px]">
                   {price}
@@ -355,7 +356,7 @@ export function ObjectDetailLayout({ product }: Props) {
                     ritualsRows.map(({ ritual, title, blurb }) => (
                       <li key={ritual.slug} className="m-0 p-0">
                         <Link
-                          href={`/rituals/${ritual.slug}`}
+                          href={`/moods/${ritual.slug}`}
                           className={OBJECT_ROW_LINK}
                         >
                           <figure className={OBJECT_ROW_THUMB}>
@@ -403,7 +404,7 @@ export function ObjectDetailLayout({ product }: Props) {
                     return (
                       <li key={p.slug} className="m-0 p-0">
                         <Link
-                          href={`/objects/${p.slug}`}
+                          href={shopPath(p.slug)}
                           className={OBJECT_ROW_LINK}
                         >
                           <figure className={OBJECT_ROW_THUMB}>
@@ -466,7 +467,7 @@ export function ObjectDetailLayout({ product }: Props) {
                 {relatedEssays.map((e) => (
                   <Link
                     key={e.slug}
-                    href={`/essays/${e.slug}`}
+                    href={`/journal/${e.slug}`}
                     className={OBJECT_ESSAY_CARD}
                   >
                     <figure className={OBJECT_ESSAY_THUMB}>

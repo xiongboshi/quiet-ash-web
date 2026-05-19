@@ -289,7 +289,7 @@ export function RitualsArchiveBlock({ rituals }: Props) {
                   >
                     {view === "grid" ? (
                       <Link
-                        href={`/rituals/${r.slug}`}
+                        href={`/moods/${r.slug}`}
                         className="qa-ritual-cinema qa-cta qa-cta--still group relative block aspect-[3/5] overflow-hidden bg-[#0c0a09] no-underline outline-offset-4 ring-offset-[var(--qa-bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[color-mix(in_srgb,var(--wood)_45%,transparent)] sm:aspect-[3/4]"
                       >
                         <Image
@@ -320,7 +320,7 @@ export function RitualsArchiveBlock({ rituals }: Props) {
                       </Link>
                     ) : (
                       <Link
-                        href={`/rituals/${r.slug}`}
+                        href={`/moods/${r.slug}`}
                         className="qa-cta qa-cta--still group flex max-w-[min(100%,72rem)] flex-col gap-6 no-underline sm:gap-8"
                       >
                         <figure className="relative aspect-[16/9] w-full max-w-[min(100%,40rem)] shrink-0 overflow-hidden bg-[#0c0a09] sm:aspect-[2/1]">

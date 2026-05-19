@@ -99,7 +99,7 @@ export function EssayGrid(props: EssayGridProps = {}) {
                   <li key={e.slug} className="m-0 p-0">
                     <article className="m-0 border-0 p-0 shadow-none">
                       <Link
-                        href={`/essays/${e.slug}`}
+                        href={`/journal/${e.slug}`}
                         className="qa-cta qa-cta--still block no-underline transition-none"
                       >
                         <figure className="relative mb-0 aspect-[5/4] w-full overflow-hidden bg-[#161210]">
@@ -168,7 +168,7 @@ export function EssayGrid(props: EssayGridProps = {}) {
                     className="qa-home-journal-col flex h-full min-h-0 flex-col"
                   >
                     <Link
-                      href={`/essays/${e.slug}`}
+                      href={`/journal/${e.slug}`}
                       className="qa-home-journal-col-hit qa-cta qa-cta--still flex min-h-0 flex-1 flex-col text-inherit no-underline transition-none"
                     >
                       <div className="qa-home-journal-col-inner min-h-0 flex-1">

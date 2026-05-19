@@ -8,6 +8,7 @@ import {
   getRitualBySlug,
   getRitualSlugs,
 } from "@/lib/rituals";
+import { moodPath } from "@/lib/site-paths";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -20,13 +21,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ritual = getRitualBySlug(slug);
   if (!ritual) return {};
   return {
-    title: `${ritual.title} · Rituals`,
+    title: `${ritual.title} · Moods`,
     description: ritual.excerpt.replace(/\s+/gu, " ").trim(),
-    alternates: { canonical: `/rituals/${slug}` },
+    alternates: { canonical: moodPath(slug) },
   };
 }
 
-export default async function RitualPage({ params }: Props) {
+export default async function MoodPage({ params }: Props) {
   const { slug } = await params;
   const ritual = getRitualBySlug(slug);
   if (!ritual) notFound();

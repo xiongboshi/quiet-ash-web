@@ -196,7 +196,7 @@ export function ritualImagePath(
   file: "cover" | 1 | 2 | 3 | 4,
 ): string {
   const name = file === "cover" ? "cover.png" : `step-0${file}.png`;
-  return `/images/generated/rituals/${slug}/${name}`;
+  return `/images/generated/moods/${slug}/${name}`;
 }
 
 export function getRitualImagePrompts(slug: string): RitualImageSet | undefined {

@@ -1,74 +1,60 @@
 "use client";
 
 import Link from "next/link";
+import { SHOP_INDEX, shopPath } from "@/lib/site-paths";
 import { CartLink } from "@/components/cart/cart-link";
 import { brandHome } from "@/data/brand-home";
-
-const NAV = [
-  { href: "/objects", label: "Shop" },
-  { href: "/#moods", label: "Moods" },
-  { href: "/about", label: "About" },
-  { href: "/essays", label: "Journal" },
-] as const;
+import { MOOD_PRIMARY_NAV } from "@/data/mood-nav";
 
 export function MoodHeader() {
   return (
-    <header className="sticky top-0 z-50 bg-[var(--mood-bg)]/92 backdrop-blur-md">
-      <p className="border-b border-black/[0.06] py-2 text-center text-[10px] font-medium uppercase tracking-[0.2em] text-[var(--mood-ink-soft)]">
+    <header className="sticky top-0 z-50 border-b border-black/[0.04] bg-[var(--mood-bg)]/90 backdrop-blur-md">
+      <p className="py-2.5 text-center text-[10px] font-normal tracking-[0.18em] text-[var(--mood-ink-muted)]">
         {brandHome.promo}
       </p>
-      <div className="relative mx-auto flex max-w-[min(100%,1200px)] items-center justify-between gap-4 px-[var(--mood-px)] py-4">
-        <nav className="hidden items-center gap-6 md:flex" aria-label="Primary">
-          {NAV.map((item) => (
+      <div className="relative mx-auto flex max-w-[min(100%,1680px)] items-center justify-between gap-4 px-[var(--mood-px)] py-5">
+        <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
+          {MOOD_PRIMARY_NAV.map((item) => (
             <Link
-              key={item.href}
+              key={item.label}
               href={item.href}
-              className="text-[11px] font-medium uppercase tracking-[0.16em] text-[var(--mood-ink)] no-underline transition-opacity duration-500 hover:opacity-60"
+              className="text-[12px] font-normal tracking-[0.06em] text-[var(--mood-ink)] no-underline transition-opacity duration-500 hover:opacity-50"
             >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <Link
-          href="/"
-          className="flex flex-col items-center text-center no-underline md:absolute md:left-1/2 md:-translate-x-1/2"
-        >
-          <span className="text-[13px] font-semibold uppercase tracking-[0.28em] text-[var(--mood-ink)]">
+        <Link href="/" className="qa-mood-wordmark absolute left-1/2 -translate-x-1/2">
+          <span className="qa-mood-wordmark-title">
             {brandHome.siteTitle}
           </span>
-          <span className="mt-0.5 text-[9px] font-medium uppercase tracking-[0.32em] text-[var(--mood-ink-muted)]">
+          <span className="qa-mood-wordmark-subtitle">
             {brandHome.siteSubtitle}
           </span>
         </Link>
 
-        <MoodNavActions />
+        <div className="flex items-center gap-6">
+          <Link
+            href={SHOP_INDEX}
+            className="text-[12px] font-normal text-[var(--mood-ink)] md:hidden"
+          >
+            Shop
+          </Link>
+          <span className="hidden text-[12px] text-[var(--mood-ink-muted)] md:inline">
+            Search
+          </span>
+          <Link
+            href="/about"
+            className="hidden text-[12px] text-[var(--mood-ink-muted)] no-underline hover:opacity-50 md:inline"
+          >
+            Account
+          </Link>
+          <span className="[&_a]:text-[12px] [&_a]:text-[var(--mood-ink)] [&_a]:no-underline">
+            <CartLink />
+          </span>
+        </div>
       </div>
     </header>
-  );
-}
-
-function MoodNavActions() {
-  return (
-    <div className="flex items-center gap-5">
-      <Link
-        href="/objects"
-        className="text-[11px] font-medium uppercase tracking-[0.14em] text-[var(--mood-ink)] md:hidden"
-      >
-        Shop
-      </Link>
-      <span className="hidden text-[11px] uppercase tracking-[0.14em] text-[var(--mood-ink-soft)] md:inline">
-        Search
-      </span>
-      <Link
-        href="/about"
-        className="hidden text-[11px] uppercase tracking-[0.14em] text-[var(--mood-ink-soft)] no-underline hover:opacity-60 md:inline"
-      >
-        Account
-      </Link>
-      <span className="[&_a]:text-[11px] [&_a]:uppercase [&_a]:tracking-[0.14em] [&_a]:text-[var(--mood-ink)] [&_a]:no-underline">
-        <CartLink />
-      </span>
-    </div>
   );
 }

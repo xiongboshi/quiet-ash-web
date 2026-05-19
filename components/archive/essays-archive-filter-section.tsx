@@ -13,7 +13,7 @@ type Props = {
   activeSlug: string;
 };
 
-/** Mobile / tablet — matches `/rituals` compact filter row. */
+/** Mobile / tablet — matches `/moods` compact filter row. */
 const filterLinkClassMobile = (active: boolean) =>
   `shrink-0 border-b bg-transparent p-0 font-[family-name:var(--font-sans)] text-[11px] font-medium uppercase tracking-[0.18em] no-underline transition-opacity duration-[600ms] ease-out sm:text-[12px] sm:tracking-[0.2em] ${
     active

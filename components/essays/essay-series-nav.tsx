@@ -16,7 +16,7 @@ export function EssaySeriesNav({ prev, next }: Props) {
       <div className="flex flex-col gap-[var(--rhythm-sm)] sm:flex-row sm:justify-between sm:gap-[var(--space-block)]">
         {prev ? (
           <Link
-            href={`/essays/${prev.slug}`}
+            href={`/journal/${prev.slug}`}
             className="qa-cta qa-label max-w-[min(100%,40ch)] text-[var(--wood)]"
           >
             ← {prev.title}
@@ -26,7 +26,7 @@ export function EssaySeriesNav({ prev, next }: Props) {
         )}
         {next ? (
           <Link
-            href={`/essays/${next.slug}`}
+            href={`/journal/${next.slug}`}
             className="qa-cta qa-label max-w-[min(100%,40ch)] text-[var(--wood)] sm:text-right"
           >
             {next.title} →

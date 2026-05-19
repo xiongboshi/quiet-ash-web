@@ -1,0 +1,358 @@
+/**
+ * Mood homepage — cinematic art direction (see VISUAL-ART-DIRECTION-LOCK v1)
+ */
+
+.qa-mood-page {
+  background: var(--mood-bg);
+  color: var(--mood-ink);
+}
+
+/* Header wordmark — mockup: serif title + wide-tracked sans subtitle */
+.qa-mood-wordmark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+}
+
+.qa-mood-wordmark-title {
+  font-family: var(--font-serif), "Cormorant Garamond", ui-serif, serif;
+  font-size: 33px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--mood-ink);
+}
+
+.qa-mood-wordmark-subtitle {
+  margin-top: 2px;
+  font-family: var(--font-sans), Inter, system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--mood-ink-muted);
+}
+
+/* —— Hero canvas (1920 campaign layout) —— */
+.qa-mood-hero-canvas {
+  --mood-hero-title-color: #1b1b1b;
+  background: #f3efe8;
+}
+
+.qa-mood-hero-bg-layers {
+  z-index: 0;
+  background: linear-gradient(180deg, #fff7ee 0%, #faf6f2 100%);
+}
+
+.qa-mood-hero-bg-layers::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at 75% 35%,
+      rgba(255, 228, 122, 0.55),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 82% 58%,
+      rgba(189, 224, 201, 0.42),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 62% 82%,
+      rgba(255, 213, 228, 0.28),
+      transparent 42%
+    );
+  pointer-events: none;
+}
+
+.qa-mood-hero-slide {
+  pointer-events: none;
+}
+
+.qa-mood-hero-bg {
+  z-index: 1;
+  /* Still life sits right-of-center — avoid cropping to empty left copy zone */
+  object-position: 68% 52%;
+}
+
+@media (min-width: 1024px) {
+  .qa-mood-hero-bg {
+    object-position: 72% 48%;
+  }
+}
+
+@media (min-width: 1920px) {
+  .qa-mood-hero-bg {
+    object-position: 74% 46%;
+  }
+}
+
+.qa-mood-hero-bg-scrim {
+  z-index: 2;
+  background: linear-gradient(
+    105deg,
+    rgba(250, 248, 244, 0.78) 0%,
+    rgba(250, 248, 244, 0.42) 42%,
+    rgba(250, 248, 244, 0.06) 62%,
+    transparent 78%
+  );
+}
+
+.qa-mood-hero-grain {
+  z-index: 3;
+  opacity: 0.28;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+.qa-mood-hero-nav {
+  min-height: 56px;
+}
+
+.qa-mood-hero-title {
+  font-size: clamp(2.5rem, 5.83vw, 7rem);
+  line-height: 0.92;
+  font-weight: 500;
+  letter-spacing: -0.07em;
+  max-width: 520px;
+}
+
+.qa-mood-hero-sub p {
+  font-size: clamp(15px, 0.94vw, 18px);
+  font-weight: 400;
+  line-height: 1.55;
+  color: rgba(28, 28, 28, 0.72);
+}
+
+@media (min-width: 1280px) {
+  .qa-mood-hero-sub p {
+    line-height: 1.55;
+  }
+}
+
+.qa-mood-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 58px;
+  padding: 0 34px;
+  border-radius: 6px;
+  background: var(--mood-ink);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: opacity 300ms ease;
+}
+
+.qa-mood-hero-cta:hover {
+  opacity: 0.88;
+}
+
+.qa-mood-hero-badge {
+  display: flex;
+  height: 72px;
+  width: 72px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(27, 27, 27, 0.2);
+  background: rgba(250, 248, 244, 0.55);
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 8px;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mood-ink-soft);
+  backdrop-filter: blur(3px);
+}
+
+@media (min-width: 1920px) {
+  .qa-mood-hero-content {
+    min-height: 960px;
+  }
+
+  .qa-mood-hero-copy {
+    padding-left: 0.5rem;
+  }
+}
+
+/* Homepage section titles — moments, best sellers, choose mood */
+.qa-mood-section-heading {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mood-ink);
+}
+
+/* Choose Your Mood — poster cards (mockup) */
+.qa-mood-poster {
+  background: var(--mood-poster-bg, var(--mood-calm));
+  box-shadow: 0 22px 56px -28px rgba(28, 24, 20, 0.1);
+  transition:
+    transform 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 600ms ease;
+}
+
+.qa-mood-poster:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 28px 64px -24px rgba(28, 24, 20, 0.14);
+}
+
+.qa-mood-poster-label {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mood-poster-ink, var(--mood-ink));
+}
+
+@media (min-width: 640px) {
+  .qa-mood-poster-label {
+    font-size: 16px;
+  }
+}
+
+.qa-mood-poster-tagline {
+  margin: 0;
+  max-width: 11rem;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: color-mix(in srgb, var(--mood-poster-ink, var(--mood-ink)) 68%, transparent);
+}
+
+@media (min-width: 640px) {
+  .qa-mood-poster-tagline {
+    max-width: 12rem;
+    font-size: 13px;
+  }
+}
+
+.qa-mood-poster-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.qa-mood-poster-photo {
+  transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.qa-mood-poster:hover .qa-mood-poster-photo {
+  transform: scale(1.03);
+}
+
+.qa-mood-poster-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    color-mix(in srgb, var(--mood-poster-bg) 47%, transparent) 0%,
+    color-mix(in srgb, var(--mood-poster-bg) 36%, transparent) 38%,
+    transparent 55%
+  );
+  pointer-events: none;
+}
+
+/* Best Sellers — copy block (+1px vs poster tagline) */
+.qa-mood-best-details .qa-mood-poster-tagline {
+  font-size: 13px;
+}
+
+@media (min-width: 640px) {
+  .qa-mood-best-details .qa-mood-poster-tagline {
+    font-size: 14px;
+  }
+}
+
+.qa-mood-best-specs {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+/* Best Sellers — split editorial cards (mockup) */
+.qa-mood-best-visual {
+  background: var(--mood-best-panel-bg, var(--mood-calm));
+}
+
+.qa-mood-best-photo {
+  filter: drop-shadow(0 14px 22px rgba(28, 24, 20, 0.12));
+  transition: transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.qa-mood-best-card:hover .qa-mood-best-photo {
+  transform: scale(1.03);
+}
+
+.qa-mood-best-add {
+  box-shadow: 0 6px 16px -8px rgba(28, 24, 20, 0.12);
+}
+
+/* Made for your moments — lifestyle cards (mockup) */
+.qa-mood-moment-card {
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.qa-mood-moment-card:hover {
+  transform: translateY(-4px);
+}
+
+.qa-mood-moment-photo {
+  transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.qa-mood-moment-card:hover .qa-mood-moment-photo {
+  transform: scale(1.03);
+}
+
+.qa-mood-moment-scrim {
+  background: linear-gradient(
+    to bottom,
+    rgba(18, 16, 14, 0.2) 0%,
+    rgba(18, 16, 14, 0.42) 45%,
+    rgba(18, 16, 14, 0.2) 100%
+  );
+}
+
+.qa-mood-moment-caption {
+  text-align: center;
+}
+
+.qa-mood-moment-visual {
+  box-shadow: 0 22px 56px -28px rgba(28, 24, 20, 0.14);
+}
+
+.qa-mood-moment-thumb {
+  background-image: var(--moments-sprite);
+  background-repeat: no-repeat;
+  background-size: 500% 100%;
+  background-position: calc(var(--sprite-index) * 25%) 50%;
+}
+
+/* Homepage footer — split panel (line + #f7f4ef right rail) */
+.qa-mood-footer-social {
+  background-color: #f7f4ef;
+}
+
+.qa-mood-footer-instagram-btn {
+  box-shadow: 0 8px 24px -16px rgba(28, 24, 20, 0.08);
+}

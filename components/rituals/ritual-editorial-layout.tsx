@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { SHOP_INDEX, shopPath } from "@/lib/site-paths";
 import Link from "next/link";
 import { EditorialBackLink } from "@/components/editorial/editorial-back-link";
 import type { CatalogProduct } from "@/lib/catalog";
@@ -73,7 +74,7 @@ export function RitualEditorialLayout({
             </figure>
 
             <header className="order-2 flex min-w-0 flex-col px-4 py-8 sm:px-6 sm:py-10 lg:col-start-1 lg:row-start-1 lg:h-full lg:min-h-0 lg:px-12 lg:py-10">
-              <EditorialBackLink fallbackHref="/rituals" />
+              <EditorialBackLink fallbackHref="/moods" />
               <div className="mt-8 flex min-h-0 flex-1 flex-col justify-center lg:mt-10">
                 <p className="m-0 font-[family-name:var(--font-sans)] text-[11px] font-medium uppercase tracking-[0.22em] text-[#6f6a63]">
                   {eyebrow}
@@ -192,7 +193,7 @@ export function RitualEditorialLayout({
                 {products.map((p) => (
                   <Link
                     key={p.slug}
-                    href={`/objects/${p.slug}`}
+                    href={shopPath(p.slug)}
                     className="qa-cta qa-cta--still group relative flex min-h-[440px] flex-col overflow-hidden bg-[#161210] no-underline"
                   >
                     <Image
@@ -233,7 +234,7 @@ export function RitualEditorialLayout({
                 {quote}
               </blockquote>
               <Link
-                href="/objects"
+                href={SHOP_INDEX}
                 className="qa-cta qa-cta--still shrink-0 self-start font-[family-name:var(--font-sans)] text-[11px] font-normal uppercase tracking-[0.2em] text-[#1a1716] underline decoration-[rgba(0,0,0,0.35)] decoration-1 underline-offset-[6px] lg:self-end"
               >
                 Shop the ritual →
@@ -245,7 +246,7 @@ export function RitualEditorialLayout({
           <div className="mx-auto mt-[clamp(3rem,8vw,4.5rem)] max-w-[min(100%,88rem)] border-t border-b border-[#ddd7cf] lg:mt-14">
             <div className="grid grid-cols-1 lg:grid-cols-2 lg:divide-x lg:divide-[#ddd7cf]">
               <Link
-                href={`/rituals/${nextRitual.slug}`}
+                href={`/moods/${nextRitual.slug}`}
                 className="qa-cta qa-cta--still group flex flex-row items-stretch gap-6 border-b border-[#ddd7cf] bg-[var(--qa-bg)] p-8 no-underline sm:gap-8 sm:p-10 lg:border-b-0"
               >
                 <div className="flex min-w-0 flex-1 flex-col justify-center">
@@ -277,7 +278,7 @@ export function RitualEditorialLayout({
               </Link>
 
               <Link
-                href={`/essays/${relatedEssay.slug}`}
+                href={`/journal/${relatedEssay.slug}`}
                 className="qa-cta qa-cta--still group flex flex-row items-stretch gap-6 bg-[var(--qa-bg)] p-8 no-underline sm:gap-8 sm:p-10"
               >
                 <div className="flex min-w-0 flex-1 flex-col justify-center">

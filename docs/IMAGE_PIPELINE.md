@@ -98,7 +98,7 @@ Produce **masters** at sufficient resolution for **2×** retina and **~1440px** 
 
 ### 4.3 Essay series archive covers — **one continuous room**
 
-When producing **multiple** covers that appear together in navigation (e.g. `/essays` series rail + archive context), every frame must read as **the same physical space** filmed across **one evening** — not unrelated stock plates.
+When producing **multiple** covers that appear together in navigation (e.g. `/Journal` series rail + archive context), every frame must read as **the same physical space** filmed across **one evening** — not unrelated stock plates.
 
 **Spatial bible (repeat in briefs when commissioning or regenerating a set):**
 

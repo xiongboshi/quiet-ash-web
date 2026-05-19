@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "../styles/tokens.css";
 @import "../styles/mood-tokens.css";
+@import "../styles/mood-home.css";
 
 /* Quiet Ash — legacy aliases map to reference tokens */
 :root {

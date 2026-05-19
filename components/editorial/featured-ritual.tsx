@@ -15,7 +15,7 @@ type Props = {
 export function FeaturedRitual({ ritual, eyebrow, ctaLabel }: Props) {
   if (!ritual) return null;
 
-  const href = `/rituals/${ritual.slug}`;
+  const href = `/moods/${ritual.slug}`;
   const src = ritual.coverImage ?? "/images/hero-objects.svg";
 
   return (

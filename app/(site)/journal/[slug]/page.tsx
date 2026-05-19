@@ -15,6 +15,7 @@ import {
   getEssaySlugs,
 } from "@/lib/essays";
 import { getSeriesBySlug } from "@/lib/series";
+import { JOURNAL_INDEX, journalPath } from "@/lib/site-paths";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -29,18 +30,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: essay.title,
     description: essay.excerpt,
-    alternates: { canonical: `/essays/${slug}` },
+    alternates: { canonical: journalPath(slug) },
     openGraph: {
       type: "article",
       publishedTime: essay.date,
       title: essay.title,
       description: essay.excerpt,
-      url: `/essays/${slug}`,
+      url: journalPath(slug),
     },
   };
 }
 
-export default async function EssayPage({ params }: Props) {
+export default async function JournalArticlePage({ params }: Props) {
   const { slug } = await params;
   const essay = getEssayBySlug(slug);
   if (!essay) notFound();
@@ -67,7 +68,7 @@ export default async function EssayPage({ params }: Props) {
       <article className="qa-article-shell w-full">
         <Container variant="wide">
           <div className="mb-6 lg:mb-8">
-            <EditorialBackLink fallbackHref="/essays" />
+            <EditorialBackLink fallbackHref={JOURNAL_INDEX} />
           </div>
           <EssayHeroImage src={heroSrc} title={essay.title} />
         </Container>
@@ -110,7 +111,7 @@ export default async function EssayPage({ params }: Props) {
               href={essaysCollectionHref(essay.series)}
               className="qa-cta qa-label inline-block text-[var(--wood)]"
             >
-              ← All essays
+              ← All journal
             </Link>
           </p>
         </Container>

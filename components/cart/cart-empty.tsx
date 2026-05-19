@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { SHOP_INDEX, shopPath } from "@/lib/site-paths";
 import Link from "next/link";
 
 export function CartEmpty() {
@@ -9,7 +10,7 @@ export function CartEmpty() {
           No objects have been gathered yet.
         </p>
         <Link
-          href="/objects"
+          href={SHOP_INDEX}
           className="qa-cta qa-cta--still mt-0 inline-block font-[family-name:var(--font-sans)] text-[12px] font-medium uppercase tracking-[0.18em] text-[#6F6A63] underline decoration-[color-mix(in_srgb,#6F6A63_40%,transparent)] underline-offset-[6px]"
         >
           Return to the objects

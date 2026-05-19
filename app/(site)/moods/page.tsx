@@ -4,15 +4,16 @@ import { EssayGrid } from "@/components/sections/EssayGrid";
 import { RitualsTheEssence } from "@/components/sections/rituals-the-essence";
 import { PageShell } from "@/components/layout/page-shell";
 import { getAllRituals } from "@/lib/rituals";
+import { MOODS_INDEX } from "@/lib/site-paths";
 
 export const metadata: Metadata = {
-  title: "Rituals · Quiet Ash",
+  title: "Moods · Quiet Ash",
   description:
     "Small ceremonies — incense, tea, dusk — editorial guides that open onto objects without selling noise.",
-  alternates: { canonical: "/rituals" },
+  alternates: { canonical: MOODS_INDEX },
 };
 
-export default function RitualsIndexPage() {
+export default function MoodsIndexPage() {
   const rituals = getAllRituals();
 
   const rows = rituals.map((r) => ({

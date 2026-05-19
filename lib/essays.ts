@@ -210,7 +210,7 @@ function readEssayFile(filePath: string): Essay | null {
 }
 
 /**
- * Same `slug` may only exist once site-wide (`/essays/[slug]`). If two MDX
+ * Same `slug` may only exist once site-wide (`/journal/[slug]`). If two MDX
  * files share a slug in different folders, pick one winner:
  * 1. Newer `mtime` (editing the file you want wins).
  * 2. If mtime ties: prefer the file whose frontmatter `series:` matches its folder

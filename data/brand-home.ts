@@ -1,4 +1,36 @@
-/** Mood-brand homepage copy. See docs/QUIET-ASH-BRAND-DIRECTION.md */
+import { SHOP_INDEX } from "@/lib/site-paths";
+
+/** Mood-brand homepage copy. See QUIET-ASH-VISUAL-ART-DIRECTION-LOCK v1 */
+
+export const bestSellerEditorial: Record<
+  string,
+  { mood: string; scentNotes: string }
+> = {
+  "brass-incense-stand": {
+    mood: "Calm",
+    scentNotes: "White tea · Cedar · Rain",
+  },
+  "paper-incense-sleeve": {
+    mood: "Focus",
+    scentNotes: "Ink · Sandalwood · Quiet air",
+  },
+  "small-agarwood-box": {
+    mood: "Sleep",
+    scentNotes: "Resin · Warm wood · Dusk",
+  },
+  "wood-tray": {
+    mood: "Energy",
+    scentNotes: "Citrus peel · Green tea · Sun",
+  },
+  "ceramic-tea-cup": {
+    mood: "Rainy Day",
+    scentNotes: "Wet stone · Rice · Steam",
+  },
+  "linen-cloth": {
+    mood: "Calm",
+    scentNotes: "Linen · Soft musk · Morning",
+  },
+};
 
 export const brandHome = {
   promo: "Free shipping on orders over $50",
@@ -6,37 +38,49 @@ export const brandHome = {
   siteSubtitle: "Mood Incense",
   hero: {
     title: "Tiny rituals for soft living.",
-    cta: { label: "Shop the moods", href: "/objects" },
-    imageSrc: "/images/generated/products/ceramic-tea-cup/hero.png",
-    imageAlt: "Soft morning lifestyle incense moment",
+    subtitleLines: [
+      "Mood incense for modern life.",
+      "Light a moment, reset your space.",
+    ] as const,
+    cta: { label: "Shop the moods", href: SHOP_INDEX },
+    slides: [
+      {
+        backgroundSrc: "/images/generated/mood-hero-slide-01-citrus.png",
+        backgroundAlt:
+          "Citrus Reset mood incense: horizontal yellow pack, green crystal holder, S-curve smoke, floating dewy lemons on warm ivory marble, 4pm sunlight",
+      },
+      {
+        backgroundSrc: "/images/generated/mood-hero-still-life.png",
+        backgroundAlt:
+          "Editorial still life: incense with soft smoke, warm daylight and citrus on cream surface",
+      },
+      {
+        backgroundSrc: "/images/generated/hero-cinematic02.png",
+        backgroundAlt:
+          "Quiet Ash mood incense in warm cinematic daylight with soft shadows",
+      },
+    ] as const,
+    badge: "10.5cm short sticks",
+    autoplayIntervalMs: 6500,
   },
   moods: {
     eyebrow: "Choose your mood",
-    title: "How do you want to feel?",
   },
   bestSellers: {
-    eyebrow: "Best sellers",
-    title: "Most loved right now",
+    heading: "Best sellers",
+    viewAllLabel: "View all",
+    viewAllHref: SHOP_INDEX,
   },
   moments: {
-    eyebrow: "Made for your moments",
-    title: "Soft rituals for real days",
-    items: [
-      { label: "Slow mornings", image: "/images/generated/products/linen-cloth/hero.png" },
-      { label: "Focus time", image: "/images/generated/products/wood-tray/hero.png" },
-      { label: "Bath & unwind", image: "/images/generated/products/paper-incense-sleeve/hero.png" },
-      { label: "Rainy days", image: "/images/generated/products/ceramic-tea-cup/gallery-02.png" },
-      { label: "Before bed", image: "/images/generated/products/small-agarwood-box/hero.png" },
-    ],
+    heading: "Made for your moments",
   },
   philosophy: {
-    title: "We create modern incense for emotional spaces.",
-    body: "Not tradition for tradition's sake — small rituals that match how you actually live.",
+    body: "We create modern incense for emotional spaces. Tiny rituals to help you reset, breathe, and live more softly.",
     cta: { label: "Our story", href: "/about" },
   },
   social: {
     eyebrow: "Follow our journey",
-    handle: "@quietash.life",
-    href: "https://instagram.com",
+    handle: "@quietash.incense",
+    instagramCta: "View on Instagram",
   },
 } as const;

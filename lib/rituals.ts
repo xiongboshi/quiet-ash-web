@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import { SHOP_INDEX } from "@/lib/site-paths";
 import path from "node:path";
 import matter from "gray-matter";
 
@@ -100,7 +101,7 @@ const DEFAULT_OBJECTS_SECTION: ObjectsSectionSpec = {
   label: "Used in this evening",
   subtext: "Objects that shape this quiet moment.",
   ctaLabel: "View all objects →",
-  ctaHref: "/objects",
+  ctaHref: SHOP_INDEX,
 };
 
 function parseObjectsSection(data: Record<string, unknown>): ObjectsSectionSpec {

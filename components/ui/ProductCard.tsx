@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { SHOP_INDEX, shopPath } from "@/lib/site-paths";
 import Link from "next/link";
 import type { CatalogProduct } from "@/lib/catalog";
 
@@ -205,7 +206,7 @@ export function ProductCard({
 
   return (
     <Link
-      href={`/objects/${product.slug}`}
+      href={shopPath(product.slug)}
       className="qa-cta qa-cta--still group flex flex-col no-underline"
     >
       <div

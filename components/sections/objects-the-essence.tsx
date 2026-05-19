@@ -3,7 +3,7 @@ import { EssenceBand } from "@/components/sections/essence-band";
 const OBJECTS_ESSENCE_IMG = "/images/generated/objects-essence-hero.png";
 
 /**
- * Objects index — same {@link EssenceBand} shell as `/rituals`.
+ * Objects index — same {@link EssenceBand} shell as `/moods`.
  */
 export function ObjectsTheEssence() {
   return (

@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { SHOP_INDEX, shopPath } from "@/lib/site-paths";
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
@@ -58,7 +59,7 @@ export function CartRecommendations({ products }: Props) {
           {visible.map((p) => (
             <li key={p.slug}>
               <Link
-                href={`/objects/${p.slug}`}
+                href={shopPath(p.slug)}
                 className="qa-cta qa-cta--still group block no-underline"
               >
                 <figure className="relative mb-3 aspect-square w-full overflow-hidden bg-[#161210] lg:mb-4">

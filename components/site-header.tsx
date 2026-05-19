@@ -7,6 +7,7 @@ import { useEffect, useId, useState } from "react";
 import { CartLink } from "@/components/cart/cart-link";
 import { Container } from "@/components/ui/Container";
 import { HOME_NAV_ITEM, PRIMARY_NAV } from "@/lib/site-nav";
+import { JOURNAL_INDEX, MOODS_INDEX, SHOP_INDEX } from "@/lib/site-paths";
 
 function NavLink({
   href,
@@ -35,9 +36,9 @@ function NavLink({
   );
 }
 
-const RITUALS_INDEX = "/rituals";
-const OBJECTS_INDEX = "/objects";
-const ESSAYS_INDEX = "/essays";
+const MOODS_INDEX_PATH = MOODS_INDEX;
+const SHOP_INDEX_PATH = SHOP_INDEX;
+const JOURNAL_INDEX_PATH = JOURNAL_INDEX;
 
 function normalizePathname(pathname: string | null): string {
   if (!pathname) return "";
@@ -49,9 +50,9 @@ function normalizePathname(pathname: string | null): string {
 /** Detail pages ? history back with section index fallback when no history */
 function getMobileHistoryBackFallback(pathname: string | null): string | null {
   const path = normalizePathname(pathname);
-  if (/^\/objects\/[^/]+$/.test(path)) return OBJECTS_INDEX;
-  if (/^\/rituals\/[^/]+$/.test(path)) return RITUALS_INDEX;
-  if (/^\/essays\/[^/]+$/.test(path)) return ESSAYS_INDEX;
+  if (/^\/shop\/[^/]+$/.test(path)) return SHOP_INDEX_PATH;
+  if (/^\/moods\/[^/]+$/.test(path)) return MOODS_INDEX_PATH;
+  if (/^\/journal\/[^/]+$/.test(path)) return JOURNAL_INDEX_PATH;
   return null;
 }
 

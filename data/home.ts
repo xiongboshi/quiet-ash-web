@@ -1,4 +1,5 @@
 import { siteContact } from "@/data/site";
+import { SHOP_INDEX } from "@/lib/site-paths";
 
 /**
  * Homepage + chrome copy — data-driven; ritual bodies live in `content/rituals`.
@@ -19,8 +20,8 @@ export const defaultHero = {
   title: "Stillness shaped by incense",
   tagline:
     "A quiet archive for incense ritual, agarwood, and the slow life around smoke.",
-  primaryCta: { label: "EXPLORE RITUALS", href: "/rituals" },
-  secondaryCta: { label: "View objects", href: "/objects" },
+  primaryCta: { label: "EXPLORE RITUALS", href: "/moods" },
+  secondaryCta: { label: "Shop", href: SHOP_INDEX },
 } as const;
 
 export const defaultFeaturedRitual = {
@@ -57,7 +58,7 @@ export const defaultFeaturedObjectsIntro = {
   title: "Tools for ritual,\nmade with intention.",
   description:
     "Stands, agarwood, sleeves, and trays — composed for rooms where smoke marks the hour.",
-  action: { label: "VIEW INCENSE OBJECTS", href: "/objects" },
+  action: { label: "SHOP", href: SHOP_INDEX },
 } as const;
 
 export const defaultRitualBanner = {
@@ -72,7 +73,7 @@ export const defaultEssayGridIntro = {
   title:
     "Thoughts on craft,\ntime, and the beauty\nof everyday rituals.",
   description: "Incense culture, agarwood, and the quiet authority of restraint.",
-  action: { label: "VIEW ALL ESSAYS", href: "/essays" },
+  action: { label: "VIEW ALL ESSAYS", href: "/journal" },
 } as const;
 
 export const defaultCollectionHighlight = {
@@ -88,11 +89,9 @@ export const defaultFooter = {
   columns: {
     shopTitle: "Shop",
     shop: [
-      { label: "Shop", href: "/objects" },
-      { label: "Rituals", href: "/rituals" },
-      { label: "Objects", href: "/objects" },
-      { label: "Agarwood", href: "/objects" },
-      { label: "Incense tools", href: "/objects" },
+      { label: "Shop", href: SHOP_INDEX },
+      { label: "Moods", href: "/moods" },
+      { label: "Journal", href: "/journal" },
     ],
     infoTitle: "Info",
     info: [
