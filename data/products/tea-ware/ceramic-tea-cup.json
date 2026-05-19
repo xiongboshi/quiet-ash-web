@@ -5,10 +5,10 @@
   "origin": "Japan",
   "line": "Warm hand feel. For slow tea.",
   "priceDisplay": "$85",
-  "image": "/images/generated/product-tea-bowl.png",
+  "image": "/images/generated/products/ceramic-tea-cup/hero.png",
   "universe": "tea",
   "seriesSlugs": ["scholar-rituals", "incense-culture"],
-  "featured": true,
+  "featured": false,
   "description": "Before ink meets paper is a different story — here, before water meets leaf, the hands find weight. One bowl, one slower clock. Stock is intentionally limited while finishing varies by kiln.",
   "availabilityNote": "Current availability is announced quietly to the list.",
   "dimensions": "Ø11cm x H7cm",
@@ -16,15 +16,15 @@
   "finish": "Matte glaze",
   "care": "Hand wash only",
   "gallery": [
-    "/images/generated/product-tea-bowl.png",
-    "/images/generated/ritual-tea-rain.png",
-    "/images/generated/ritual-evening-linen.png",
-    "/images/generated/product-oak-tray.png",
-    "/images/products/linen.svg"
+    "/images/generated/products/ceramic-tea-cup/hero.png",
+    "/images/generated/products/ceramic-tea-cup/gallery-01.png",
+    "/images/generated/products/ceramic-tea-cup/gallery-02.png",
+    "/images/generated/products/ceramic-tea-cup/gallery-03.png",
+    "/images/generated/products/ceramic-tea-cup/gallery-04.png"
   ],
   "narrativeTitle": "Made for quiet moments. Held by hand. Used without hurry.",
   "narrativeBody": "Each bowl carries slight variations from the kiln — glaze depth, a softer rim, the way light rests on the foot. That is the point of hand-finished stoneware: not sameness, but continuity.",
-  "narrativeImage": "/images/generated/ritual-evening-linen.png",
+  "narrativeImage": "/images/generated/products/ceramic-tea-cup/narrative.png",
   "usedInRituals": [
     {
       "slug": "tea-after-rain",
@@ -64,7 +64,7 @@
   ],
   "detailsDisclaimer": "Due to the nature of hand-finished ceramics, size and color may vary slightly.",
   "atmosphereQuote": "The beauty of this bowl is in what it holds, and how it makes you slow down.",
-  "atmosphereImage": "/images/generated/ritual-tea-rain.png",
+  "atmosphereImage": "/images/generated/products/ceramic-tea-cup/atmosphere.png",
   "relatedEssaySlugs": [
     "why-scholars-burned-incense",
     "good-incense-not-loud",

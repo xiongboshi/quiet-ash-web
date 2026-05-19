@@ -44,7 +44,7 @@ export type TimeMode =
 
 const TIME_MODIFIERS: Record<TimeMode, string> = {
   morning:
-    "Morning Quiet: cool-soft window light, linen translucency, low contrast, clear calm air.",
+    "Morning Quiet 晨光: cool soft white window light (冷白柔光, not golden hour warmth); linen curtain or cloth with soft translucency glowing (亚麻透光); breathable airy negative space (空气感); low contrast gentle tonal range (低对比) — no harsh blacks, no blown highlights; clear calm morning air.",
   afternoon:
     "Afternoon Stillness: warm walnut tones, lengthening shadows, soft golden side light.",
   evening:

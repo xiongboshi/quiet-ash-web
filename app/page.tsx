@@ -25,9 +25,9 @@ const siteUrl =
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
-  title: "Quiet Ash — Rituals, objects & essays",
+  title: "Quiet Ash — Incense ritual, agarwood & essays",
   description:
-    "Quiet Ash — rituals as lived atmosphere, objects as commerce, essays as philosophy. Eastern slow living, composed.",
+    "Incense ritual, agarwood, and editorial essays on Eastern slow living — scholar incense, evening smoke, and quiet objects for the room.",
 };
 
 export default function Page() {
@@ -36,7 +36,7 @@ export default function Page() {
     "@type": "WebSite",
     name: "Quiet Ash",
     description:
-      "Rituals, objects, and essays — Eastern slow living with commerce inside the archive.",
+      "Incense ritual, agarwood, and essays on smoke, silence, and Eastern slow living.",
     url: siteUrl,
   };
 

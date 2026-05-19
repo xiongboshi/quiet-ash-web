@@ -7,18 +7,18 @@ import { siteContact } from "@/data/site";
  */
 
 /** Homepage featured ritual — must match `content/rituals/*.mdx` */
-export const homeFeaturedRitualSlug = "evening-room-ritual" as const;
+export const homeFeaturedRitualSlug = "incense-before-writing" as const;
 
 export const defaultHero = {
   imageSrc: "/images/generated/hero-cinematic.png",
-  /** Focal point — incense / vase cluster; left lockup stays clear for type. */
-  imagePosition: "63% 58%",
+  /** Focal point — short stick incense + smoke; left lockup stays clear for type. */
+  imagePosition: "62% 48%",
   /** Uppercase cadence — rendered below the display title in `Hero`. */
-  kicker: "INCENSE · TEAWARE · TEXTILES · OBJECTS",
+  kicker: "INCENSE · AGARWOOD · RITUAL · SMOKE",
   /** Reserved for overrides; default lockup is composed in `Hero`. */
-  title: "Objects that shape stillness",
+  title: "Stillness shaped by incense",
   tagline:
-    "A quiet archive for Eastern slow living — ritual first, objects held inside it.",
+    "A quiet archive for incense ritual, agarwood, and the slow life around smoke.",
   primaryCta: { label: "EXPLORE RITUALS", href: "/rituals" },
   secondaryCta: { label: "View objects", href: "/objects" },
 } as const;
@@ -34,8 +34,8 @@ export const defaultPhilosophyQuote = {
 } as const;
 
 export const defaultRitualCarouselIntro = {
-  eyebrow: "Rituals",
-  title: "Small ceremonies for the day",
+  eyebrow: "Incense rituals",
+  title: "Small ceremonies of smoke and silence",
 } as const;
 
 export const defaultCollectionGridIntro = {
@@ -53,25 +53,25 @@ export const defaultCollectionsPageIntro = {
 } as const;
 
 export const defaultFeaturedObjectsIntro = {
-  eyebrow: "Objects",
-  title: "Timeless objects,\nmade with intention.",
+  eyebrow: "Incense objects",
+  title: "Tools for ritual,\nmade with intention.",
   description:
-    "Weight, edge, material — each piece composed for rooms that soften at night.",
-  action: { label: "VIEW ALL OBJECTS", href: "/objects" },
+    "Stands, agarwood, sleeves, and trays — composed for rooms where smoke marks the hour.",
+  action: { label: "VIEW INCENSE OBJECTS", href: "/objects" },
 } as const;
 
 export const defaultRitualBanner = {
   imageSrc: "/images/hero-objects.svg",
   eyebrow: "Dusk",
   title: "The room remembers how you leave it.",
-  body: "Ash, steam, folded cloth — the small evidence of a day lived without hurry.",
+  body: "Ash, smoke, and a thin thread of resin — the small evidence of a day lived without hurry.",
 } as const;
 
 export const defaultEssayGridIntro = {
   eyebrow: "FROM THE JOURNAL",
   title:
     "Thoughts on craft,\ntime, and the beauty\nof everyday rituals.",
-  description: "Philosophy, culture, and the quiet authority of restraint.",
+  description: "Incense culture, agarwood, and the quiet authority of restraint.",
   action: { label: "VIEW ALL ESSAYS", href: "/essays" },
 } as const;
 
@@ -84,15 +84,15 @@ export const defaultCollectionHighlight = {
 
 export const defaultFooter = {
   title: "Quiet Ash",
-  body: "Objects for a quieter life.",
+  body: "Incense ritual for a quieter life.",
   columns: {
     shopTitle: "Shop",
     shop: [
       { label: "Shop", href: "/objects" },
       { label: "Rituals", href: "/rituals" },
       { label: "Objects", href: "/objects" },
-      { label: "Textiles", href: "/objects" },
-      { label: "Gift card", href: "/objects" },
+      { label: "Agarwood", href: "/objects" },
+      { label: "Incense tools", href: "/objects" },
     ],
     infoTitle: "Info",
     info: [

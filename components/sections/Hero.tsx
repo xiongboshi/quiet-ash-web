@@ -22,13 +22,13 @@ export type HeroProps = Partial<{
 export function Hero(props: HeroProps = {}) {
   const defaults = {
     ...defaultHero,
-    titleLines: ["Objects that", "shape stillness"] as const,
+    titleLines: ["Stillness shaped", "by incense"] as const,
   };
   const p = { ...defaults, ...props };
   const titleLines =
     p.titleLines && p.titleLines.length > 0
       ? p.titleLines
-      : (["Objects that", "shape stillness"] as const);
+      : (["Stillness shaped", "by incense"] as const);
   const imgPos = p.imagePosition ?? "63% 58%";
 
   return (
@@ -38,7 +38,7 @@ export function Hero(props: HeroProps = {}) {
       <div className="absolute inset-0 z-0" aria-hidden>
         <Image
           src={p.imageSrc}
-          alt=""
+          alt="Short stick incense burning on a wooden desk beside window light, thin smoke rising"
           fill
           priority
           unoptimized

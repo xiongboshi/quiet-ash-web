@@ -10,7 +10,7 @@ export function EssayHeroImage({ src, title }: Props) {
     <figure className="relative aspect-[16/11] w-full overflow-hidden bg-[#0c0a09] sm:aspect-[2/1]">
       <Image
         src={src}
-        alt=""
+        alt={`Editorial photograph for the essay: ${title}`}
         fill
         priority
         sizes="(max-width: 1024px) 100vw, min(1200px, 92vw)"
@@ -29,7 +29,6 @@ export function EssayHeroImage({ src, title }: Props) {
         }}
         aria-hidden
       />
-      <span className="sr-only">{title}</span>
     </figure>
   );
 }

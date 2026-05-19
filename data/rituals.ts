@@ -5,10 +5,9 @@
 
 export const homeRitualSlugs = [
   "incense-before-writing",
-  "evening-room-ritual",
-  "tea-after-rain",
   "smoke-and-silence",
   "why-agarwood-matters",
+  "evening-room-ritual",
   "quiet-desk-ritual",
 ] as const;
 

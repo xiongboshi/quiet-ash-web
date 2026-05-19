@@ -171,10 +171,33 @@ Kinfolk · Frama · Aesop home · Cereal · Japanese editorial interiors · Nord
 | 页面 | 时间模式 | 说明 |
 |------|----------|------|
 | 首页 Hero | Afternoon | 生活感，非产品棚拍 |
-| 商品页 | Morning / Afternoon | 材质与比例 |
+| 商品页 | **Morning Quiet only** | 统一晨光 + 头图简单直接；见 §商品 |
 | Ritual | 见 `ritual-image-prompts.ts` | 每篇独立 cover + 4 steps |
 | Journal | Morning / Rain | 空气与阅读 |
 | Banner / IG | 与活动一致 | 始终带 brand base + negatives |
+
+---
+
+## 商品 / Objects 摄影（强制）
+
+**时间：** 仅 **Morning Quiet 晨光**（代码里 `fullProductPrompt` / `fullProductHeroPrompt` 固定 `morning`）。
+
+| 晨光 | 执行 |
+|------|------|
+| 冷白柔光 | 冷白漫射窗光或顶光；禁止蜜桃色、金黄午后、黄昏暖琥珀 |
+| 亚麻透光 | 亚麻帘、亚麻布或统一亚麻纸感台面；头图在统一灰米亚麻纸纹理上完成 |
+| 空气感 | 留白多、画面透气、不塞满道具 |
+| 低对比 | 阴影柔和、无死黑、无过曝 |
+
+**头图 hero — 简单直接：**
+
+- **只拍一件物**：无手、无杂乱桌面、无水果花瓣等装饰道具  
+- **一眼可读**：轻俯视或 3/4；物体约占画面 40–55%，其余为统一台面留白  
+- **全站统一**：6 款商品同一套晨光 + 同一族灰米亚麻纸感背景（像同一场棚拍）  
+
+**详情图 gallery / narrative / atmosphere：** 可带使用场景，但仍须晨光四要素；不得换回午后金光或暖色布景。
+
+Prompt：`data/product-image-prompts.ts` · 安装：`npm run images:products-install`
 
 ---
 
@@ -183,6 +206,9 @@ Kinfolk · Frama · Aesop home · Cereal · Japanese editorial interiors · Nord
 ```
 public/images/generated/rituals/{slug}/cover.png
 public/images/generated/rituals/{slug}/step-01.png … step-04.png
+public/images/generated/products/{slug}/hero.png
+public/images/generated/products/{slug}/gallery-01.png … gallery-04.png
+public/images/generated/products/{slug}/narrative.png · atmosphere.png
 ```
 
 Ritual 内容：`content/rituals/{slug}.mdx` — **仅改 frontmatter 即可上新**，无需改代码。见 `content/rituals/README.md`。
@@ -203,3 +229,4 @@ npm run images:ritual-prompts incense-before-writing
 ## Changelog
 
 - 2026-05 — 最终版品牌摄影圣经（中英对照执行摘要）
+- 2026-05 — 商品图强制晨光 + 头图简单直接 + 统一亚麻纸感台面

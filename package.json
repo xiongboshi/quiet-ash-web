@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -H 127.0.0.1",
+    "dev": "next dev -H 0.0.0.0",
     "dev:mobile": "next dev -H 0.0.0.0",
     "build": "next build",
     "start": "next start",
@@ -12,6 +12,10 @@
     "icons": "node scripts/generate-icons.mjs",
     "images:ritual-prompts": "npx --yes tsx scripts/print-ritual-image-prompts.ts",
     "images:rituals-install": "node scripts/install-ritual-images.mjs",
+    "images:essay-prompts": "npx --yes tsx scripts/print-essay-image-prompts.ts",
+    "images:essays-install": "node scripts/install-essay-images.mjs",
+    "images:product-prompts": "npx --yes tsx scripts/print-product-image-prompts.ts",
+    "images:products-install": "node scripts/install-product-images.mjs",
     "knockout-seal": "node scripts/knockout-quote-seal.mjs",
     "knockout-mat": "node scripts/knockout-png-mat.mjs"
   },
