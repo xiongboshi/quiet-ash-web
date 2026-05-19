@@ -1,0 +1,37 @@
+/**
+ * Quiet Ash — Mood Incense brand tokens (UI / marketing).
+ * See docs/QUIET-ASH-BRAND-DIRECTION.md
+ */
+:root {
+  --mood-bg: #faf8f4;
+  --mood-cream: #f5f1ea;
+  --mood-beige: #ede8df;
+  --mood-ink: #1c1c1c;
+  --mood-ink-soft: #5c5c5c;
+  --mood-ink-muted: #8a8580;
+
+  --mood-calm: #c8d5c4;
+  --mood-energy: #f4e4a6;
+  --mood-sleep: #d8d0e8;
+  --mood-focus: #ead4ce;
+  --mood-rain: #c5d4e3;
+  --mood-reset: #e8e4dc;
+
+  --mood-radius-sm: 12px;
+  --mood-radius-md: 20px;
+  --mood-radius-lg: 28px;
+  --mood-radius-btn: 999px;
+
+  --mood-shadow-soft: 0 18px 48px -20px rgba(28, 24, 20, 0.1);
+  --mood-shadow-card: 0 24px 64px -28px rgba(28, 24, 20, 0.12);
+  --mood-shadow-hover: 0 32px 72px -24px rgba(28, 24, 20, 0.14);
+
+  --mood-section-y: clamp(4.5rem, 12vw, 7.5rem);
+  --mood-section-y-lg: clamp(5.5rem, 14vw, 9rem);
+  --mood-container: min(100%, 1200px);
+  --mood-px: clamp(1.25rem, 4vw, 3rem);
+
+  --mood-motion-hover: 520ms cubic-bezier(0.22, 1, 0.36, 1);
+  --mood-motion-fade: 680ms cubic-bezier(0.22, 1, 0.36, 1);
+  --mood-hover-scale: 1.025;
+}
