@@ -1,18 +1,41 @@
+<!-- BEGIN:quietash-canon -->
+## Quiet Ash — Constitution (SOLE CANON)
+
+**Authority:** [docs/QUIET-ASH-CONSTITUTION.md](docs/QUIET-ASH-CONSTITUTION.md) (v5.0 Living Memory).
+
+All legacy visual docs (`IMAGE_PIPELINE`, `QUIET-ASH-VISUAL-BIBLE`, dark museum language, pastel-only mood packshots, “not cinematic” fragments) are **historical reference only** — they do **not** set style priority.
+
+Before any visual, motion, copy, layout, or image prompt work:
+
+1. Read the Constitution.  
+2. Prepend `QA_CONSTITUTION_MASTER_PROMPT` from `data/constitution-prompts.ts` for AI images.  
+3. Use `buildImagePrompt()` / `buildConstitutionImagePrompt()` — not deprecated `QA_BRAND_BASE` strings.
+
+**Anti-AI · Apartment Memory · Temporal Reality · Commerce Restraint · Motion Doctrine** are all defined in the Constitution.
+<!-- END:quietash-canon -->
+
 <!-- BEGIN:quietash-brand -->
 ## Brand direction (UI / marketing)
 
-**Canonical:** [docs/QUIET-ASH-BRAND-DIRECTION.md](docs/QUIET-ASH-BRAND-DIRECTION.md) · **visual lock:** [docs/QUIET-ASH-VISUAL-ART-DIRECTION-LOCK.md](docs/QUIET-ASH-VISUAL-ART-DIRECTION-LOCK.md). Homepage: `components/mood/*` · `styles/mood-tokens.css` · `styles/mood-home.css`.
+**Layout reference:** [docs/QUIET-ASH-BRAND-DIRECTION.md](docs/QUIET-ASH-BRAND-DIRECTION.md) · [docs/QUIET-ASH-VISUAL-ART-DIRECTION-LOCK.md](docs/QUIET-ASH-VISUAL-ART-DIRECTION-LOCK.md).  
+**Taste / photography / copy ontology:** Constitution only.
 
-Do **not** apply scholar-incense / dark editorial / heavy oriental patterns to the marketing homepage.
+Homepage implementation: `components/qa/*` · `styles/qa-home-1920.css` · `data/brand-home.ts`.
 <!-- END:quietash-brand -->
 
 <!-- BEGIN:quietash-visual -->
 ## Quiet Ash images
 
-Craft / object photography: [docs/QUIET-ASH-VISUAL-BIBLE.md](docs/QUIET-ASH-VISUAL-BIBLE.md). Mood marketing shots: brand direction §10.  
-Ritual prompts: `data/ritual-image-prompts.ts` · `npm run images:ritual-prompts`  
-Essay covers: `data/essay-image-prompts.ts` · `npm run images:essay-prompts`  
-Product sets: `data/product-image-prompts.ts` · `npm run images:product-prompts` · `npm run images:products-install`
+**Canon prompts:** `data/constitution-prompts.ts` · **builder:** `data/visual-prompts.ts` → `buildImagePrompt()`.
+
+Scene tables (must align with Constitution — migrate away from pure pastel packshots):
+
+- Hero: `data/hero-image-prompts.ts`
+- Mood posters: `data/mood-poster-image-prompts.ts` · `npm run images:ritual-prompts` (ritual) · `data/ritual-image-prompts.ts`
+- Essays: `data/essay-image-prompts.ts` · `npm run images:essay-prompts`
+- Products: `data/product-image-prompts.ts` · `npm run images:product-prompts` · `npm run images:products-install`
+
+Mechanics (ratios, filenames): [docs/image-generation.md](docs/image-generation.md) — taste from Constitution.
 <!-- END:quietash-visual -->
 
 <!-- BEGIN:nextjs-agent-rules -->

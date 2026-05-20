@@ -1,5 +1,7 @@
 # Quiet Ash — Motion System (Governance)
 
+> **Philosophy:** [QUIET-ASH-CONSTITUTION.md](./QUIET-ASH-CONSTITUTION.md) §XII Motion Doctrine. This file is **timing tokens and forbidden patterns** only.
+
 **Status:** Established. **Principle:** Motion should feel like **breathing** — if it becomes noticeable, **reduce it**.
 
 **Not:** animation design, marketing bounce, dashboard micro-interactions.

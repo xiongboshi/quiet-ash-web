@@ -1,5 +1,7 @@
 # Quiet Ash Visual Bible（品牌摄影圣经 · 最终版）
 
+> **Superseded for taste and direction** by [QUIET-ASH-CONSTITUTION.md](./QUIET-ASH-CONSTITUTION.md) (v5.0). This file remains for craft-SKU mechanics and historical prompts only.
+
 全站图片（首页、商品、Ritual、Journal、Banner、社媒）必须遵守本规范。  
 AI / 摄影师 / 设计师 / 3D / 视频 **统一执行**。
 

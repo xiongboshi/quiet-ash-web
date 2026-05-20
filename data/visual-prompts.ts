@@ -1,40 +1,22 @@
-/** Quiet Ash — fixed prompt layers for all image generation. */
+/**
+ * Quiet Ash — image prompt builder.
+ * @deprecated layers QA_BRAND_BASE / QA_NEGATIVE — canon is docs/QUIET-ASH-CONSTITUTION.md
+ * and data/constitution-prompts.ts
+ */
 
-export const QA_BRAND_BASE = `Quiet Ash visual system:
-Editorial lifestyle photography.
-Quiet lived-in interiors.
-Natural daylight.
-Warm beige, walnut brown, linen ivory, smoke black.
-Authentic material textures.
-Soft atmospheric realism.
-Real-life proportions.
-Objects feel naturally used, never staged.
-A calm European-Japanese slow living atmosphere.
-Not cinematic, not overly artistic, not luxury showroom.`;
+import {
+  buildConstitutionImagePrompt,
+  type ConstitutionTime,
+} from "@/data/constitution-prompts";
 
-export const QA_PHOTO_RULES = `Shot like real editorial photography.
-Natural window lighting only.
-50mm lens.
-Subtle depth of field.
-Soft shadow transitions.
-No artificial symmetry.
-No CGI look.
-No hyper-detail.
-Realistic scale and object proportions.`;
+/** @deprecated Historical — do not extend. Use QA_CONSTITUTION_MASTER_PROMPT. */
+export const QA_BRAND_BASE = `See docs/QUIET-ASH-CONSTITUTION.md — use buildImagePrompt() which prepends Constitution v5.0.`;
 
-export const QA_NEGATIVE = `No excessive minimalism.
-No zen showroom.
-No dramatic cinematic lighting.
-No perfect symmetry.
-No fantasy atmosphere.
-No overly clean luxury interiors.
-No obvious AI aesthetics.
-No calligraphy or floating text.
-No luxury hotel or mansion interiors.
-No product showroom staging.
-No pure white or pure black backgrounds.
-No saturated accent colors.
-No blue or green color casts.`;
+/** @deprecated */
+export const QA_PHOTO_RULES = `See constitution-prompts.ts LENS_BY_USE.`;
+
+/** @deprecated */
+export const QA_NEGATIVE = `See QA_ANTI_AI_NEGATIVE in constitution-prompts.ts.`;
 
 export type TimeMode =
   | "morning"
@@ -42,22 +24,28 @@ export type TimeMode =
   | "evening"
   | "rain";
 
-const TIME_MODIFIERS: Record<TimeMode, string> = {
-  morning:
-    "Morning Quiet 晨光: cool soft white window light (冷白柔光, not golden hour warmth); linen curtain or cloth with soft translucency glowing (亚麻透光); breathable airy negative space (空气感); low contrast gentle tonal range (低对比) — no harsh blacks, no blown highlights; clear calm morning air.",
-  afternoon:
-    "Afternoon Stillness: warm walnut tones, lengthening shadows, soft golden side light.",
+const LEGACY_TIME_EXTRA: Partial<Record<TimeMode, string>> = {
   evening:
     "Evening Ritual: warm dim interior, charcoal corners, single window afterglow, thin incense smoke.",
-  rain:
-    "Rain Window: grey-blue humid air, soft moisture on glass, muted reflections, very quiet room.",
+  rain: "Rain Window: grey-blue humid air, soft moisture on glass, muted reflections, very quiet room.",
 };
+
+function mapTimeMode(time: TimeMode): ConstitutionTime {
+  if (time === "evening") return "sunset";
+  if (time === "rain" || time === "afternoon") return "afternoon";
+  if (time === "morning") return "morning";
+  return "afternoon";
+}
 
 export function buildImagePrompt(
   scene: string,
   time: TimeMode = "afternoon",
 ): string {
-  return [QA_BRAND_BASE, TIME_MODIFIERS[time], scene, QA_PHOTO_RULES, QA_NEGATIVE].join(
-    "\n\n",
-  );
+  const base = buildConstitutionImagePrompt({
+    scene,
+    time: mapTimeMode(time),
+    lens: "lifestyle",
+  });
+  const extra = LEGACY_TIME_EXTRA[time];
+  return extra ? `${base}\n\n${extra}` : base;
 }

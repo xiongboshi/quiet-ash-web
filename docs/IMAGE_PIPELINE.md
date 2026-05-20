@@ -1,5 +1,7 @@
 # Quiet Ash — Image Pipeline (Governance)
 
+> **Superseded for taste and direction** by [QUIET-ASH-CONSTITUTION.md](./QUIET-ASH-CONSTITUTION.md) (v5.0). Use this file for **ratios, filenames, compression, and delivery** only — not brand soul or lighting canon.
+
 **Status:** Established. **Purpose:** Permanent **production and delivery** rules for all imagery — AI, future photography, compression, crops, filenames, and the web stack — so the site stays **one continuous film**, not a mix of “marketing assets.”
 
 **Companion docs:** `docs/ART_DIRECTION.md` (mood, lighting, DO NOT USE), `docs/DESIGN_SYSTEM.md` (surface heights, `object-position`, hover), `docs/MOTION_SYSTEM.md` (image motion only where allowed).
