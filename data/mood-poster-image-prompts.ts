@@ -61,8 +61,8 @@ export const moodPosterPrompts = {
 } as const;
 
 export const moodPosterPublicPaths = {
-  calm: "/images/generated/mood-poster-calm.png",
-  energy: "/images/generated/mood-poster-energy.png",
+  calm: "/images/generated/mood-poster-calm-jasmine.png",
+  energy: "/images/generated/mood-poster-energy-citrus.png",
   sleep: "/images/generated/mood-poster-sleep.png",
   focus: "/images/generated/mood-poster-focus.png",
   "rainy-day": "/images/generated/mood-poster-rainy-day.png",

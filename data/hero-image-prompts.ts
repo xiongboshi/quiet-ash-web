@@ -1,8 +1,9 @@
 /**
- * Mood homepage hero — slide 01 (Citrus Reset campaign).
- * Compositing spec + full generator prompt. See VISUAL-ART-DIRECTION-LOCK §2.
+ * Homepage hero prompts — Constitution v5.0 (docs/QUIET-ASH-CONSTITUTION.md).
+ * Print: npm run images:hero-prompts
  */
 
+import { buildConstitutionImagePrompt } from "@/data/constitution-prompts";
 import { buildImagePrompt } from "@/data/visual-prompts";
 
 /** Canvas reference (desktop artboard). */
@@ -99,4 +100,33 @@ export const heroSlide03Prompt = buildImagePrompt(
 export const HERO_SLIDE_03_OUTPUT = {
   publicPath: "/images/generated/mood-hero-slide-03-sleep.png",
   assetBasename: "mood-hero-slide-03-sleep.png",
+} as const;
+
+/** Primary homepage hero — INS mockup shot-lock (match reference frame exactly). */
+export const HERO_V5_HOME_SCENE = `Homepage hero photography ONLY — replicate Quiet Ash INS mockup reference frame. NO website text, NO nav, NO logos in pixels, NO UI badges.
+
+CANVAS: 1920×1080 wide banner. LEFT 38–42% soft negative space (cream wall + blurred bed linen) for site typography overlay.
+
+CAMERA: 50mm, eye-level, medium-wide lifestyle shot, slight downward angle toward tabletop; shallow depth of field — razor sharp foreground still life, woman and room softly blurred. Warm golden-hour window light from RIGHT, long soft shadows leftward, film grain.
+
+WOMAN (match reference position): seated on BED mid-left frame, FULL back to camera (not ¾ face), slim delicate build, dark hair loose bun, thin-strapped cream/beige camisole; shows back + right shoulder line; face completely hidden; she sits BEHIND table, medium distance — not tiny, not dominating frame.
+
+FOREGROUND TABLE (lower half, right of center): warm light WHITE MARBLE tabletop — subtle cream/grey veining, matte stone surface (NOT wood). LEFT of box: single thin incense stick in TINY thin flat translucent crystal chip holder — very small, low profile, thinner than mockup-lock v1. Stick shows SOFT gradual transition from charred tip to natural wood body (no harsh cut line, realistic slow burn). CENTER-RIGHT: tall slim cream/white upright carton 15cm scale, ~10° yaw, NOT leaning; print "QUIET ASH" + "INCENSE", "SANDALWOOD MINT", "30 STICKS | BURN TIME: 50 MINS" (must say 30 not 20). RIGHT: glass vase messy dried white baby's breath. BOTTOM-LEFT: blurred baby's breath foreground frame.
+
+MOOD: tender loneliness, quiet luxury, documentary apartment, v6/v10 warmth.
+
+FORBIDDEN: face visible, giant crystal slab, tilted falling box, centered catalog symmetry, pure white void, website chrome, marble tulip table unless matching reference.`;
+
+export const heroV5HomePrompt = buildConstitutionImagePrompt({
+  scene: HERO_V5_HOME_SCENE,
+  time: "afternoon",
+  season: "summer",
+  lens: "hero",
+});
+
+export const HERO_V5_HOME_OUTPUT = {
+  publicPath: "/images/generated/mood-hero-ins-mockup-lock-v2.png",
+  assetBasename: "mood-hero-ins-mockup-lock-v2.png",
+  width: 1920,
+  height: 1080,
 } as const;

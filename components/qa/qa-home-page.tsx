@@ -23,6 +23,8 @@ export function QaHomePage() {
             fill
             priority
             sizes="100vw"
+            unoptimized
+            style={{ objectPosition: hero.objectPosition }}
           />
         </div>
         <div className="hero-overlay" aria-hidden />

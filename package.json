@@ -16,6 +16,7 @@
     "images:essays-install": "node scripts/install-essay-images.mjs",
     "images:product-prompts": "npx --yes tsx scripts/print-product-image-prompts.ts",
     "images:hero-prompts": "npx --yes tsx scripts/print-hero-image-prompts.ts",
+    "images:hero-install": "node scripts/install-hero-image.mjs",
     "images:products-install": "node scripts/install-product-images.mjs",
     "knockout-seal": "node scripts/knockout-quote-seal.mjs",
     "knockout-mat": "node scripts/knockout-png-mat.mjs"

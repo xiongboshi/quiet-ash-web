@@ -110,6 +110,20 @@ h4 {
   font-weight: 300;
 }
 
+/* Homepage image cards — white overlay type (beats global heading color) */
+.qa-page .mood-content h3,
+.qa-page .mood-content p,
+.qa-page .life-content h4,
+.qa-page .life-content p {
+  color: #ffffff;
+}
+
+/* Homepage product grid — bold dark titles (e.g. WHITE JASMINE) */
+.qa-page .product-info h4 {
+  color: #111111;
+  font-weight: 700;
+}
+
 /* Dark ritual stills (archive grid, detail hero) — white titles on charcoal */
 .qa-ritual-cinema h3 {
   color: #fff;

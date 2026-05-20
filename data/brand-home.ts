@@ -49,9 +49,12 @@ export const brandHome = {
     ],
   },
   hero: {
-    backgroundSrc: "/images/generated/mood-hero-slide-01-citrus.png",
+    backgroundSrc: "/images/generated/mood-hero-ins-mockup-lock.png",
+    /** Bust Next/browser cache when hero asset is replaced */
+    backgroundVersion: "20260521-mockup",
     backgroundAlt:
-      "Citrus mood incense hero: warm marble still life with crystal holder and soft daylight",
+      "Quiet Ash hero: woman at window, 15cm pack and small crystal holder on white marble table",
+    objectPosition: "52% 50%",
     eyebrow: "NATURAL INCENSE",
     titleLines: ["SCENTS THAT", "STAY WITH YOU."] as const,
     description:
@@ -75,10 +78,10 @@ export const brandHome = {
     ] as const,
     slides: [
       {
-        backgroundSrc: "/images/generated/mood-hero-slide-01-citrus.png",
+        backgroundSrc: "/images/generated/mood-hero-ins-mockup-lock.png",
         backgroundAlt:
-          "Citrus Reset mood incense: horizontal yellow pack, green crystal holder",
-        objectPosition: "68% 52%",
+          "Quiet Ash hero: woman at window, 15cm pack and small crystal holder on white marble table",
+        objectPosition: "52% 50%",
       },
       {
         backgroundSrc: "/images/generated/mood-hero-still-life.png",
