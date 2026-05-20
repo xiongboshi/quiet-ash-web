@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { SHOP_INDEX, shopPath } from "@/lib/site-paths";
 import { CartLink } from "@/components/cart/cart-link";
 import { brandHome } from "@/data/brand-home";
 import { MOOD_PRIMARY_NAV } from "@/data/mood-nav";
+import { MoodMobileMenu } from "@/components/mood/mood-mobile-menu";
 
 const navLinkClass =
   "text-[12px] font-semibold uppercase tracking-[0.16em] text-[var(--mood-ink)] no-underline transition-opacity duration-300 hover:opacity-55";
@@ -17,7 +17,7 @@ export function MoodHeroNav({ promo }: Props) {
       <p className="bg-[rgba(245,242,236,0.72)] py-2 text-center text-[10px] font-normal uppercase tracking-[0.2em] text-[var(--mood-ink-soft)] backdrop-blur-[2px]">
         {promo}
       </p>
-      <div className="qa-mood-hero-nav mx-auto flex w-full max-w-[1680px] items-center justify-between px-0 py-5">
+      <div className="qa-mood-hero-nav mx-auto flex w-full max-w-[1680px] items-center justify-between px-[var(--mood-px)] py-5 md:px-0">
         <nav
           className="hidden min-w-[280px] items-center gap-7 md:flex"
           aria-label="Primary"
@@ -29,25 +29,25 @@ export function MoodHeroNav({ promo }: Props) {
           ))}
         </nav>
 
-        <Link href="/" className="qa-mood-wordmark absolute left-1/2 -translate-x-1/2">
+        <Link
+          href="/"
+          className="qa-mood-wordmark qa-mood-wordmark--left-mobile relative z-10 shrink-0 md:absolute md:left-1/2 md:-translate-x-1/2"
+        >
           <span className="qa-mood-wordmark-title">{brandHome.siteTitle}</span>
           <span className="qa-mood-wordmark-subtitle">
             {brandHome.siteSubtitle}
           </span>
         </Link>
 
-        <div className="flex min-w-[280px] items-center justify-end gap-7">
-          <Link href={SHOP_INDEX} className={`${navLinkClass} md:hidden`}>
-            Shop
-          </Link>
-          <span className={`${navLinkClass} hidden cursor-default md:inline`}>
-            Search
-          </span>
-          <Link href="/about" className={`${navLinkClass} hidden md:inline`}>
+        <div className="hidden min-w-[280px] items-center justify-end gap-7 md:flex">
+          <span className={`${navLinkClass} cursor-default`}>Search</span>
+          <Link href="/about" className={navLinkClass}>
             Account
           </Link>
           <CartLink className={navLinkClass} />
         </div>
+
+        <MoodMobileMenu />
       </div>
     </header>
   );

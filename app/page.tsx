@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { MoodHome } from "@/components/mood/mood-home";
+import { QaHomePage } from "@/components/qa/qa-home-page";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
-  title: "Quiet Ash — Mood Incense for soft living",
+  title: "Quiet Ash — Natural Incense",
   description:
-    "Modern emotional incense — tiny rituals for calm, focus, sleep, and rainy days. Soft living aesthetics for modern young people.",
+    "Scents that stay with you. Plant-based mood incense for slow mornings, quiet nights, and everything in between.",
 };
 
 export default function Page() {
@@ -27,7 +27,7 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <MoodHome />
+      <QaHomePage />
     </>
   );
 }

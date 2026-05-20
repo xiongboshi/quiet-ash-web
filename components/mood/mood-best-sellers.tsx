@@ -37,7 +37,7 @@ export function MoodBestSellers() {
                 <div className="flex min-h-[248px] sm:min-h-[264px]">
                   <div
                     className="qa-mood-best-visual relative w-[calc(50%-20px)] shrink-0 overflow-hidden"
-                    style={{ background: item.panelBg }}
+                    style={{ background: "#f7f4ef" }}
                   >
                     <Image
                       src={item.imageSrc}
@@ -60,7 +60,7 @@ export function MoodBestSellers() {
                       <div className="qa-mood-best-details mt-[30px]">
                         <p className="qa-mood-poster-tagline">{item.scentNotes}</p>
                         <p className="qa-mood-best-specs mt-1 text-[var(--mood-ink-muted)]">
-                          {item.specs}
+                          10.5cm · 30 Sticks
                         </p>
                       </div>
                       <p className="mt-3 font-[family-name:var(--font-sans)] text-[15px] font-normal text-[var(--mood-ink)] sm:text-[16px]">
@@ -71,7 +71,7 @@ export function MoodBestSellers() {
                     <Link
                       href={href}
                       className="qa-mood-best-add absolute bottom-5 right-5 flex h-9 w-9 items-center justify-center rounded-full text-[18px] font-light leading-none text-[var(--mood-ink)] no-underline transition-transform duration-400 group-hover:scale-105 sm:bottom-6 sm:right-6"
-                      style={{ background: item.addBtnBg }}
+                      style={{ background: "#f3f3f3" }}
                       aria-label={`View ${item.title}`}
                     >
                       +

@@ -1,12 +1,6 @@
-﻿import { MoodHero } from "@/components/mood/mood-hero";
-import { MoodSections } from "@/components/mood/mood-sections";
-import { brandHome } from "@/data/brand-home";
+import { QaHomePage } from "@/components/qa/qa-home-page";
 
+/** @deprecated Use QaHomePage — kept for import stability */
 export function MoodHome() {
-  return (
-    <div className="qa-mood-page min-h-screen">
-      <MoodHero hero={brandHome.hero} />
-      <MoodSections />
-    </div>
-  );
+  return <QaHomePage />;
 }

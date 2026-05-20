@@ -1,6 +1,6 @@
-import { SHOP_INDEX } from "@/lib/site-paths";
+import { MOODS_INDEX, SHOP_INDEX } from "@/lib/site-paths";
 
-/** Mood-brand homepage copy. See QUIET-ASH-VISUAL-ART-DIRECTION-LOCK v1 */
+/** Homepage — 1920 mockup copy & assets */
 
 export const bestSellerEditorial: Record<
   string,
@@ -34,42 +34,70 @@ export const bestSellerEditorial: Record<
 
 export const brandHome = {
   promo: "Free shipping on orders over $50",
-  siteTitle: "Quiet Ash",
-  siteSubtitle: "Mood Incense",
+  siteTitle: "QUIET ASH",
+  siteSubtitle: "INCENSE",
+  nav: {
+    left: [
+      { label: "SHOP", href: SHOP_INDEX },
+      { label: "MOODS", href: MOODS_INDEX },
+      { label: "BEST SELLERS", href: "#best-sellers" },
+      { label: "ABOUT", href: "/about" },
+    ],
+    right: [
+      { label: "SEARCH", href: SHOP_INDEX },
+      { label: "ACCOUNT", href: "/account" },
+    ],
+  },
   hero: {
+    backgroundSrc: "/images/generated/mood-hero-slide-01-citrus.png",
+    backgroundAlt:
+      "Citrus mood incense hero: warm marble still life with crystal holder and soft daylight",
+    eyebrow: "NATURAL INCENSE",
+    titleLines: ["SCENTS THAT", "STAY WITH YOU."] as const,
+    description:
+      "For slow mornings, quiet nights,\nand everything in between.",
+    cta: { label: "SHOP COLLECTION →", href: SHOP_INDEX },
+    promoBadge: {
+      lines: ["NEW", "FRUITY", "COLLECTION"] as const,
+      href: SHOP_INDEX,
+    },
     title: "Tiny rituals for soft living.",
     subtitleLines: [
       "Mood incense for modern life.",
       "Light a moment, reset your space.",
     ] as const,
-    cta: { label: "Shop the moods", href: SHOP_INDEX },
+    badge: "10.5cm short sticks",
+    features: [
+      { title: "PLANT-BASED", subtitle: "100% Natural" },
+      { title: "NON-TOXIC", subtitle: "Clean & Safe" },
+      { title: "HANDMADE", subtitle: "With Care" },
+      { title: "SUSTAINABLE", subtitle: "Eco Packaging" },
+    ] as const,
     slides: [
       {
         backgroundSrc: "/images/generated/mood-hero-slide-01-citrus.png",
         backgroundAlt:
-          "Citrus Reset mood incense: horizontal yellow pack, green crystal holder, S-curve smoke, floating dewy lemons on warm ivory marble, 4pm sunlight",
+          "Citrus Reset mood incense: horizontal yellow pack, green crystal holder",
+        objectPosition: "68% 52%",
       },
       {
         backgroundSrc: "/images/generated/mood-hero-still-life.png",
-        backgroundAlt:
-          "Editorial still life: incense with soft smoke, warm daylight and citrus on cream surface",
+        backgroundAlt: "Editorial still life: incense with soft smoke",
+        objectPosition: "68% 52%",
       },
       {
         backgroundSrc: "/images/generated/mood-hero-slide-03-sleep.png",
-        backgroundAlt:
-          "Moon Sleep mood incense: horizontal lilac pack, purple amethyst crystal, S-curve smoke on warm ivory marble, 4pm sunlight",
+        backgroundAlt: "Moon Sleep mood incense: lilac pack, purple amethyst crystal",
+        objectPosition: "68% 52%",
       },
     ] as const,
-    badge: "10.5cm short sticks",
     autoplayIntervalMs: 6500,
   },
   moods: {
+    heading: "CHOOSE YOUR MOOD",
     eyebrow: "Choose your mood",
-  },
-  bestSellers: {
-    heading: "Best sellers",
-    viewAllLabel: "View all",
-    viewAllHref: SHOP_INDEX,
+    viewAllLabel: "VIEW ALL MOODS →",
+    viewAllHref: MOODS_INDEX,
   },
   moments: {
     heading: "Made for your moments",
@@ -83,4 +111,23 @@ export const brandHome = {
     handle: "@quietash.incense",
     instagramCta: "View on Instagram",
   },
+  fruity: {
+    eyebrow: "NEW ARRIVAL",
+    titleLines: ["FRUITY", "COLLECTION"] as const,
+    description: "Juicy scents.\nGood vibes.",
+    cta: { label: "EXPLORE NOW →", href: SHOP_INDEX },
+    imageSrc: "/images/generated/mood-hero-slide-01-citrus.png",
+    imageAlt: "Fruity collection mood incense still life",
+  },
+  bestSellers: {
+    heading: "BEST SELLERS",
+    viewAllLabel: "VIEW ALL BEST SELLERS →",
+    viewAllHref: SHOP_INDEX,
+  },
+  footer: [
+    { title: "FREE SHIPPING", body: "On orders over $68" },
+    { title: "SHIPS IN 3–5 DAYS", body: "Unhurried fulfillment from our studio" },
+    { title: "SECURE PAYMENT", body: "Safe checkout" },
+    { title: "JOIN OUR JOURNEY", body: "hello@quietash.life" },
+  ] as const,
 } as const;

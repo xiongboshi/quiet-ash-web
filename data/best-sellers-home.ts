@@ -1,50 +1,61 @@
-/** Homepage Best Sellers — editorial cards. */
+/** Homepage Best Sellers — 6-card product grid (1920 mockup) */
 
 export type HomeBestSeller = {
   slug: string;
   title: string;
   scentNotes: string;
-  specs: string;
-  /** Fallback when catalog has no price */
   priceDisplay: string;
-  panelBg: string;
-  addBtnBg: string;
   imageSrc: string;
   imageAlt: string;
 };
 
 export const homeBestSellers: HomeBestSeller[] = [
   {
-    slug: "brass-incense-stand",
-    title: "Calm Rain",
-    scentNotes: "White Tea · Cedar · Rain",
-    specs: "10.5cm · 30 Sticks",
+    slug: "wood-tray",
+    title: "CITRUS GROVE",
+    scentNotes: "Lemon · Bergamot · Green Tea",
     priceDisplay: "$18.00",
-    panelBg: "#c5d6c3",
-    addBtnBg: "#dce8da",
-    imageSrc: "/images/generated/product-brass-stand.png",
-    imageAlt: "Calm Rain mood incense with green crystal holder",
+    imageSrc: "/images/generated/products/wood-tray/hero.png",
+    imageAlt: "Citrus Grove mood incense",
   },
   {
-    slug: "wood-tray",
-    title: "Citrus Reset",
-    scentNotes: "Citrus Peel · Green Tea · Sun",
-    specs: "10.5cm · 30 Sticks",
+    slug: "brass-incense-stand",
+    title: "WHITE JASMINE",
+    scentNotes: "Jasmine · Lily · Musk",
     priceDisplay: "$18.00",
-    panelBg: "#f2e8a8",
-    addBtnBg: "#f8f0c8",
-    imageSrc: "/images/generated/product-oak-tray.png",
-    imageAlt: "Citrus Reset mood incense with yellow crystal holder",
+    imageSrc: "/images/generated/products/brass-incense-stand/hero.png",
+    imageAlt: "White Jasmine mood incense",
+  },
+  {
+    slug: "paper-incense-sleeve",
+    title: "LAVENDER FIELD",
+    scentNotes: "Lavender · Chamomile · Sage",
+    priceDisplay: "$18.00",
+    imageSrc: "/images/generated/products/paper-incense-sleeve/hero.png",
+    imageAlt: "Lavender Field mood incense",
+  },
+  {
+    slug: "ceramic-tea-cup",
+    title: "ROSE GARDEN",
+    scentNotes: "Rose · Geranium · Musk",
+    priceDisplay: "$18.00",
+    imageSrc: "/images/generated/products/ceramic-tea-cup/hero.png",
+    imageAlt: "Rose Garden mood incense",
   },
   {
     slug: "small-agarwood-box",
-    title: "Sunday Sleep",
-    scentNotes: "Lavender · Warm Wood · Dusk",
-    specs: "10.5cm · 30 Sticks",
+    title: "SANDALWOOD NIGHT",
+    scentNotes: "Sandalwood · Cedar · Amber",
     priceDisplay: "$18.00",
-    panelBg: "#d8cfe8",
-    addBtnBg: "#ebe4f2",
-    imageSrc: "/images/generated/product-agarwood-box.png",
-    imageAlt: "Sunday Sleep mood incense with lavender crystal holder",
+    imageSrc: "/images/generated/products/small-agarwood-box/hero.png",
+    imageAlt: "Sandalwood Night mood incense",
+  },
+  {
+    slug: "linen-cloth",
+    title: "PEACH ORCHARD",
+    scentNotes: "Peach · Apricot · Vanilla",
+    priceDisplay: "$18.00",
+    imageSrc: "/images/generated/products/linen-cloth/hero.png",
+    imageAlt: "Peach Orchard mood incense",
   },
 ];
