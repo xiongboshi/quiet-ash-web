@@ -45,7 +45,9 @@ export function QaHomeProductCard({ item }: Props) {
                 });
               }}
             >
-              +
+              <span className="plus-glyph" aria-hidden>
+                +
+              </span>
             </button>
           </div>
         </div>

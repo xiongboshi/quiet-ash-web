@@ -177,7 +177,7 @@
 
 .qa-page .hero-title {
   font-family: var(--font-serif), "Cormorant Garamond", ui-serif, serif;
-  font-size: 108px;
+  font-size: 88px;
   line-height: 0.92;
   font-weight: 500;
   margin: 0 0 28px;
@@ -458,17 +458,30 @@
 .qa-page .plus {
   width: 28px;
   height: 28px;
+  min-width: 28px;
+  min-height: 28px;
+  padding: 0;
   border-radius: 50%;
   border: 1px solid #ddd2ca;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   background: transparent;
   cursor: pointer;
-  font-size: 16px;
-  line-height: 1;
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 0;
   color: var(--text);
   transition: background 0.3s;
+  box-sizing: border-box;
+  transform: translateY(-1px);
+}
+
+.qa-page .plus .plus-glyph {
+  display: block;
+  line-height: 1;
+  transform: translateY(-1px);
 }
 
 .qa-page .plus:hover {
@@ -620,7 +633,7 @@
   }
 
   .qa-page .hero-title {
-    font-size: 70px;
+    font-size: 60px;
   }
 }
 
@@ -673,7 +686,7 @@
   }
 
   .qa-page .hero-title {
-    font-size: 54px;
+    font-size: 44px;
   }
 
   .qa-page .hero-desc {
