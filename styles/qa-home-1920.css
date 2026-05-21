@@ -384,7 +384,7 @@
   width: max-content;
   padding: 16px 26px;
   border: 1px solid rgba(255, 255, 255, 0.35);
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.5);
   color: #1f1b18;
   font-size: 13px;
   letter-spacing: 1.5px;
@@ -392,7 +392,7 @@
 }
 
 .qa-page .collection-btn:hover {
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.65);
 }
 
 /* PRODUCTS */
