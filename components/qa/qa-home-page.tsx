@@ -141,11 +141,18 @@ export function QaHomePage() {
 
       <footer className="qa-home-footer">
         <div className="container">
+          <p className="footer-eyebrow">{brandHome.siteTitle}</p>
           <div className="footer-grid">
             {footer.map((item) => (
               <div key={item.title} className="footer-item">
                 <h5>{item.title}</h5>
-                <p>{item.body}</p>
+                {item.body.includes("@") ? (
+                  <p>
+                    <a href={`mailto:${item.body}`}>{item.body}</a>
+                  </p>
+                ) : (
+                  <p>{item.body}</p>
+                )}
               </div>
             ))}
           </div>

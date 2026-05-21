@@ -331,6 +331,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* Keep QUIET ASH headers on left boxes inside crop */
+  object-position: 58% 38%;
 }
 
 .qa-page .collection-copy {
@@ -346,7 +348,7 @@
   flex-direction: column;
   justify-content: center;
   transform: translateY(-50%);
-  color: #1f1b18;
+  color: #ffffff;
   pointer-events: none;
 }
 
@@ -358,7 +360,7 @@
   font-size: 12px;
   letter-spacing: 2px;
   margin-bottom: 18px;
-  color: #3d352f;
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .qa-page .collection-copy h2 {
@@ -367,13 +369,13 @@
   line-height: 0.95;
   font-weight: 500;
   margin: 0 0 24px;
-  color: #1f1b18;
+  color: #ffffff;
 }
 
 .qa-page .collection-copy p {
   font-size: 18px;
   line-height: 1.8;
-  color: #5b534d;
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 32px;
   white-space: pre-line;
 }
@@ -381,8 +383,9 @@
 .qa-page .collection-btn {
   width: max-content;
   padding: 16px 26px;
-  border: 1px solid #cdbeb2;
-  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.88);
+  color: #1f1b18;
   font-size: 13px;
   letter-spacing: 1.5px;
   transition: background 0.3s;
@@ -547,17 +550,29 @@
   color: #ffffff;
 }
 
-/* FOOTER — top spacing only; no bottom margin on homepage */
+/* FOOTER — quiet service strip */
 .qa-page > .qa-home-footer {
-  padding: 50px 0 38px;
+  padding: 48px 0 40px;
   margin-bottom: 0;
   border-top: 1px solid var(--line);
+  background: color-mix(in srgb, var(--cream) 55%, #faf7f4);
+}
+
+.qa-page .footer-eyebrow {
+  display: none;
+  margin: 0 0 28px;
+  font-family: var(--font-serif), "Cormorant Garamond", ui-serif, serif;
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 .qa-page .footer-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: 28px 24px;
 }
 
 .qa-page .footer-item {
@@ -565,18 +580,31 @@
 }
 
 .qa-page .footer-item h5 {
-  font-size: 13px;
-  letter-spacing: 1.5px;
-  line-height: 1;
-  margin: 0 0 5px;
-  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  line-height: 1.3;
+  margin: 0 0 8px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 .qa-page .footer-item p {
   font-size: 14px;
-  color: #7a7169;
-  line-height: 0.85;
+  color: #5b534d;
+  line-height: 1.5;
   margin: 0;
+}
+
+.qa-page .footer-item a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: color-mix(in srgb, var(--line) 70%, transparent);
+  transition: color 0.25s ease;
+}
+
+.qa-page .footer-item a:hover {
+  color: var(--text);
 }
 
 /* REVEAL (initial state) */
@@ -724,8 +752,49 @@
     font-size: 52px;
   }
 
+  .qa-page > .qa-home-footer {
+    padding: 36px 0 44px;
+  }
+
+  .qa-page > .qa-home-footer .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .qa-page .footer-eyebrow {
+    display: block;
+    text-align: center;
+  }
+
   .qa-page .footer-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px 18px;
+  }
+
+  .qa-page .footer-item {
+    text-align: left;
+    padding-left: 4px;
+    border-left: 1px solid color-mix(in srgb, var(--line) 85%, transparent);
+  }
+
+  .qa-page .footer-item h5 {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    margin-bottom: 6px;
+  }
+
+  .qa-page .footer-item p {
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .qa-page .footer-item:last-child {
+    grid-column: 1 / -1;
+    border-left: none;
+    border-top: 1px solid color-mix(in srgb, var(--line) 90%, transparent);
+    padding-left: 0;
+    padding-top: 22px;
+    text-align: center;
   }
 
   .qa-page .section-head {

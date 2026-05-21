@@ -37,6 +37,13 @@
   color: var(--mood-ink-muted);
 }
 
+@media (max-width: 767px) {
+  .qa-mood-wordmark--left-mobile {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
 /* —— Hero canvas (1920 campaign layout) —— */
 .qa-mood-hero-canvas {
   --mood-hero-title-color: #1b1b1b;

@@ -119,7 +119,8 @@ export const brandHome = {
     titleLines: ["FRUITY", "COLLECTION"] as const,
     description: "Juicy scents.\nGood vibes.",
     cta: { label: "EXPLORE NOW →", href: SHOP_INDEX },
-    imageSrc: "/images/generated/mood-hero-slide-01-citrus.png",
+    /** Shot-lock — mood-hero-fruity-collection-lock-v6.png */
+    imageSrc: "/images/generated/mood-hero-fruity-collection-lock-v6.png",
     imageAlt: "Fruity collection mood incense still life",
   },
   bestSellers: {

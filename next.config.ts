@@ -18,10 +18,7 @@ const nextConfig: NextConfig = {
       { source: "/essays/:slug", destination: "/journal/:slug", permanent: true },
       { source: "/posts", destination: "/journal", permanent: true },
       { source: "/posts/:slug", destination: "/journal/:slug", permanent: true },
-      { source: "/series", destination: "/journal", permanent: true },
-      { source: "/series/:slug", destination: "/journal", permanent: true },
-      { source: "/library", destination: "/journal", permanent: true },
-      { source: "/archive", destination: "/journal", permanent: true },
+      /* /library, /archive, /series — real App Router pages (no 301); see app/(site)/ */
     ];
   },
 };

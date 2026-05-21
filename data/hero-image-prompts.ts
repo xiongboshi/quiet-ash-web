@@ -12,61 +12,83 @@ export const HERO_SLIDE_01_CANVAS = {
   height: 1080,
 } as const;
 
-/** Layer stack (bottom → top). */
+/**
+ * Mood incense carton — same SKU as homepage hero (10.5cm sticks / 15cm pack).
+ * Use in every multi-box still life so proportions stay consistent.
+ */
+export const QA_MOOD_INCENSE_CARTON = `IDENTICAL pack geometry to Quiet Ash homepage hero carton:
+real-world 15cm tall × 4.6cm wide × 4.6cm deep matte paperboard; front-face aspect ratio width:height = 1:3.3 (very slim vertical rectangle, NOT squat, NOT wide gift box, NOT cube).
+Holds 30 short sticks; label layout: "QUIET ASH" bold top, "INCENSE" small, scent name center, three note lines; footer two lines — "30 STICKS" then "Burn Time 15 min" (exact wording on every box).
+PRINT REALISM (critical): typography is physically printed on matte coated paperboard via offset litho — ink slightly absorbed into fiber, warm dark gray (not pure digital black), follows each face perspective plane, subtle paper grain and micro-indent visible through letters; condensation droplets sit ON TOP of print with their own highlights/shadows; NEVER floating overlay, NEVER Photoshop text layer look.`;
+
+/** Layer stack (bottom → top) — Fruity Collection banner. */
 export const HERO_SLIDE_01_LAYERS = [
-  "background gradient",
-  "light bloom / halo",
-  "marble + warm ivory fabric (hero bottom)",
-  "floating whole lemons with dew (3–5, mixed scale)",
-  "main product box (horizontal yellow mood incense pack)",
-  "green raw crystal incense holder",
-  "lit incense stick",
-  "S-curve smoke drifting up-right",
-  "floating dust particles",
-  "overall soft film grain",
+  "warm pink tabletop + soft pink bokeh left third",
+  "dense ice bed under product row",
+  "five parallel 15cm cartons (same hero proportions)",
+  "condensation on every face",
+  "whole peach behind row left",
+  "horizontal lime slice left of pink box",
+  "blueberries in gap green↔purple",
+  "orange segments near yellow/coral",
+  "pink grapefruit wedge bottom-right",
+  "real afternoon sun upper-right + ice caustics",
+  "printed labels (ink on paperboard, not overlay)",
 ] as const;
 
-export const HERO_SLIDE_01_SCENE = `Mood Incense homepage hero still life — luxury fragrance / Corey Ashford–style campaign photography.
-Canvas: wide landscape 1920×1080, left ~55% clean negative space for typography overlay (no text in image).
+export const HERO_SLIDE_01_SCENE = `Quiet Ash FRUITY COLLECTION banner — match INS reference photography EXACTLY: neat parallel box row, real sunlight, printed packaging labels. Premium chilled summer campaign, photoreal editorial.
 
-TIME: 4pm natural window light from upper left — warm golden side light, NOT studio white, NOT morning cool white. Long soft shadows to the right.
+CANVAS: 1920×1080. LEFT 36–40% empty warm pink surface only — soft bubble/frost texture, out-of-focus, NO text, NO button (site overlays copy).
 
-SURFACE (bottom third): warm ivory linen cloth on pale cream marble slab; marble fills hero bottom area; tactile stone pores; fabric folds soft and organic.
+CAMERA (match reference viewport exactly):
+35mm lens, elevated ~42–48° from table, positioned slightly right of center, framing matches INS fruity collection reference — product cluster fills right 58% of frame, left 38% soft pink blur for site copy overlay.
+Shows all five front faces with readable top branding; gentle perspective: near box slightly larger, far box slightly smaller; shallow DOF on far ice only; NOT straight-on catalog, NOT 90° top-down.
 
-BACKGROUND: soft warm cream wall with subtle warm gradient; blurred botanical leaf shadows on wall (upper left); gentle light bloom near light source.
+${QA_MOOD_INCENSE_CARTON}
 
-MAIN PRODUCT (center-right, must read clearly):
-Horizontal matte yellow mood incense carton ~460×120px proportion, rotated about -8 degrees (not axis-aligned).
-Pack reads as premium minimal: "CITRUS RESET" mood incense, short sticks — typography on box only, crisp print.
-Strong top-left sun; long cast shadow; shadow quality like box-shadow 0 55px 90px rgba(0,0,0,0.16) — soft elongated grounding shadow.
+BOX ROW (match reference — natural fanned still life, NOT rigid grid):
+Exactly FIVE cartons, same slim 15cm pack size, arranged in ONE casual diagonal group lower-left → upper-right like reference photo.
+Slight fan: each box ~3–5° different yaw, gentle overlap at edges, small uneven ice gaps — organic INS styling, NOT perfectly parallel rulers, NOT military alignment.
+CRITICAL — brand header must survive web crop:
+Every box front face to camera; "QUIET ASH" bold + "INCENSE" small printed at TOP of every pack — fully inside frame with 10–12% empty margin above tallest box (never clip brand off top edge).
+Camera sees complete label: QUIET ASH → INCENSE → scent name → notes → 30 STICKS → Burn Time 15 min on all five.
+Product cluster placed slightly LOWER in frame (vertical center ~58%) so site hero crop still shows all five brand headers.
 
-GREEN CRYSTAL HOLDER (second focal, right of box):
-Translucent raw green crystal / mineral chunk ~180×220px proportion, natural irregular facets.
-Single brown incense stick inserted; tip gently glowing; delicate incense smoke.
+FRAME PLACEMENT: product cluster center ~68% from left edge, vertical center ~54%; row spans ~38%–92% of frame width; do not shrink boxes — each carton height ≈ 42–48% of frame height in the cluster.
 
-SMOKE (critical):
-Visible wisp with opacity ~0.72, slight blur ~0.3px feel; S-curved path drifting toward upper right — NOT straight up.
+BOX ORDER left→right:
+1 blush pink — PEACH ORCHARD — Peach · Apricot · Vanilla
+2 mint — CITRUS GROVE — Lemon · Bergamot · Green Tea
+3 lavender — BERRY BLISS — Berry · Blackcurrant · Blueberry
+4 mango yellow — MANGO BALANCE — Mango · Lychee · Vanilla
+5 coral — PINK GRAPEFRUIT — Grapefruit · Orange · Lychee
+All: QUIET ASH (never ASS) + INCENSE + 30 STICKS + Burn Time 15 min — same label grid on every carton; printed sans-serif aligned to each box face perspective, equal margins, centered blocks.
 
-FLOATING LEMONS (dopamine accents):
-3–5 whole fresh yellow lemons with dew drops — NOT sliced; mixed sizes (small/medium/large feel: ~90px, ~120px, ~160px equivalent in frame).
-Placed upper right, lower right, and mid-left near still life; slight levitation / editorial float acceptable; natural not cartoon.
+ICE: dense irregular clear cubes forming bed under entire row; extra cubes scattered lower-right; wet pink surface, specular highlights, puddle reflections.
 
-ATMOSPHERE:
-Floating dust motes in sun beam; soft film grain; subtle light bloom; high-end perfume ad finish.
-Asymmetrical editorial balance; shallow depth of field; 50mm lifestyle lens.
+FRUIT (exact positions):
+- Whole fuzzy peach with leaf, behind and slightly above box 1–2 junction (upper-left of cluster).
+- One horizontal lime cross-section disc, left of box 1 on ice (not vertical wedge).
+- 4–6 blueberries in the narrow gap between box 2 and 3.
+- Small orange citrus segments / sea-buckthorn cluster between box 4 and 5 lower area.
+- Large pink grapefruit wedge, cut face toward camera, bottom-right corner overlapping ice.
 
-FORBIDDEN in frame: UI, nav, logos, buttons, watermark, pure white/black BG, cut lemon halves, vertical product box, blue/green color cast on skin tones, CGI showroom, zen temple props.`;
+LIGHT (real sun — match reference):
+Strong natural afternoon sunlight from UPPER RIGHT (~2 o'clock), warm 5200–5600K; visible directional shadows falling to lower-left; bright specular highlights on ice facets and water droplets; subtle caustic light patterns through ice; NOT flat studio softbox, NOT overcast diffuse, NOT CGI HDR glow.
+
+FORBIDDEN: left headline/UI, floating digital text overlay, misaligned crooked box row, uneven box spacing, wide short boxes, fan spread, flat lighting, wrong brand spelling, 20 sticks, extra sixth box, zen props.`;
 
 export const heroSlide01Prompt = buildImagePrompt(
   HERO_SLIDE_01_SCENE,
   "afternoon",
 );
 
+/** Fruity Collection banner — shot-lock (approved 2026-05). Do not replace without explicit approval. */
 export const HERO_SLIDE_01_OUTPUT = {
-  /** Install path after generation */
-  publicPath: "/images/generated/mood-hero-slide-01-citrus.png",
-  /** Source drop (Cursor assets) */
-  assetBasename: "mood-hero-slide-01-citrus.png",
+  publicPath: "/images/generated/mood-hero-fruity-collection-lock-v6.png",
+  assetBasename: "mood-hero-fruity-collection-lock-v6.png",
+  width: 1920,
+  height: 1080,
 } as const;
 
 /** Slide 03 — Sleep / dusk calm (INS mood hero series; replaces legacy cinematic). */
