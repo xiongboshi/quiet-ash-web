@@ -1,6 +1,6 @@
 /**
  * Choose your mood — poster backgrounds (4:5).
- * Reference: public/images/generated/mood-posters-reference.png
+ * Reference: INS mood poster grid (generate fresh; no checked-in reference sheet).
  *
  * Series lock: identical camera, crystal scale, stick spec, smoke, lighting.
  * Only background hue + crystal color change per mood.
