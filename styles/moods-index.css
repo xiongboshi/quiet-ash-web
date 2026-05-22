@@ -1,0 +1,1068 @@
+/* /moods — INS mood index mockup (scoped) */
+
+.moods-index {
+  --mood-idx-bg: #f6f1eb;
+  --mood-idx-card: #f9f5f0;
+  --mood-idx-text: #1e1b18;
+  --mood-idx-muted: #7a7268;
+  --mood-idx-line: rgba(0, 0, 0, 0.08);
+  --mood-idx-max: 1920px;
+  --mood-idx-section: 38px;
+  --mood-idx-gap: 22px;
+  --mood-idx-radius: 12px;
+  --mood-idx-ease: 420ms cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  background: var(--mood-idx-bg);
+  color: var(--mood-idx-text);
+  font-family: var(--font-sans), "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  min-height: 100dvh;
+}
+
+.moods-index img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.moods-index a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.moods-index .container {
+  width: 100%;
+  max-width: var(--mood-idx-max);
+  margin-inline: auto;
+  padding-inline: 32px;
+}
+
+.moods-index section {
+  padding-block: var(--mood-idx-section);
+}
+
+.moods-index section.hero {
+  padding-block: 0;
+}
+
+.moods-index .eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mood-idx-muted);
+  margin-bottom: 22px;
+}
+
+.moods-index h1,
+.moods-index h2,
+.moods-index h3 {
+  font-family: var(--font-serif), "Cormorant Garamond", serif;
+  font-weight: 500;
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+}
+
+.moods-index h1 {
+  font-size: clamp(2.75rem, 4.8vw, 3.75rem);
+  max-width: 12ch;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.02;
+}
+
+.moods-index h2 {
+  font-size: 54px;
+}
+
+.moods-index h3 {
+  font-size: 34px;
+}
+
+.moods-index p {
+  line-height: 1.8;
+  color: var(--mood-idx-muted);
+  font-size: 15px;
+}
+
+.moods-index .hero-description {
+  max-width: 420px;
+  margin-top: 24px;
+  font-size: 15px;
+  line-height: 1.75;
+  color: color-mix(in srgb, var(--mood-idx-muted) 92%, var(--mood-idx-text));
+}
+
+.moods-index .small-text {
+  font-size: 13px;
+  color: var(--mood-idx-muted);
+  line-height: 1.7;
+}
+
+/* —— Full-bleed hero —— */
+.moods-index .hero.moods-hero-full {
+  position: relative;
+  width: 100%;
+  height: 680px;
+  overflow: hidden;
+  color: #ffffff;
+}
+
+.moods-index .hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.moods-index .hero-bg > span {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.moods-index .hero-bg img,
+.moods-index .hero-bg .mood-hero-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 52% 50%;
+  filter: brightness(0.88) contrast(0.98) saturate(0.96);
+}
+
+.moods-index .hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.52) 0%,
+    rgba(0, 0, 0, 0.28) 42%,
+    rgba(0, 0, 0, 0.06) 68%,
+    rgba(0, 0, 0, 0.02) 100%
+  );
+}
+
+.moods-index .moods-index-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  width: 100%;
+  border-bottom: none;
+  background: transparent;
+  color: #ffffff;
+}
+
+.moods-index .moods-index-header-inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  min-height: 80px;
+  gap: 24px;
+  padding-block: 20px;
+}
+
+.moods-index .moods-index-logo {
+  justify-self: start;
+  font-family: var(--font-serif), "Cormorant Garamond", serif;
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.moods-index .moods-index-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.5rem;
+}
+
+.moods-index .moods-index-nav a {
+  border-bottom: 1px solid transparent;
+  padding: 0 0 3px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+  transition: opacity var(--mood-idx-ease), border-color var(--mood-idx-ease),
+    color var(--mood-idx-ease);
+}
+
+.moods-index .moods-index-nav a:hover {
+  opacity: 0.7;
+}
+
+.moods-index .moods-index-nav a.is-active {
+  border-bottom-color: #ffffff;
+  color: #ffffff;
+}
+
+.moods-index .moods-index-utilities {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+  color: #ffffff;
+}
+
+.moods-index .moods-index-lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+  cursor: pointer;
+}
+
+.moods-index .moods-index-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: opacity var(--mood-idx-ease);
+}
+
+.moods-index .moods-index-icon-btn:hover {
+  opacity: 0.55;
+}
+
+.moods-index .moods-index-cart {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.moods-index .moods-index-cart-count {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  min-width: 14px;
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 14px;
+  text-align: center;
+  letter-spacing: 0;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.moods-index .hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.moods-index .hero-copy {
+  max-width: 520px;
+  padding-bottom: clamp(16px, 4vh, 32px);
+}
+
+.moods-index .hero .eyebrow {
+  margin-bottom: 18px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.moods-index .hero-copy h1 {
+  color: #ffffff;
+}
+
+.moods-index .hero-description {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.moods-index .hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 32px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #ffffff;
+  transition: opacity var(--mood-idx-ease);
+}
+
+.moods-index .hero-cta:hover {
+  opacity: 0.72;
+}
+
+.moods-index .hero-cta span {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.moods-index .section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 50px;
+  gap: 40px;
+}
+
+.moods-index .section-heading p {
+  max-width: 420px;
+}
+
+/* —— Shop by mood — 6-column INS row —— */
+.moods-index .mood-shop-section {
+  background: var(--mood-idx-bg);
+}
+
+.moods-index .mood-shop-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.moods-index .mood-shop-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--mood-idx-card);
+  transition: transform var(--mood-idx-ease);
+}
+
+.moods-index .mood-shop-card:hover {
+  transform: translateY(-3px);
+}
+
+.moods-index .mood-shop-visual {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: #e5dfd6;
+}
+
+.moods-index .mood-shop-card-icon {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  display: inline-flex;
+  color: #ffffff;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.35));
+}
+
+.moods-index .mood-shop-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 5s ease;
+}
+
+.moods-index .mood-shop-card:hover .mood-shop-photo {
+  transform: scale(1.02);
+}
+
+.moods-index .mood-shop-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 20px 16px 22px;
+}
+
+.moods-index .mood-shop-title {
+  margin: 0 0 10px;
+  font-family: var(--font-serif), "Cormorant Garamond", serif;
+  font-size: clamp(1.35rem, 1.6vw, 1.75rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mood-idx-text);
+}
+
+.moods-index .mood-shop-desc {
+  margin: 0 0 14px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--mood-idx-muted);
+}
+
+.moods-index .mood-shop-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.moods-index .mood-shop-tags span {
+  padding: 7px 11px;
+  border-radius: 999px;
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: color-mix(in srgb, var(--mood-idx-text) 72%, var(--mood-idx-muted));
+  background: color-mix(in srgb, var(--mood-idx-bg) 55%, #ffffff);
+}
+
+.moods-index .mood-shop-explore {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mood-idx-text);
+}
+
+.moods-index .mood-shop-explore span {
+  transition: transform var(--mood-idx-ease);
+}
+
+.moods-index .mood-shop-card:hover .mood-shop-explore span {
+  transform: translateX(4px);
+}
+
+/* —— A Day in Scent — 5-column timeline —— */
+.moods-index .day-in-scent-section {
+  background: #ffffff;
+}
+
+.moods-index .day-in-scent-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.moods-index .day-in-scent-title {
+  margin: 0;
+  font-family: var(--font-sans), "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mood-idx-text);
+}
+
+.moods-index .day-in-scent-subtitle {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--mood-idx-text);
+}
+
+.moods-index .day-in-scent-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 2px;
+}
+
+.moods-index .day-scent-card {
+  position: relative;
+  display: block;
+  min-height: 280px;
+  aspect-ratio: 9 / 10;
+  overflow: hidden;
+  background: #2a2520;
+}
+
+.moods-index .day-scent-photo {
+  object-fit: cover;
+  transition: transform 6s ease;
+}
+
+.moods-index .day-scent-card:hover .day-scent-photo {
+  transform: scale(1.03);
+}
+
+.moods-index .day-scent-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.38) 0%,
+    rgba(0, 0, 0, 0.08) 42%,
+    rgba(0, 0, 0, 0.12) 68%,
+    rgba(0, 0, 0, 0.48) 100%
+  );
+}
+
+.moods-index .day-scent-top,
+.moods-index .day-scent-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 22px 18px;
+  color: #ffffff;
+}
+
+.moods-index .day-scent-top {
+  top: 0;
+}
+
+.moods-index .day-scent-time {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.moods-index .day-scent-name {
+  margin: 0;
+  font-family: var(--font-serif), "Cormorant Garamond", serif;
+  font-size: clamp(1.5rem, 2vw, 1.85rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  color: #ffffff;
+}
+
+.moods-index .day-scent-bottom {
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.moods-index .day-scent-tagline {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.moods-index .day-scent-arrow {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: #ffffff;
+  opacity: 0.95;
+  transition: transform var(--mood-idx-ease), opacity var(--mood-idx-ease);
+}
+
+.moods-index .day-scent-card:hover .day-scent-arrow {
+  transform: translateX(3px);
+  opacity: 1;
+}
+
+/* —— Popular Mood Searches — label + horizontal pills —— */
+.moods-index .mood-popular-searches {
+  background: var(--mood-idx-bg);
+}
+
+.moods-index .mood-popular-searches-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 18px;
+}
+
+.moods-index .mood-popular-label {
+  margin: 0;
+  font-family: var(--font-sans), "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mood-idx-text);
+}
+
+.moods-index .mood-popular-track-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.moods-index .mood-popular-track {
+  display: flex;
+  flex: 1;
+  gap: 12px;
+  min-width: 0;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-block: 2px;
+}
+
+.moods-index .mood-popular-track::-webkit-scrollbar {
+  display: none;
+}
+
+.moods-index .mood-popular-pill {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border: none;
+  border-radius: 6px;
+  background: #f0ebe4;
+  font-family: var(--font-sans), "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  color: var(--mood-idx-text);
+  scroll-snap-align: start;
+  transition: background var(--mood-idx-ease);
+}
+
+.moods-index .mood-popular-pill:hover {
+  background: #ebe4dc;
+}
+
+.moods-index .mood-popular-pill svg {
+  flex-shrink: 0;
+  color: color-mix(in srgb, var(--mood-idx-text) 55%, var(--mood-idx-muted));
+}
+
+.moods-index .mood-popular-scroll-btn {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--mood-idx-text);
+  cursor: pointer;
+  transition: opacity var(--mood-idx-ease);
+}
+
+.moods-index .mood-popular-scroll-btn:hover {
+  opacity: 0.5;
+}
+
+/* —— Evening ritual banner —— */
+.moods-index .mood-ritual-banner-section {
+  background: var(--mood-idx-bg);
+}
+
+.moods-index .mood-ritual-banner {
+  position: relative;
+  min-height: 360px;
+  overflow: hidden;
+  background: #3d352f;
+}
+
+.moods-index .mood-ritual-banner-photo {
+  object-fit: cover;
+  object-position: 55% 50%;
+}
+
+.moods-index .mood-ritual-banner-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.35) 45%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+}
+
+.moods-index .mood-ritual-banner-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.55fr);
+  align-items: center;
+  gap: 48px;
+  min-height: 360px;
+  padding: 48px 56px;
+}
+
+.moods-index .mood-ritual-banner-title {
+  margin: 0 0 16px;
+  font-family: var(--font-serif), "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: 0.01em;
+  color: #ffffff;
+}
+
+.moods-index .mood-ritual-banner-desc {
+  margin: 0 0 28px;
+  max-width: 420px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.moods-index .mood-ritual-banner-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #ffffff;
+  transition: background var(--mood-idx-ease), border-color var(--mood-idx-ease);
+}
+
+.moods-index .mood-ritual-banner-cta:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.75);
+}
+
+.moods-index .mood-ritual-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  justify-self: end;
+  width: min(100%, 220px);
+}
+
+.moods-index .mood-ritual-steps li {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.moods-index .mood-ritual-steps li span:first-child {
+  padding: 14px 0;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.moods-index .mood-ritual-step-line {
+  display: block;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* —— From the Journal — 4-column cards —— */
+.moods-index .mood-journal-section {
+  background: var(--mood-idx-bg);
+}
+
+.moods-index .mood-journal-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.moods-index .mood-journal-heading {
+  margin: 0;
+  font-family: var(--font-sans), "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mood-idx-text);
+}
+
+.moods-index .mood-journal-view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans), "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mood-idx-text);
+  transition: opacity var(--mood-idx-ease);
+}
+
+.moods-index .mood-journal-view-all:hover {
+  opacity: 0.65;
+}
+
+.moods-index .mood-journal-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.moods-index .mood-journal-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.moods-index .mood-journal-visual {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  margin-bottom: 18px;
+  background: #e8e2da;
+}
+
+.moods-index .mood-journal-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 6s ease;
+}
+
+.moods-index .mood-journal-card:hover .mood-journal-photo {
+  transform: scale(1.03);
+}
+
+.moods-index .mood-journal-title {
+  margin: 0 0 10px;
+  font-family: var(--font-serif), "Cormorant Garamond", serif;
+  font-size: clamp(1.15rem, 1.35vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--mood-idx-text);
+}
+
+.moods-index .mood-journal-excerpt {
+  margin: 0 0 14px;
+  font-family: var(--font-sans), "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: color-mix(in srgb, var(--mood-idx-text) 82%, var(--mood-idx-muted));
+}
+
+.moods-index .mood-journal-meta {
+  margin: 0;
+  margin-top: auto;
+  font-family: var(--font-sans), "Inter", sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mood-idx-muted);
+}
+
+/* —— Footer value bar — 4-column icon row —— */
+.moods-index .mood-value-bar-section {
+  border-top: 1px solid var(--mood-idx-line);
+  padding-block: var(--mood-idx-section);
+  background: #f7f5f2;
+}
+
+.moods-index .mood-value-bar-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.moods-index .mood-value-bar-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.moods-index .mood-value-bar-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  color: color-mix(in srgb, var(--mood-idx-text) 88%, var(--mood-idx-muted));
+}
+
+.moods-index .mood-value-bar-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.moods-index .mood-value-bar-title {
+  font-family: var(--font-sans), "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mood-idx-text);
+}
+
+.moods-index .mood-value-bar-desc {
+  font-family: var(--font-sans), "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: color-mix(in srgb, var(--mood-idx-text) 72%, var(--mood-idx-muted));
+}
+
+@media (max-width: 1200px) {
+  .moods-index .moods-index-header-inner {
+    grid-template-columns: 1fr auto;
+  }
+
+  .moods-index .moods-index-nav {
+    display: none;
+  }
+
+  .moods-index .mood-shop-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .moods-index .day-in-scent-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .moods-index .day-scent-card {
+    min-height: 240px;
+  }
+
+  .moods-index .mood-journal-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .moods-index .mood-value-bar-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 24px;
+  }
+
+  .moods-index .mood-ritual-banner-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 40px 32px;
+  }
+
+  .moods-index .mood-ritual-steps {
+    justify-self: start;
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .moods-index .container {
+    padding-inline: 20px;
+  }
+
+  .moods-index .moods-index-header-inner {
+    min-height: 72px;
+  }
+
+  .moods-index .moods-index-logo {
+    font-size: 22px;
+    letter-spacing: 0.22em;
+  }
+
+  .moods-index .moods-index-lang {
+    display: none;
+  }
+
+  .moods-index h1 {
+    font-size: 2.35rem;
+    max-width: none;
+  }
+
+  .moods-index h2 {
+    font-size: 42px;
+  }
+
+  .moods-index h3 {
+    font-size: 28px;
+  }
+
+  .moods-index .hero-copy {
+    padding-bottom: 20px;
+  }
+
+  .moods-index .mood-shop-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .moods-index .mood-shop-body {
+    padding: 16px 14px 18px;
+  }
+
+  .moods-index .day-in-scent-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .moods-index .day-in-scent-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .moods-index .day-scent-card {
+    min-height: 214px;
+    aspect-ratio: 6 / 5;
+  }
+
+  .moods-index .mood-popular-searches-inner {
+    gap: 14px;
+  }
+
+  .moods-index .mood-popular-pill {
+    padding: 12px 16px;
+    font-size: 12px;
+  }
+
+  .moods-index .mood-journal-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .moods-index .mood-journal-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .moods-index .mood-value-bar-list {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .moods-index .mood-ritual-banner {
+    min-height: 420px;
+  }
+
+  .moods-index .mood-ritual-banner-grid {
+    min-height: 420px;
+    padding: 32px 20px;
+  }
+
+  .moods-index .section-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+}

@@ -22,6 +22,7 @@ export function QaHomeProductCard({ item }: Props) {
             fill
             sizes="(max-width: 767px) 100vw, 260px"
             className="object-cover"
+            style={{ objectPosition: item.imageObjectPosition }}
           />
         </div>
         <div className="product-info">
@@ -39,7 +40,7 @@ export function QaHomeProductCard({ item }: Props) {
                 addItem({
                   slug: item.slug,
                   title: item.title,
-                  priceCents: 1800,
+                  priceCents: 3600,
                   image: item.imageSrc,
                   line: item.scentNotes,
                 });

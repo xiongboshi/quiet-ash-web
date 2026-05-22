@@ -6,29 +6,29 @@ export const bestSellerEditorial: Record<
   string,
   { mood: string; scentNotes: string }
 > = {
+  "wood-tray": {
+    mood: "Energy",
+    scentNotes: "Lemon · Bergamot · Mandarin",
+  },
   "brass-incense-stand": {
     mood: "Calm",
-    scentNotes: "White tea · Cedar · Rain",
+    scentNotes: "Jasmine · White Floral · Green Leaves",
   },
   "paper-incense-sleeve": {
     mood: "Focus",
-    scentNotes: "Ink · Sandalwood · Quiet air",
-  },
-  "small-agarwood-box": {
-    mood: "Sleep",
-    scentNotes: "Resin · Warm wood · Dusk",
-  },
-  "wood-tray": {
-    mood: "Energy",
-    scentNotes: "Citrus peel · Green tea · Sun",
+    scentNotes: "Lavender · Clary Sage · Chamomile",
   },
   "ceramic-tea-cup": {
     mood: "Rainy Day",
-    scentNotes: "Wet stone · Rice · Steam",
+    scentNotes: "Rose · Geranium · Palmarosa",
+  },
+  "small-agarwood-box": {
+    mood: "Sleep",
+    scentNotes: "Sandalwood · Cedarwood · Patchouli",
   },
   "linen-cloth": {
     mood: "Calm",
-    scentNotes: "Linen · Soft musk · Morning",
+    scentNotes: "Peach · Apricot · Honey",
   },
 };
 

@@ -1,6 +1,6 @@
 {
   "name": "quietash",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "private": true,
   "scripts": {
     "dev": "next dev -H 0.0.0.0",
@@ -15,6 +15,8 @@
     "images:essay-prompts": "npx --yes tsx scripts/print-essay-image-prompts.ts",
     "images:essays-install": "node scripts/install-essay-images.mjs",
     "images:product-prompts": "npx --yes tsx scripts/print-product-image-prompts.ts",
+    "images:best-seller-prompts": "npx --yes tsx scripts/print-best-seller-image-prompts.ts",
+    "images:best-sellers-align": "node scripts/align-best-seller-frames.mjs",
     "images:hero-prompts": "npx --yes tsx scripts/print-hero-image-prompts.ts",
     "images:hero-install": "node scripts/install-hero-image.mjs",
     "images:products-install": "node scripts/install-product-images.mjs",

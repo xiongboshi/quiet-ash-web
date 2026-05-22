@@ -43,7 +43,8 @@ export function MoodBestSellers() {
                       src={item.imageSrc}
                       alt={item.imageAlt}
                       fill
-                      className="qa-mood-best-photo object-cover object-center"
+                      className="qa-mood-best-photo object-cover"
+                      style={{ objectPosition: item.imageObjectPosition }}
                       sizes="(max-width: 1024px) 50vw, 200px"
                       unoptimized
                     />
