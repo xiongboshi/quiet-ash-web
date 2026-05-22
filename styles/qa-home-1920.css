@@ -430,8 +430,8 @@
 }
 
 .qa-page #best-sellers .product-image img {
-  object-fit: contain;
-  object-position: center center;
+  object-fit: cover;
+  object-position: 50% 42%;
   transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -549,7 +549,7 @@
   flex: 0 0 auto;
   width: 100%;
   aspect-ratio: 2 / 3;
-  background: linear-gradient(180deg, #f7f4f0 0%, #f0ebe5 100%);
+  background: #f0ebe5;
   z-index: 0;
   overflow: hidden;
 }
