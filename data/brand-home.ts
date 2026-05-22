@@ -23,12 +23,12 @@ export const bestSellerEditorial: Record<
     scentNotes: "Rose · Geranium · Palmarosa",
   },
   "small-agarwood-box": {
-    mood: "Sleep",
-    scentNotes: "Sandalwood · Cedarwood · Patchouli",
+    mood: "Calm",
+    scentNotes: "White Tea · Fig · Musk",
   },
   "linen-cloth": {
     mood: "Calm",
-    scentNotes: "Peach · Apricot · Honey",
+    scentNotes: "Peach · Neroli · White Musk",
   },
 };
 

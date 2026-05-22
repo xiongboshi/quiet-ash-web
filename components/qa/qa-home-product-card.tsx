@@ -21,8 +21,7 @@ export function QaHomeProductCard({ item }: Props) {
             alt={item.imageAlt}
             fill
             sizes="(max-width: 767px) 100vw, 260px"
-            className="object-cover"
-            style={{ objectPosition: item.imageObjectPosition }}
+            className="object-contain"
           />
         </div>
         <div className="product-info">
