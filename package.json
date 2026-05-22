@@ -19,7 +19,8 @@
     "images:hero-install": "node scripts/install-hero-image.mjs",
     "images:products-install": "node scripts/install-product-images.mjs",
     "knockout-seal": "node scripts/knockout-quote-seal.mjs",
-    "knockout-mat": "node scripts/knockout-png-mat.mjs"
+    "knockout-mat": "node scripts/knockout-png-mat.mjs",
+    "indexnow:submit": "npx --yes tsx scripts/submit-indexnow.ts"
   },
   "dependencies": {
     "@mdx-js/react": "^3.1.1",
