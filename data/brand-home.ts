@@ -1,4 +1,4 @@
-import { MOODS_INDEX, SHOP_INDEX } from "@/lib/site-paths";
+import { SHOP_INDEX } from "@/lib/site-paths";
 
 /** Homepage — 1920 mockup copy & assets */
 
@@ -36,18 +36,6 @@ export const brandHome = {
   promo: "Free shipping on orders over $50",
   siteTitle: "QUIET ASH",
   siteSubtitle: "INCENSE",
-  nav: {
-    left: [
-      { label: "SHOP", href: SHOP_INDEX },
-      { label: "MOODS", href: MOODS_INDEX },
-      { label: "BEST SELLERS", href: "#best-sellers" },
-      { label: "ABOUT", href: "/about" },
-    ],
-    right: [
-      { label: "SEARCH", href: SHOP_INDEX },
-      { label: "ACCOUNT", href: "/account" },
-    ],
-  },
   hero: {
     backgroundSrc: "/images/generated/mood-hero-ins-mockup-lock.png",
     /** Bust Next/browser cache when hero asset is replaced */
@@ -99,8 +87,8 @@ export const brandHome = {
   moods: {
     heading: "CHOOSE YOUR MOOD",
     eyebrow: "Choose your mood",
-    viewAllLabel: "VIEW ALL MOODS →",
-    viewAllHref: MOODS_INDEX,
+    viewAllLabel: "SHOP ALL →",
+    viewAllHref: SHOP_INDEX,
   },
   moments: {
     heading: "Made for your moments",

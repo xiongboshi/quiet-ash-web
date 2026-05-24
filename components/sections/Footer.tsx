@@ -1,155 +1,98 @@
 import Link from "next/link";
-import { defaultFooter } from "@/data/home";
-import { siteContact } from "@/data/site";
+import { FooterNewsletter } from "@/components/sections/footer-newsletter";
+import { FooterSocialIcons } from "@/components/sections/footer-social-icons";
+import { siteFooter } from "@/data/site-footer";
 
-export type FooterProps = Partial<typeof defaultFooter>;
-
-type FooterLinkItem = {
-  label: string;
-  href: string;
-  external?: boolean;
-};
-
-function FooterLink({
-  item,
-  className,
+function FooterNavLink({
+  href,
+  label,
 }: {
-  item: FooterLinkItem;
-  className: string;
+  href: string;
+  label: string;
 }) {
-  const cls = `qa-cta qa-cta--still ${className}`;
-  const external =
-    item.external ??
-    (/^https?:\/\//i.test(item.href) && !item.href.startsWith("mailto:"));
+  const className = "site-footer__nav-link";
 
-  if (item.href.startsWith("mailto:")) {
+  if (href.startsWith("mailto:")) {
     return (
-      <a
-        href={item.href}
-        className={`${cls} normal-case tracking-[0.04em]`}
-      >
-        {item.label}
-      </a>
-    );
-  }
-
-  if (external) {
-    return (
-      <a
-        href={item.href}
-        className={cls}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {item.label}
+      <a href={href} className={className}>
+        {label}
       </a>
     );
   }
 
   return (
-    <Link href={item.href} className={cls}>
-      {item.label}
+    <Link href={href} className={className}>
+      {label}
     </Link>
   );
 }
 
+type FooterProps = {
+  className?: string;
+};
+
 /**
- * Homepage footer — five-column reference rail; mobile stacks the same order.
+ * Site-wide footer — four-column reference layout (black field).
  */
-export function Footer(props: FooterProps = {}) {
-  const p = {
-    ...defaultFooter,
-    ...props,
-    columns: props.columns ?? defaultFooter.columns,
-  };
-  const year = new Date().getFullYear();
-  const { columns } = p;
-
-  const linkClass =
-    "block font-[family-name:var(--font-sans)] text-[12px] font-normal uppercase tracking-[0.18em] text-[rgba(255,255,255,0.72)] no-underline transition-none";
-
-  const colHeadingClass =
-    "mb-6 font-[family-name:var(--font-sans)] text-[10px] font-normal uppercase tracking-[0.24em] text-[rgba(255,255,255,0.34)]";
-
+export function Footer({ className }: FooterProps) {
   return (
-    <footer className="border-t border-black bg-[#030303] text-[#8a8580]">
-      <div className="mx-auto w-full max-w-[1680px] px-6 pb-[48px] pt-[72px] lg:px-12 lg:pb-14 lg:pt-24">
-        <div className="flex flex-col gap-10 lg:grid lg:grid-cols-[minmax(0,1.45fr)_minmax(0,0.9fr)_minmax(0,0.9fr)_minmax(0,1.25fr)_minmax(0,0.75fr)] lg:gap-x-14 lg:gap-y-0">
-          <div className="max-w-[300px]">
-            <p className="mb-8 font-[family-name:var(--font-serif)] text-[26px] font-light uppercase tracking-[0.32em] text-[rgba(255,255,255,0.55)] lg:mb-0">
-              {p.title}
+    <footer
+      className={["site-footer", className].filter(Boolean).join(" ")}
+      aria-label="Site footer"
+    >
+      <div className="site-footer__inner">
+        <div className="site-footer__grid">
+          <p className="site-footer__logo site-footer__cell--logo">
+            {siteFooter.brand}
+          </p>
+
+          <nav
+            className="site-footer__cell--nav"
+            aria-label="Footer"
+          >
+            <ul className="site-footer__nav-list">
+              {siteFooter.nav.map((item) => (
+                <li key={item.href + item.label}>
+                  <FooterNavLink href={item.href} label={item.label} />
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <p className="site-footer__tagline site-footer__cell--tagline">
+            {siteFooter.tagline}
+          </p>
+
+          <div className="site-footer__cell--newsletter-top">
+            <p className="site-footer__newsletter-lead">
+              {siteFooter.newsletterLead}
             </p>
-            <p className="mb-0 font-[family-name:var(--font-sans)] text-[16px] font-normal leading-[1.75] text-[rgba(255,255,255,0.58)] lg:mt-8">
-              {p.body}
-            </p>
-            <p className="mt-10 font-[family-name:var(--font-sans)] text-[11px] font-normal uppercase leading-[2] tracking-[0.16em] text-[rgba(255,255,255,0.32)] lg:mt-12">
-              © {year} {p.title}. {p.legal}
-            </p>
+            <FooterNewsletter />
           </div>
 
-          <div className="grid grid-cols-2 gap-x-10 sm:gap-x-14 lg:contents">
-            <div className="lg:mt-0">
-              <p className={colHeadingClass}>{columns.shopTitle}</p>
-              <ul className="m-0 flex list-none flex-col gap-0 p-0">
-              {columns.shop.map((item) => (
-                <li key={item.href + item.label}>
-                  <Link
-                    href={item.href}
-                    className={`qa-cta qa-cta--still ${linkClass}`}
-                  >
+          <div className="site-footer__bottom">
+            <p className="site-footer__copyright site-footer__cell--copyright">
+              {siteFooter.copyright}
+            </p>
+
+            <div className="site-footer__social-wrap site-footer__cell--social">
+              <FooterSocialIcons />
+            </div>
+
+            <div className="site-footer__legal-row site-footer__cell--legal">
+              {siteFooter.legal.map((item, index) => (
+                <span key={item.href + item.label} className="site-footer__legal-item">
+                  {index > 0 ? (
+                    <span className="site-footer__legal-sep" aria-hidden>
+                      {" "}
+                    </span>
+                  ) : null}
+                  <Link href={item.href} className="site-footer__legal-link">
                     {item.label}
                   </Link>
-                </li>
+                </span>
               ))}
-            </ul>
-          </div>
-
-          <div className="lg:mt-0">
-            <p className={colHeadingClass}>{columns.infoTitle}</p>
-            <ul className="m-0 flex list-none flex-col gap-0 p-0">
-              {columns.info.map((item) => (
-                <li key={item.href + item.label}>
-                  <FooterLink item={item} className={linkClass} />
-                </li>
-              ))}
-            </ul>
-          </div>
-          </div>
-
-          <div className="max-w-xs lg:mt-0">
-            <p className={colHeadingClass}>{columns.contactTitle}</p>
-            <p className="m-0 font-[family-name:var(--font-sans)] text-[13px] font-normal leading-[1.65] text-[rgba(255,255,255,0.32)]">
-              {columns.contactBlurb}
-            </p>
-            <p className="mt-[18px] mb-[8px] font-[family-name:var(--font-sans)] text-[11px] font-normal uppercase tracking-[0.2em] text-[rgba(255,255,255,0.48)]">
-              {columns.contactLinkTitle}
-            </p>
-            <a
-              href={`mailto:${siteContact.email}`}
-              className="qa-cta qa-cta--still group flex min-h-[42px] items-end gap-3 border-b border-white/10 pb-1 no-underline transition-none hover:text-white"
-              aria-label={`${columns.contactLinkTitle}: ${siteContact.email}`}
-            >
-              <span className="min-w-0 flex-1 break-all font-[family-name:var(--font-sans)] text-[15px] font-normal tracking-[0.02em] text-[rgba(255,255,255,0.72)] normal-case group-hover:text-white">
-                {siteContact.email}
-              </span>
-              <span
-                className="shrink-0 pb-0.5 font-[family-name:var(--font-sans)] text-[11px] tracking-[0.14em] text-[rgba(255,255,255,0.34)] transition-colors group-hover:text-[rgba(255,255,255,0.72)]"
-                aria-hidden
-              >
-                →
-              </span>
-            </a>
-          </div>
-
-          <div className="mt-10 lg:mt-0">
-            <p className={colHeadingClass}>{columns.followTitle}</p>
-            <ul className="m-0 flex list-none flex-col gap-0 p-0">
-              {columns.follow.map((item) => (
-                <li key={item.href + item.label}>
-                  <FooterLink item={item} className={linkClass} />
-                </li>
-              ))}
-            </ul>
+            </div>
           </div>
         </div>
       </div>

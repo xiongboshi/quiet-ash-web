@@ -38,6 +38,17 @@ Scene tables (must align with Constitution — migrate away from pure pastel pac
 Mechanics (ratios, filenames): [docs/image-generation.md](docs/image-generation.md) — taste from Constitution.
 <!-- END:quietash-visual -->
 
+<!-- BEGIN:quietash-icons -->
+## UI icons
+
+Use **[Lucide Icons](https://lucide.dev/icons)** via `lucide-react` for all interface icons (trust bars, cards, buttons, homepage modules). Do not hand-roll SVG paths unless Lucide has no match and the user approves an exception.
+
+```tsx
+import { Truck } from "lucide-react";
+<Truck className="…" strokeWidth={1.2} aria-hidden />
+```
+<!-- END:quietash-icons -->
+
 <!-- BEGIN:nextjs-agent-rules -->
 # This is NOT the Next.js you know
 

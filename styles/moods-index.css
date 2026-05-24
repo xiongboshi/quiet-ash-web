@@ -21,7 +21,7 @@
   min-height: 100dvh;
 }
 
-.moods-index img {
+.moods-index :is(.mood-hero-photo, .mood-shop-photo, .day-scent-photo) {
   width: 100%;
   display: block;
   object-fit: cover;
@@ -55,35 +55,13 @@
   margin-bottom: 22px;
 }
 
-.moods-index h1,
-.moods-index h2,
-.moods-index h3 {
-  font-family: var(--font-serif), "Cormorant Garamond", serif;
-  font-weight: 500;
-  line-height: 0.96;
-  letter-spacing: -0.02em;
-}
-
 .moods-index h1 {
+  font-family: var(--font-serif), "Cormorant Garamond", serif;
+  font-weight: 400;
   font-size: clamp(2.75rem, 4.8vw, 3.75rem);
   max-width: 12ch;
-  font-weight: 400;
-  letter-spacing: -0.01em;
   line-height: 1.02;
-}
-
-.moods-index h2 {
-  font-size: 54px;
-}
-
-.moods-index h3 {
-  font-size: 34px;
-}
-
-.moods-index p {
-  line-height: 1.8;
-  color: var(--mood-idx-muted);
-  font-size: 15px;
+  letter-spacing: -0.01em;
 }
 
 .moods-index .hero-description {
@@ -658,213 +636,6 @@
   opacity: 0.5;
 }
 
-/* —— Evening ritual banner —— */
-.moods-index .mood-ritual-banner-section {
-  background: var(--mood-idx-bg);
-}
-
-.moods-index .mood-ritual-banner {
-  position: relative;
-  min-height: 360px;
-  overflow: hidden;
-  background: #3d352f;
-}
-
-.moods-index .mood-ritual-banner-photo {
-  object-fit: cover;
-  object-position: 55% 50%;
-}
-
-.moods-index .mood-ritual-banner-scrim {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0.55) 0%,
-    rgba(0, 0, 0, 0.35) 45%,
-    rgba(0, 0, 0, 0.2) 100%
-  );
-}
-
-.moods-index .mood-ritual-banner-grid {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.55fr);
-  align-items: center;
-  gap: 48px;
-  min-height: 360px;
-  padding: 48px 56px;
-}
-
-.moods-index .mood-ritual-banner-title {
-  margin: 0 0 16px;
-  font-family: var(--font-serif), "Cormorant Garamond", serif;
-  font-size: clamp(2rem, 3.2vw, 2.75rem);
-  font-weight: 400;
-  line-height: 1.08;
-  letter-spacing: 0.01em;
-  color: #ffffff;
-}
-
-.moods-index .mood-ritual-banner-desc {
-  margin: 0 0 28px;
-  max-width: 420px;
-  font-size: 15px;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.moods-index .mood-ritual-banner-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 22px;
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #ffffff;
-  transition: background var(--mood-idx-ease), border-color var(--mood-idx-ease);
-}
-
-.moods-index .mood-ritual-banner-cta:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.75);
-}
-
-.moods-index .mood-ritual-steps {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  justify-self: end;
-  width: min(100%, 220px);
-}
-
-.moods-index .mood-ritual-steps li {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-}
-
-.moods-index .mood-ritual-steps li span:first-child {
-  padding: 14px 0;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0.04em;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.95);
-}
-
-.moods-index .mood-ritual-step-line {
-  display: block;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.35);
-}
-
-/* —— From the Journal — 4-column cards —— */
-.moods-index .mood-journal-section {
-  background: var(--mood-idx-bg);
-}
-
-.moods-index .mood-journal-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 24px;
-  margin-bottom: 28px;
-}
-
-.moods-index .mood-journal-heading {
-  margin: 0;
-  font-family: var(--font-sans), "Inter", sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--mood-idx-text);
-}
-
-.moods-index .mood-journal-view-all {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-sans), "Inter", sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--mood-idx-text);
-  transition: opacity var(--mood-idx-ease);
-}
-
-.moods-index .mood-journal-view-all:hover {
-  opacity: 0.65;
-}
-
-.moods-index .mood-journal-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.moods-index .mood-journal-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.moods-index .mood-journal-visual {
-  position: relative;
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-  margin-bottom: 18px;
-  background: #e8e2da;
-}
-
-.moods-index .mood-journal-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 6s ease;
-}
-
-.moods-index .mood-journal-card:hover .mood-journal-photo {
-  transform: scale(1.03);
-}
-
-.moods-index .mood-journal-title {
-  margin: 0 0 10px;
-  font-family: var(--font-serif), "Cormorant Garamond", serif;
-  font-size: clamp(1.15rem, 1.35vw, 1.5rem);
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  color: var(--mood-idx-text);
-}
-
-.moods-index .mood-journal-excerpt {
-  margin: 0 0 14px;
-  font-family: var(--font-sans), "Inter", sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.55;
-  color: color-mix(in srgb, var(--mood-idx-text) 82%, var(--mood-idx-muted));
-}
-
-.moods-index .mood-journal-meta {
-  margin: 0;
-  margin-top: auto;
-  font-family: var(--font-sans), "Inter", sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--mood-idx-muted);
-}
-
 /* —— Footer value bar — 4-column icon row —— */
 .moods-index .mood-value-bar-section {
   border-top: 1px solid var(--mood-idx-line);
@@ -944,27 +715,11 @@
     min-height: 240px;
   }
 
-  .moods-index .mood-journal-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
-  }
-
   .moods-index .mood-value-bar-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 28px 24px;
   }
 
-  .moods-index .mood-ritual-banner-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    padding: 40px 32px;
-  }
-
-  .moods-index .mood-ritual-steps {
-    justify-self: start;
-    width: 100%;
-    max-width: 280px;
-  }
 }
 
 @media (max-width: 768px) {
@@ -988,14 +743,6 @@
   .moods-index h1 {
     font-size: 2.35rem;
     max-width: none;
-  }
-
-  .moods-index h2 {
-    font-size: 42px;
-  }
-
-  .moods-index h3 {
-    font-size: 28px;
   }
 
   .moods-index .hero-copy {
@@ -1035,29 +782,9 @@
     font-size: 12px;
   }
 
-  .moods-index .mood-journal-head {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
-
-  .moods-index .mood-journal-grid {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-
   .moods-index .mood-value-bar-list {
     grid-template-columns: 1fr;
     gap: 22px;
-  }
-
-  .moods-index .mood-ritual-banner {
-    min-height: 420px;
-  }
-
-  .moods-index .mood-ritual-banner-grid {
-    min-height: 420px;
-    padding: 32px 20px;
   }
 
   .moods-index .section-heading {

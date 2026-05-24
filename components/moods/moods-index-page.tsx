@@ -1,11 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { MoodsIndexHeader } from "@/components/moods/moods-index-header";
+import { siteRailExemptClass } from "@/lib/site-rail";
 import { MoodsIndexDayInScent } from "@/components/moods/moods-index-day-in-scent";
 import { MoodsIndexMoodGrid } from "@/components/moods/moods-index-mood-grid";
-import { MoodsIndexJournal } from "@/components/moods/moods-index-journal";
+import { MoodRitualSleepJournal } from "@/components/moods/mood-ritual-sleep-journal";
 import { MoodsIndexPopularSearches } from "@/components/moods/moods-index-popular-searches";
-import { MoodsIndexRitualBanner } from "@/components/moods/moods-index-ritual-banner";
 import { MoodsIndexValueBar } from "@/components/moods/moods-index-value-bar";
 import {
   moodsIndexCards,
@@ -13,14 +12,14 @@ import {
   moodsIndexHero,
   moodsIndexJournal,
   moodsIndexPopularSearches,
-  moodsIndexRitualBanner,
   moodsIndexValueBar,
 } from "@/data/moods-index";
 
 export function MoodsIndexPage() {
   return (
+    <>
     <div className="moods-index">
-      <section className="hero moods-hero-full">
+      <section className={`hero moods-hero-full ${siteRailExemptClass}`}>
         <div className="hero-bg">
           <Image
             src={moodsIndexHero.imageSrc}
@@ -32,7 +31,6 @@ export function MoodsIndexPage() {
           />
         </div>
         <div className="hero-overlay" aria-hidden />
-        <MoodsIndexHeader />
         <div className="container hero-content">
           <div className="hero-copy">
             <div className="eyebrow">{moodsIndexHero.eyebrow}</div>
@@ -63,22 +61,14 @@ export function MoodsIndexPage() {
         pills={moodsIndexPopularSearches.pills}
       />
 
-      <MoodsIndexRitualBanner
-        imageSrc={moodsIndexRitualBanner.imageSrc}
-        imageAlt={moodsIndexRitualBanner.imageAlt}
-        title={moodsIndexRitualBanner.title}
-        description={moodsIndexRitualBanner.description}
-        cta={moodsIndexRitualBanner.cta}
-        steps={moodsIndexRitualBanner.steps}
-      />
+    </div>
 
-      <MoodsIndexJournal
-        title={moodsIndexJournal.title}
-        viewAllLabel={moodsIndexJournal.viewAllLabel}
-        articles={moodsIndexJournal.articles}
-      />
+    {/* Outside .moods-index so INS typography/img rules cannot override ritual journal */}
+    <MoodRitualSleepJournal {...moodsIndexJournal} />
 
+    <div className="moods-index">
       <MoodsIndexValueBar items={moodsIndexValueBar} />
     </div>
+    </>
   );
 }

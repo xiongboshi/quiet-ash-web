@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { JOURNAL_INDEX, MOODS_INDEX, SHOP_INDEX } from "@/lib/site-paths";
+import { JOURNAL_INDEX, SHOP_INDEX } from "@/lib/site-paths";
 import { MoodMobileMenu } from "@/components/mood/mood-mobile-menu";
 import { MoodProductCartButton } from "@/components/mood/mood-product-purchase";
 
@@ -23,11 +23,11 @@ export function MoodProductHeader() {
           <Link href={SHOP_INDEX} className={navLink}>
             Shop
           </Link>
-          <Link href={MOODS_INDEX} className={navLink}>
-            Moods
-          </Link>
           <Link href={JOURNAL_INDEX} className={navLink}>
             Journal
+          </Link>
+          <Link href="/about" className={navLink}>
+            Our Story
           </Link>
         </nav>
 

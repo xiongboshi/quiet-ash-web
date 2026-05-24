@@ -6,9 +6,10 @@ import { useEffect, useRef } from "react";
 
 type Props = {
   children: React.ReactNode;
+  className?: string;
 };
 
-export function PageTransition({ children }: Props) {
+export function PageTransition({ children, className }: Props) {
   const pathname = usePathname();
   const reduceMotion = useReducedMotion();
   const hasEntered = useRef(false);
@@ -23,7 +24,7 @@ export function PageTransition({ children }: Props) {
     <AnimatePresence mode="wait">
       <motion.div
         key={pathname}
-        className="min-h-dvh w-full min-w-0 max-w-full overflow-x-clip"
+        className={`min-h-dvh w-full min-w-0 max-w-full overflow-x-clip${className ? ` ${className}` : ""}`}
         initial={fadeOnEnter ? { opacity: 0 } : false}
         animate={{ opacity: 1 }}
         exit={reduceMotion ? undefined : { opacity: 0 }}

@@ -16,6 +16,7 @@ import {
 } from "@/lib/essays";
 import { getSeriesBySlug } from "@/lib/series";
 import { JOURNAL_INDEX, journalPath } from "@/lib/site-paths";
+import { siteRailExemptClass } from "@/lib/site-rail";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -66,7 +67,7 @@ export default async function JournalArticlePage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <article className="qa-article-shell w-full">
-        <Container variant="wide">
+        <Container variant="wide" className={siteRailExemptClass}>
           <div className="mb-6 lg:mb-8">
             <EditorialBackLink fallbackHref={JOURNAL_INDEX} />
           </div>

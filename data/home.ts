@@ -1,5 +1,5 @@
 import { siteContact } from "@/data/site";
-import { SHOP_INDEX } from "@/lib/site-paths";
+import { JOURNAL_INDEX, SHOP_INDEX } from "@/lib/site-paths";
 
 /**
  * Homepage + chrome copy — data-driven; ritual bodies live in `content/rituals`.
@@ -20,7 +20,7 @@ export const defaultHero = {
   title: "Stillness shaped by incense",
   tagline:
     "A quiet archive for incense ritual, agarwood, and the slow life around smoke.",
-  primaryCta: { label: "EXPLORE RITUALS", href: "/moods" },
+  primaryCta: { label: "EXPLORE RITUALS", href: `/moods/${homeFeaturedRitualSlug}` },
   secondaryCta: { label: "Shop", href: SHOP_INDEX },
 } as const;
 
@@ -90,12 +90,11 @@ export const defaultFooter = {
     shopTitle: "Shop",
     shop: [
       { label: "Shop", href: SHOP_INDEX },
-      { label: "Moods", href: "/moods" },
-      { label: "Journal", href: "/journal" },
+      { label: "Journal", href: JOURNAL_INDEX },
     ],
     infoTitle: "Info",
     info: [
-      { label: "Info", href: "/about" },
+      { label: "Our Story", href: "/about" },
       { label: "Delivery", href: "/delivery" },
       { label: "Care", href: "/care" },
       { label: "Returns", href: "/returns" },

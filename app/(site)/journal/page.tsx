@@ -1,18 +1,14 @@
 import type { Metadata } from "next";
-import {
-  JournalArchiveIndex,
-  buildJournalArchiveMetadata,
-  type JournalArchiveIndexProps,
-} from "@/lib/journal-archive-index";
+import { JournalIndexPage } from "@/components/journal/journal-index-page";
+import { journalIndexHero } from "@/data/journal-index";
+import { JOURNAL_INDEX } from "@/lib/site-paths";
 
-export const dynamic = "force-dynamic";
+export const metadata: Metadata = {
+  title: "Journal",
+  description: journalIndexHero.descriptionLines.join(" "),
+  alternates: { canonical: JOURNAL_INDEX },
+};
 
-export async function generateMetadata(
-  props: JournalArchiveIndexProps,
-): Promise<Metadata> {
-  return buildJournalArchiveMetadata(props);
-}
-
-export default function JournalPage(props: JournalArchiveIndexProps) {
-  return <JournalArchiveIndex {...props} />;
+export default function JournalPage() {
+  return <JournalIndexPage />;
 }

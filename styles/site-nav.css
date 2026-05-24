@@ -1,0 +1,157 @@
+/**
+ * Global site nav
+ * - Homepage (`--overlay`): absolute, transparent, over hero
+ * - Inner pages (`--stacked`): in document flow at top, white bar + bottom border
+ */
+
+:root {
+  --site-nav-ink: #1a1816;
+  --site-nav-ink-strong: #0d0d0d;
+  /* Inner nav — warm off-white, hint of beige */
+  --site-nav-bar-bg: #faf8f4;
+  --site-nav-bar-line: #e8e4dc;
+}
+
+.site-page-shell {
+  position: relative;
+  width: 100%;
+  min-height: 100dvh;
+}
+
+/* qa-page on chrome is for nav typography only — do not clip navbar */
+.site-nav-chrome.qa-page {
+  overflow: visible;
+}
+
+/* —— Homepage overlay —— */
+.site-nav-chrome--overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
+  width: 100%;
+  min-height: 88px;
+  pointer-events: none;
+  background: transparent;
+}
+
+.site-nav-chrome--overlay .navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  border-bottom: none;
+  backdrop-filter: none;
+  pointer-events: auto;
+}
+
+/* Drawer is outside .navbar — must opt back into hits on overlay homepage */
+.site-nav-chrome--overlay .qa-mobile-panel--open {
+  pointer-events: auto;
+}
+
+/* —— Inner pages: top bar in flow —— */
+.site-nav-chrome--stacked {
+  position: relative;
+  z-index: 100;
+  flex-shrink: 0;
+  width: 100%;
+  pointer-events: auto;
+  background: var(--site-nav-bar-bg);
+  border-bottom: 1px solid var(--site-nav-bar-line);
+}
+
+.site-nav-chrome--stacked .navbar {
+  position: relative;
+  top: auto;
+  left: auto;
+  width: 100%;
+  background: transparent;
+  border-bottom: none;
+  backdrop-filter: none;
+  pointer-events: auto;
+}
+
+/* Inner pages — dark type */
+.site-nav-chrome.site-nav-chrome--ink .navbar {
+  color: var(--site-nav-ink);
+}
+
+.site-nav-chrome.site-nav-chrome--ink .nav-center a,
+.site-nav-chrome.site-nav-chrome--ink .nav-brand,
+.site-nav-chrome.site-nav-chrome--ink .nav-brand__text,
+.site-nav-chrome.site-nav-chrome--ink .nav-icon-btn {
+  color: var(--site-nav-ink);
+}
+
+.site-nav-chrome.site-nav-chrome--ink .nav-mobile-toggle {
+  color: var(--site-nav-ink);
+  border-color: color-mix(in srgb, var(--site-nav-ink) 32%, transparent);
+}
+
+/* Homepage — dark type over hero */
+.site-nav-chrome.site-nav-chrome--overlay .navbar {
+  color: var(--site-nav-ink-strong);
+}
+
+.site-nav-chrome.site-nav-chrome--overlay .nav-center a,
+.site-nav-chrome.site-nav-chrome--overlay .nav-brand,
+.site-nav-chrome.site-nav-chrome--overlay .nav-brand__text,
+.site-nav-chrome.site-nav-chrome--overlay .nav-icon-btn {
+  color: var(--site-nav-ink-strong);
+}
+
+.site-nav-chrome.site-nav-chrome--overlay .nav-mobile-toggle {
+  color: var(--site-nav-ink-strong);
+  border-color: color-mix(in srgb, var(--site-nav-ink-strong) 32%, transparent);
+}
+
+.site-nav-chrome.site-nav-chrome--overlay .nav-cart-badge {
+  background: var(--site-nav-ink-strong);
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .site-nav-chrome.site-nav-chrome--ink .nav-mobile-toggle {
+    color: var(--site-nav-ink);
+    border-color: color-mix(in srgb, var(--site-nav-ink) 32%, transparent);
+  }
+
+  .site-nav-chrome.site-nav-chrome--overlay .nav-mobile-toggle {
+    color: var(--site-nav-ink-strong);
+    border-color: color-mix(in srgb, var(--site-nav-ink-strong) 32%, transparent);
+  }
+
+  /* Keep hamburger above the dimmed drawer; cart hides while menu is open */
+  .site-nav-chrome--overlay .navbar {
+    z-index: 65;
+  }
+
+  .site-nav-chrome--menu-open .nav-icon-btn--cart {
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .site-nav-chrome--menu-open .nav-mobile-toggle {
+    position: relative;
+    z-index: 72;
+  }
+
+  .site-nav-chrome--menu-open .qa-mobile-panel--open {
+    z-index: 70;
+  }
+}
+
+.site-page-shell > .min-h-dvh {
+  position: relative;
+  z-index: 1;
+}
+
+.site-layout-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}

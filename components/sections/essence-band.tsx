@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Fragment } from "react";
+import { siteRailExemptClass } from "@/lib/site-rail";
 
 export type EssenceBandProps = {
   eyebrow: string;
@@ -29,7 +30,9 @@ export function EssenceBand({
     : "(max-width: 1024px) 100vw, min(1280px, 55vw)";
 
   return (
-    <section className="overflow-x-clip border-t border-[#DDD7CF] bg-paper py-0">
+    <section
+      className={`${siteRailExemptClass} overflow-x-clip border-t border-[#DDD7CF] bg-paper py-0`}
+    >
       <div className="mx-auto grid max-w-[var(--qa-container-width)] grid-cols-1 items-stretch gap-0 lg:grid-cols-[minmax(0,380px)_minmax(0,1fr)] lg:min-h-[min(560px,58svh)]">
         <div className="max-w-[min(100%,420px)] px-4 py-6 sm:px-6 sm:py-8 md:max-w-[min(100%,36rem)] lg:max-w-[380px] lg:px-12 lg:py-10">
           <p className="mb-5 font-[family-name:var(--font-sans)] text-[12px] font-medium uppercase tracking-[0.22em] text-[#6F6A63]">

@@ -6,7 +6,6 @@ import { getRitualSlugs } from "@/lib/rituals";
 import { getSiteUrl } from "@/lib/site-url";
 import {
   JOURNAL_INDEX,
-  MOODS_INDEX,
   SHOP_INDEX,
   journalPath,
   moodPath,
@@ -21,12 +20,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/`, lastModified: now, changeFrequency: "weekly", priority: 1 },
     {
       url: `${base}${JOURNAL_INDEX}`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${base}${MOODS_INDEX}`,
       lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,

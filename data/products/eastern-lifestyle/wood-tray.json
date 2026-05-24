@@ -1,34 +1,20 @@
 {
   "slug": "wood-tray",
-  "title": "Quiet Desk Tray",
-  "material": "Charcoal Oak",
-  "origin": "Korea",
-  "line": "For papers, incense, or notes.",
-  "priceDisplay": "$145",
-  "image": "/images/generated/products/wood-tray/hero.png",
-  "universe": "wood",
+  "title": "Citrus Grove Incense Sticks",
+  "material": "Natural incense",
+  "origin": "Small batch",
+  "line": "Bright • Uplifting • Fresh",
+  "priceDisplay": "$18.00",
+  "image": "/images/generated/best-sellers/citrus-grove-v5.png",
+  "universe": "ritual",
   "seriesSlugs": ["incense-culture", "ash-and-time"],
   "featured": true,
-  "description": "A shallow tray that gathers what the day scattered — oak oiled to a soft charcoal, edges eased for hands that move slowly.",
-  "dimensions": "38cm x 24cm x H2.5cm",
-  "finish": "Food-safe oil",
-  "care": "Wipe with dry cloth; re-oil occasionally",
+  "description": "A refreshing blend of sun-ripened citrus, delicate florals, and green leaves. Awakens your senses and brightens your space.",
   "gallery": [
-    "/images/generated/products/wood-tray/hero.png",
-    "/images/generated/products/wood-tray/gallery-01.png",
-    "/images/generated/products/wood-tray/gallery-02.png",
-    "/images/generated/products/wood-tray/gallery-03.png",
-    "/images/generated/products/wood-tray/gallery-04.png"
-  ],
-  "narrativeTitle": "A perimeter for the desk — nothing leaves without intention.",
-  "narrativeBody": "Oak darkens where hands rest; the grain keeps score of evenings without commentary.",
-  "narrativeImage": "/images/generated/products/wood-tray/narrative.png",
-  "pairsWith": ["brass-incense-stand", "ceramic-tea-cup", "linen-cloth"],
-  "atmosphereQuote": "Order is not rigidity — it is room for the ritual to begin.",
-  "atmosphereImage": "/images/generated/products/wood-tray/atmosphere.png",
-  "relatedEssaySlugs": [
-    "incense-ink-silence",
-    "why-scholars-burned-incense",
-    "night-incense-ritual"
+    "/images/generated/best-sellers/citrus-grove-v5.png",
+    "/images/generated/best-sellers/citrus-grove-v4.png",
+    "/images/generated/best-sellers/citrus-grove-v3.png",
+    "/images/generated/best-sellers/citrus-grove.png",
+    "/images/generated/best-sellers/citrus-grove-v5.png"
   ]
 }

@@ -2,12 +2,27 @@ import Image from "next/image";
 import { SHOP_INDEX, shopPath } from "@/lib/site-paths";
 import Link from "next/link";
 import { EditorialBackLink } from "@/components/editorial/editorial-back-link";
-import type { CatalogProduct } from "@/lib/catalog";
+import { getProductBySlug, type CatalogProduct } from "@/lib/catalog";
 import type { Essay } from "@/lib/essays";
 import type { Ritual } from "@/lib/rituals";
 import { RitualBody } from "@/components/mdx/ritual-body";
 import { Container } from "@/components/layout/container";
 import { PageShell } from "@/components/layout/page-shell";
+import { getMoodRitualHero } from "@/data/mood-ritual-heroes";
+import {
+  getMoodRitualPopularSearches,
+  getMoodRitualSleepIncense,
+  getMoodRitualEveningCta,
+  getMoodRitualSleepJournal,
+  getMoodRitualSleepRitual,
+} from "@/data/mood-ritual-sections";
+import { MoodRitualEveningCta } from "@/components/moods/mood-ritual-evening-cta";
+import { MoodRitualPopularSearches } from "@/components/moods/mood-ritual-popular-searches";
+import { MoodRitualSleepIncense } from "@/components/moods/mood-ritual-sleep-incense";
+import { MoodRitualSleepJournal } from "@/components/moods/mood-ritual-sleep-journal";
+import { MoodRitualSleepRitual } from "@/components/moods/mood-ritual-sleep-ritual";
+import { MoodRitualSplitHero } from "@/components/moods/mood-ritual-split-hero";
+import { siteRailExemptClass } from "@/lib/site-rail";
 
 function productMetaLine(p: CatalogProduct): string {
   const bits = [p.material, p.origin].filter(Boolean);
@@ -50,62 +65,102 @@ export function RitualEditorialLayout({
   const ritualSectionLabel = ritual.ritualSectionLabel;
   const objectsSection = ritual.objectsSection;
 
+  const moodHero = getMoodRitualHero(ritual.slug);
+  const moodPopularSearches = getMoodRitualPopularSearches(ritual.slug);
+  const moodSleepRitual = getMoodRitualSleepRitual(ritual.slug);
+  const moodSleepIncense = getMoodRitualSleepIncense(ritual.slug);
+  const moodSleepJournal = getMoodRitualSleepJournal(ritual.slug);
+  const moodEveningCta = getMoodRitualEveningCta(ritual.slug);
+  const sleepIncenseProducts = moodSleepIncense
+    ? new Map(
+        moodSleepIncense.items
+          .map((item) => {
+            const product = getProductBySlug(item.slug);
+            return product ? ([item.slug, product] as const) : null;
+          })
+          .filter((entry): entry is [string, CatalogProduct] => Boolean(entry)),
+      )
+    : undefined;
+  const useMoodEditorialShell = Boolean(moodHero);
+  const showLegacyContainer =
+    !useMoodEditorialShell ||
+    !moodEveningCta ||
+    Boolean(products.length && !moodSleepIncense);
   const heroBleedW =
     "lg:w-[calc(100%+max(0px,((100vw-var(--qa-container-width))/2)))] lg:max-w-none";
 
   return (
     <PageShell className="!pt-0 !pb-0">
       <article className="qa-ritual-editorial w-full bg-[var(--qa-bg)] text-[var(--qa-text)]">
-        {/* Hero — ~380px text rail / wide image; image bleeds to viewport right; global nav is SiteHeader */}
-        <section className="overflow-x-clip bg-[var(--qa-bg)]">
-          <div className="mx-auto grid max-w-[var(--qa-container-width)] grid-cols-1 items-stretch lg:grid-cols-[minmax(0,380px)_minmax(0,1fr)] lg:min-h-[min(640px,min(70svh,720px))]">
-            <figure
-              className={`relative order-1 aspect-[16/11] min-h-[min(240px,58vw)] w-full overflow-hidden bg-[#161210] sm:aspect-[16/9] lg:col-start-2 lg:row-start-1 lg:aspect-auto lg:min-h-0 lg:h-full ${heroBleedW}`}
-            >
-              <Image
-                src={heroSrc}
-                alt=""
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 72vw"
-                unoptimized
-                className="object-cover object-center brightness-[0.92] contrast-[1.02] saturate-[0.88]"
+        {moodHero ? (
+          <>
+            <MoodRitualSplitHero spec={moodHero} />
+            {moodPopularSearches ? (
+              <MoodRitualPopularSearches {...moodPopularSearches} />
+            ) : null}
+            {moodSleepRitual ? <MoodRitualSleepRitual {...moodSleepRitual} /> : null}
+            {moodSleepIncense ? (
+              <MoodRitualSleepIncense
+                {...moodSleepIncense}
+                productsBySlug={sleepIncenseProducts ?? new Map()}
               />
-            </figure>
+            ) : null}
+            {moodSleepJournal ? <MoodRitualSleepJournal {...moodSleepJournal} /> : null}
+            {moodEveningCta ? <MoodRitualEveningCta {...moodEveningCta} /> : null}
+          </>
+        ) : (
+          <section className={`${siteRailExemptClass} overflow-x-clip bg-[var(--qa-bg)]`}>
+            <div className="mx-auto grid max-w-[var(--qa-container-width)] grid-cols-1 items-stretch lg:grid-cols-[minmax(0,380px)_minmax(0,1fr)] lg:min-h-[min(640px,min(70svh,720px))]">
+              <figure
+                className={`relative order-1 aspect-[16/11] min-h-[min(240px,58vw)] w-full overflow-hidden bg-[#161210] sm:aspect-[16/9] lg:col-start-2 lg:row-start-1 lg:aspect-auto lg:min-h-0 lg:h-full ${heroBleedW}`}
+              >
+                <Image
+                  src={heroSrc}
+                  alt=""
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 72vw"
+                  unoptimized
+                  className="object-cover object-center brightness-[0.92] contrast-[1.02] saturate-[0.88]"
+                />
+              </figure>
 
-            <header className="order-2 flex min-w-0 flex-col px-4 py-8 sm:px-6 sm:py-10 lg:col-start-1 lg:row-start-1 lg:h-full lg:min-h-0 lg:px-12 lg:py-10">
-              <EditorialBackLink fallbackHref="/moods" />
-              <div className="mt-8 flex min-h-0 flex-1 flex-col justify-center lg:mt-10">
-                <p className="m-0 font-[family-name:var(--font-sans)] text-[11px] font-medium uppercase tracking-[0.22em] text-[#6f6a63]">
-                  {eyebrow}
-                </p>
-                <h1 className="mt-4 max-w-full font-[family-name:var(--font-serif)] text-[clamp(2.25rem,4.8vw,3.35rem)] font-light leading-[1.08] tracking-[-0.04em] text-[#1a1816] text-pretty">
-                  {ritual.title}
-                </h1>
-                <div className="mt-8 max-h-[12.5rem] max-w-[36ch] overflow-hidden font-[family-name:var(--font-serif)] text-[clamp(1.05rem,1.9vw,1.2rem)] font-light leading-[1.55] tracking-[-0.02em] text-[#342e29]">
-                  {excerptLines.map((line, i) => (
-                    <p key={i} className="m-0 mb-3 line-clamp-3 last:mb-0">
-                      {line}
-                    </p>
-                  ))}
+              <header className="order-2 flex min-w-0 flex-col px-4 py-8 sm:px-6 sm:py-10 lg:col-start-1 lg:row-start-1 lg:h-full lg:min-h-0 lg:px-12 lg:py-10">
+                <EditorialBackLink fallbackHref="/journal" />
+                <div className="mt-8 flex min-h-0 flex-1 flex-col justify-center lg:mt-10">
+                  <p className="m-0 font-[family-name:var(--font-sans)] text-[11px] font-medium uppercase tracking-[0.22em] text-[#6f6a63]">
+                    {eyebrow}
+                  </p>
+                  <h1 className="mt-4 max-w-full font-[family-name:var(--font-serif)] text-[clamp(2.25rem,4.8vw,3.35rem)] font-light leading-[1.08] tracking-[-0.04em] text-[#1a1816] text-pretty">
+                    {ritual.title}
+                  </h1>
+                  <div className="mt-8 max-h-[12.5rem] max-w-[36ch] overflow-hidden font-[family-name:var(--font-serif)] text-[clamp(1.05rem,1.9vw,1.2rem)] font-light leading-[1.55] tracking-[-0.02em] text-[#342e29]">
+                    {excerptLines.map((line, i) => (
+                      <p key={i} className="m-0 mb-3 line-clamp-3 last:mb-0">
+                        {line}
+                      </p>
+                    ))}
+                  </div>
                 </div>
-              </div>
-              <p className="mt-10 font-[family-name:var(--font-sans)] text-[11px] font-normal uppercase tracking-[0.2em] text-[#1a1716] lg:mt-auto lg:pt-10">
-                <span className="border-b border-[color-mix(in_srgb,#1a1716_35%,transparent)] pb-0.5">
-                  READ TIME {readMin} MIN
-                </span>
-              </p>
-            </header>
-          </div>
-        </section>
+                <p className="mt-10 font-[family-name:var(--font-sans)] text-[11px] font-normal uppercase tracking-[0.2em] text-[#1a1716] lg:mt-auto lg:pt-10">
+                  <span className="border-b border-[color-mix(in_srgb,#1a1716_35%,transparent)] pb-0.5">
+                    READ TIME {readMin} MIN
+                  </span>
+                </p>
+              </header>
+            </div>
+          </section>
+        )}
 
+        {showLegacyContainer ? (
         <Container
           variant="wide"
           className="pb-0 pt-0"
         >
           {/* Intro — spec: editorial poem left (~2/3 rail), 3:2 inset ~1/3 width flush right, airy vertical padding */}
+          {!useMoodEditorialShell ? (
           <div className="w-full border-t border-[#ddd7cf] pt-[clamp(4rem,10vw,6.5rem)] pb-[28px]">
-            <div className="mx-auto flex w-full max-w-[min(100%,88rem)] flex-col gap-12 lg:flex-row lg:items-start lg:justify-between lg:gap-x-[clamp(1.5rem,4vw,3.5rem)]">
+            <div className="mx-auto flex w-full max-w-[min(100%,var(--qa-container-width))] flex-col gap-12 lg:flex-row lg:items-start lg:justify-between lg:gap-x-[clamp(1.5rem,4vw,3.5rem)]">
               <div className="markdown markdown--ritual-intro min-h-0 min-w-0 lg:max-w-[min(48rem,calc(66.666%-1rem))] lg:flex-1">
                 <RitualBody source={ritual.body} />
               </div>
@@ -121,11 +176,13 @@ export function RitualEditorialLayout({
               </figure>
             </div>
           </div>
+          ) : null}
 
           {/* The ritual — equal column heights, thumbs bottom-aligned */}
-          {steps.length ? (
+          {steps.length && !useMoodEditorialShell ? (
             <section
-              className="mx-auto mt-0 max-w-[min(100%,88rem)] border-t border-[#ddd7cf] pt-[18px]"
+              id="the-ritual"
+              className="mx-auto mt-0 max-w-[min(100%,var(--qa-container-width))] border-t border-[#ddd7cf] pt-[18px]"
               aria-label={ritualSectionLabel}
             >
               <p className="m-0 font-[family-name:var(--font-sans)] text-[11px] font-medium uppercase tracking-[0.22em] text-[#6f6a63]">
@@ -167,9 +224,9 @@ export function RitualEditorialLayout({
             </section>
           ) : null}
 
-          {products.length ? (
+          {products.length && !moodSleepIncense ? (
             <section
-              className="mx-auto mt-[28px] max-w-[min(100%,88rem)] border-t border-[#ddd7cf] pt-[clamp(2.5rem,6vw,4rem)]"
+              className="mx-auto mt-[28px] max-w-[min(100%,var(--qa-container-width))] border-t border-[#ddd7cf] pt-[clamp(2.5rem,6vw,4rem)]"
               aria-label={objectsSection.label}
             >
               <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
@@ -228,7 +285,8 @@ export function RitualEditorialLayout({
             </section>
           ) : null}
 
-          <section className="mx-auto mt-[clamp(3.5rem,9vw,5.5rem)] max-w-[min(100%,88rem)] border-t border-[#ddd7cf] pt-[clamp(2.25rem,5vw,3rem)]">
+          {!moodEveningCta ? (
+          <section className="mx-auto mt-[clamp(3.5rem,9vw,5.5rem)] max-w-[min(100%,var(--qa-container-width))] border-t border-[#ddd7cf] pt-[clamp(2.25rem,5vw,3rem)]">
             <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
               <blockquote className="m-0 max-w-[min(48rem,100%)] flex-1 text-left font-[family-name:var(--font-serif)] text-[clamp(1.65rem,3.2vw,2.35rem)] font-light leading-[1.25] tracking-[-0.03em] text-[#342e29]">
                 {quote}
@@ -241,9 +299,11 @@ export function RitualEditorialLayout({
               </Link>
             </div>
           </section>
+          ) : null}
 
           {/* Next ritual / Related essay — spec: text left, image right per card; thin rules + column divider */}
-          <div className="mx-auto mt-[clamp(3rem,8vw,4.5rem)] max-w-[min(100%,88rem)] border-t border-b border-[#ddd7cf] lg:mt-14">
+          {!moodEveningCta ? (
+          <div className="mx-auto mt-[clamp(3rem,8vw,4.5rem)] max-w-[min(100%,var(--qa-container-width))] border-t border-b border-[#ddd7cf] lg:mt-14">
             <div className="grid grid-cols-1 lg:grid-cols-2 lg:divide-x lg:divide-[#ddd7cf]">
               <Link
                 href={`/moods/${nextRitual.slug}`}
@@ -310,7 +370,9 @@ export function RitualEditorialLayout({
               </Link>
             </div>
           </div>
+          ) : null}
         </Container>
+        ) : null}
       </article>
     </PageShell>
   );

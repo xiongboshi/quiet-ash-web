@@ -2,6 +2,12 @@
 @import "../styles/tokens.css";
 @import "../styles/mood-tokens.css";
 @import "../styles/qa-home-1920.css";
+@import "../styles/home-redesign.css";
+@import "../styles/shop-category.css";
+@import "../styles/shop-product.css";
+@import "../styles/site-nav.css";
+@import "../styles/site-rail.css";
+@import "../styles/site-footer.css";
 
 /* Quiet Ash — legacy aliases map to reference tokens */
 :root {
@@ -717,7 +723,7 @@ footer.qa-site-footer {
   padding-block: var(--space-section);
 }
 
-/* Brand-wide container (1680 rail) — max width + center; horizontal inset via `CONTAINER_PAD` on `Container` */
+/* Brand-wide container — default 1680; 1880 / 72 under `.qa-inner-rail-scope` (see site-rail.css) */
 .qa-container {
   width: 100%;
   max-width: var(--qa-container-width);

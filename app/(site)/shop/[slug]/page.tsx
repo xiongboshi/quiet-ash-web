@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { SHOP_INDEX, shopPath } from "@/lib/site-paths";
 import { notFound } from "next/navigation";
-import { ObjectDetailLayout } from "@/components/objects/object-detail-layout";
+import { ShopProductDetailPage } from "@/components/shop/product/shop-product-detail-page";
 import { getAllProducts, getProductBySlug } from "@/lib/catalog";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -26,5 +26,5 @@ export default async function ObjectDetailPage({ params }: Props) {
   const product = getProductBySlug(slug);
   if (!product) notFound();
 
-  return <ObjectDetailLayout product={product} />;
+  return <ShopProductDetailPage product={product} />;
 }

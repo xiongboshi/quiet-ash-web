@@ -1,0 +1,69 @@
+/**
+ * Inner pages (site layout) — unified 1880 / 72 content rail.
+ * Homepage (`/`) is outside `(site)` and unchanged.
+ */
+
+.qa-inner-rail-scope {
+  --qa-container-width: 1880px;
+  /* Match homepage — 16px mobile, scale up on larger viewports */
+  --qa-container-px: 16px;
+}
+
+@media (min-width: 640px) {
+  .qa-inner-rail-scope {
+    --qa-container-px: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .qa-inner-rail-scope {
+    --qa-container-px: 56px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .qa-inner-rail-scope {
+    --qa-container-px: 72px;
+  }
+}
+
+/* Heroes & legacy nav bands keep pre-rail measurements */
+.qa-inner-rail-scope .qa-rail-exempt {
+  --qa-container-width: 1680px;
+  --qa-container-px: 16px;
+}
+
+@media (min-width: 640px) {
+  .qa-inner-rail-scope .qa-rail-exempt {
+    --qa-container-px: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .qa-inner-rail-scope .qa-rail-exempt {
+    --qa-container-px: 48px;
+  }
+}
+
+.qa-inner-rail-scope :where(.qa-container, .quiet-container) {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--qa-container-width);
+  margin-inline: auto;
+  padding-inline: var(--qa-container-px);
+}
+
+.qa-inner-rail-scope .mood-ritual-rail {
+  --mood-ritual-rail-width: var(--qa-container-width);
+  --mood-ritual-rail-pad-x: var(--qa-container-px);
+}
+
+/* /moods index — modules below hero */
+.qa-inner-rail-scope .moods-index {
+  --mood-idx-max: var(--qa-container-width);
+}
+
+.qa-inner-rail-scope .moods-index .container:not(.hero-content) {
+  max-width: var(--qa-container-width);
+  padding-inline: var(--qa-container-px);
+}

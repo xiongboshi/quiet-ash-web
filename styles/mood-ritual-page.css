@@ -1,0 +1,979 @@
+/**
+ * Mood ritual editorial — split hero (e.g. /moods/evening-room-ritual)
+ */
+
+.mood-ritual-hero {
+  --mood-ritual-hero-height: 680px;
+  --mood-ritual-hero-bg: #ebe6df;
+  --mood-ritual-hero-content-bg: #d6cdc2;
+  --mood-ritual-hero-content-bg-deep: #a89b8e;
+  --mood-ritual-hero-content-bg-fade: #f5f0e9;
+  --mood-ritual-hero-ink: #1a1816;
+  --mood-ritual-hero-muted: #6f6a63;
+  position: relative;
+  overflow-x: clip;
+  background: var(--mood-ritual-hero-bg);
+  color: var(--mood-ritual-hero-ink);
+}
+
+.mood-ritual-hero__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: stretch;
+  height: var(--mood-ritual-hero-height);
+  min-height: var(--mood-ritual-hero-height);
+  max-height: var(--mood-ritual-hero-height);
+}
+
+.mood-ritual-hero__content {
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 0;
+  padding: 2rem 1.25rem 2.5rem;
+  max-width: 32rem;
+  background: linear-gradient(
+    90deg,
+    var(--mood-ritual-hero-content-bg-deep) 0%,
+    var(--mood-ritual-hero-content-bg) 42%,
+    color-mix(in srgb, var(--mood-ritual-hero-content-bg-fade) 42%, transparent) 72%,
+    transparent 100%
+  );
+}
+
+.mood-ritual-hero__crumb {
+  margin: 0;
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mood-ritual-hero-muted);
+}
+
+.mood-ritual-hero__crumb-link {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.35s ease;
+}
+
+.mood-ritual-hero__crumb-link:hover {
+  opacity: 0.65;
+}
+
+.mood-ritual-hero__crumb-sep {
+  margin: 0 0.35em;
+  opacity: 0.55;
+}
+
+.mood-ritual-hero__title {
+  margin: 1.25rem 0 0;
+  font-family: var(--font-serif), "Cormorant Garamond", ui-serif, serif;
+  font-size: clamp(2.35rem, 5.2vw, 3.35rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--mood-ritual-hero-ink);
+  text-wrap: balance;
+}
+
+.mood-ritual-hero__desc {
+  margin: 1.5rem 0 0;
+  max-width: 34ch;
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(0.98rem, 1.35vw, 1.0625rem);
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+  color: color-mix(in srgb, var(--mood-ritual-hero-ink) 78%, var(--mood-ritual-hero-muted));
+}
+
+.mood-ritual-hero__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mood-ritual-hero__tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.25rem;
+  padding: 0.5rem 1.05rem;
+  border: 1px solid rgba(26, 24, 22, 0.32);
+  border-radius: 6px;
+  background: transparent;
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mood-ritual-hero-ink);
+  text-decoration: none;
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease;
+}
+
+a.mood-ritual-hero__tag:hover {
+  border-color: rgba(26, 24, 22, 0.5);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.mood-ritual-hero__media {
+  position: relative;
+  order: 1;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #d8d2c9;
+}
+
+.mood-ritual-hero__media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(235, 230, 223, 0.35) 0%,
+    transparent 28%
+  );
+}
+
+.mood-ritual-hero__img {
+  object-fit: cover;
+  object-position: 58% 42%;
+}
+
+/* —— Shared editorial panels (popular / sleep / incense) —— */
+.mood-ritual-rail {
+  --mood-ritual-rail-width: var(--qa-container-width, 1880px);
+  --mood-ritual-rail-pad-x: var(--qa-container-px, 72px);
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--mood-ritual-rail-width);
+  margin-inline: auto;
+  padding-inline: var(--mood-ritual-rail-pad-x);
+}
+
+.mood-ritual-popular,
+.mood-ritual-sleep,
+.mood-ritual-incense,
+.mood-ritual-journal {
+  --mood-ritual-panel-pad-y: 38px;
+  --mood-ritual-panel-bg-left: #f0eeea;
+  --mood-ritual-panel-bg-right: #f9f8f6;
+  background: linear-gradient(
+    90deg,
+    var(--mood-ritual-panel-bg-left) 0%,
+    #f5f4f0 52%,
+    var(--mood-ritual-panel-bg-right) 100%
+  );
+}
+
+.mood-ritual-panel__inner {
+  padding-block: var(--mood-ritual-panel-pad-y);
+}
+
+/* —— Popular searches (post-hero) —— */
+.mood-ritual-popular {
+  --mood-ritual-popular-ink: #1a1816;
+  color: var(--mood-ritual-popular-ink);
+}
+
+.mood-ritual-popular__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.125rem;
+}
+
+.mood-ritual-popular__label {
+  margin: 0;
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mood-ritual-popular-ink);
+}
+
+.mood-ritual-popular__track {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+  min-width: 0;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-block: 2px;
+}
+
+.mood-ritual-popular__track::-webkit-scrollbar {
+  display: none;
+}
+
+.mood-ritual-popular__pill {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(26, 24, 22, 0.04);
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  color: var(--mood-ritual-popular-ink);
+  text-decoration: none;
+  scroll-snap-align: start;
+  transition:
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
+}
+
+.mood-ritual-popular__pill:hover {
+  box-shadow: 0 2px 8px rgba(26, 24, 22, 0.06);
+}
+
+.mood-ritual-popular__pill svg {
+  flex-shrink: 0;
+  color: color-mix(in srgb, var(--mood-ritual-popular-ink) 52%, #6f6a63);
+}
+
+@media (min-width: 1024px) {
+  .mood-ritual-popular__inner {
+    gap: 1.25rem;
+  }
+
+  .mood-ritual-popular__track {
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
+}
+
+/* —— The sleep ritual — intro + 3 steps —— */
+.mood-ritual-sleep {
+  --mood-ritual-panel-bg-left: #e8e4dd;
+  --mood-ritual-panel-bg-right: #f3f1ec;
+  --mood-ritual-card-copy-bg: #f0ebe3;
+  --mood-ritual-card-shadow:
+    0 1px 3px rgba(26, 24, 22, 0.05),
+    0 10px 32px rgba(26, 24, 22, 0.08);
+  --mood-ritual-card-shadow-hover:
+    0 2px 6px rgba(26, 24, 22, 0.06),
+    0 14px 40px rgba(26, 24, 22, 0.1);
+  --mood-ritual-sleep-ink: #141210;
+  --mood-ritual-sleep-muted: #5c5650;
+  color: var(--mood-ritual-sleep-ink);
+}
+
+.mood-ritual-sleep__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.mood-ritual-sleep__intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 22rem;
+}
+
+.mood-ritual-sleep__eyebrow {
+  margin: 0;
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--mood-ritual-sleep-ink) 72%, var(--mood-ritual-sleep-muted));
+}
+
+.mood-ritual-sleep__title {
+  margin: 1.125rem 0 0;
+  font-family: var(--font-serif), "Cormorant Garamond", ui-serif, serif;
+  font-size: clamp(2.35rem, 4.2vw, 3.25rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--mood-ritual-sleep-ink);
+  text-wrap: balance;
+}
+
+.mood-ritual-sleep__desc {
+  margin: 1.35rem 0 0;
+  max-width: 32ch;
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  color: var(--mood-ritual-sleep-muted);
+}
+
+.mood-ritual-sleep__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  margin-top: 1.75rem;
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--mood-ritual-sleep-ink);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--mood-ritual-sleep-ink) 40%, transparent);
+  text-underline-offset: 5px;
+  transition: opacity 0.35s ease;
+}
+
+.mood-ritual-sleep__cta:hover {
+  opacity: 0.65;
+}
+
+.mood-ritual-sleep__step {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  background: var(--mood-ritual-card-copy-bg);
+  box-shadow: var(--mood-ritual-card-shadow);
+  transition: box-shadow 0.35s ease;
+}
+
+.mood-ritual-sleep__step:hover {
+  box-shadow: var(--mood-ritual-card-shadow-hover);
+}
+
+.mood-ritual-sleep__figure {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #ddd6cb;
+}
+
+.mood-ritual-sleep__img {
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.65s ease;
+}
+
+.mood-ritual-sleep__step:hover .mood-ritual-sleep__img {
+  transform: scale(1.02);
+}
+
+.mood-ritual-sleep__step-copy {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: clamp(1rem, 2.2vw, 1.25rem) clamp(0.95rem, 2vw, 1.15rem)
+    clamp(1.1rem, 2.4vw, 1.35rem);
+  border-top: 1px solid color-mix(in srgb, var(--mood-ritual-sleep-ink) 8%, transparent);
+}
+
+.mood-ritual-sleep__step-title {
+  margin: 0;
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mood-ritual-sleep-ink);
+}
+
+.mood-ritual-sleep__step-num {
+  display: block;
+  margin: 0 0 0.45rem;
+  font-family: var(--font-serif), "Cormorant Garamond", ui-serif, serif;
+  font-size: clamp(1.75rem, 2.5vw, 2.125rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: color-mix(in srgb, var(--mood-ritual-sleep-muted) 88%, var(--mood-ritual-sleep-ink));
+}
+
+.mood-ritual-sleep__step-desc {
+  margin: 0.65rem 0 0;
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+  color: var(--mood-ritual-sleep-muted);
+}
+
+@media (min-width: 640px) {
+  .mood-ritual-sleep__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(1.25rem, 3vw, 2rem);
+    row-gap: 2.5rem;
+  }
+
+  .mood-ritual-sleep__intro {
+    grid-column: 1 / -1;
+    max-width: 26rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mood-ritual-sleep__grid {
+    grid-template-columns: minmax(0, 0.92fr) repeat(3, minmax(0, 1fr));
+    align-items: start;
+    column-gap: clamp(1.5rem, 2.8vw, 2.75rem);
+    row-gap: 0;
+  }
+
+  .mood-ritual-sleep__intro {
+    grid-column: auto;
+    max-width: none;
+    padding-right: clamp(0.5rem, 2vw, 2rem);
+  }
+
+  .mood-ritual-sleep__title {
+    font-size: clamp(2.5rem, 2.8vw, 3.125rem);
+  }
+}
+
+/* —— Sleep mood incense — 2×2 product grid —— */
+.mood-ritual-incense {
+  --mood-ritual-incense-ink: #1a1816;
+  --mood-ritual-incense-muted: #6f6a63;
+  --mood-ritual-incense-rule: #d5cfc6;
+  color: var(--mood-ritual-incense-ink);
+}
+
+.mood-ritual-incense__label {
+  margin: 0 0 clamp(1.75rem, 3.5vw, 2.25rem);
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mood-ritual-incense-ink);
+}
+
+.mood-ritual-incense__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.125rem;
+}
+
+.mood-ritual-incense__cell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
+  min-height: min(100%, 320px);
+  overflow: hidden;
+  background: var(--mood-ritual-card-copy-bg);
+  box-shadow: var(--mood-ritual-card-shadow);
+}
+
+.mood-ritual-incense__cell--flip .mood-ritual-incense__media {
+  order: 2;
+}
+
+.mood-ritual-incense__cell--flip .mood-ritual-incense__copy {
+  order: 1;
+}
+
+.mood-ritual-incense__media {
+  position: relative;
+  min-height: clamp(220px, 42vw, 360px);
+  margin: 0;
+  overflow: hidden;
+  background: #ece7e0;
+}
+
+.mood-ritual-incense__img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.mood-ritual-incense__copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem) clamp(1.25rem, 3vw, 2rem);
+  background: var(--mood-ritual-card-copy-bg);
+}
+
+.mood-ritual-incense__title {
+  margin: 0;
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mood-ritual-incense-ink);
+}
+
+.mood-ritual-incense__tags {
+  margin: 0.65rem 0 0;
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: color-mix(in srgb, var(--mood-ritual-incense-ink) 62%, var(--mood-ritual-incense-muted));
+}
+
+.mood-ritual-incense__desc {
+  margin: 0.85rem 0 0;
+  max-width: 26ch;
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+  color: color-mix(in srgb, var(--mood-ritual-incense-ink) 80%, var(--mood-ritual-incense-muted));
+}
+
+.mood-ritual-incense__price {
+  margin: 1.1rem 0 0;
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--mood-ritual-incense-ink);
+}
+
+.mood-ritual-incense__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.35rem;
+  margin-top: 1.35rem;
+}
+
+.mood-ritual-incense__cart-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+  padding: 0.55rem 1.15rem;
+  border: 1px solid var(--mood-ritual-incense-ink);
+  border-radius: 0;
+  background: transparent;
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mood-ritual-incense-ink);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.35s ease,
+    color 0.35s ease;
+}
+
+.mood-ritual-incense__cart-btn:hover {
+  background: var(--mood-ritual-incense-ink);
+  color: var(--mood-ritual-card-copy-bg);
+}
+
+.mood-ritual-incense__learn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--mood-ritual-incense-ink);
+  text-decoration: none;
+  transition: opacity 0.35s ease;
+}
+
+.mood-ritual-incense__learn:hover {
+  opacity: 0.6;
+}
+
+@media (max-width: 767px) {
+  .mood-ritual-incense__cell {
+    grid-template-columns: 1fr;
+  }
+
+  .mood-ritual-incense__cell--flip .mood-ritual-incense__media,
+  .mood-ritual-incense__cell--flip .mood-ritual-incense__copy {
+    order: unset;
+  }
+
+}
+
+@media (min-width: 768px) {
+  .mood-ritual-incense__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .mood-ritual-incense__media {
+    min-height: 0;
+    height: 100%;
+  }
+}
+
+@media (max-width: 1023px) {
+  .mood-ritual-hero__grid {
+    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Full-bleed photo + wide scrim (no hard clip at ~17%) — copy floats left */
+  .mood-ritual-hero__grid {
+    position: relative;
+    display: block;
+  }
+
+  .mood-ritual-hero__content {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 33.333%;
+    height: 100%;
+    order: unset;
+    box-sizing: border-box;
+    padding: 3.5rem clamp(2rem, 4vw, 3.5rem) 3.5rem clamp(2.5rem, 5vw, 4.5rem);
+    max-width: none;
+    background: transparent;
+    pointer-events: none;
+  }
+
+  .mood-ritual-hero__content :is(a, button) {
+    pointer-events: auto;
+  }
+
+  .mood-ritual-hero__media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    order: unset;
+    min-height: 0;
+  }
+
+  .mood-ritual-hero__img {
+    object-position: 72% 42%;
+  }
+
+  .mood-ritual-hero__media::before {
+    z-index: 2;
+    background: linear-gradient(
+      90deg,
+      var(--mood-ritual-hero-content-bg-deep) 0%,
+      color-mix(in srgb, var(--mood-ritual-hero-content-bg) 94%, var(--mood-ritual-hero-content-bg-deep)) 18%,
+      color-mix(in srgb, var(--mood-ritual-hero-content-bg) 72%, transparent) 32%,
+      color-mix(in srgb, var(--mood-ritual-hero-content-bg-fade) 38%, transparent) 48%,
+      color-mix(in srgb, var(--mood-ritual-hero-content-bg-fade) 12%, transparent) 58%,
+      transparent 68%
+    );
+  }
+}
+
+/* —— Journal stories for sleep — 4 editorial cards —— */
+.mood-ritual-journal,
+.mood-ritual-incense {
+  --mood-ritual-card-copy-bg: #f2eee8;
+  --mood-ritual-card-shadow:
+    0 1px 3px rgba(26, 24, 22, 0.04),
+    0 8px 28px rgba(26, 24, 22, 0.07);
+  --mood-ritual-card-shadow-hover:
+    0 2px 6px rgba(26, 24, 22, 0.05),
+    0 12px 36px rgba(26, 24, 22, 0.09);
+}
+
+.mood-ritual-journal {
+  --mood-ritual-journal-ink: #1a1816;
+  --mood-ritual-journal-muted: #6f6a63;
+  color: var(--mood-ritual-journal-ink);
+}
+
+.mood-ritual-journal__shell {
+  padding-block: clamp(2.75rem, 5.5vw, 4rem) clamp(3.25rem, 7vw, 5rem);
+}
+
+.mood-ritual-journal__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+  margin-bottom: clamp(1.75rem, 3.5vw, 2.25rem);
+}
+
+.mood-ritual-journal__label {
+  margin: 0;
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mood-ritual-journal-ink);
+}
+
+.mood-ritual-journal__view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mood-ritual-journal-ink);
+  text-decoration: none;
+  transition: opacity 0.35s ease;
+}
+
+.mood-ritual-journal__view-all:hover {
+  opacity: 0.6;
+}
+
+.mood-ritual-journal__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.mood-ritual-journal__card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
+  min-height: 168px;
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+  background: var(--mood-ritual-card-copy-bg);
+  box-shadow: var(--mood-ritual-card-shadow);
+  transition:
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
+}
+
+.mood-ritual-journal__card:hover {
+  box-shadow: var(--mood-ritual-card-shadow-hover);
+}
+
+.mood-ritual-journal__media {
+  position: relative;
+  margin: 0;
+  min-height: 0;
+  overflow: hidden;
+  background: #e8e2d9;
+}
+
+.mood-ritual-journal__img {
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.65s ease;
+}
+
+.mood-ritual-journal__card:hover .mood-ritual-journal__img {
+  transform: scale(1.03);
+}
+
+.mood-ritual-journal__copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 100%;
+  padding: clamp(1rem, 2.5vw, 1.35rem) clamp(0.9rem, 2.2vw, 1.15rem);
+  background: var(--mood-ritual-card-copy-bg);
+}
+
+.mood-ritual-journal__category {
+  margin: 0;
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--mood-ritual-journal-ink) 58%, var(--mood-ritual-journal-muted));
+}
+
+.mood-ritual-journal__title {
+  margin: 0.55rem 0 0;
+  font-family: var(--font-serif), "Cormorant Garamond", ui-serif, serif;
+  font-size: clamp(1.05rem, 1.35vw, 1.2rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--mood-ritual-journal-ink);
+}
+
+.mood-ritual-journal__desc {
+  margin: 0.5rem 0 0;
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: color-mix(in srgb, var(--mood-ritual-journal-ink) 78%, var(--mood-ritual-journal-muted));
+}
+
+.mood-ritual-journal__read {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  margin-top: auto;
+  padding-top: 0.85rem;
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--mood-ritual-journal-ink);
+}
+
+@media (min-width: 640px) {
+  .mood-ritual-journal__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.125rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mood-ritual-journal__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .mood-ritual-journal__card {
+    min-height: 200px;
+  }
+
+  .mood-ritual-journal__title {
+    font-size: clamp(1.08rem, 1.05vw, 1.22rem);
+  }
+}
+
+/* —— Evening ritual CTA banner —— */
+.mood-ritual-cta {
+  --mood-ritual-panel-pad-y: 38px;
+  --mood-ritual-cta-bg: #f2eee8;
+  --mood-ritual-cta-ink: #1a1816;
+  position: relative;
+  overflow: hidden;
+  background: var(--mood-ritual-cta-bg);
+  color: var(--mood-ritual-cta-ink);
+}
+
+.mood-ritual-cta__backdrop {
+  display: none; /* photo hidden until asset is final */
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.mood-ritual-cta__bg-img {
+  object-fit: cover;
+  object-position: 18% 50%;
+  filter: blur(1px) saturate(0.92) brightness(1.02);
+}
+
+.mood-ritual-cta__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--mood-ritual-panel-bg-left) 35%, transparent) 0%,
+    color-mix(in srgb, var(--mood-ritual-panel-bg-left) 55%, transparent) 28%,
+    color-mix(in srgb, var(--mood-ritual-panel-bg-right) 88%, transparent) 52%,
+    var(--mood-ritual-panel-bg-right) 68%
+  );
+}
+
+.mood-ritual-cta__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.75rem;
+  padding-block: clamp(2.75rem, 6vw, 4.25rem);
+}
+
+.mood-ritual-cta__copy {
+  max-width: min(36rem, 100%);
+}
+
+.mood-ritual-cta__title {
+  margin: 0;
+  font-family: var(--font-serif), "Cormorant Garamond", ui-serif, serif;
+  font-size: clamp(1.65rem, 2.8vw, 2.125rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--mood-ritual-cta-ink);
+  text-wrap: balance;
+}
+
+.mood-ritual-cta__desc {
+  margin: 0.75rem 0 0;
+  max-width: 34ch;
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+  color: color-mix(in srgb, var(--mood-ritual-cta-ink) 82%, #6f6a63);
+}
+
+.mood-ritual-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45em;
+  min-height: 2.75rem;
+  padding: 0.65rem 1.35rem;
+  border: 1px solid var(--mood-ritual-cta-ink);
+  border-radius: 4px;
+  background: transparent;
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mood-ritual-cta-ink);
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background 0.35s ease,
+    color 0.35s ease;
+}
+
+.mood-ritual-cta__btn:hover {
+  background: var(--mood-ritual-cta-ink);
+  color: var(--mood-ritual-cta-bg);
+}
+
+@media (min-width: 768px) {
+  .mood-ritual-cta__inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .mood-ritual-cta__btn {
+    flex-shrink: 0;
+  }
+}

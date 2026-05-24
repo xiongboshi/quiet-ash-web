@@ -36,7 +36,7 @@ type Props = {
 
 /** Stacked CTAs in the hero column — desktop only. */
 export function ObjectPurchaseActionsInline({
-  ritualHref = "/moods",
+  ritualHref = SHOP_INDEX,
   buyHref = SHOP_INDEX,
 }: Props) {
   return (
@@ -57,7 +57,7 @@ export function ObjectPurchaseActionsInline({
 
 /** Fixed bottom bar on small screens — left add, right buy. */
 export function ObjectMobilePurchaseDock({
-  ritualHref = "/moods",
+  ritualHref = SHOP_INDEX,
   buyHref = SHOP_INDEX,
 }: Props) {
   return (

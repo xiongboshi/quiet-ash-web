@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import { PageTransition } from "@/components/page-transition";
+import { SiteNavHeader } from "@/components/site-nav-header";
 import "./globals.css";
 
 const inter = Inter({
@@ -59,7 +60,10 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${cormorant.variable} min-h-dvh antialiased`}
       >
-        <PageTransition>{children}</PageTransition>
+        <div className="site-page-shell flex min-h-dvh flex-col">
+          <SiteNavHeader />
+          <PageTransition className="min-h-0 flex-1">{children}</PageTransition>
+        </div>
       </body>
     </html>
   );

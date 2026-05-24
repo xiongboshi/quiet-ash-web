@@ -1,10 +1,5 @@
-import {
-  JOURNAL_INDEX,
-  MOODS_INDEX,
-  SHOP_INDEX,
-  journalPath,
-  moodPath,
-} from "@/lib/site-paths";
+import { MOOD_RITUAL_SLEEP_JOURNAL } from "@/data/mood-ritual-sections";
+import { JOURNAL_INDEX, MOODS_INDEX, SHOP_INDEX, moodPath } from "@/lib/site-paths";
 
 export const moodsIndexHero = {
   eyebrow: "Find Your Moment",
@@ -170,72 +165,8 @@ export const moodsIndexPopularSearches = {
   ],
 } as const;
 
-export const moodsIndexRitualBanner = {
-  imageSrc: "/images/generated/mood-index-hero-shop-by-mood.png",
-  imageAlt: "Evening ritual — incense on a wooden table in warm sunlight",
-  title: "Create your evening ritual",
-  description:
-    "Slow moments. Quiet scents. A ritual that brings you back to yourself.",
-  cta: { label: "Explore Rituals", href: MOODS_INDEX },
-  steps: ["Shower", "Warm Tea", "Incense", "Reading", "Deep Rest"] as const,
-} as const;
-
-export type MoodsIndexJournalArticle = {
-  title: string;
-  description: string;
-  category: string;
-  readMinutes: number;
-  imageSrc: string;
-  imageAlt: string;
-  href: string;
-};
-
-export const moodsIndexJournal = {
-  title: "From the Journal",
-  viewAllLabel: "View All Articles",
-  articles: [
-    {
-      title: "Best Incense For Sleep: A Complete Guide",
-      description:
-        "Discover scents that help you unwind, sleep deeper and wake up refreshed.",
-      category: "GUIDES",
-      readMinutes: 6,
-      imageSrc: "/images/generated/essay-night-incense-ritual.png",
-      imageAlt: "Bedroom calm with soft linens and incense",
-      href: journalPath("night-incense-ritual"),
-    },
-    {
-      title: "How To Create A Calming Evening Ritual",
-      description:
-        "Simple steps to slow down, relax and reset your mind before bed.",
-      category: "RITUALS",
-      readMinutes: 5,
-      imageSrc: "/images/generated/essay-why-scholars-burned-incense.png",
-      imageAlt: "Tea and branches by a sunlit window",
-      href: journalPath("why-scholars-burned-incense"),
-    },
-    {
-      title: "The Power Of Scent On Your Mood",
-      description:
-        "How fragrance affects your nervous system and emotional well-being.",
-      category: "WELLNESS",
-      readMinutes: 7,
-      imageSrc: "/images/generated/essay-good-incense-not-loud.png",
-      imageAlt: "Incense burning in a bowl on a wooden surface",
-      href: journalPath("good-incense-not-loud"),
-    },
-    {
-      title: "Rainy Day Home Atmosphere: Scents That Comfort",
-      description:
-        "Warm, cozy aromas that turn rainy days into your favorite days.",
-      category: "LIFESTYLE",
-      readMinutes: 6,
-      imageSrc: "/images/generated/essay-forgotten-incense-culture.png",
-      imageAlt: "Cozy corner with soft light and calm atmosphere",
-      href: journalPath("forgotten-incense-culture"),
-    },
-  ] satisfies MoodsIndexJournalArticle[],
-} as const;
+/** Same module + copy as mood ritual editorial journal (`evening-room-ritual`). */
+export const moodsIndexJournal = MOOD_RITUAL_SLEEP_JOURNAL["evening-room-ritual"];
 
 export type MoodsIndexValueIconId =
   | "natural"
@@ -279,7 +210,6 @@ export const moodsIndexValueBar = [
 
 export const moodsIndexNav = [
   { label: "Shop", href: SHOP_INDEX },
-  { label: "Moods", href: MOODS_INDEX },
   { label: "Journal", href: JOURNAL_INDEX },
-  { label: "About", href: "/about" },
+  { label: "Our Story", href: "/about" },
 ] as const;

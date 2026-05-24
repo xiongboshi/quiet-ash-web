@@ -13,6 +13,7 @@ import {
 import { EditorialBackLink } from "@/components/editorial/editorial-back-link";
 import { PageShell } from "@/components/layout/page-shell";
 import { ObjectHeroGallery } from "@/components/objects/object-hero-gallery";
+import { siteRailExemptClass } from "@/lib/site-rail";
 import {
   ObjectMobilePurchaseDock,
   ObjectPurchaseActionsInline,
@@ -241,7 +242,7 @@ export function ObjectDetailLayout({ product }: Props) {
   const ritualsRows = resolveRitualsForProduct(product);
   const ritualHref = ritualsRows[0]
     ? `/moods/${ritualsRows[0].ritual.slug}`
-    : "/moods";
+    : SHOP_INDEX;
   const paired = getPairedProductsFor(product, 3);
   const relatedEssays = resolveRelatedEssays(product);
   const heroGallery = resolveHeroGallery(product);
@@ -269,7 +270,9 @@ export function ObjectDetailLayout({ product }: Props) {
     <PageShell className="!pt-0 !pb-0">
       <article className="qa-object-editorial w-full bg-[var(--qa-bg)] pb-[calc(5.25rem+env(safe-area-inset-bottom))] text-[var(--qa-text)] lg:pb-0">
         {/* Hero — text rail / main image + gallery */}
-        <section className="overflow-x-clip border-b border-[#ddd7cf] bg-[var(--qa-bg)]">
+        <section
+          className={`${siteRailExemptClass} overflow-x-clip border-b border-[#ddd7cf] bg-[var(--qa-bg)]`}
+        >
           <ObjectHeroGallery
             images={heroGallery}
             productTitle={product.title}

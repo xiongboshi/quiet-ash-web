@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Ritual } from "@/lib/rituals";
+import { JOURNAL_INDEX } from "@/lib/site-paths";
 import { Container } from "@/components/ui/Container";
 
 type Props = {
@@ -114,7 +115,7 @@ export function RitualCarousel({
               </p>
             </div>
             <Link
-              href="/moods"
+              href={JOURNAL_INDEX}
               className="qa-cta qa-cta--still shrink-0 self-start pb-0.5 font-[family-name:var(--font-sans)] text-[11px] font-medium uppercase tracking-[0.12em] text-[#1a1a1a] underline decoration-[color-mix(in_srgb,#1a1a1a_22%,transparent)] underline-offset-[6px] transition-opacity duration-[600ms] ease-out hover:opacity-70 lg:self-end"
             >
               View all rituals
@@ -188,7 +189,7 @@ export function RitualCarousel({
             </h2>
           </div>
           <Link
-            href="/moods"
+            href={JOURNAL_INDEX}
             className="qa-meta shrink-0 justify-self-start text-[var(--qa-muted)] underline decoration-[color-mix(in_srgb,var(--qa-muted)_28%,transparent)] underline-offset-[6px] transition-opacity duration-[600ms] ease-out hover:opacity-70 sm:justify-self-end sm:pb-0.5 sm:text-right"
           >
             View all rituals

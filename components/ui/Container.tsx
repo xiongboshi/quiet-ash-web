@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
-/** 16 / 24 / 48px — matches `--qa-container-px` in `styles/tokens.css` */
-export const CONTAINER_PAD = "px-4 sm:px-6 lg:px-12";
+/** Horizontal inset — `72px` under `.qa-inner-rail-scope`; legacy on heroes via `.qa-rail-exempt` */
+export const CONTAINER_PAD = "px-[var(--qa-container-px)]";
 
 type Props = {
   children: ReactNode;

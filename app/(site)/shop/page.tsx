@@ -1,23 +1,14 @@
 import type { Metadata } from "next";
+import { ShopCategoryPage } from "@/components/shop/shop-category-page";
 import { SHOP_INDEX } from "@/lib/site-paths";
-import { ObjectsArchiveBlock } from "@/components/catalog/objects-archive-block";
-import { ObjectsTheEssence } from "@/components/sections/objects-the-essence";
-import { getAllProducts } from "@/lib/catalog";
 
 export const metadata: Metadata = {
-  title: "Shop",
+  title: "Incense Sticks",
   description:
-    "Incense ritual, agarwood, eastern slow living, scholar objects — Quiet Ash objects for slower evenings.",
+    "Handcrafted incense sticks for sleep, stress relief, focus, and everyday rituals.",
   alternates: { canonical: SHOP_INDEX },
 };
 
-export default function ObjectsPage() {
-  const products = getAllProducts();
-
-  return (
-    <>
-      <ObjectsTheEssence />
-      <ObjectsArchiveBlock products={products} />
-    </>
-  );
+export default function ShopPage() {
+  return <ShopCategoryPage />;
 }
