@@ -55,10 +55,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${inter.variable} ${cormorant.variable} h-full`}
     >
       <body
-        className={`${inter.variable} ${cormorant.variable} min-h-dvh antialiased`}
+        className={`${inter.className} ${inter.variable} ${cormorant.variable} min-h-dvh antialiased`}
       >
         <div className="site-page-shell flex min-h-dvh flex-col">
           <SiteNavHeader />

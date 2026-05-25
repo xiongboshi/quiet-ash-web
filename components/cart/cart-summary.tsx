@@ -1,77 +1,127 @@
 "use client";
 
 import {
+  CircleHelp,
+  Leaf,
+  Lock,
+  RotateCcw,
+  ShoppingBag,
+  Truck,
+} from "lucide-react";
+import {
   formatMoney,
-  freeShippingMessage,
+  freeShippingGapFormatted,
   getCartSubtotalCents,
-  getShippingCents,
-  shippingLabel,
+  getCartTotalCents,
+  getEstimatedTaxCents,
+  shippingSummaryLabel,
 } from "@/lib/cart/pricing";
+import { freeShippingOnOrdersOverCopy } from "@/lib/shipping-policy";
 import type { CartItem } from "@/lib/cart/types";
+import type { LucideIcon } from "lucide-react";
 
 type Props = {
   items: CartItem[];
   onCheckout: () => void;
   checkoutPending?: boolean;
-  variant?: "boxed" | "inline";
   className?: string;
 };
+
+type TrustItem = {
+  icon: LucideIcon;
+  title: string;
+  subtitle?: string;
+  iconTone?: "accent" | "ink";
+  getSubtitle?: (subtotalCents: number) => string;
+};
+
+const TRUST: TrustItem[] = [
+  {
+    icon: Truck,
+    iconTone: "accent",
+    title: freeShippingOnOrdersOverCopy(),
+    getSubtitle: (subtotalCents) => {
+      const gap = freeShippingGapFormatted(subtotalCents);
+      return gap
+        ? `You're ${gap} away from free shipping.`
+        : "Free shipping applied at checkout.";
+    },
+  },
+  {
+    icon: RotateCcw,
+    iconTone: "ink",
+    title: "30-Day Returns",
+    subtitle: "Not in love? Return it within 30 days.",
+  },
+  {
+    icon: ShoppingBag,
+    iconTone: "ink",
+    title: "Secure Checkout",
+    subtitle: "Your payment information is encrypted.",
+  },
+  {
+    icon: Leaf,
+    iconTone: "ink",
+    title: "Sustainably Made",
+    subtitle: "Thoughtful materials and responsible production.",
+  },
+];
+
+function SummaryRow({
+  label,
+  value,
+  info,
+}: {
+  label: string;
+  value: string;
+  info?: boolean;
+}) {
+  return (
+    <div className="cart-summary__row">
+      <dt className="cart-summary__label">
+        {label}
+        {info ? (
+          <CircleHelp
+            className="cart-summary__info"
+            size={14}
+            strokeWidth={1.5}
+            aria-hidden
+          />
+        ) : null}
+      </dt>
+      <dd className="cart-summary__value">{value}</dd>
+    </div>
+  );
+}
 
 export function CartSummary({
   items,
   onCheckout,
   checkoutPending = false,
-  variant = "boxed",
   className = "",
 }: Props) {
   const subtotalCents = getCartSubtotalCents(items);
-  const shippingCents = getShippingCents(subtotalCents);
-  const totalCents = subtotalCents + shippingCents;
-  const shippingNote = freeShippingMessage(subtotalCents);
-
-  const shell =
-    variant === "boxed"
-      ? "border border-[#D9D3CA] bg-[#EBE7DF] px-7 py-8 lg:px-8 lg:py-9"
-      : "border-t border-[#DDD7CF] pt-10";
+  const taxCents = getEstimatedTaxCents(subtotalCents);
+  const totalCents = getCartTotalCents(subtotalCents);
 
   return (
-    <aside className={`${shell} ${className}`.trim()}>
-      <dl className="m-0 space-y-3">
-        <div className="flex items-baseline justify-between gap-4">
-          <dt className="font-[family-name:var(--font-sans)] text-[12px] font-normal uppercase tracking-[0.16em] text-[#6F6A63]">
-            Subtotal
-          </dt>
-          <dd className="m-0 font-[family-name:var(--font-sans)] text-[14px] tabular-nums text-[var(--qa-text)]">
-            {formatMoney(subtotalCents)}
-          </dd>
-        </div>
-        <div className="flex items-baseline justify-between gap-4">
-          <dt className="font-[family-name:var(--font-sans)] text-[12px] font-normal uppercase tracking-[0.16em] text-[#6F6A63]">
-            Shipping
-          </dt>
-          <dd className="m-0 font-[family-name:var(--font-sans)] text-[14px] tabular-nums text-[var(--qa-text)]">
-            {shippingLabel(subtotalCents)}
-          </dd>
-        </div>
+    <aside className={`cart-summary ${className}`.trim()}>
+      <h2 className="cart-summary__heading">Order summary</h2>
+
+      <dl className="cart-summary__lines">
+        <SummaryRow label="Subtotal" value={formatMoney(subtotalCents)} />
+        <SummaryRow label="Shipping" value={shippingSummaryLabel()} info />
+        <SummaryRow
+          label="Estimated taxes"
+          value={formatMoney(taxCents)}
+          info
+        />
       </dl>
 
-      {shippingNote ? (
-        <p className="mt-4 font-[family-name:var(--font-sans)] text-[13px] leading-[1.55] text-[color-mix(in_srgb,#1A1A1A_70%,#6F6A63)]">
-          {shippingNote}
-        </p>
-      ) : null}
-
-      <div
-        className={`mt-5 flex items-baseline justify-between gap-4 ${
-          variant === "boxed"
-            ? "border-t border-[#D9D3CA] pt-5"
-            : "border-t border-[#DDD7CF] pt-5"
-        }`}
-      >
-        <span className="font-[family-name:var(--font-serif)] text-[clamp(1.35rem,3vw,1.55rem)] font-light tracking-[-0.02em] text-[var(--qa-text)]">
-          Total
-        </span>
-        <span className="font-[family-name:var(--font-sans)] text-[15px] font-medium tabular-nums text-[var(--qa-text)]">
+      <div className="cart-summary__total-row">
+        <span className="cart-summary__total-label">Total</span>
+        <span className="cart-summary__total-value">
+          <span className="cart-summary__currency">USD</span>
           {formatMoney(totalCents)}
         </span>
       </div>
@@ -80,14 +130,50 @@ export function CartSummary({
         type="button"
         onClick={onCheckout}
         disabled={checkoutPending || items.length === 0}
-        className="qa-cta qa-cta--still mt-6 w-full border border-[#1a1816] bg-[#1a1816] px-6 py-[15px] font-[family-name:var(--font-sans)] text-[11px] font-medium uppercase tracking-[0.2em] text-[#e8e4dc] transition-opacity duration-[500ms] ease-out hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
+        className="cart-summary__checkout"
       >
-        {checkoutPending ? "Preparing checkout…" : "Checkout Securely"}
+        <Lock size={16} strokeWidth={1.75} aria-hidden />
+        {checkoutPending ? "Preparing checkout…" : "CHECK OUT"}
       </button>
 
-      <p className="mt-4 text-center font-[family-name:var(--font-sans)] text-[11px] leading-[1.55] text-[color-mix(in_srgb,#1A1A1A_42%,#6F6A63)]">
-        All payments are securely processed through Stripe.
-      </p>
+      <button
+        type="button"
+        className="cart-summary__shop-pay"
+        aria-disabled="true"
+        aria-label="Shop Pay"
+        onClick={(e) => e.preventDefault()}
+      >
+        <span className="cart-summary__shop-pay-logo" aria-hidden>
+          <span className="cart-summary__shop-pay-mark">shop</span>
+          <span className="cart-summary__shop-pay-badge">Pay</span>
+        </span>
+      </button>
+
+      <ul className="cart-summary__trust">
+        {TRUST.map((item) => {
+          const Icon = item.icon;
+          const subtitle =
+            item.getSubtitle?.(subtotalCents) ?? item.subtitle ?? "";
+          const iconClass =
+            item.iconTone === "accent"
+              ? "cart-summary__trust-icon cart-summary__trust-icon--accent"
+              : "cart-summary__trust-icon";
+          return (
+            <li key={item.title} className="cart-summary__trust-item">
+              <Icon
+                className={iconClass}
+                size={20}
+                strokeWidth={1.25}
+                aria-hidden
+              />
+              <span className="cart-summary__trust-copy">
+                <span className="cart-summary__trust-title">{item.title}</span>
+                <span className="cart-summary__trust-sub">{subtitle}</span>
+              </span>
+            </li>
+          );
+        })}
+      </ul>
     </aside>
   );
 }

@@ -1,5 +1,6 @@
 import type { CatalogProduct } from "@/lib/catalog";
 import { parsePriceDisplay } from "@/lib/cart/pricing";
+import { freeShippingOnOrdersOverCopy } from "@/lib/shipping-policy";
 import { SHOP_INDEX, shopPath } from "@/lib/site-paths";
 
 export type ShopPdpHighlightIcon = "leaf" | "hand" | "flask" | "refresh";
@@ -132,7 +133,7 @@ const woodTrayPdp: ShopProductPdp = {
     ],
   },
   trust: [
-    { icon: "truck", label: "Free shipping on orders over $59" },
+    { icon: "truck", label: freeShippingOnOrdersOverCopy() },
     { icon: "returns", label: "30-day returns hassle free" },
     { icon: "lock", label: "Secure payment SSL encrypted" },
   ],

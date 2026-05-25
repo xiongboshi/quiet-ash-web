@@ -96,7 +96,7 @@ export function HeroNav() {
           aria-label="Primary"
         >
           {PRIMARY_NAV.map(({ href, label }) => (
-            <NavItem key={href} href={href} label={label} />
+            <NavItem key={label} href={href} label={label} />
           ))}
         </nav>
 
@@ -132,7 +132,7 @@ export function HeroNav() {
           >
             <nav className="flex flex-col gap-4" aria-label="Primary">
               {PRIMARY_NAV.map(({ href, label }) => (
-                <NavItem key={href} href={href} label={label} />
+                <NavItem key={label} href={href} label={label} />
               ))}
               <CartLink
                 className="pt-2 font-[family-name:var(--font-sans)] text-[12px] font-normal uppercase tracking-[0.18em] text-[rgba(255,255,255,0.8)] no-underline transition-opacity duration-[600ms] ease-out hover:opacity-70"

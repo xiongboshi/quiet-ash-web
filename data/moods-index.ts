@@ -1,5 +1,6 @@
 import { MOOD_RITUAL_SLEEP_JOURNAL } from "@/data/mood-ritual-sections";
 import { JOURNAL_INDEX, MOODS_INDEX, SHOP_INDEX, moodPath } from "@/lib/site-paths";
+import { freeShippingOverCopy } from "@/lib/shipping-policy";
 
 export const moodsIndexHero = {
   eyebrow: "Find Your Moment",
@@ -204,12 +205,12 @@ export const moodsIndexValueBar = [
     id: "shipping",
     icon: "shipping",
     title: "Worldwide Shipping",
-    description: "Free shipping over $80",
+    description: freeShippingOverCopy(),
   },
 ] satisfies MoodsIndexValueItem[];
 
 export const moodsIndexNav = [
   { label: "Shop", href: SHOP_INDEX },
   { label: "Journal", href: JOURNAL_INDEX },
-  { label: "Our Story", href: "/about" },
+  { label: "ABOUT", href: "/about" },
 ] as const;

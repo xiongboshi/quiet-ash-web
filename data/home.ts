@@ -94,7 +94,7 @@ export const defaultFooter = {
     ],
     infoTitle: "Info",
     info: [
-      { label: "Our Story", href: "/about" },
+      { label: "ABOUT", href: "/about" },
       { label: "Delivery", href: "/delivery" },
       { label: "Care", href: "/care" },
       { label: "Returns", href: "/returns" },

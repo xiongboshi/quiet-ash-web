@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { JournalIndexContent } from "@/components/journal/journal-index-content";
 import { JournalIndexHero } from "@/components/journal/journal-index-hero";
 import { getJournalIndexArticles } from "@/lib/get-journal-index-articles";
@@ -8,7 +9,9 @@ export function JournalIndexPage() {
   return (
     <div className="journal-index">
       <JournalIndexHero />
-      <JournalIndexContent articles={articles} />
+      <Suspense fallback={null}>
+        <JournalIndexContent articles={articles} />
+      </Suspense>
     </div>
   );
 }

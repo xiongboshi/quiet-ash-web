@@ -1,4 +1,8 @@
 import { SHOP_INDEX } from "@/lib/site-paths";
+import {
+  freeShippingOnOrdersOverCopy,
+  freeShippingOverOrdersCopy,
+} from "@/lib/shipping-policy";
 
 /** Homepage — 1920 mockup copy & assets */
 
@@ -33,7 +37,7 @@ export const bestSellerEditorial: Record<
 };
 
 export const brandHome = {
-  promo: "Free shipping on orders over $50",
+  promo: freeShippingOnOrdersOverCopy(),
   siteTitle: "QUIET ASH",
   siteSubtitle: "INCENSE",
   hero: {
@@ -117,7 +121,7 @@ export const brandHome = {
     viewAllHref: SHOP_INDEX,
   },
   footer: [
-    { title: "FREE SHIPPING", body: "On orders over $68" },
+    { title: "FREE SHIPPING", body: freeShippingOverOrdersCopy() },
     { title: "SHIPS IN 3–5 DAYS", body: "Unhurried fulfillment from our studio" },
     { title: "SECURE PAYMENT", body: "Safe checkout" },
     { title: "JOIN OUR JOURNEY", body: "hello@quietash.life" },

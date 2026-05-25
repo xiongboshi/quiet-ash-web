@@ -1,3 +1,5 @@
+"use client";
+
 import {
   ClockCheck,
   HandHeart,
@@ -5,12 +7,10 @@ import {
   Truck,
   type LucideIcon,
 } from "lucide-react";
-import { shopCategory } from "@/data/shop-category";
+import { useShopCategory } from "@/components/shop/shop-category-context";
+import type { ShopCategoryValueBarItem } from "@/data/shop-catalog-types";
 
-const ICONS: Record<
-  (typeof shopCategory.valueBar)[number]["icon"],
-  LucideIcon
-> = {
+const ICONS: Record<ShopCategoryValueBarItem["icon"], LucideIcon> = {
   hand: HandHeart,
   leaf: Sprout,
   returns: ClockCheck,
@@ -24,11 +24,13 @@ const iconProps = {
 };
 
 export function ShopCategoryValueBar() {
+  const { valueBar } = useShopCategory();
+
   return (
     <section className="shop-category-value" aria-label="Store promises">
       <div className="shop-category-value__inner">
         <ul className="shop-category-value__list">
-          {shopCategory.valueBar.map((item) => {
+          {valueBar.map((item) => {
             const Icon = ICONS[item.icon];
             return (
               <li key={item.id} className="shop-category-value__item">

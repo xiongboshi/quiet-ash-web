@@ -31,7 +31,7 @@ export function ShopProductCard({ item }: Props) {
             src={item.imageSrc}
             alt={item.imageAlt}
             fill
-            sizes="(max-width: 639px) 100vw, (max-width: 767px) 50vw, (max-width: 1279px) 33vw, 25vw"
+            sizes="(max-width: 639px) 46vw, (max-width: 767px) 50vw, (max-width: 1279px) 33vw, 25vw"
             className="shop-product-card__img object-cover"
           />
         </Link>

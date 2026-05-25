@@ -4,10 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
 import { QaHomeCartLink } from "@/components/qa/qa-home-cart-link";
-import { NavSearchIcon, NavUserIcon } from "@/components/site/site-nav-icons";
 import { brandHome } from "@/data/brand-home";
 import { PRIMARY_NAV } from "@/lib/site-nav";
-import { SHOP_INDEX } from "@/lib/site-paths";
 
 function normalizePath(pathname: string | null): string {
   if (!pathname) return "";
@@ -18,7 +16,21 @@ function normalizePath(pathname: string | null): string {
 
 function isNavActive(path: string, href: string): boolean {
   if (href === "/") return path === "/";
-  return path === href || path.startsWith(`${href}/`);
+
+  const hashAt = href.indexOf("#");
+  const pathnamePart = hashAt >= 0 ? href.slice(0, hashAt) : href;
+  const hasHash = hashAt >= 0;
+
+  /* /#best-sellers etc. — same document as /; do not mark active on homepage load */
+  if (hasHash && (pathnamePart === "/" || pathnamePart === "")) {
+    return false;
+  }
+
+  const base = pathnamePart || href;
+  if (!base || base === "/") {
+    return path === "/" || path === "";
+  }
+  return path === base || path.startsWith(`${base}/`);
 }
 
 export function QaHomeHeader() {
@@ -76,7 +88,7 @@ export function QaHomeHeader() {
               const active = isNavActive(path, href);
               return (
                 <Link
-                  key={href}
+                  key={label}
                   href={href}
                   aria-current={active ? "page" : undefined}
                   className={active ? "is-active" : undefined}
@@ -88,20 +100,6 @@ export function QaHomeHeader() {
           </div>
 
           <div className="nav-actions">
-            <Link
-              href={SHOP_INDEX}
-              className="nav-icon-btn nav-icon-btn--search"
-              aria-label="Search"
-            >
-              <NavSearchIcon />
-            </Link>
-            <Link
-              href="/account"
-              className="nav-icon-btn nav-icon-btn--account"
-              aria-label="Account"
-            >
-              <NavUserIcon />
-            </Link>
             <QaHomeCartLink />
           </div>
         </div>
@@ -125,7 +123,7 @@ export function QaHomeHeader() {
               const active = isNavActive(path, href);
               return (
                 <Link
-                  key={href}
+                  key={label}
                   href={href}
                   aria-current={active ? "page" : undefined}
                   className={active ? "is-active" : undefined}
@@ -135,12 +133,6 @@ export function QaHomeHeader() {
                 </Link>
               );
             })}
-            <Link href={SHOP_INDEX} onClick={() => setMenuOpen(false)}>
-              Search
-            </Link>
-            <Link href="/account" onClick={() => setMenuOpen(false)}>
-              Account
-            </Link>
             <QaHomeCartLink variant="menu" onNavigate={() => setMenuOpen(false)} />
           </div>
         </div>

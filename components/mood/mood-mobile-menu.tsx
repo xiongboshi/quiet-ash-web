@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
-import { SHOP_INDEX } from "@/lib/site-paths";
 import { CartLink } from "@/components/cart/cart-link";
+import { PRIMARY_NAV } from "@/lib/site-nav";
 
 const menuLinkClass =
   "block py-1 text-[12px] font-semibold uppercase tracking-[0.16em] text-[var(--mood-ink)] no-underline transition-opacity duration-300 hover:opacity-55";
@@ -65,22 +65,18 @@ export function MoodMobileMenu({ className }: Props) {
           className="qa-mood-menu-panel absolute right-0 top-[calc(100%+8px)] z-50 min-w-[168px] rounded-[4px] border border-[color-mix(in_srgb,var(--mood-ink)_10%,transparent)] bg-[rgba(250,248,244,0.96)] px-5 py-4 shadow-[0_18px_48px_-20px_rgba(28,24,20,0.18)] backdrop-blur-md"
         >
           <nav className="flex flex-col gap-3" aria-label="Menu">
-            <Link href={SHOP_INDEX} className={menuLinkClass} role="menuitem" onClick={close}>
-              Shop
-            </Link>
-            <span
-              className={`${menuLinkClass} cursor-default opacity-55`}
-              role="menuitem"
-            >
-              Search
-            </span>
-            <Link href="/about" className={menuLinkClass} role="menuitem" onClick={close}>
-              Account
-            </Link>
-            <CartLink
-              className={menuLinkClass}
-              onNavigate={close}
-            />
+            {PRIMARY_NAV.map(({ href, label }) => (
+              <Link
+                key={label}
+                href={href}
+                className={menuLinkClass}
+                role="menuitem"
+                onClick={close}
+              >
+                {label}
+              </Link>
+            ))}
+            <CartLink className={menuLinkClass} onNavigate={close} />
           </nav>
         </div>
       ) : null}

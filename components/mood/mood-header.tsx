@@ -35,10 +35,6 @@ export function MoodHeader() {
         </Link>
 
         <div className="hidden items-center gap-6 md:flex">
-          <span className={`${navLinkClass} cursor-default`}>Search</span>
-          <Link href="/about" className={navLinkClass}>
-            Account
-          </Link>
           <CartLink className={navLinkClass} />
         </div>
 

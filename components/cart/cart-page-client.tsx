@@ -2,11 +2,12 @@
 
 import { useState } from "react";
 import { Container } from "@/components/ui/Container";
-import { CartLineItem } from "@/components/cart/cart-line-item";
+import { CartLineItem, CartContinueShopping } from "@/components/cart/cart-line-item";
 import { CartSummary } from "@/components/cart/cart-summary";
-import { CartCheckoutBand } from "@/components/cart/cart-checkout-band";
+import { CartShippingProgress } from "@/components/cart/cart-shipping-progress";
 import { CartEmpty } from "@/components/cart/cart-empty";
-import { CART_TABLE_GRID, CART_TABLE_HEAD_CELL } from "@/components/cart/cart-layout";
+import { cartPageCopy } from "@/data/cart-page";
+import { getCartSubtotalCents } from "@/lib/cart/pricing";
 import { useCartStore } from "@/stores/cart-store";
 
 export function CartPageClient() {
@@ -18,6 +19,7 @@ export function CartPageClient() {
   const decreaseQty = useCartStore((s) => s.decreaseQty);
 
   const hasItems = items.length > 0;
+  const subtotalCents = getCartSubtotalCents(items);
 
   async function handleCheckout() {
     setCheckoutPending(true);
@@ -41,79 +43,73 @@ export function CartPageClient() {
   }
 
   return (
-    <Container
-      variant="wide"
-      className={hasItems ? "pb-4 lg:pb-6" : "pb-0"}
-    >
-      <header className="mb-[18px] max-w-[42ch]">
-        <h1 className="font-[family-name:var(--font-serif)] text-[clamp(2.35rem,5.5vw,3.5rem)] font-light leading-[1.06] tracking-[-0.04em] text-[var(--qa-text)]">
-          Your Ritual
-        </h1>
+    <div className="cart-page">
+      <Container variant="wide" className="cart-page__main">
         {hasItems ? (
-          <p className="mt-3 font-[family-name:var(--font-sans)] text-[15px] font-normal leading-[1.65] text-[color-mix(in_srgb,#1A1A1A_80%,#6F6A63)] lg:mt-4 lg:text-[16px]">
-            These objects are ready to be part of your space.
-          </p>
-        ) : null}
-      </header>
+          <div className="cart-page__grid">
+            <h1 className="cart-page__title">{cartPageCopy.title}</h1>
 
-      {hasItems ? (
-        <>
-          <div className="hidden lg:block">
-            <div className={`border-t border-[#DDD7CF] ${CART_TABLE_GRID}`}>
-              <span className={`${CART_TABLE_HEAD_CELL} pb-6 pt-8`}>
-                Object
-              </span>
-              <span className={`${CART_TABLE_HEAD_CELL} pb-6 pt-8`}>
-                Price
-              </span>
-              <span className={`${CART_TABLE_HEAD_CELL} pb-6 pt-8`}>Qty</span>
-              <span className={`${CART_TABLE_HEAD_CELL} pb-6 pt-8 text-right`}>
-                Total
-              </span>
-            </div>
-            <div>
-              {items.map((item) => (
-                <CartLineItem
-                  key={item.slug}
-                  item={item}
-                  onDecrease={() => decreaseQty(item.slug)}
-                  onIncrease={() => increaseQty(item.slug)}
-                  onRemove={() => removeItem(item.slug)}
-                />
-              ))}
-            </div>
-          </div>
-
-          <div className="border-t border-[#DDD7CF] lg:hidden">
-            {items.map((item) => (
-              <CartLineItem
-                key={item.slug}
-                item={item}
-                onDecrease={() => decreaseQty(item.slug)}
-                onIncrease={() => increaseQty(item.slug)}
-                onRemove={() => removeItem(item.slug)}
+            <div className="cart-page__left">
+              <CartShippingProgress
+                subtotalCents={subtotalCents}
+                className="cart-page__ship"
               />
-            ))}
-          </div>
 
-          <div className="lg:hidden">
+              <div className="cart-page__table-block">
+                <div className="cart-table-panel">
+                  <div className="cart-table-head">
+                    <span className="cart-table-head__cell cart-table-head__cell--product">
+                      {cartPageCopy.tableHead.product}
+                    </span>
+                    <span className="cart-table-head__cell cart-table-head__cell--price">
+                      {cartPageCopy.tableHead.price}
+                    </span>
+                    <span className="cart-table-head__cell cart-table-head__cell--qty">
+                      {cartPageCopy.tableHead.quantity}
+                    </span>
+                    <span className="cart-table-head__cell cart-table-head__cell--total">
+                      {cartPageCopy.tableHead.total}
+                    </span>
+                  </div>
+
+                  <div className="cart-table-body">
+                    {items.map((item) => (
+                      <CartLineItem
+                        key={item.slug}
+                        item={item}
+                        onDecrease={() => decreaseQty(item.slug)}
+                        onIncrease={() => increaseQty(item.slug)}
+                        onRemove={() => removeItem(item.slug)}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                <CartContinueShopping />
+              </div>
+            </div>
+
             <CartSummary
+              className="cart-page__summary"
               items={items}
               onCheckout={handleCheckout}
               checkoutPending={checkoutPending}
-              variant="inline"
+            />
+
+            <CartSummary
+              className="cart-summary--mobile"
+              items={items}
+              onCheckout={handleCheckout}
+              checkoutPending={checkoutPending}
             />
           </div>
-
-          <CartCheckoutBand
-            items={items}
-            onCheckout={handleCheckout}
-            checkoutPending={checkoutPending}
-          />
-        </>
-      ) : (
-        <CartEmpty />
-      )}
-    </Container>
+        ) : (
+          <>
+            <h1 className="cart-page__title">{cartPageCopy.title}</h1>
+            <CartEmpty />
+          </>
+        )}
+      </Container>
+    </div>
   );
 }

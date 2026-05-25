@@ -1,5 +1,5 @@
 /**
- * Inner-page content rail — 1880px max width, 72px horizontal inset.
+ * Inner-page content rail — 1880px max width, 138px horizontal inset.
  * Active under `.qa-inner-rail-scope` in `app/(site)/layout.tsx` (not on `/`).
  */
 export const siteRailShellClass =

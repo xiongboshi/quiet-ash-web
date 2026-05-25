@@ -7,8 +7,8 @@
 :root {
   --site-nav-ink: #1a1816;
   --site-nav-ink-strong: #0d0d0d;
-  /* Inner nav — warm off-white, hint of beige */
-  --site-nav-bar-bg: #faf8f4;
+  /* Inner nav — warm off-white (homepage stays transparent overlay) */
+  --site-nav-bar-bg: #faf9f7;
   --site-nav-bar-line: #e8e4dc;
 }
 

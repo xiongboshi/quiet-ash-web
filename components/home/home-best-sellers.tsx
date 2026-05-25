@@ -6,7 +6,11 @@ export function HomeBestSellers() {
   const { bestSellers } = homeRedesign;
 
   return (
-    <section className="home-bestsellers" aria-labelledby="home-bestsellers-heading">
+    <section
+      id="best-sellers"
+      className="home-bestsellers"
+      aria-labelledby="home-bestsellers-heading"
+    >
       <div className="home-container">
         <header className="home-bestsellers__head">
           <h2 id="home-bestsellers-heading" className="home-bestsellers__heading">

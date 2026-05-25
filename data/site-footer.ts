@@ -11,7 +11,7 @@ export const siteFooter = {
   nav: [
     { label: "Shop", href: SHOP_INDEX },
     { label: "Journal", href: JOURNAL_INDEX },
-    { label: "Our Story", href: "/about" },
+    { label: "ABOUT", href: "/about" },
     { label: "FAQ", href: "/faq" },
     { label: "Contact", href: `mailto:${siteContact.email}` },
   ],

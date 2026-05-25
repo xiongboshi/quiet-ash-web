@@ -1,5 +1,5 @@
 /**
- * Inner pages (site layout) — unified 1880 / 72 content rail.
+ * Inner pages (site layout) — unified 1880 / 138 content rail.
  * Homepage (`/`) is outside `(site)` and unchanged.
  */
 
@@ -23,7 +23,7 @@
 
 @media (min-width: 1280px) {
   .qa-inner-rail-scope {
-    --qa-container-px: 72px;
+    --qa-container-px: 138px;
   }
 }
 
@@ -66,4 +66,16 @@
 .qa-inner-rail-scope .moods-index .container:not(.hero-content) {
   max-width: var(--qa-container-width);
   padding-inline: var(--qa-container-px);
+}
+
+/* Mobile / tablet — hide Home › … breadcrumb trails (keep back buttons, etc.) */
+@media (max-width: 1279px) {
+  .qa-inner-rail-scope nav[aria-label="Breadcrumb"],
+  .qa-inner-rail-scope [class*="__breadcrumbs"] {
+    display: none !important;
+  }
+
+  .qa-inner-rail-scope .mood-ritual-hero__crumb {
+    display: none !important;
+  }
 }

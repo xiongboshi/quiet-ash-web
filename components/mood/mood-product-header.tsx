@@ -27,7 +27,7 @@ export function MoodProductHeader() {
             Journal
           </Link>
           <Link href="/about" className={navLink}>
-            Our Story
+            ABOUT
           </Link>
         </nav>
 

@@ -17,10 +17,11 @@ function NavLink({
   children: ReactNode;
 }) {
   const pathname = usePathname();
+  const base = href.split("#")[0] ?? href;
   const active =
-    href === "/"
-      ? pathname === "/"
-      : pathname === href || pathname.startsWith(`${href}/`);
+    href === "/" || base === "/" || base === ""
+      ? pathname === "/" || pathname === ""
+      : pathname === base || pathname.startsWith(`${base}/`);
   return (
     <Link
       href={href}
@@ -244,7 +245,7 @@ export function SiteHeader() {
           aria-label="Primary"
         >
           {PRIMARY_NAV.map(({ href, label }) => (
-            <NavLink key={href} href={href}>
+            <NavLink key={label} href={href}>
               {label}
             </NavLink>
           ))}
@@ -293,7 +294,7 @@ export function SiteHeader() {
                       : path === href || path.startsWith(`${href}/`);
                   return (
                     <Link
-                      key={href}
+                      key={label}
                       href={href}
                       aria-current={active ? "page" : undefined}
                       onClick={() => setMenuOpen(false)}

@@ -1,9 +1,11 @@
+"use client";
+
 import Image from "next/image";
-import { shopCategory } from "@/data/shop-category";
+import { useShopCategory } from "@/components/shop/shop-category-context";
 import { siteRailExemptClass } from "@/lib/site-rail";
 
 export function ShopCategoryHero() {
-  const { hero } = shopCategory;
+  const { hero } = useShopCategory();
 
   return (
     <section

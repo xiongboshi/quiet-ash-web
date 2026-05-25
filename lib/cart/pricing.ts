@@ -1,6 +1,11 @@
-/** Free shipping at $68+; otherwise $10 flat rate. */
-export const FREE_SHIPPING_THRESHOLD_CENTS = 6800;
+import { FREE_SHIPPING_THRESHOLD_CENTS } from "@/lib/shipping-policy";
+
+export { FREE_SHIPPING_THRESHOLD_CENTS } from "@/lib/shipping-policy";
+
 export const SHIPPING_COST_CENTS = 1000;
+
+/** Estimated tax rate shown in order summary (mockup). */
+export const ESTIMATED_TAX_RATE = 0.08;
 
 export function parsePriceDisplay(display?: string): number {
   if (!display || display.trim() === "—") return 0;
@@ -33,13 +38,34 @@ export function getFreeShippingGapCents(subtotalCents: number): number {
   return Math.max(0, FREE_SHIPPING_THRESHOLD_CENTS - subtotalCents);
 }
 
+export function freeShippingGapFormatted(subtotalCents: number): string | null {
+  if (subtotalCents <= 0) return null;
+  const gap = getFreeShippingGapCents(subtotalCents);
+  if (gap <= 0) return null;
+  return formatMoney(gap);
+}
+
 export function freeShippingMessage(subtotalCents: number): string {
   if (subtotalCents <= 0) return "";
   const gap = getFreeShippingGapCents(subtotalCents);
-  if (gap <= 0) return "Free shipping unlocked.";
-  return `You are ${formatMoney(gap)} away from free shipping.`;
+  if (gap <= 0) return "You've unlocked free shipping.";
+  return `You're ${formatMoney(gap)} away from free shipping.`;
 }
 
-export function shippingLabel(subtotalCents: number): string {
-  return getShippingCents(subtotalCents) === 0 ? "Free" : formatMoney(SHIPPING_COST_CENTS);
+export function shippingProgressPercent(subtotalCents: number): number {
+  if (subtotalCents <= 0) return 0;
+  return Math.min(100, (subtotalCents / FREE_SHIPPING_THRESHOLD_CENTS) * 100);
+}
+
+export function getEstimatedTaxCents(subtotalCents: number): number {
+  if (subtotalCents <= 0) return 0;
+  return Math.round(subtotalCents * ESTIMATED_TAX_RATE);
+}
+
+export function getCartTotalCents(subtotalCents: number): number {
+  return subtotalCents + getEstimatedTaxCents(subtotalCents);
+}
+
+export function shippingSummaryLabel(): string {
+  return "Calculated at checkout";
 }

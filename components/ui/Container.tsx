@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-/** Horizontal inset — `72px` under `.qa-inner-rail-scope`; legacy on heroes via `.qa-rail-exempt` */
+/** Horizontal inset — `138px` under `.qa-inner-rail-scope`; legacy on heroes via `.qa-rail-exempt` */
 export const CONTAINER_PAD = "px-[var(--qa-container-px)]";
 
 type Props = {

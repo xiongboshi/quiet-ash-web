@@ -8,6 +8,8 @@
 @import "../styles/site-nav.css";
 @import "../styles/site-rail.css";
 @import "../styles/site-footer.css";
+@import "../styles/about-page.css";
+@import "../styles/cart-page.css";
 
 /* Quiet Ash — legacy aliases map to reference tokens */
 :root {
@@ -86,6 +88,10 @@ body {
   font-size: var(--qa-body-size);
   line-height: var(--qa-body-leading);
   letter-spacing: -0.01em;
+  /* Inter + Cormorant: upright lining figures (avoid oldstyle “tilted” digits) */
+  font-variant-numeric: lining-nums;
+  font-style: normal;
+  font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -114,6 +120,21 @@ h4 {
   color: var(--qa-text);
   letter-spacing: -0.03em;
   font-weight: 300;
+  font-variant-numeric: lining-nums;
+}
+
+/* Serif display classes — same upright numerals as headings */
+:where(
+  .qa-title,
+  .qa-hero-display,
+  .qa-spec-hero-title,
+  .qa-spec-section-title,
+  .qa-spec-card-title,
+  .qa-wordmark,
+  .qa-journal-m-lede,
+  .markdown.markdown--ritual-intro
+) {
+  font-variant-numeric: lining-nums;
 }
 
 /* Homepage image cards — white overlay type (beats global heading color) */
@@ -723,7 +744,7 @@ footer.qa-site-footer {
   padding-block: var(--space-section);
 }
 
-/* Brand-wide container — default 1680; 1880 / 72 under `.qa-inner-rail-scope` (see site-rail.css) */
+/* Brand-wide container — default 1680; 1880 / 138 under `.qa-inner-rail-scope` (see site-rail.css) */
 .qa-container {
   width: 100%;
   max-width: var(--qa-container-width);

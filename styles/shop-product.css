@@ -258,11 +258,6 @@
     padding-bottom: 2rem;
   }
 
-  .shop-product-hero__breadcrumbs {
-    margin-bottom: 1rem;
-    font-size: 11px;
-  }
-
   .shop-product-buy__purchase {
     flex-direction: column;
     align-items: stretch;
@@ -638,6 +633,7 @@
   font-size: 18px;
   font-weight: 600;
   line-height: 1.2;
+  font-variant-numeric: lining-nums tabular-nums;
   color: var(--shop-pdp-ink);
 }
 

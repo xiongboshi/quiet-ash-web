@@ -11,6 +11,7 @@ import {
   moodPath,
   shopPath,
 } from "@/lib/site-paths";
+import { listShopCategories } from "@/lib/shop-catalog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = getSiteUrl();
@@ -82,6 +83,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }));
 
+  const shopCategories: MetadataRoute.Sitemap = listShopCategories().map((category) => ({
+    url: `${base}${category.pathname}`,
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: 0.85,
+  }));
+
   const objects: MetadataRoute.Sitemap = getAllProducts().map((product) => ({
     url: `${base}${shopPath(product.slug)}`,
     lastModified: now,
@@ -98,5 +106,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }),
   );
 
-  return [...staticRoutes, ...essays, ...rituals, ...objects, ...collections];
+  return [...staticRoutes, ...shopCategories, ...essays, ...rituals, ...objects, ...collections];
 }

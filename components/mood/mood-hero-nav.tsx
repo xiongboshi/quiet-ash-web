@@ -40,10 +40,6 @@ export function MoodHeroNav({ promo }: Props) {
         </Link>
 
         <div className="hidden min-w-[280px] items-center justify-end gap-7 md:flex">
-          <span className={`${navLinkClass} cursor-default`}>Search</span>
-          <Link href="/about" className={navLinkClass}>
-            Account
-          </Link>
           <CartLink className={navLinkClass} />
         </div>
 

@@ -57,6 +57,8 @@
 
   --qa-font-serif: var(--font-serif), "Cormorant Garamond", ui-serif, serif;
   --qa-font-sans: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  /* Sitewide numerals — lining (upright); prices may also use tabular-nums */
+  --qa-numeric-variant: lining-nums;
 }
 
 @media (min-width: 640px) {

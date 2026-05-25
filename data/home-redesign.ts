@@ -1,4 +1,5 @@
 import { SHOP_INDEX, JOURNAL_INDEX } from "@/lib/site-paths";
+import { freeShippingOverOrdersCopy } from "@/lib/shipping-policy";
 
 export type HomeNeedIconId = "sleep" | "leaf" | "sun" | "home" | "sunrise";
 
@@ -77,7 +78,7 @@ export const homeRedesign = {
     {
       id: "shipping",
       title: "Free Shipping",
-      description: "On orders over $50",
+      description: freeShippingOverOrdersCopy(),
       icon: "shipping",
     },
   ] satisfies HomeTrustItem[],
