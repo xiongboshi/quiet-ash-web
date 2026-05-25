@@ -43,7 +43,7 @@ export function QaHomeCartLink({ className, onNavigate, variant = "icon" }: Prop
       aria-label={label}
       onClick={onNavigate}
     >
-      <NavCartIcon size={28} className="nav-cart-icon" />
+      <NavCartIcon size={22} className="nav-cart-icon" />
       {display > 0 ? (
         <span className="nav-cart-badge" aria-hidden>
           {display > 9 ? "9+" : display}

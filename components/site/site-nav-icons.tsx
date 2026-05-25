@@ -53,12 +53,20 @@ export function NavCartIcon({ size = 22, className }: IconProps) {
       className={className}
     >
       <path
-        d="M4.5 5h1.35l1.65 9.25h11.5L20.5 8.5H7.25"
+        d="M16 10a4 4 0 0 1-8 0"
         stroke="currentColor"
         {...stroke}
       />
-      <circle cx="10" cy="19" r="1.15" fill="currentColor" />
-      <circle cx="17" cy="19" r="1.15" fill="currentColor" />
+      <path
+        d="M3.103 6.034h17.794"
+        stroke="currentColor"
+        {...stroke}
+      />
+      <path
+        d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"
+        stroke="currentColor"
+        {...stroke}
+      />
     </svg>
   );
 }
