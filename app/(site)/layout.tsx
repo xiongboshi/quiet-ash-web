@@ -1,8 +1,4 @@
 import { Footer } from "@/components/sections/Footer";
-import "@/styles/shop-category.css";
-import "@/styles/shop-product.css";
-import "@/styles/about-page.css";
-import "@/styles/cart-page.css";
 
 export default function SiteLayout({
   children,
