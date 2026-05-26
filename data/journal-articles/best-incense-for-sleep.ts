@@ -5,7 +5,7 @@ import { JOURNAL_INDEX, journalPath } from "@/lib/site-paths";
 export const journalArticleBestIncenseForSleep: JournalArticleTemplate = {
   slug: "best-incense-for-sleep",
   bodyFormat: "guide",
-  seoTitle: "Best Incense for Sleep",
+  seoTitle: "Best Incense for Sleep: Calming Scents for Better Rest",
   seoDescription:
     "Soft, calming scents that help you relax and sleep better — sandalwood, lavender, white tea, and how to use incense before bed.",
   hero: {
@@ -13,10 +13,13 @@ export const journalArticleBestIncenseForSleep: JournalArticleTemplate = {
       { label: "Home", href: "/" },
       { label: "Journal", href: JOURNAL_INDEX },
       { label: "Guides", href: `${JOURNAL_INDEX}?category=guides-tips` },
-      { label: "Best Incense for Sleep", href: journalPath("best-incense-for-sleep") },
+      {
+        label: "Let the Room Grow Quiet Before Sleep",
+        href: journalPath("best-incense-for-sleep"),
+      },
     ],
     categoryLabel: "GUIDES",
-    title: "Best Incense for Sleep",
+    title: "Let the Room Grow Quiet Before Sleep",
     subtitle: "Soft, calming scents that help you relax and sleep better.",
     readMinutes: 5,
     updatedLabel: "Updated May 12, 2024",

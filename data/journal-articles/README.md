@@ -2,6 +2,21 @@
 
 Each published journal URL needs an entry in `journalArticleRegistry` (`index.ts`).
 
+## Dual titles (required)
+
+Every article uses **two titles**:
+
+| Field | Role | Example |
+|-------|------|---------|
+| `headline` | H1 on page — human, emotional, brand | Good Incense Shouldn't Feel Loud |
+| `seoTitle` | `<title>` / Open Graph — search & Pinterest | Best Soft-Smelling Incense For Calm Evenings |
+
+- **Editorial essays** (`content/essays/incense-culture/`): set both in `data/journal-essay-card-meta.ts` per slug.
+- **Hand template** (`best-incense-for-sleep.ts`): `hero.title` = headline, top-level `seoTitle` = SEO title.
+- **Index showcase card**: `headline` + `seoTitle` in `data/journal-index-articles.ts`.
+
+MDX frontmatter `title` can stay as a working label; the site uses `journal-essay-card-meta` for display and metadata.
+
 ## Two ways to add content
 
 ### A. Index + MDX auto-fill (most articles)

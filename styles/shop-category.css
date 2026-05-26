@@ -986,7 +986,7 @@
   .shop-category-page .shop-product-card__title,
   .shop-product-card__title {
     font-family: var(--font-serif), "Cormorant Garamond", ui-serif, serif;
-    font-size: 0.8125rem;
+    font-size: 15.5px;
     font-weight: 500;
     line-height: 1.28;
     letter-spacing: -0.01em;
@@ -995,7 +995,7 @@
 
   .shop-product-card__notes {
     margin-top: 0.12rem;
-    font-size: 9px;
+    font-size: 11.5px;
     line-height: 1.4;
     letter-spacing: 0.02em;
     color: color-mix(in srgb, var(--shop-muted) 92%, var(--shop-ink));
@@ -1004,12 +1004,12 @@
   .shop-product-card__rating {
     gap: 0.2rem;
     margin-top: 0.3rem;
-    font-size: 9px;
+    font-size: 11.5px;
   }
 
   .shop-product-card__rating .home-stars svg {
-    width: 10px;
-    height: 10px;
+    width: 12.5px;
+    height: 12.5px;
   }
 
   .shop-product-card__footer {
@@ -1017,7 +1017,7 @@
   }
 
   .shop-product-card__price {
-    font-size: 11px;
+    font-size: 13.5px;
     font-weight: 500;
   }
 

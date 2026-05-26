@@ -13,7 +13,8 @@ export function HomeHero() {
           alt={hero.imageAlt}
           fill
           priority
-          sizes="100vw"
+          quality={75}
+          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 100vw, 1920px"
           className="home-hero__bg"
         />
         <div className="home-hero__scrim" aria-hidden />

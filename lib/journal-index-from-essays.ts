@@ -19,11 +19,16 @@ export function buildJournalIndexCardsFromEssays(
       const categoryId = meta?.categoryId ?? "scents-ingredients";
       const tags = meta?.tags ?? (["relaxation"] as const);
 
+      const headline = meta?.headline ?? essay.title;
+      const seoTitle = meta?.seoTitle ?? essay.title;
+
       return {
         slug: essay.slug,
         categoryId,
         categoryLabel: journalCategoryLabels[categoryId],
-        title: essay.title,
+        headline,
+        seoTitle,
+        title: headline,
         description: essay.excerpt.replace(/\s+/g, " ").trim(),
         readMinutes: essay.readingMinutes,
         date: essay.date,

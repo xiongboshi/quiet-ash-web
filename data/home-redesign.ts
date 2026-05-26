@@ -47,8 +47,7 @@ export const homeRedesign = {
   hero: {
     titleLines: ["Smells that", "help you slow down."],
     descriptionLines: [
-      "Handcrafted incense for sleep,",
-      "stress relief, and better evenings.",
+      "Quiet Ash explores incense, rituals, and slower ways of living through calming atmospheres, emotional wellness, and sensory routines.",
     ],
     cta: { label: "SHOP BEST SELLERS", href: SHOP_INDEX },
     rating: { score: "4.8/5", value: 4.8, label: "from 2,000+ customers" },

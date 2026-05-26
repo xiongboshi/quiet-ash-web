@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { QaHomePage } from "@/components/qa/qa-home-page";
+import "@/styles/qa-home-1920.css";
+import "@/styles/home-redesign.css";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";

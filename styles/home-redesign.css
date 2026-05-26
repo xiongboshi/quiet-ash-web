@@ -244,7 +244,7 @@
   flex-direction: column;
   gap: 0;
   margin: 1.75rem 0 0;
-  max-width: 21rem;
+  max-width: 26rem;
   font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
   font-size: 1rem;
   font-weight: 500;
@@ -1650,7 +1650,7 @@
 
   .home-hero__desc {
     margin-top: 2rem;
-    max-width: 22.5rem;
+    max-width: 28rem;
     font-size: 1.125rem;
     font-weight: 500;
     line-height: 1.65;

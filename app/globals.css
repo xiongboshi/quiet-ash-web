@@ -1,15 +1,9 @@
 @import "tailwindcss";
 @import "../styles/tokens.css";
 @import "../styles/mood-tokens.css";
-@import "../styles/qa-home-1920.css";
-@import "../styles/home-redesign.css";
-@import "../styles/shop-category.css";
-@import "../styles/shop-product.css";
 @import "../styles/site-nav.css";
 @import "../styles/site-rail.css";
 @import "../styles/site-footer.css";
-@import "../styles/about-page.css";
-@import "../styles/cart-page.css";
 
 /* Quiet Ash — legacy aliases map to reference tokens */
 :root {

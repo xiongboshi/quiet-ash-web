@@ -358,7 +358,7 @@ export function buildJournalArticleFromIndexCard(
   return {
     slug: card.slug,
     bodyFormat: isGuide ? "guide" : "editorial",
-    seoTitle: card.title,
+    seoTitle: card.seoTitle,
     seoDescription: card.description,
     hero: {
       breadcrumbs: [
@@ -368,10 +368,10 @@ export function buildJournalArticleFromIndexCard(
           label: categoryCrumb,
           href: `${JOURNAL_INDEX}?category=${card.categoryId}`,
         },
-        { label: card.title, href: journalPath(card.slug) },
+        { label: card.headline, href: journalPath(card.slug) },
       ],
       categoryLabel: card.categoryLabel,
-      title: card.title,
+      title: card.headline,
       subtitle: card.description,
       readMinutes: card.readMinutes,
       updatedLabel: formatUpdatedLabel(card.date),
