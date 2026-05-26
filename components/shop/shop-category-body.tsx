@@ -6,7 +6,6 @@ import { ShopCategorySidebar } from "@/components/shop/shop-category-sidebar";
 
 export function ShopCategoryBody() {
   const [filtersOpen, setFiltersOpen] = useState(false);
-  const [filterSelectionCount, setFilterSelectionCount] = useState(0);
 
   useEffect(() => {
     if (!filtersOpen) return;
@@ -29,11 +28,9 @@ export function ShopCategoryBody() {
       <ShopCategorySidebar
         filtersOpen={filtersOpen}
         onClose={() => setFiltersOpen(false)}
-        onSelectionCountChange={setFilterSelectionCount}
       />
       <ShopCategoryListing
         filtersOpen={filtersOpen}
-        filterSelectionCount={filterSelectionCount}
         onToggleFilters={() => setFiltersOpen((open) => !open)}
       />
     </div>

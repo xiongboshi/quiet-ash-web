@@ -2,15 +2,15 @@
 
 import Link from "next/link";
 import { Minus, Plus } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { useShopCategory } from "@/components/shop/shop-category-context";
+import { useShopListingState } from "@/components/shop/shop-category-listing-state";
 import { shopFilterTabLabel } from "@/lib/shop-catalog";
 import type { ShopFilterGroup } from "@/data/shop-catalog-types";
 
 type Props = {
   filtersOpen?: boolean;
   onClose?: () => void;
-  onSelectionCountChange?: (count: number) => void;
 };
 
 function countGroupSelection(group: ShopFilterGroup, checked: Record<string, boolean>) {
@@ -20,9 +20,9 @@ function countGroupSelection(group: ShopFilterGroup, checked: Record<string, boo
 export function ShopCategorySidebar({
   filtersOpen = false,
   onClose,
-  onSelectionCountChange,
 }: Props) {
-  const { breadcrumbs, filters } = useShopCategory();
+  const { breadcrumbs } = useShopCategory();
+  const { filters, checked, toggleOption, clearAll } = useShopListingState();
   const filterGroups = filters.groups;
 
   const [openGroups, setOpenGroups] = useState<Record<string, boolean>>(() =>
@@ -30,7 +30,6 @@ export function ShopCategorySidebar({
       filterGroups.map((group) => [group.id, group.defaultOpen ?? false]),
     ),
   );
-  const [checked, setChecked] = useState<Record<string, boolean>>({});
   const [mobileTab, setMobileTab] = useState(filterGroups[0]?.id ?? "");
 
   const selectedCount = useMemo(
@@ -42,19 +41,9 @@ export function ShopCategorySidebar({
   const tabsScroll = tabCount > 3;
   const activeGroup = filterGroups.find((group) => group.id === mobileTab);
 
-  useEffect(() => {
-    onSelectionCountChange?.(selectedCount);
-  }, [selectedCount, onSelectionCountChange]);
-
   const toggleGroup = (id: string) => {
     setOpenGroups((prev) => ({ ...prev, [id]: !prev[id] }));
   };
-
-  const toggleOption = (id: string) => {
-    setChecked((prev) => ({ ...prev, [id]: !prev[id] }));
-  };
-
-  const clearAll = () => setChecked({});
 
   return (
     <>

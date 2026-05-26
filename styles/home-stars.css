@@ -1,0 +1,57 @@
+/**
+ * Shared star rating (HomeStarRating) — global so shop/journal/PDP work without home-redesign.css.
+ */
+
+.home-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+  line-height: 0;
+  filter: drop-shadow(0 0 0.45px rgba(232, 184, 74, 0.5));
+}
+
+.home-stars svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+.home-stars--ink {
+  filter: none;
+}
+
+.home-stars--hero {
+  gap: 3px;
+}
+
+.home-stars__partial {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.home-stars__partial > svg {
+  display: block;
+}
+
+.home-stars__partial-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.home-stars__partial-inner {
+  display: block;
+  line-height: 0;
+}
+
+.home-stars__partial-inner > svg {
+  display: block;
+}
+
+.home-stars__empty {
+  opacity: 0.38;
+}

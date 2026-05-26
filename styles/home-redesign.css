@@ -144,17 +144,6 @@
   opacity: 0.75;
 }
 
-.home-stars {
-  display: inline-flex;
-  align-items: center;
-  gap: 2px;
-  filter: drop-shadow(0 0 0.45px rgba(232, 184, 74, 0.5));
-}
-
-.home-stars--ink {
-  filter: none;
-}
-
 /* —— Hero — 模块 1：整行铺满背景图 + 左侧文案（设计稿） —— */
 .home-hero {
   --home-hero-ink: #0d0d0d;
@@ -285,42 +274,6 @@
   align-items: center;
   gap: 0.65rem;
   margin-top: 1.15rem;
-}
-
-.home-stars--hero {
-  gap: 3px;
-}
-
-.home-stars__partial {
-  position: relative;
-  display: inline-block;
-  flex-shrink: 0;
-  line-height: 0;
-}
-
-.home-stars__partial > svg {
-  display: block;
-}
-
-.home-stars__partial-fill {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  overflow: hidden;
-}
-
-.home-stars__partial-inner {
-  display: block;
-  line-height: 0;
-}
-
-.home-stars__partial-inner > svg {
-  display: block;
-}
-
-.home-stars__empty {
-  opacity: 0.38;
 }
 
 .home-hero__rating-text {

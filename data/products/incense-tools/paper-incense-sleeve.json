@@ -13,6 +13,35 @@
   "dimensions": "Ø9cm x H22cm",
   "finish": "Matte charcoal glaze",
   "care": "Hand wash only",
+  "shop": {
+    "categorySlugs": ["incense", "holders"],
+    "filterTags": {
+      "scent": ["floral"],
+      "mood": ["sleep"],
+      "price": ["50-100"],
+      "material": ["stoneware"],
+      "type": ["vessel"],
+      "holders": ["vessel"]
+    },
+    "plp": {
+      "title": "Lavender & Linen",
+      "scentNotes": "Lavender · Cotton · Soft Musk",
+      "priceDisplay": "$18.00",
+      "reviewCount": 294,
+      "imageSrc": "/images/generated/best-sellers/lavender-field-v3.png",
+      "imageAlt": "Lavender and linen incense"
+    },
+    "plpByCategory": {
+      "holders": {
+        "title": "Black Ash Vase",
+        "scentNotes": "Stoneware · Matte charcoal",
+        "priceDisplay": "$72",
+        "reviewCount": 98,
+        "imageSrc": "/images/generated/products/paper-incense-sleeve/hero.png",
+        "imageAlt": "Black ash vase for incense ritual"
+      }
+    }
+  },
   "gallery": [
     "/images/generated/products/paper-incense-sleeve/hero.png",
     "/images/generated/products/paper-incense-sleeve/gallery-01.png",

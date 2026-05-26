@@ -1,4 +1,4 @@
-import type { HomeBestSellerCard } from "@/data/home-redesign";
+/** Static shop aisle config — products come from `data/products/*.json` (`shop` field). */
 
 /** One selectable value inside a filter group. */
 export type ShopFilterOption = {
@@ -53,9 +53,7 @@ export type ShopCategoryDefinition = {
   filters: ShopCategoryFilters;
   listing: {
     title: string;
-    productCount: number;
     sortOptions: readonly string[];
   };
   valueBar: readonly ShopCategoryValueBarItem[];
-  products: readonly HomeBestSellerCard[];
 };

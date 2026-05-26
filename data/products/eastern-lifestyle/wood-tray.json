@@ -10,6 +10,35 @@
   "seriesSlugs": ["incense-culture", "ash-and-time"],
   "featured": true,
   "description": "A refreshing blend of sun-ripened citrus, delicate florals, and green leaves. Awakens your senses and brightens your space.",
+  "shop": {
+    "categorySlugs": ["incense", "holders"],
+    "filterTags": {
+      "scent": ["fruity"],
+      "mood": ["sleep"],
+      "price": ["under-20"],
+      "material": ["walnut"],
+      "type": ["tray"],
+      "holders": ["tray"]
+    },
+    "plp": {
+      "title": "Citrus Sleep",
+      "scentNotes": "Lemon · Bergamot · Mandarin",
+      "priceDisplay": "$18.00",
+      "reviewCount": 276,
+      "imageSrc": "/images/generated/best-sellers/citrus-grove-v5.png",
+      "imageAlt": "Citrus Sleep incense"
+    },
+    "plpByCategory": {
+      "holders": {
+        "title": "Walnut Tea Tray",
+        "scentNotes": "Walnut · Ash channel · Hand-rubbed",
+        "priceDisplay": "$78",
+        "reviewCount": 116,
+        "imageSrc": "/images/generated/products/wood-tray/hero.png",
+        "imageAlt": "Walnut tea and incense tray"
+      }
+    }
+  },
   "gallery": [
     "/images/generated/best-sellers/citrus-grove-v5.png",
     "/images/generated/best-sellers/citrus-grove-v4.png",

@@ -13,6 +13,35 @@
   "dimensions": "Ø6.5cm x H3.5cm",
   "finish": "Warm patina",
   "care": "Wipe dry after use",
+  "shop": {
+    "categorySlugs": ["incense", "holders"],
+    "filterTags": {
+      "scent": ["floral"],
+      "mood": ["fresh"],
+      "price": ["under-20", "50-100"],
+      "material": ["bronze"],
+      "type": ["stand"],
+      "holders": ["stand"]
+    },
+    "plp": {
+      "title": "White Jasmine",
+      "scentNotes": "Jasmine · Green Leaves · Lily",
+      "priceDisplay": "$18.00",
+      "reviewCount": 312,
+      "imageSrc": "/images/generated/best-sellers/white-jasmine-v3.png",
+      "imageAlt": "White Jasmine incense"
+    },
+    "plpByCategory": {
+      "holders": {
+        "title": "Bronze Incense Holder",
+        "scentNotes": "Bronze · Low stand · Patina",
+        "priceDisplay": "$68",
+        "reviewCount": 142,
+        "imageSrc": "/images/generated/products/brass-incense-stand/hero.png",
+        "imageAlt": "Bronze incense holder"
+      }
+    }
+  },
   "gallery": [
     "/images/generated/products/brass-incense-stand/hero.png",
     "/images/generated/products/brass-incense-stand/gallery-01.png",

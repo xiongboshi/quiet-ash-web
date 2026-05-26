@@ -12,6 +12,22 @@
   "description": "A cloth for spills, steam, and the small dignity of a tray — linen that softens with washing instead of pretending to stay new.",
   "dimensions": "45cm x 45cm",
   "care": "Machine wash cold, line dry",
+  "shop": {
+    "categorySlugs": ["incense"],
+    "filterTags": {
+      "scent": ["herbal"],
+      "mood": ["reset"],
+      "price": ["20-35"]
+    },
+    "plp": {
+      "title": "Tea House",
+      "scentNotes": "White Tea · Fig · Musk",
+      "priceDisplay": "$18.00",
+      "reviewCount": 228,
+      "imageSrc": "/images/generated/best-sellers/quiet-cloud-v3.png",
+      "imageAlt": "Tea House incense"
+    }
+  },
   "gallery": [
     "/images/generated/products/linen-cloth/hero.png",
     "/images/generated/products/linen-cloth/gallery-01.png",

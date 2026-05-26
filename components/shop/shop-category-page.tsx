@@ -4,9 +4,10 @@ import { ShopCategoryProvider } from "@/components/shop/shop-category-context";
 import { ShopCategoryValueBar } from "@/components/shop/shop-category-value-bar";
 import {
   DEFAULT_SHOP_CATEGORY_SLUG,
-  getShopCategory,
 } from "@/lib/shop-catalog";
+import { resolveShopCategory } from "@/lib/shop-catalog-resolved";
 import type { ShopCatalogSlug } from "@/data/shop-catalog";
+import { ShopCategoryListingState } from "@/components/shop/shop-category-listing-state";
 
 type Props = {
   categorySlug?: ShopCatalogSlug;
@@ -15,17 +16,19 @@ type Props = {
 export function ShopCategoryPage({
   categorySlug = DEFAULT_SHOP_CATEGORY_SLUG,
 }: Props) {
-  const category = getShopCategory(categorySlug);
+  const category = resolveShopCategory(categorySlug);
 
   return (
     <ShopCategoryProvider category={category}>
-      <div className="shop-category-page">
-        <ShopCategoryHero />
-        <div className="shop-category-page__body">
-          <ShopCategoryBody />
+      <ShopCategoryListingState category={category}>
+        <div className="shop-category-page">
+          <ShopCategoryHero />
+          <div className="shop-category-page__body">
+            <ShopCategoryBody />
+          </div>
+          <ShopCategoryValueBar />
         </div>
-        <ShopCategoryValueBar />
-      </div>
+      </ShopCategoryListingState>
     </ShopCategoryProvider>
   );
 }

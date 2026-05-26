@@ -13,6 +13,35 @@
   "dimensions": "12cm x 8cm x H5cm",
   "finish": "Hand-rubbed oil",
   "care": "Keep closed; avoid moisture",
+  "shop": {
+    "categorySlugs": ["incense", "holders"],
+    "filterTags": {
+      "scent": ["woody"],
+      "mood": ["reset"],
+      "price": ["under-20", "100-plus"],
+      "material": ["walnut"],
+      "type": ["storage"],
+      "holders": ["storage"]
+    },
+    "plp": {
+      "title": "Sandalwood & Fig",
+      "scentNotes": "Sandalwood · Fig · Amber",
+      "priceDisplay": "$18.00",
+      "reviewCount": 267,
+      "imageSrc": "/images/generated/best-sellers/sandalwood-night-v2.png",
+      "imageAlt": "Sandalwood and fig incense"
+    },
+    "plpByCategory": {
+      "holders": {
+        "title": "Agarwood Keeper",
+        "scentNotes": "Walnut · Lidded storage",
+        "priceDisplay": "$210",
+        "reviewCount": 64,
+        "imageSrc": "/images/generated/products/small-agarwood-box/hero.png",
+        "imageAlt": "Walnut agarwood keeper box"
+      }
+    }
+  },
   "gallery": [
     "/images/generated/products/small-agarwood-box/hero.png",
     "/images/generated/products/small-agarwood-box/gallery-01.png",

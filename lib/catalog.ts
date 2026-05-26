@@ -1,5 +1,10 @@
 import fs from "node:fs";
 import path from "node:path";
+import type {
+  ShopFilterTags,
+  ShopProductConfig,
+  ShopProductPdp,
+} from "@/lib/shop-types";
 
 /**
  * One JSON file per object under `data/products/<category-slug>/*.json`.
@@ -55,9 +60,28 @@ export type CatalogProduct = {
   atmosphereImage?: string;
   relatedEssaySlugs?: string[];
   featureBullets?: string[];
+  /** Shop PLP + filter tags — see docs/SHOP-CMS-SCHEMA.md */
+  shop?: ShopProductConfig;
+  /** Shop PDP blocks — merged over defaults in `getShopProductPdp`. */
+  shopPdp?: Partial<ShopProductPdp>;
 };
 
 const PRODUCTS_ROOT = path.join(process.cwd(), "data", "products");
+const SHOP_PDP_ROOT = path.join(process.cwd(), "data", "shop-pdp");
+
+function loadShopPdpSidecar(slug: string): Partial<ShopProductPdp> | undefined {
+  const fp = path.join(SHOP_PDP_ROOT, `${slug}.json`);
+  if (!fs.existsSync(fp)) return undefined;
+  try {
+    const raw = JSON.parse(fs.readFileSync(fp, "utf8")) as unknown;
+    return parseShopPdpField(raw);
+  } catch (e) {
+    if (process.env.NODE_ENV === "development") {
+      console.warn(`[catalog] Invalid shop PDP JSON: ${fp}`, e);
+    }
+    return undefined;
+  }
+}
 
 function optString(raw: unknown): string | undefined {
   return typeof raw === "string" && raw.trim() ? raw.trim() : undefined;
@@ -132,6 +156,83 @@ export function pairSlugsFromProduct(product: CatalogProduct): string[] {
   return product.pairsWith
     .map((p) => (typeof p === "string" ? p : p.slug))
     .filter(Boolean);
+}
+
+function parseFilterTags(raw: unknown): ShopFilterTags | undefined {
+  if (!raw || typeof raw !== "object") return undefined;
+  const out: Record<string, string[]> = {};
+  for (const [key, value] of Object.entries(raw)) {
+    if (!Array.isArray(value)) continue;
+    const ids = value
+      .filter((x): x is string => typeof x === "string" && x.trim().length > 0)
+      .map((s) => s.trim());
+    if (ids.length) out[key] = ids;
+  }
+  return Object.keys(out).length ? out : undefined;
+}
+
+function parsePlpOverride(raw: unknown): ShopProductConfig["plp"] | undefined {
+  if (!raw || typeof raw !== "object") return undefined;
+  const o = raw as Record<string, unknown>;
+  const title = optString(o.title);
+  const scentNotes = optString(o.scentNotes);
+  const priceDisplay = optString(o.priceDisplay);
+  const imageSrc = optString(o.imageSrc);
+  const imageAlt = optString(o.imageAlt);
+  const imageObjectPosition = optString(o.imageObjectPosition);
+  const reviewCount =
+    typeof o.reviewCount === "number" && o.reviewCount >= 0
+      ? Math.round(o.reviewCount)
+      : undefined;
+  if (
+    !title &&
+    !scentNotes &&
+    !priceDisplay &&
+    !imageSrc &&
+    !imageAlt &&
+    reviewCount === undefined &&
+    !imageObjectPosition
+  ) {
+    return undefined;
+  }
+  return {
+    ...(title ? { title } : {}),
+    ...(scentNotes ? { scentNotes } : {}),
+    ...(priceDisplay ? { priceDisplay } : {}),
+    ...(reviewCount !== undefined ? { reviewCount } : {}),
+    ...(imageSrc ? { imageSrc } : {}),
+    ...(imageAlt ? { imageAlt } : {}),
+    ...(imageObjectPosition ? { imageObjectPosition } : {}),
+  };
+}
+
+function parseShopConfig(raw: unknown): ShopProductConfig | undefined {
+  if (!raw || typeof raw !== "object") return undefined;
+  const o = raw as Record<string, unknown>;
+  const slugs = parseStringArrayField(o.categorySlugs);
+  if (!slugs?.length) return undefined;
+  const plp = parsePlpOverride(o.plp);
+  const filterTags = parseFilterTags(o.filterTags);
+  let plpByCategory: ShopProductConfig["plpByCategory"];
+  if (o.plpByCategory && typeof o.plpByCategory === "object") {
+    plpByCategory = {};
+    for (const [key, value] of Object.entries(o.plpByCategory)) {
+      const row = parsePlpOverride(value);
+      if (row) plpByCategory[key] = row;
+    }
+    if (!Object.keys(plpByCategory).length) plpByCategory = undefined;
+  }
+  return {
+    categorySlugs: slugs,
+    ...(filterTags ? { filterTags } : {}),
+    ...(plp ? { plp } : {}),
+    ...(plpByCategory ? { plpByCategory } : {}),
+  };
+}
+
+function parseShopPdpField(raw: unknown): Partial<ShopProductPdp> | undefined {
+  if (!raw || typeof raw !== "object") return undefined;
+  return raw as Partial<ShopProductPdp>;
 }
 
 function parseSeriesSlugs(raw: unknown): string[] {
@@ -213,6 +314,9 @@ function readProductJson(
   const atmosphereImage = optString(raw.atmosphereImage);
   const relatedEssaySlugs = parseStringArrayField(raw.relatedEssaySlugs);
   const featureBullets = parseStringArrayField(raw.featureBullets);
+  const shop = parseShopConfig(raw.shop);
+  const shopPdp =
+    parseShopPdpField(raw.shopPdp) ?? loadShopPdpSidecar(slug);
 
   return {
     slug,
@@ -243,6 +347,8 @@ function readProductJson(
     ...(atmosphereImage ? { atmosphereImage } : {}),
     ...(relatedEssaySlugs ? { relatedEssaySlugs } : {}),
     ...(featureBullets ? { featureBullets } : {}),
+    ...(shop ? { shop } : {}),
+    ...(shopPdp ? { shopPdp } : {}),
   };
 }
 
@@ -298,6 +404,9 @@ function loadAllProductsDeduped(): CatalogProduct[] {
 let cache: CatalogProduct[] | null = null;
 
 function allProducts(): CatalogProduct[] {
+  if (process.env.NODE_ENV === "development") {
+    return loadAllProductsDeduped();
+  }
   if (!cache) cache = loadAllProductsDeduped();
   return cache;
 }
