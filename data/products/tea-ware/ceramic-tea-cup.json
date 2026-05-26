@@ -21,14 +21,6 @@
       "scent": ["floral"],
       "mood": ["fresh"],
       "price": ["35-plus"]
-    },
-    "plp": {
-      "title": "Rose Garden",
-      "scentNotes": "Rose · Geranium · Palmarosa",
-      "priceDisplay": "$18.00",
-      "reviewCount": 246,
-      "imageSrc": "/images/generated/best-sellers/rose-garden-v3.png",
-      "imageAlt": "Rose Garden incense"
     }
   },
   "gallery": [

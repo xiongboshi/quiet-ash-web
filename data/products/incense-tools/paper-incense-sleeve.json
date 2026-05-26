@@ -23,14 +23,6 @@
       "type": ["vessel"],
       "holders": ["vessel"]
     },
-    "plp": {
-      "title": "Lavender & Linen",
-      "scentNotes": "Lavender · Cotton · Soft Musk",
-      "priceDisplay": "$18.00",
-      "reviewCount": 294,
-      "imageSrc": "/images/generated/best-sellers/lavender-field-v3.png",
-      "imageAlt": "Lavender and linen incense"
-    },
     "plpByCategory": {
       "holders": {
         "title": "Black Ash Vase",

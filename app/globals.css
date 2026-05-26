@@ -5,6 +5,7 @@
 @import "../styles/home-stars.css";
 @import "../styles/site-rail.css";
 @import "../styles/site-footer.css";
+@import "../styles/scent-family-strip.css";
 
 /* Quiet Ash — legacy aliases map to reference tokens */
 :root {

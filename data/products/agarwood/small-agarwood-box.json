@@ -23,14 +23,6 @@
       "type": ["storage"],
       "holders": ["storage"]
     },
-    "plp": {
-      "title": "Sandalwood & Fig",
-      "scentNotes": "Sandalwood · Fig · Amber",
-      "priceDisplay": "$18.00",
-      "reviewCount": 267,
-      "imageSrc": "/images/generated/best-sellers/sandalwood-night-v2.png",
-      "imageAlt": "Sandalwood and fig incense"
-    },
     "plpByCategory": {
       "holders": {
         "title": "Agarwood Keeper",

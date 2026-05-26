@@ -18,8 +18,7 @@
   min-height: 100dvh;
 }
 
-/* qa-page on chrome is for nav typography only — do not clip navbar */
-.site-nav-chrome.qa-page {
+.site-nav-chrome {
   overflow: visible;
 }
 
@@ -82,7 +81,13 @@
   padding: 28px 0;
 }
 
+/* Nav rail — was only in qa-home-1920.css (home layout); must be global */
 .site-nav-chrome .nav-inner {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
+  padding-inline: 32px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
@@ -333,6 +338,10 @@
 }
 
 @media (max-width: 768px) {
+  .site-nav-chrome .nav-inner {
+    padding-inline: 18px;
+  }
+
   .site-nav-chrome .nav-center {
     display: none;
   }

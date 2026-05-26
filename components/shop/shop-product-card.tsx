@@ -4,11 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { ShoppingBag } from "lucide-react";
 import { HomeStarRating } from "@/components/home/home-icons";
-import type { HomeBestSellerCard } from "@/data/home-redesign";
+import type { ShopListingProduct } from "@/lib/shop-types";
 import { shopPath } from "@/lib/site-paths";
 import { useCartStore } from "@/stores/cart-store";
 
-type Props = { item: HomeBestSellerCard };
+type Props = { item: ShopListingProduct };
 
 export function ShopProductCard({ item }: Props) {
   const addItem = useCartStore((s) => s.addItem);
@@ -18,7 +18,7 @@ export function ShopProductCard({ item }: Props) {
     addItem({
       slug: item.slug,
       title: item.title,
-      priceCents: 1800,
+      priceCents: item.priceCents > 0 ? item.priceCents : 1800,
       image: item.imageSrc,
       line: item.scentNotes,
     });

@@ -1,42 +1,96 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
-import { ChevronDown, Search } from "lucide-react";
+import { useId, useMemo, useState } from "react";
+import { Search } from "lucide-react";
 import { useShopCategory } from "@/components/shop/shop-category-context";
 import { useShopListingState } from "@/components/shop/shop-category-listing-state";
 import { ShopProductCard } from "@/components/shop/shop-product-card";
+import {
+  shopSortChipLabel,
+  sortListingProducts,
+} from "@/lib/shop-products";
 
 type Props = {
   filtersOpen: boolean;
   onToggleFilters: () => void;
 };
 
+function listingEmptyState(
+  hasSearch: boolean,
+  hasFilters: boolean,
+  aisleHasProducts: boolean,
+): { title: string; message: string } {
+  if (!aisleHasProducts) {
+    return {
+      title: "Nothing here yet",
+      message: "We are adding pieces to this collection. Check back soon.",
+    };
+  }
+  if (hasSearch && hasFilters) {
+    return {
+      title: "No matches",
+      message:
+        "Nothing fits your search and filters. Try different words or clear a few filters.",
+    };
+  }
+  if (hasSearch) {
+    return {
+      title: "No matches for your search",
+      message: "Try another product name, scent note, or a shorter phrase.",
+    };
+  }
+  if (hasFilters) {
+    return {
+      title: "No matches for these filters",
+      message: "Relax your filters to see more scents in this collection.",
+    };
+  }
+  return {
+    title: "No products to show",
+    message: "Adjust your filters or search to discover incense in this aisle.",
+  };
+}
+
 export function ShopCategoryListing({ filtersOpen, onToggleFilters }: Props) {
   const { listing } = useShopCategory();
-  const { products, productCount, searchQuery, setSearchQuery, checked } =
-    useShopListingState();
+  const {
+    products,
+    allProducts,
+    productCount,
+    searchQuery,
+    setSearchQuery,
+    checked,
+    clearAll,
+  } = useShopListingState();
   const filterSelectionCount = Object.values(checked).filter(Boolean).length;
+  const hasSearch = searchQuery.trim().length > 0;
+  const hasFilters = filterSelectionCount > 0;
   const [sort, setSort] = useState(listing.sortOptions[0]);
-  const [sortOpen, setSortOpen] = useState(false);
-  const sortWrapRef = useRef<HTMLDivElement>(null);
-  const sortMenuId = useId();
   const searchId = useId();
+  const sortGroupId = useId();
 
-  useEffect(() => {
-    if (!sortOpen) return;
+  const sortedProducts = useMemo(
+    () => sortListingProducts(products, sort),
+    [products, sort],
+  );
 
-    const handlePointerDown = (event: MouseEvent) => {
-      if (!sortWrapRef.current?.contains(event.target as Node)) {
-        setSortOpen(false);
-      }
-    };
+  const isEmpty = sortedProducts.length === 0;
+  const emptyCopy = listingEmptyState(
+    hasSearch,
+    hasFilters,
+    allProducts.length > 0,
+  );
 
-    document.addEventListener("mousedown", handlePointerDown);
-    return () => document.removeEventListener("mousedown", handlePointerDown);
-  }, [sortOpen]);
+  const resultLabel = isEmpty
+    ? "No matches"
+    : productCount === 1
+      ? "1 product"
+      : `${productCount} products`;
 
-  const resultLabel =
-    productCount === 1 ? "1 product" : `${productCount} products`;
+  const resetAll = () => {
+    setSearchQuery("");
+    clearAll();
+  };
 
   return (
     <div className="shop-category-listing">
@@ -55,10 +109,10 @@ export function ShopCategoryListing({ filtersOpen, onToggleFilters }: Props) {
               />
               <input
                 id={searchId}
-                type="text"
+                type="search"
                 inputMode="search"
                 className="shop-category-listing__search"
-                placeholder="Search products"
+                placeholder="Search by name or scent"
                 value={searchQuery}
                 onChange={(event) => setSearchQuery(event.target.value)}
                 autoComplete="off"
@@ -75,9 +129,16 @@ export function ShopCategoryListing({ filtersOpen, onToggleFilters }: Props) {
             }`}
             aria-expanded={filtersOpen}
             aria-controls="shop-category-filters"
+            aria-label={
+              filtersOpen
+                ? "Close filters"
+                : filterSelectionCount > 0
+                  ? `Filters, ${filterSelectionCount} selected`
+                  : "Filter products"
+            }
             onClick={onToggleFilters}
           >
-            {filtersOpen ? "Done" : "Filter"}
+            {filtersOpen ? "Done" : "Filters"}
             {!filtersOpen && filterSelectionCount > 0 ? (
               <span className="shop-category-listing__filter-badge" aria-hidden>
                 {filterSelectionCount}
@@ -91,67 +152,66 @@ export function ShopCategoryListing({ filtersOpen, onToggleFilters }: Props) {
             {resultLabel}
           </p>
 
-          <div className="shop-category-listing__actions">
+          {listing.sortOptions.length > 0 && !isEmpty ? (
             <div
-              ref={sortWrapRef}
-              className={`shop-category-listing__sort-wrap${
-                sortOpen ? " shop-category-listing__sort-wrap--open" : ""
-              }`}
+              id={sortGroupId}
+              className="shop-category-listing__sort-segment"
+              role="group"
+              aria-label="Sort by price"
             >
-              <button
-                type="button"
-                className="shop-category-listing__sort"
-                aria-expanded={sortOpen}
-                aria-haspopup="listbox"
-                aria-controls={sortMenuId}
-                aria-label={`Sort products, currently ${sort}`}
-                onClick={() => setSortOpen((open) => !open)}
-              >
-                <span className="shop-category-listing__sort-prefix">Sort by </span>
-                <span className="shop-category-listing__sort-value">{sort}</span>
-                <ChevronDown
-                  size={14}
-                  strokeWidth={1.25}
-                  className="shop-category-listing__sort-chevron"
-                  aria-hidden
-                />
-              </button>
-              {sortOpen ? (
-                <ul
-                  id={sortMenuId}
-                  className="shop-category-listing__sort-menu"
-                  role="listbox"
+              {listing.sortOptions.map((option) => (
+                <button
+                  key={option}
+                  type="button"
+                  className={`shop-category-listing__sort-chip${
+                    sort === option ? " shop-category-listing__sort-chip--active" : ""
+                  }`}
+                  aria-pressed={sort === option}
+                  onClick={() => setSort(option)}
                 >
-                  {listing.sortOptions.map((option) => (
-                    <li key={option} role="option" aria-selected={sort === option}>
-                      <button
-                        type="button"
-                        className={`shop-category-listing__sort-option${
-                          sort === option ? " shop-category-listing__sort-option--active" : ""
-                        }`}
-                        onClick={() => {
-                          setSort(option);
-                          setSortOpen(false);
-                        }}
-                      >
-                        {option}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              ) : null}
+                  {shopSortChipLabel(option)}
+                </button>
+              ))}
             </div>
-          </div>
+          ) : null}
         </div>
       </header>
 
-      <ul className="shop-category-listing__grid">
-        {products.map((item) => (
-          <li key={item.slug} className="shop-category-listing__cell">
-            <ShopProductCard item={item} />
-          </li>
-        ))}
-      </ul>
+      {isEmpty ? (
+        <div className="shop-category-listing__empty" role="status">
+          <h2 className="shop-category-listing__empty-title">{emptyCopy.title}</h2>
+          <p className="shop-category-listing__empty-message">{emptyCopy.message}</p>
+          {allProducts.length > 0 && (hasSearch || hasFilters) ? (
+            <div className="shop-category-listing__empty-actions">
+              <button
+                type="button"
+                className="shop-category-listing__empty-btn shop-category-listing__empty-btn--primary"
+                onClick={
+                  hasSearch && hasFilters
+                    ? resetAll
+                    : hasSearch
+                      ? () => setSearchQuery("")
+                      : clearAll
+                }
+              >
+                {hasSearch && hasFilters
+                  ? "Clear search & filters"
+                  : hasSearch
+                    ? "Clear search"
+                    : "Clear filters"}
+              </button>
+            </div>
+          ) : null}
+        </div>
+      ) : (
+        <ul className="shop-category-listing__grid">
+          {sortedProducts.map((item) => (
+            <li key={item.slug} className="shop-category-listing__cell">
+              <ShopProductCard item={item} />
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

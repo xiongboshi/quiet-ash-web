@@ -1,0 +1,104 @@
+# Journal CMS schema (MDX-first)
+
+Quiet Ash journal data is **MDX-first**: one file per essay drives the index card and (most of) the detail template. Hand-authored guide templates remain TS overrides when needed.
+
+## Files
+
+| Path | Purpose |
+|------|---------|
+| `content/essays/{series}/*.mdx` | Essay body + **journal frontmatter** (PLP + PDP hooks) |
+| `content/series/{series}.mdx` | Registers which essay folders are scanned |
+| `data/journal-index-config.ts` | Which series appear on `/journal` (`journalIndexSeriesSlugs`) |
+| `data/journal-index.ts` | Hero, filter definitions, tags, sort labels |
+| `data/journal-index-articles.ts` | Design showcase card (`best-incense-for-sleep`) |
+| `data/journal-articles/<slug>.ts` | Optional full PDP override (guide mock) |
+| `data/journal-popular-questions.ts` | FAQ when `?category=popular-questions` |
+
+## Essay MDX — journal frontmatter
+
+Add to any essay under an indexed series:
+
+```yaml
+---
+title: Working label (optional if headline set)
+slug: my-essay
+date: "2026-05-01"
+excerpt: Card + SEO description fallback
+cover: /images/generated/essay-example.png
+series: incense-culture
+reading_time: 11
+
+# Journal index + detail (canonical for PLP/PDP titles)
+categoryId: scents-ingredients   # mind-wellness | scents-ingredients | rituals-practices | living-lifestyle | guides-tips
+tags:
+  - relaxation
+  - focus
+headline: Human H1 for cards and article hero
+seoTitle: Keyword-rich title for <title> / OG
+
+# Optional PDP behaviour
+bodyFormat: editorial          # editorial | guide (guide = numbered sections)
+relatedSlugs: [incense-patience, night-incense-ritual]
+productSlugs: [wood-tray, brass-incense-stand]
+---
+```
+
+Snake_case aliases supported: `seo_title`, `category_id`, `body_format`, `related_slugs`, `product_slugs`.
+
+### Field precedence
+
+| Field | Index card | Detail page |
+|-------|------------|-------------|
+| `headline` | H1 on card | Hero title |
+| `seoTitle` | — | `<title>`, meta |
+| `excerpt` | Description | Quick answer, SEO description |
+| `cover` | Card image | Hero image (via card) |
+| `categoryId` / `tags` | Sidebar filters | Breadcrumb category, takeaways |
+| `body` | — | Editorial paragraphs (text parse, not MDX components) |
+| `relatedSlugs` | — | Related module (else first peers on index) |
+| `productSlugs` | — | Product strip (else homepage best sellers) |
+| `bodyFormat: guide` | — | Numbered guide sections (or hand TS template) |
+
+`title` in frontmatter is a working label; **`headline`** is what readers see when set.
+
+## Index series
+
+```ts
+// data/journal-index-config.ts
+export const journalIndexSeriesSlugs = ["incense-culture"] as const;
+```
+
+Add a slug here after `content/series/{slug}.mdx` exists. Cards are built per series, de-duplicated by essay `slug`.
+
+## Filter behaviour
+
+- Categories/tags definitions: `data/journal-index.ts`
+- **Counts** are computed at runtime: `resolveJournalIndexCategories(articles)` in `lib/journal-index-categories.ts`
+- Filter/sort: `lib/journal-index-articles.ts` — same AND/OR model as shop (category + tag + sort)
+
+## Detail assembly
+
+```
+getJournalIndexArticleCards()
+  → buildJournalIndexCardsFromEssays(series)  // MDX journal fields
+  → journalDesignShowcaseCard               // hand card
+
+journalArticleRegistry
+  → buildJournalArticleFromIndexCard(card)  // MDX body + journal fields
+  → optional data/journal-articles/<slug>.ts override
+```
+
+Public API: `resolveJournalArticle(slug)` in `lib/journal-articles.ts` (alias of `getJournalArticle`).
+
+## Not MDX-rendered (yet)
+
+Article bodies are still **plain text** parsed into paragraphs (`lib/journal-article-from-index.ts`). Custom MDX components would require `@next/mdx` or Contentlayer — out of scope for this schema pass.
+
+## Hand templates
+
+- `best-incense-for-sleep`: index card in `data/journal-index-articles.ts`, full PDP in `data/journal-articles/best-incense-for-sleep.ts`
+- `journalGuideArticleSlugs`: fallback when no MDX file sets `bodyFormat`
+
+## Legacy archive
+
+`/archive`, `/library`, `/series` still use the series-shelf UI. `/journal` is the magazine index driven by this schema.

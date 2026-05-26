@@ -20,13 +20,22 @@ export type JournalTagId =
   | "morning-routine"
   | "relaxation";
 
+/** Filter groups for sidebar — counts computed at runtime (`resolveJournalIndexCategories`). */
+export const journalIndexCategoryDefinitions = [
+  { id: "mind-wellness", label: "Mind & Wellness" },
+  { id: "scents-ingredients", label: "Scents & Ingredients" },
+  { id: "rituals-practices", label: "Rituals & Practices" },
+  { id: "living-lifestyle", label: "Living & Lifestyle" },
+  { id: "guides-tips", label: "Guides & Tips" },
+] as const satisfies readonly {
+  id: Exclude<JournalCategoryId, "all" | "popular-questions">;
+  label: string;
+}[];
+
+/** @deprecated Use `resolveJournalIndexCategories(articles)` on the journal index page. */
 export const journalIndexCategories = [
-  { id: "all", label: "All Articles", count: 11 },
-  { id: "mind-wellness", label: "Mind & Wellness", count: 1 },
-  { id: "scents-ingredients", label: "Scents & Ingredients", count: 4 },
-  { id: "rituals-practices", label: "Rituals & Practices", count: 4 },
-  { id: "living-lifestyle", label: "Living & Lifestyle", count: 1 },
-  { id: "guides-tips", label: "Guides & Tips", count: 1 },
+  { id: "all", label: "All Articles", count: 0 },
+  ...journalIndexCategoryDefinitions.map((c) => ({ ...c, count: 0 })),
   {
     id: "popular-questions",
     label: "Popular Questions",
@@ -37,6 +46,8 @@ export const journalIndexCategories = [
   label: string;
   count: number;
 }[];
+
+export { journalPopularQuestions };
 
 export const journalIndexTags = [
   { id: "sleep", label: "Sleep" },

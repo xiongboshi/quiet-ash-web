@@ -1,22 +1,25 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { JournalIndexCategoryIcon } from "@/components/journal/journal-index-category-icon";
 import {
   journalIndexBreadcrumb,
-  journalIndexCategories,
   journalIndexTags,
   type JournalCategoryId,
   type JournalTagId,
 } from "@/data/journal-index";
+import type { JournalIndexCategoryRow } from "@/lib/journal-index-categories";
 
 type Props = {
+  categories: readonly JournalIndexCategoryRow[];
   activeCategory: JournalCategoryId;
   activeTag: JournalTagId | null;
   filtersOpen?: boolean;
   onCategoryChange: (id: JournalCategoryId) => void;
   onTagChange: (id: JournalTagId | null) => void;
+  /** Mobile drawer — apply category + tag together (avoids stale closure on first tap). */
+  onApplyFilters: (category: JournalCategoryId, tag: JournalTagId | null) => void;
   onClose?: () => void;
   onSelectionCountChange?: (count: number) => void;
 };
@@ -24,22 +27,27 @@ type Props = {
 type MobileTab = "categories" | "tags";
 
 export function JournalIndexSidebar({
+  categories,
   activeCategory,
   activeTag,
   filtersOpen = false,
   onCategoryChange,
   onTagChange,
+  onApplyFilters,
   onClose,
   onSelectionCountChange,
 }: Props) {
   const [mobileTab, setMobileTab] = useState<MobileTab>("categories");
   const [draftCategory, setDraftCategory] = useState<JournalCategoryId>(activeCategory);
   const [draftTag, setDraftTag] = useState<JournalTagId | null>(activeTag);
+  const filtersWereOpen = useRef(false);
 
   useEffect(() => {
-    if (!filtersOpen) return;
-    setDraftCategory(activeCategory);
-    setDraftTag(activeTag);
+    if (filtersOpen && !filtersWereOpen.current) {
+      setDraftCategory(activeCategory);
+      setDraftTag(activeTag);
+    }
+    filtersWereOpen.current = filtersOpen;
   }, [filtersOpen, activeCategory, activeTag]);
 
   const draftSelectionCount = useMemo(() => {
@@ -66,8 +74,7 @@ export function JournalIndexSidebar({
   ]);
 
   const applyFilters = () => {
-    onCategoryChange(draftCategory);
-    onTagChange(draftTag);
+    onApplyFilters(draftCategory, draftTag);
     onClose?.();
   };
 
@@ -143,7 +150,7 @@ export function JournalIndexSidebar({
           <div className="journal-index-sidebar__block journal-index-sidebar__block--desktop">
             <h2 className="journal-index-sidebar__heading">BROWSE CATEGORIES</h2>
             <ul className="journal-index-sidebar__categories">
-              {journalIndexCategories.map((category) => {
+              {categories.map((category) => {
                 const active = activeCategory === category.id;
                 return (
                   <li key={category.id}>
@@ -239,7 +246,7 @@ export function JournalIndexSidebar({
               className="journal-index-sidebar__tab-panel"
             >
               <ul className="journal-index-sidebar__option-list">
-                {journalIndexCategories.map((category) => {
+                {categories.map((category) => {
                   const active = draftCategory === category.id;
                   return (
                     <li key={category.id}>

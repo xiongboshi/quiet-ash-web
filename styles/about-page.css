@@ -1,6 +1,7 @@
 /**
  * About page — 5-module reference layout (pixel spec from design mockups).
  */
+@import "./scent-family-strip.css";
 
 .about-page .about-hero__media img,
 .about-page figure.about-hero__media img {
@@ -298,137 +299,6 @@
     font-size: 1.125rem;
     line-height: 1.65;
   }
-}
-
-/* Shared image frame (Next/Image fill) */
-.about-media-frame {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  isolation: isolate;
-  background: var(--about-cream);
-}
-
-.about-media-frame__img {
-  object-fit: cover;
-}
-
-/* —— Module 2: Scent families —— */
-.about-scents {
-  padding: clamp(3rem, 5vw, 4.5rem) 0 clamp(1.5rem, 3vw, 2rem);
-  background: #faf9f7;
-}
-
-.about-scents__head {
-  margin: 0 0 2.25rem;
-  text-align: center;
-}
-
-.about-scents__heading {
-  margin: 0;
-  font-family: var(--qa-font-serif);
-  font-size: clamp(1.875rem, 3.2vw, 2.375rem);
-  font-weight: 500;
-  line-height: 1.12;
-  letter-spacing: -0.02em;
-  color: var(--about-ink);
-}
-
-.about-scents__sub {
-  margin: 0.875rem auto 0;
-  max-width: 34rem;
-  font-family: var(--qa-font-sans);
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 1.55;
-  color: var(--about-muted);
-}
-
-.about-scents__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.875rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.about-scent-card {
-  display: grid;
-  grid-template-columns: minmax(0, 38%) minmax(0, 1fr);
-  align-items: stretch;
-  min-height: 8.25rem;
-  overflow: hidden;
-  border-radius: 8px;
-  background: var(--about-card);
-}
-
-.about-scent-card__media {
-  min-height: 8.25rem;
-}
-
-.about-scent-card__body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.3rem;
-  padding: 1rem 1.125rem 1rem 1rem;
-}
-
-.about-scent-card__title {
-  margin: 0;
-  font-family: var(--qa-font-sans);
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.25;
-  color: var(--about-ink);
-}
-
-.about-scent-card__desc {
-  margin: 0;
-  font-family: var(--qa-font-sans);
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1.45;
-  color: var(--about-muted);
-}
-
-.about-scent-card__cta {
-  margin-top: 0.5rem;
-  font-family: var(--qa-font-sans);
-  font-size: 11px;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--about-ink);
-  transition: opacity 0.2s ease;
-}
-
-.about-scent-card__cta:hover {
-  opacity: 0.65;
-}
-
-.about-scents__explore-wrap {
-  margin: 2.5rem 0 28px;
-  text-align: center;
-}
-
-.about-scents__explore {
-  font-family: var(--qa-font-sans);
-  font-size: 11px;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--about-ink);
-  transition: opacity 0.2s ease;
-}
-
-.about-scents__explore:hover {
-  opacity: 0.65;
 }
 
 /* —— Module 3: Comparison —— */
@@ -940,13 +810,6 @@
 }
 
 /* —— Responsive —— */
-@media (min-width: 640px) {
-  .about-scents__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.875rem;
-  }
-}
-
 @media (min-width: 768px) {
   .about-hero__features {
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -961,21 +824,6 @@
 @media (min-width: 1024px) {
   .about-hero__features {
     gap: 1.5rem 1rem;
-  }
-
-  .about-scents__grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 1rem;
-  }
-
-  .about-scent-card {
-    grid-template-columns: minmax(0, 38%) minmax(0, 1fr);
-    grid-template-rows: none;
-    min-height: 8.5rem;
-  }
-
-  .about-scent-card__media {
-    min-height: 8.5rem;
   }
 
   .about-compare__layout {
@@ -1071,12 +919,3 @@
   }
 }
 
-@media (min-width: 1280px) {
-  .about-scent-card {
-    min-height: 8.75rem;
-  }
-
-  .about-scent-card__media {
-    min-height: 8.75rem;
-  }
-}

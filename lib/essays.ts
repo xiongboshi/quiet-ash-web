@@ -2,6 +2,10 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import { homeEditorialSlugs } from "@/data/essays";
+import {
+  parseEssayJournalFields,
+  type EssayJournalFields,
+} from "@/lib/journal-mdx-meta";
 import { getSeriesSlugs } from "@/lib/series";
 
 const ESSAYS_DIR = path.join(process.cwd(), "content", "essays");
@@ -22,12 +26,16 @@ export type EssayMeta = {
   readingMinutes: number;
   /** One-line curator gloss for archive strand only (optional). */
   strandNote?: string;
+  /** Journal PLP/PDP — from MDX frontmatter when present. */
+  journal?: EssayJournalFields;
 };
 
 export type Essay = EssayMeta & {
   body: string;
   /** Optional pull line above the body — very light, not SEO. */
   epigraph?: string;
+  /** Journal PLP/PDP — from MDX frontmatter (`docs/JOURNAL-CMS-SCHEMA.md`). */
+  journal?: EssayJournalFields;
 };
 
 function slugFromFile(name: string) {
@@ -191,6 +199,7 @@ function readEssayFile(filePath: string): Essay | null {
       ? coverRaw.trim()
       : undefined;
   const threads = parseThreads(d);
+  const journal = parseEssayJournalFields(d, title);
 
   return {
     slug,
@@ -205,6 +214,7 @@ function readEssayFile(filePath: string): Essay | null {
     readingMinutes,
     strandNote,
     epigraph,
+    journal,
     body: content.trim(),
   };
 }
@@ -290,6 +300,7 @@ export function getAllEssays(): EssayMeta[] {
     if (e.threads?.length) meta.threads = e.threads;
     if (e.strandNote) meta.strandNote = e.strandNote;
     if (e.coverImage) meta.coverImage = e.coverImage;
+    if (e.journal) meta.journal = e.journal;
     return meta;
   });
 

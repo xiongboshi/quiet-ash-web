@@ -31,6 +31,11 @@ export const shopCatalog = {
       { label: "Home", href: "/" },
       { label: "Incense", href: SHOP_INDEX },
     ],
+    moodHome: {
+      heading: "SHOP BY NEED",
+      subheading: "Find the right scent for how you feel.",
+      exploreAll: { label: "EXPLORE ALL MOODS →", href: SHOP_INDEX },
+    },
     filters: {
       heading: "FILTER BY",
       clearLabel: "CLEAR ALL",
@@ -53,11 +58,65 @@ export const shopCatalog = {
           tabLabel: "Mood",
           defaultOpen: true,
           options: [
-            { id: "sleep", label: "Better Sleep", count: 6 },
-            { id: "stress", label: "Stress Relief", count: 5 },
-            { id: "focus", label: "Focus & Study", count: 4 },
-            { id: "fresh", label: "Fresh Home", count: 4 },
-            { id: "reset", label: "Daily Reset", count: 5 },
+            {
+              id: "sleep",
+              label: "Better Sleep",
+              count: 6,
+              homeCard: {
+                imageSrc:
+                  "/images/generated/mood-poster-sleep-white-blossom.png",
+                imageAlt: "Better sleep — incense on soft bedding",
+                description:
+                  "Calming scents for deeper, restful sleep.",
+                ctaLabel: "SHOP SLEEP →",
+              },
+            },
+            {
+              id: "stress",
+              label: "Stress Relief",
+              count: 5,
+              homeCard: {
+                imageSrc: "/images/generated/mood-poster-calm-jasmine.png",
+                imageAlt: "Stress relief — calm jasmine still life",
+                description:
+                  "Scents that help you relax and unwind.",
+                ctaLabel: "SHOP CALM →",
+              },
+            },
+            {
+              id: "focus",
+              label: "Focus & Study",
+              count: 4,
+              homeCard: {
+                imageSrc: "/images/generated/mood-poster-focus-lavender.png",
+                imageAlt: "Focus and study — desk with incense",
+                description: "Stay clear, focused and productive.",
+                ctaLabel: "SHOP FOCUS →",
+              },
+            },
+            {
+              id: "fresh",
+              label: "Fresh Home",
+              count: 4,
+              homeCard: {
+                imageSrc: "/images/generated/mood-poster-rainy-day.png",
+                imageAlt: "Fresh home — incense by a bright window",
+                description: "Make your space smell clean and calm.",
+                ctaLabel: "SHOP FRESH →",
+              },
+            },
+            {
+              id: "reset",
+              label: "Daily Reset",
+              count: 5,
+              homeCard: {
+                imageSrc: "/images/generated/mood-poster-energy-citrus.png",
+                imageAlt: "Daily reset — morning citrus incense",
+                description:
+                  "Start or end your day with intention.",
+                ctaLabel: "SHOP RESET →",
+              },
+            },
           ],
         },
         {
@@ -87,12 +146,7 @@ export const shopCatalog = {
     },
     listing: {
       title: "All Incense Sticks",
-      sortOptions: [
-        "Best selling",
-        "Featured",
-        "Price, low to high",
-        "Price, high to low",
-      ],
+      sortOptions: ["Price, low to high", "Price, high to low"],
     },
     valueBar: [
       { id: "batch", title: "Small Batch", description: "Handmade", icon: "hand" },
@@ -161,11 +215,7 @@ export const shopCatalog = {
     },
     listing: {
       title: "All Holders & Trays",
-      sortOptions: [
-        "Featured",
-        "Price, low to high",
-        "Price, high to low",
-      ],
+      sortOptions: ["Price, low to high", "Price, high to low"],
     },
     valueBar: [
       { id: "craft", title: "Small Batch", description: "Hand-finished", icon: "hand" },

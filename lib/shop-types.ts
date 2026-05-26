@@ -63,5 +63,6 @@ export type ShopProductPdp = {
 
 /** One row on the shop PLP — card fields + filter tags for sidebar logic. */
 export type ShopListingProduct = HomeBestSellerCard & {
+  priceCents: number;
   filterTags: ShopFilterTags;
 };

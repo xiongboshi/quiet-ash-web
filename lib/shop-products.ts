@@ -19,28 +19,49 @@ export function catalogProductToListing(
   const shop = product.shop;
   if (!shop?.categorySlugs.includes(shopCategorySlug)) return null;
 
-  const plp: ShopPlpOverride = {
-    ...shop.plp,
-    ...shop.plpByCategory?.[shopCategorySlug],
-  };
+  const categoryPlp = shop.plpByCategory?.[shopCategorySlug];
+  const basePlp = shop.plp;
 
   const materialLine = [product.material, product.origin]
     .filter(Boolean)
     .join(" · ");
+  const canonicalNotes = materialLine || product.line;
+
+  const title =
+    categoryPlp?.title ?? product.title ?? basePlp?.title ?? "";
   const scentNotes =
-    plp.scentNotes ?? (materialLine || product.line);
+    categoryPlp?.scentNotes ??
+    canonicalNotes ??
+    basePlp?.scentNotes ??
+    "";
+  const priceDisplay =
+    categoryPlp?.priceDisplay ??
+    product.priceDisplay ??
+    basePlp?.priceDisplay ??
+    "";
+  const priceCents = parsePriceDisplay(priceDisplay) || 0;
+  const reviewCount =
+    categoryPlp?.reviewCount ??
+    product.shopPdp?.rating?.count ??
+    basePlp?.reviewCount ??
+    120;
+  const imageSrc =
+    categoryPlp?.imageSrc ?? product.image ?? basePlp?.imageSrc ?? "";
+  const imageAlt =
+    categoryPlp?.imageAlt ?? product.title ?? basePlp?.imageAlt ?? "";
+  const imageObjectPosition =
+    categoryPlp?.imageObjectPosition ?? basePlp?.imageObjectPosition;
 
   return {
     slug: product.slug,
-    title: plp.title ?? product.title,
+    title,
     scentNotes,
-    priceDisplay: plp.priceDisplay ?? product.priceDisplay ?? "",
-    reviewCount: plp.reviewCount ?? 0,
-    imageSrc: plp.imageSrc ?? product.image,
-    imageAlt: plp.imageAlt ?? product.title,
-    ...(plp.imageObjectPosition
-      ? { imageObjectPosition: plp.imageObjectPosition }
-      : {}),
+    priceDisplay,
+    priceCents,
+    reviewCount,
+    imageSrc,
+    imageAlt,
+    ...(imageObjectPosition ? { imageObjectPosition } : {}),
     filterTags: shop.filterTags ?? {},
   };
 }
@@ -140,6 +161,32 @@ export function applyComputedFilterCounts(
       })),
     })),
   };
+}
+
+export const SHOP_SORT_LOW_TO_HIGH = "Price, low to high" as const;
+export const SHOP_SORT_HIGH_TO_LOW = "Price, high to low" as const;
+
+export function shopSortChipLabel(sortOption: string): string {
+  if (sortOption === SHOP_SORT_HIGH_TO_LOW) return "High to low";
+  if (sortOption === SHOP_SORT_LOW_TO_HIGH) return "Low to high";
+  return sortOption;
+}
+
+export function sortListingProducts(
+  products: readonly ShopListingProduct[],
+  sortOption: string,
+): ShopListingProduct[] {
+  const items = [...products];
+  const byLow =
+    sortOption === SHOP_SORT_LOW_TO_HIGH || sortOption === SHOP_SORT_HIGH_TO_LOW
+      ? sortOption === SHOP_SORT_LOW_TO_HIGH
+      : true;
+
+  return items.sort((a, b) => {
+    const diff =
+      parsePriceDisplay(a.priceDisplay) - parsePriceDisplay(b.priceDisplay);
+    return byLow ? diff : -diff;
+  });
 }
 
 export function resolveCategoryListing(

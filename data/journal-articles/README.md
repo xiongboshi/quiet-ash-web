@@ -1,49 +1,21 @@
 # Journal article templates
 
-Each published journal URL needs an entry in `journalArticleRegistry` (`index.ts`).
+## MDX-first (preferred)
 
-## Dual titles (required)
+1. Add or edit `content/essays/{series}/{slug}.mdx` with journal frontmatter — see [docs/JOURNAL-CMS-SCHEMA.md](../../docs/JOURNAL-CMS-SCHEMA.md).
+2. Ensure the series is listed in `data/journal-index-config.ts` → `journalIndexSeriesSlugs`.
+3. `/journal` and `/journal/[slug]` update automatically (registry built from index cards + MDX).
 
-Every article uses **two titles**:
+## Hand override (guide mocks)
 
-| Field | Role | Example |
-|-------|------|---------|
-| `headline` | H1 on page — human, emotional, brand | Good Incense Shouldn't Feel Loud |
-| `seoTitle` | `<title>` / Open Graph — search & Pinterest | Best Soft-Smelling Incense For Calm Evenings |
+For layouts that do not map to editorial MDX (e.g. `best-incense-for-sleep`):
 
-- **Editorial essays** (`content/essays/incense-culture/`): set both in `data/journal-essay-card-meta.ts` per slug.
-- **Hand template** (`best-incense-for-sleep.ts`): `hero.title` = headline, top-level `seoTitle` = SEO title.
-- **Index showcase card**: `headline` + `seoTitle` in `data/journal-index-articles.ts`.
+- Index card: `data/journal-index-articles.ts` → `journalDesignShowcaseCard`
+- Full template: `data/journal-articles/<slug>.ts` — wins over `buildJournalArticleFromIndexCard` in `data/journal-articles/index.ts`
 
-MDX frontmatter `title` can stay as a working label; the site uses `journal-essay-card-meta` for display and metadata.
+## Dual titles
 
-## Two ways to add content
+- **`headline`** — H1 on index cards and article hero (brand voice)
+- **`seoTitle`** — `<title>` / Open Graph (discovery)
 
-### A. Index + MDX auto-fill (most articles)
-
-Index cards come from `lib/get-journal-index-articles.ts` (design showcase + all essays in `content/essays/incense-culture/`). Category/tags per slug: `data/journal-essay-card-meta.ts`.
-
-Articles listed on the journal grid are built automatically:
-
-- Hero, SEO, quick answer, takeaways, related cards → from the index card
-- Body sections → from English prose in `content/essays/{series}/{slug}.mdx` (via `lib/journal-article-from-index.ts`)
-
-No per-slug file required unless you need to override the template.
-
-### B. Hand-authored template (design reference)
-
-Copy `best-incense-for-sleep.ts` for a fully custom module layout (e.g. the sleep guide mock).
-
-Register explicitly in `index.ts` (already done for `best-incense-for-sleep`).
-
-## Modules (fixed order)
-
-| Module | Data keys |
-|--------|-----------|
-| Hero | `hero` |
-| Quick answer + Key takeaways | `quickAnswer`, `keyTakeaways` |
-| Body | `bodyFormat`: `editorial` (full prose) or `guide` (numbered `sections[]`) |
-| Product picks | `products` |
-| Related articles | `related` |
-
-Icons: Lucide only (`JournalTakeawayIconId` in `types/journal-article.ts`).
+Set both in MDX frontmatter; do not rely on `data/journal-essay-card-meta.ts` (deprecated).

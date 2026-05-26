@@ -7,12 +7,12 @@ import { JournalIndexArticleCard } from "@/components/journal/journal-index-arti
 import { JournalIndexQuestions } from "@/components/journal/journal-index-questions";
 import { JournalIndexSidebar } from "@/components/journal/journal-index-sidebar";
 import {
-  journalIndexCategories,
   journalIndexSortOptions,
   type JournalCategoryId,
   type JournalSortId,
   type JournalTagId,
 } from "@/data/journal-index";
+import type { JournalIndexCategoryRow } from "@/lib/journal-index-categories";
 import { filterAndSortJournalArticles } from "@/lib/journal-index-articles";
 import type { JournalIndexArticleResolved } from "@/lib/journal-index-articles";
 import {
@@ -24,14 +24,16 @@ import { JOURNAL_INDEX } from "@/lib/site-paths";
 
 type Props = {
   articles: JournalIndexArticleResolved[];
+  categories: readonly JournalIndexCategoryRow[];
 };
 
-function sectionHeading(category: JournalCategoryId): string {
+function sectionHeading(
+  category: JournalCategoryId,
+  categories: readonly JournalIndexCategoryRow[],
+): string {
   if (category === "popular-questions") return "Popular Questions";
   if (category === "all") return "All Articles";
-  return (
-    journalIndexCategories.find((c) => c.id === category)?.label ?? "Articles"
-  );
+  return categories.find((c) => c.id === category)?.label ?? "Articles";
 }
 
 function filtersFromSearchParams(searchParams: URLSearchParams) {
@@ -43,7 +45,7 @@ function filtersFromSearchParams(searchParams: URLSearchParams) {
   return { category, tag };
 }
 
-export function JournalIndexContent({ articles }: Props) {
+export function JournalIndexContent({ articles, categories }: Props) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [activeCategory, setActiveCategory] = useState<JournalCategoryId>(
@@ -73,16 +75,19 @@ export function JournalIndexContent({ articles }: Props) {
     router.replace(`${JOURNAL_INDEX}${query}`, { scroll: false });
   };
 
-  const handleCategoryChange = (category: JournalCategoryId) => {
-    const nextTag = category === "popular-questions" ? null : activeTag;
+  const applyFilters = (category: JournalCategoryId, tag: JournalTagId | null) => {
+    const nextTag = category === "popular-questions" ? null : tag;
     setActiveCategory(category);
     setActiveTag(nextTag);
     syncFiltersToUrl(category, nextTag);
   };
 
+  const handleCategoryChange = (category: JournalCategoryId) => {
+    applyFilters(category, category === "popular-questions" ? null : activeTag);
+  };
+
   const handleTagChange = (tag: JournalTagId | null) => {
-    setActiveTag(tag);
-    syncFiltersToUrl(activeCategory, tag);
+    applyFilters(activeCategory, tag);
   };
 
   const visible = useMemo(
@@ -129,11 +134,13 @@ export function JournalIndexContent({ articles }: Props) {
         }`}
       >
         <JournalIndexSidebar
+          categories={categories}
           activeCategory={activeCategory}
           activeTag={activeTag}
           filtersOpen={filtersOpen}
           onCategoryChange={handleCategoryChange}
           onTagChange={handleTagChange}
+          onApplyFilters={applyFilters}
           onClose={closeFilters}
           onSelectionCountChange={setFilterSelectionCount}
         />
@@ -172,7 +179,7 @@ export function JournalIndexContent({ articles }: Props) {
                 <div className="journal-index-listing__head-row">
                   <div className="journal-index-listing__titles">
                     <h2 className="journal-index-listing__title">
-                      {sectionHeading(activeCategory)}
+                      {sectionHeading(activeCategory, categories)}
                     </h2>
                     <p className="journal-index-listing__count">
                       {visible.length} articles

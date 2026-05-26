@@ -9,6 +9,7 @@ import type {
   JournalTakeawayIconId,
 } from "@/types/journal-article";
 import { isJournalGuideArticle } from "@/data/journal-guide-slugs";
+import { getProductBySlug } from "@/lib/catalog";
 import { getEssayBySlug } from "@/lib/essays";
 import { JOURNAL_INDEX, journalPath } from "@/lib/site-paths";
 import { getJournalIndexArticleCards } from "@/lib/get-journal-index-articles";
@@ -326,10 +327,46 @@ function defaultProducts(): JournalArticleTemplate["products"] {
   };
 }
 
-function buildRelated(slug: string): JournalArticleTemplate["related"] {
-  const peers = getJournalIndexArticleCards()
-    .filter((c) => c.slug !== slug)
-    .slice(0, 4);
+function productsFromSlugs(
+  slugs: readonly string[],
+): JournalArticleTemplate["products"] {
+  const items = slugs
+    .map((slug) => getProductBySlug(slug))
+    .filter((p): p is NonNullable<typeof p> => Boolean(p))
+    .slice(0, 4)
+    .map((p) => ({
+      slug: p.slug,
+      title: p.title,
+      rating: 4.5,
+      reviewCount: 120,
+      priceDisplay: p.priceDisplay ?? "",
+      imageSrc: p.image,
+      imageAlt: p.title,
+    }));
+
+  if (!items.length) return defaultProducts();
+  return { heading: "Recommended Incense", items };
+}
+
+function buildRelated(
+  slug: string,
+  relatedSlugs?: readonly string[],
+): JournalArticleTemplate["related"] {
+  const cards = getJournalIndexArticleCards();
+  const bySlug = new Map(cards.map((c) => [c.slug, c]));
+
+  let peers = cards.filter((c) => c.slug !== slug).slice(0, 4);
+
+  if (relatedSlugs?.length) {
+    const picked = relatedSlugs
+      .map((s) => bySlug.get(s))
+      .filter(
+        (c): c is (typeof cards)[number] =>
+          c !== undefined && c.slug !== slug,
+      )
+      .slice(0, 4);
+    if (picked.length) peers = picked;
+  }
 
   return {
     heading: "Related Articles",
@@ -384,7 +421,9 @@ export function buildJournalArticleFromIndexCard(
     editorialParagraphs:
       editorialParagraphs.length > 0 ? editorialParagraphs : [quickAnswer],
     epigraph: essay?.epigraph?.trim() || undefined,
-    products: defaultProducts(),
-    related: buildRelated(card.slug),
+    products: essay?.journal?.productSlugs?.length
+      ? productsFromSlugs(essay.journal.productSlugs)
+      : defaultProducts(),
+    related: buildRelated(card.slug, essay?.journal?.relatedSlugs),
   };
 }

@@ -13,7 +13,7 @@ export function SiteNavHeader() {
 
   return (
     <div
-      className={`site-nav-chrome qa-page site-nav-chrome--${layout} site-nav-chrome--${theme}`}
+      className={`site-nav-chrome site-nav-chrome--${layout} site-nav-chrome--${theme}`}
     >
       <QaHomeHeader />
     </div>

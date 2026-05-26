@@ -1,25 +1,13 @@
-import type { HomeNeedIconId } from "@/data/home-redesign";
 import type { HomeStoryFeature } from "@/data/home-redesign";
 import {
   BookOpen,
   HandHeart,
-  Home,
   Leaf,
-  MoonStar,
   Plus,
   Sparkles,
   Sprout,
   Star,
-  Sun,
-  Sunrise,
 } from "lucide-react";
-
-const needLucide = {
-  size: 24,
-  strokeWidth: 1.2,
-  absoluteStrokeWidth: true,
-  "aria-hidden": true as const,
-};
 
 const storyLucide = {
   size: 28,
@@ -89,21 +77,6 @@ function HomeStarPartial({
       </span>
     </span>
   );
-}
-
-export function HomeNeedIcon({ id }: { id: HomeNeedIconId }) {
-  switch (id) {
-    case "sleep":
-      return <MoonStar {...needLucide} />;
-    case "leaf":
-      return <Leaf {...needLucide} />;
-    case "sun":
-      return <Sun {...needLucide} />;
-    case "home":
-      return <Home {...needLucide} />;
-    case "sunrise":
-      return <Sunrise {...needLucide} />;
-  }
 }
 
 export function HomeStoryIcon({ id }: { id: HomeStoryFeature["icon"] }) {

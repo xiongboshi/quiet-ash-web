@@ -2,12 +2,14 @@
 
 import {
   createContext,
+  Suspense,
   useCallback,
   useContext,
   useMemo,
   useState,
   type ReactNode,
 } from "react";
+import { useSearchParams } from "next/navigation";
 import type { ResolvedShopCategory } from "@/lib/shop-catalog-resolved";
 import {
   activeFiltersFromChecked,
@@ -16,7 +18,10 @@ import {
   searchListingProducts,
 } from "@/lib/shop-products";
 import type { ShopListingProduct } from "@/lib/shop-types";
+import type { ShopCatalogSlug } from "@/data/shop-catalog";
 import type { ShopCategoryFilters } from "@/data/shop-catalog-types";
+import { parseShopMoodFromSearchParams } from "@/lib/shop-filter-url";
+import { getMoodFilterOptionIds } from "@/lib/shop-mood-home";
 
 type ShopListingState = {
   products: ShopListingProduct[];
@@ -37,8 +42,24 @@ type Props = {
   children: ReactNode;
 };
 
-export function ShopCategoryListingState({ category, children }: Props) {
-  const [checked, setChecked] = useState<Record<string, boolean>>({});
+function initialCheckedFromMoodParam(
+  searchParams: ReturnType<typeof useSearchParams>,
+  moodIds: readonly string[],
+): Record<string, boolean> {
+  const mood = parseShopMoodFromSearchParams(searchParams, moodIds);
+  return mood ? { [mood]: true } : {};
+}
+
+function ShopCategoryListingStateInner({ category, children }: Props) {
+  const searchParams = useSearchParams();
+  const moodIds = useMemo(
+    () => getMoodFilterOptionIds(category.slug as ShopCatalogSlug),
+    [category.slug],
+  );
+
+  const [checked, setChecked] = useState<Record<string, boolean>>(() =>
+    initialCheckedFromMoodParam(searchParams, moodIds),
+  );
   const [searchQuery, setSearchQuery] = useState("");
 
   const active = useMemo(
@@ -97,6 +118,16 @@ export function ShopCategoryListingState({ category, children }: Props) {
 
   return (
     <ShopListingContext.Provider value={value}>{children}</ShopListingContext.Provider>
+  );
+}
+
+export function ShopCategoryListingState({ category, children }: Props) {
+  return (
+    <Suspense fallback={null}>
+      <ShopCategoryListingStateInner category={category}>
+        {children}
+      </ShopCategoryListingStateInner>
+    </Suspense>
   );
 }
 

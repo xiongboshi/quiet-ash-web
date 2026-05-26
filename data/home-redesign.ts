@@ -1,17 +1,6 @@
 import { SHOP_INDEX, JOURNAL_INDEX } from "@/lib/site-paths";
 import { freeShippingOverOrdersCopy } from "@/lib/shipping-policy";
 
-export type HomeNeedIconId = "sleep" | "leaf" | "sun" | "home" | "sunrise";
-
-export type HomeNeedCard = {
-  icon: HomeNeedIconId;
-  title: string;
-  descriptionLines: [string, string];
-  imageSrc: string;
-  imageAlt: string;
-  href: string;
-};
-
 export type HomeBestSellerCard = {
   slug: string;
   title: string;
@@ -81,64 +70,6 @@ export const homeRedesign = {
       icon: "shipping",
     },
   ] satisfies HomeTrustItem[],
-  shopByNeed: {
-    heading: "SHOP BY NEED",
-    subheading: "Find the right scent for how you feel.",
-    cards: [
-      {
-        icon: "sleep",
-        title: "Better Sleep",
-        descriptionLines: [
-          "Calming scents for deeper,",
-          "restful sleep.",
-        ],
-        imageSrc: "/images/generated/mood-poster-sleep-white-blossom.png",
-        imageAlt: "Better sleep — incense on soft bedding",
-        href: SHOP_INDEX,
-      },
-      {
-        icon: "leaf",
-        title: "Stress Relief",
-        descriptionLines: [
-          "Scents that help you relax",
-          "and unwind.",
-        ],
-        imageSrc: "/images/generated/mood-poster-calm-jasmine.png",
-        imageAlt: "Stress relief — calm jasmine still life",
-        href: SHOP_INDEX,
-      },
-      {
-        icon: "sun",
-        title: "Focus & Study",
-        descriptionLines: ["Stay clear, focused", "and productive."],
-        imageSrc: "/images/generated/mood-poster-focus-lavender.png",
-        imageAlt: "Focus and study — desk with incense",
-        href: SHOP_INDEX,
-      },
-      {
-        icon: "home",
-        title: "Fresh Home",
-        descriptionLines: [
-          "Make your space smell",
-          "clean and calm.",
-        ],
-        imageSrc: "/images/generated/mood-poster-rainy-day.png",
-        imageAlt: "Fresh home — incense by a bright window",
-        href: SHOP_INDEX,
-      },
-      {
-        icon: "sunrise",
-        title: "Daily Reset",
-        descriptionLines: [
-          "Start or end your day",
-          "with intention.",
-        ],
-        imageSrc: "/images/generated/mood-poster-energy-citrus.png",
-        imageAlt: "Daily reset — morning citrus incense",
-        href: SHOP_INDEX,
-      },
-    ] satisfies HomeNeedCard[],
-  },
   bestSellers: {
     heading: "BEST SELLERS",
     viewAllLabel: "VIEW ALL PRODUCTS",

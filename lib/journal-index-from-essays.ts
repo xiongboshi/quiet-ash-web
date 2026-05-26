@@ -1,9 +1,6 @@
 import type { JournalIndexArticleCard } from "@/data/journal-index-articles";
-import {
-  journalCategoryLabels,
-  journalEssayCardMeta,
-} from "@/data/journal-essay-card-meta";
-import { getEssaysInSeries } from "@/lib/essays";
+import { journalCategoryLabels } from "@/lib/journal-mdx-meta";
+import { getAllEssays } from "@/lib/essays";
 
 const FALLBACK_IMAGE = "/images/generated/essay-good-incense-not-loud.png";
 
@@ -11,16 +8,21 @@ const FALLBACK_IMAGE = "/images/generated/essay-good-incense-not-loud.png";
 export function buildJournalIndexCardsFromEssays(
   seriesSlug: string,
 ): JournalIndexArticleCard[] {
-  return getEssaysInSeries(seriesSlug)
+  return getAllEssays()
+    .filter((essay) => essay.series === seriesSlug)
     .slice()
     .sort((a, b) => (a.date > b.date ? -1 : a.date < b.date ? 1 : 0))
     .map((essay) => {
-      const meta = journalEssayCardMeta[essay.slug];
-      const categoryId = meta?.categoryId ?? "scents-ingredients";
-      const tags = meta?.tags ?? (["relaxation"] as const);
-
-      const headline = meta?.headline ?? essay.title;
-      const seoTitle = meta?.seoTitle ?? essay.title;
+      const journal = essay.journal ?? {
+        categoryId: "scents-ingredients" as const,
+        tags: ["relaxation"] as const,
+        headline: essay.title,
+        seoTitle: essay.title,
+        bodyFormat: "editorial" as const,
+      };
+      const categoryId = journal.categoryId;
+      const headline = journal.headline;
+      const seoTitle = journal.seoTitle;
 
       return {
         slug: essay.slug,
@@ -33,8 +35,8 @@ export function buildJournalIndexCardsFromEssays(
         readMinutes: essay.readingMinutes,
         date: essay.date,
         imageSrc: essay.coverImage ?? FALLBACK_IMAGE,
-        imageAlt: `${essay.title} — Quiet Ash journal`,
-        tags,
+        imageAlt: `${headline} — Quiet Ash journal`,
+        tags: journal.tags,
       };
     });
 }

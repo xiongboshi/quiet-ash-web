@@ -18,14 +18,6 @@
       "scent": ["herbal"],
       "mood": ["reset"],
       "price": ["20-35"]
-    },
-    "plp": {
-      "title": "Tea House",
-      "scentNotes": "White Tea · Fig · Musk",
-      "priceDisplay": "$18.00",
-      "reviewCount": 228,
-      "imageSrc": "/images/generated/best-sellers/quiet-cloud-v3.png",
-      "imageAlt": "Tea House incense"
     }
   },
   "gallery": [

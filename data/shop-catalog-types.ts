@@ -1,10 +1,28 @@
 /** Static shop aisle config — products come from `data/products/*.json` (`shop` field). */
 
+/** Card copy for homepage “Shop by need” (mood group options). */
+export type ShopFilterOptionHomeCard = {
+  imageSrc: string;
+  imageAlt?: string;
+  description: string;
+  /** Defaults to `SHOP {label} →`. */
+  ctaLabel?: string;
+};
+
 /** One selectable value inside a filter group. */
 export type ShopFilterOption = {
   id: string;
   label: string;
   count: number;
+  /** When set, option appears on `/` mood strip; omit only if the option should not be promoted. */
+  homeCard?: ShopFilterOptionHomeCard;
+};
+
+/** Copy for the homepage mood strip — cards come from the `mood` filter group. */
+export type ShopMoodHomeSection = {
+  heading: string;
+  subheading: string;
+  exploreAll: { label: string; href: string };
 };
 
 /**
@@ -56,4 +74,6 @@ export type ShopCategoryDefinition = {
     sortOptions: readonly string[];
   };
   valueBar: readonly ShopCategoryValueBarItem[];
+  /** Homepage “Shop by need” — lists every option in the `mood` filter group. */
+  moodHome?: ShopMoodHomeSection;
 };

@@ -244,7 +244,12 @@
 .cart-line__product {
   display: flex;
   gap: 20px;
-  align-items: center;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.cart-line__copy {
+  flex: 1 1 auto;
   min-width: 0;
 }
 
@@ -318,23 +323,88 @@
   text-align: right;
 }
 
-/* Mobile / default: stack PRICE → QTY → TOTAL below product */
-.cart-line__price {
-  display: block;
-  margin-top: 16px;
-  text-align: left;
+/* Mobile / tablet: product row + PRICE · QTY · TOTAL on one line */
+@media (max-width: 1023px) {
+  .cart-line {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    grid-template-areas:
+      "product product product"
+      "price qty total";
+    align-items: center;
+    column-gap: 12px;
+    row-gap: 14px;
+    padding: 20px var(--cart-panel-px);
+  }
+
+  .cart-line__product {
+    grid-area: product;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .cart-line__media {
+    flex: 0 0 88px;
+    width: 88px;
+    max-width: 88px;
+    height: 88px;
+    aspect-ratio: 1;
+  }
+
+  .cart-line__title {
+    overflow-wrap: anywhere;
+  }
+
+  .cart-line__price {
+    grid-area: price;
+    margin: 0;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .cart-line__qty {
+    grid-area: qty;
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    margin: 0;
+    min-width: 0;
+  }
+
+  .cart-line__total {
+    grid-area: total;
+    margin: 0;
+    text-align: right;
+    justify-self: end;
+    white-space: nowrap;
+  }
 }
 
-.cart-line__qty {
-  display: flex;
-  justify-content: flex-start;
-  margin-top: 12px;
-}
+@media (max-width: 479px) {
+  .cart-page {
+    --cart-panel-px: 16px;
+  }
 
-.cart-line__total {
-  display: block;
-  margin-top: 12px;
-  text-align: left;
+  .cart-line {
+    column-gap: 8px;
+  }
+
+  .cart-line__media {
+    flex: 0 0 80px;
+    width: 80px;
+    max-width: 80px;
+    height: 80px;
+  }
+
+  .cart-line__title {
+    font-size: 16px;
+  }
+
+  .cart-qty {
+    min-width: 96px;
+    height: 34px;
+  }
 }
 
 .cart-qty {
@@ -381,26 +451,6 @@
   font-size: 14px;
   color: var(--cart-ink);
   text-decoration: none;
-}
-
-/* Mobile: product block full width, fields follow header order downward */
-@media (max-width: 1023px) {
-  .cart-line {
-    padding: 20px var(--cart-panel-px);
-  }
-
-  .cart-line__product {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-  }
-
-  .cart-line__media {
-    width: 100%;
-    max-width: 140px;
-    height: auto;
-    aspect-ratio: 1;
-  }
 }
 
 /* —— Module 2: Order summary —— */

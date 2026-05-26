@@ -1,13 +1,15 @@
 import {
-  journalIndexCategories,
+  journalIndexCategoryDefinitions,
   journalIndexTags,
   type JournalCategoryId,
   type JournalTagId,
 } from "@/data/journal-index";
 
-const CATEGORY_IDS = new Set(
-  journalIndexCategories.map((category) => category.id),
-);
+const CATEGORY_IDS = new Set<JournalCategoryId>([
+  "all",
+  ...journalIndexCategoryDefinitions.map((c) => c.id),
+  "popular-questions",
+]);
 
 const TAG_IDS = new Set(journalIndexTags.map((tag) => tag.id));
 

@@ -23,14 +23,6 @@
       "type": ["stand"],
       "holders": ["stand"]
     },
-    "plp": {
-      "title": "White Jasmine",
-      "scentNotes": "Jasmine · Green Leaves · Lily",
-      "priceDisplay": "$18.00",
-      "reviewCount": 312,
-      "imageSrc": "/images/generated/best-sellers/white-jasmine-v3.png",
-      "imageAlt": "White Jasmine incense"
-    },
     "plpByCategory": {
       "holders": {
         "title": "Bronze Incense Holder",

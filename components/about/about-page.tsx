@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { AboutMediaFrame } from "@/components/about/about-media-frame";
+import { ScentFamilyStrip } from "@/components/shared/scent-family-strip";
 import { aboutPage } from "@/data/about-page";
 import { siteRailExemptClass } from "@/lib/site-rail";
 
@@ -109,48 +110,21 @@ function AboutScentFamilies() {
   const { scentFamilies } = aboutPage;
 
   return (
-    <section
-      className="about-scents"
-      aria-labelledby="about-scents-heading"
-    >
-      <div className="qa-container about-scents__container">
-        <header className="about-scents__head">
-          <h2 id="about-scents-heading" className="about-scents__heading">
-            {scentFamilies.heading}
-          </h2>
-          <p className="about-scents__sub">{scentFamilies.subheading}</p>
-        </header>
-        <ul className="about-scents__grid">
-          {scentFamilies.families.map((family) => (
-            <li key={family.id}>
-              <article className="about-scent-card">
-                <AboutMediaFrame
-                  src={family.imageSrc}
-                  alt={family.imageAlt}
-                  sizes="(max-width: 767px) 40vw, 12vw"
-                  className="about-scent-card__media"
-                />
-                <div className="about-scent-card__body">
-                  <h3 className="about-scent-card__title">{family.title}</h3>
-                  <p className="about-scent-card__desc">{family.description}</p>
-                  <Link href={family.href} className="about-scent-card__cta">
-                    {family.cta}
-                  </Link>
-                </div>
-              </article>
-            </li>
-          ))}
-        </ul>
-        <p className="about-scents__explore-wrap">
-          <Link
-            href={scentFamilies.exploreAll.href}
-            className="about-scents__explore"
-          >
-            {scentFamilies.exploreAll.label}
-          </Link>
-        </p>
-      </div>
-    </section>
+    <ScentFamilyStrip
+      headingId="about-scents-heading"
+      heading={scentFamilies.heading}
+      subheading={scentFamilies.subheading}
+      cards={scentFamilies.families.map((family) => ({
+        id: family.id,
+        title: family.title,
+        description: family.description,
+        imageSrc: family.imageSrc,
+        imageAlt: family.imageAlt,
+        href: family.href,
+        cta: family.cta,
+      }))}
+      exploreAll={scentFamilies.exploreAll}
+    />
   );
 }
 
