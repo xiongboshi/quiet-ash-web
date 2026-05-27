@@ -1,0 +1,170 @@
+/**
+ * Full-bleed heroes under overlay site nav.
+ * Shop + Journal: fixed height (--qa-hero-overlay-min-h), identical to /shop.
+ * About: taller band (--about-hero-min-h), unchanged.
+ */
+
+:root {
+  --qa-hero-overlay-min-h: clamp(260px, calc(36vh + 40px), 450px);
+  --qa-hero-overlay-pad-top: clamp(3.1rem, 5.6vw, 3.75rem);
+  --qa-hero-overlay-pad-bottom: clamp(1.25rem, 2.6vw, 1.75rem);
+}
+
+@media (max-width: 639px) {
+  :root {
+    --qa-hero-overlay-min-h: clamp(220px, calc(34vh + 36px), 360px);
+    --qa-hero-overlay-pad-top: clamp(2.75rem, 7.1vw, 3.4rem);
+    --qa-hero-overlay-pad-bottom: clamp(1rem, 3vw, 1.4rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --qa-hero-overlay-min-h: clamp(280px, calc(39vh + 40px), 480px);
+    --qa-hero-overlay-pad-top: clamp(3.25rem, 5rem, 3.85rem);
+    --qa-hero-overlay-pad-bottom: clamp(1.4rem, 2rem, 1.85rem);
+  }
+}
+
+/* Shared shell */
+:is(
+    .shop-category-hero,
+    .about-hero,
+    .journal-index-hero,
+    .journal-article-hero,
+    .mood-ritual-hero
+  ) {
+  position: relative;
+  z-index: 6;
+  width: 100%;
+  overflow-x: clip;
+}
+
+/* Shop + Journal — exact band height (matches /shop PLP) */
+:is(
+    .shop-category-hero__inner,
+    .journal-index-hero__inner,
+    .journal-article-hero__inner
+  ) {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  isolation: isolate;
+  height: var(--qa-hero-overlay-min-h);
+  max-height: var(--qa-hero-overlay-min-h);
+}
+
+:is(
+    .shop-category-page .shop-category-hero__media img,
+    .shop-category-page figure.shop-category-hero__media img,
+    .journal-index .journal-index-hero__media img,
+    .journal-index figure.journal-index-hero__media img,
+    .journal-article .journal-article-hero__media img,
+    .journal-article figure.journal-article-hero__media img
+  ) {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover;
+}
+
+:is(
+    .shop-category-hero__copy,
+    .journal-index-hero__copy,
+    .journal-article-hero__copy
+  ) {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  max-height: 100%;
+  margin-inline: auto;
+  padding: var(--qa-hero-overlay-pad-top) var(--qa-container-px)
+    var(--qa-hero-overlay-pad-bottom);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.journal-article-hero__copy {
+  max-width: var(--ja-rail-width);
+  padding-inline: var(--ja-rail-px);
+}
+
+/* About — image height unchanged; extra top pad so overlay nav stays readable */
+.about-hero {
+  --about-hero-min-h: min(420px, 56vw);
+  --about-hero-pad-top: max(
+    var(--qa-hero-overlay-pad-top),
+    calc(88px + 1.5rem)
+  );
+}
+
+.about-hero__inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  isolation: isolate;
+  min-height: var(--about-hero-min-h);
+}
+
+.about-page .about-hero__media img,
+.about-page figure.about-hero__media img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover;
+}
+
+.about-hero__copy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: var(--about-hero-min-h);
+  margin-inline: auto;
+  padding: var(--about-hero-pad-top) var(--qa-container-px)
+    var(--qa-hero-overlay-pad-bottom);
+  pointer-events: none;
+}
+
+@media (max-width: 639px) {
+  .about-hero {
+    --about-hero-min-h: min(360px, 58vw);
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-hero {
+    --about-hero-min-h: min(480px, 52vh);
+  }
+}
+
+/* Mood ritual — split hero; band height matches shop */
+.mood-ritual-hero {
+  --mood-ritual-hero-height: var(--qa-hero-overlay-min-h);
+}
+
+.mood-ritual-hero__grid {
+  height: var(--mood-ritual-hero-height);
+  min-height: var(--mood-ritual-hero-height);
+  max-height: none;
+}
+
+.mood-ritual-hero__img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover;
+}

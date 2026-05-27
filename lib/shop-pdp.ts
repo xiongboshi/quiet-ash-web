@@ -1,5 +1,5 @@
 import type { CatalogProduct } from "@/lib/catalog";
-import { parsePriceDisplay } from "@/lib/cart/pricing";
+import { formatPriceDisplay, parsePriceDisplay } from "@/lib/cart/pricing";
 import { freeShippingOnOrdersOverCopy } from "@/lib/shipping-policy";
 import { SHOP_INDEX, shopPath } from "@/lib/site-paths";
 import type { ShopProductPdp } from "@/lib/shop-types";
@@ -54,8 +54,9 @@ function defaultTrust(): ShopProductPdp["trust"] {
 }
 
 function buildDefaultPdp(product: CatalogProduct): ShopProductPdp {
-  const priceDisplay = product.priceDisplay ?? "$18.00";
-  const priceCents = parsePriceDisplay(priceDisplay) || 1800;
+  const rawPrice = product.priceDisplay ?? "$18.00";
+  const priceCents = parsePriceDisplay(rawPrice) || 1800;
+  const priceDisplay = formatPriceDisplay(rawPrice);
 
   return {
     slug: product.slug,
@@ -96,7 +97,7 @@ export function getShopProductPdp(product: CatalogProduct): ShopProductPdp {
   const custom = product.shopPdp;
   if (!custom) return base;
 
-  return {
+  const merged = {
     ...base,
     ...custom,
     rating: { ...base.rating, ...custom.rating },
@@ -110,5 +111,14 @@ export function getShopProductPdp(product: CatalogProduct): ShopProductPdp {
     safetyTips: custom.safetyTips?.length ? custom.safetyTips : base.safetyTips,
     trust: custom.trust?.length ? custom.trust : base.trust,
     breadcrumbs: custom.breadcrumbs?.length ? custom.breadcrumbs : base.breadcrumbs,
+  };
+
+  return {
+    ...merged,
+    priceDisplay: formatPriceDisplay(merged.priceDisplay),
+    priceCents:
+      custom.priceDisplay !== undefined
+        ? parsePriceDisplay(custom.priceDisplay) || merged.priceCents
+        : merged.priceCents,
   };
 }

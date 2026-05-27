@@ -11,7 +11,7 @@ import {
   moodPath,
   shopPath,
 } from "@/lib/site-paths";
-import { listShopCategories } from "@/lib/shop-catalog";
+import { listShopCategoriesForShop } from "@/lib/shop-catalog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = getSiteUrl();
@@ -83,7 +83,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }));
 
-  const shopCategories: MetadataRoute.Sitemap = listShopCategories().map((category) => ({
+  const shopCategories: MetadataRoute.Sitemap = listShopCategoriesForShop().map((category) => ({
     url: `${base}${category.pathname}`,
     lastModified: now,
     changeFrequency: "weekly",

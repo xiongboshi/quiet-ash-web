@@ -1,5 +1,5 @@
 import type { CatalogProduct } from "@/lib/catalog";
-import { parsePriceDisplay } from "@/lib/cart/pricing";
+import { formatPriceDisplay, parsePriceDisplay } from "@/lib/cart/pricing";
 import type {
   ShopFilterTags,
   ShopListingProduct,
@@ -34,12 +34,13 @@ export function catalogProductToListing(
     canonicalNotes ??
     basePlp?.scentNotes ??
     "";
-  const priceDisplay =
+  const rawPrice =
     categoryPlp?.priceDisplay ??
     product.priceDisplay ??
     basePlp?.priceDisplay ??
     "";
-  const priceCents = parsePriceDisplay(priceDisplay) || 0;
+  const priceCents = parsePriceDisplay(rawPrice) || 0;
+  const priceDisplay = formatPriceDisplay(rawPrice);
   const reviewCount =
     categoryPlp?.reviewCount ??
     product.shopPdp?.rating?.count ??

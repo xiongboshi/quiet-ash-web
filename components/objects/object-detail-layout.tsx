@@ -5,6 +5,7 @@ import type { CatalogProduct } from "@/lib/catalog";
 import type { EssayMeta } from "@/lib/essays";
 import type { Ritual } from "@/lib/rituals";
 import { getEssayBySlug, getEssaysByRecentDate } from "@/lib/essays";
+import { formatPriceDisplay } from "@/lib/cart/pricing";
 import { getPairedProductsFor, pairOverrideFor } from "@/lib/catalog";
 import {
   getRitualsBySlugs,
@@ -259,7 +260,9 @@ export function ObjectDetailLayout({ product }: Props) {
   const features = product.featureBullets?.length
     ? product.featureBullets
     : [...DEFAULT_FEATURES];
-  const price = product.priceDisplay ?? "—";
+  const price = product.priceDisplay
+    ? formatPriceDisplay(product.priceDisplay)
+    : "—";
   const catalogLinkRowCount = Math.max(
     ritualsRows.length,
     paired.length,
@@ -403,7 +406,9 @@ export function ObjectDetailLayout({ product }: Props) {
                     const materialLine =
                       override?.materialLine ??
                       [p.material, p.origin].filter(Boolean).join(" · ");
-                    const pairPrice = override?.priceDisplay ?? p.priceDisplay;
+                    const pairPrice = formatPriceDisplay(
+                      override?.priceDisplay ?? p.priceDisplay,
+                    );
                     return (
                       <li key={p.slug} className="m-0 p-0">
                         <Link

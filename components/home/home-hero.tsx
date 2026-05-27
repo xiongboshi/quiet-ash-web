@@ -14,7 +14,7 @@ export function HomeHero() {
           fill
           priority
           quality={75}
-          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 100vw, 1920px"
+          sizes="100vw"
           className="home-hero__bg"
         />
         <div className="home-hero__scrim" aria-hidden />

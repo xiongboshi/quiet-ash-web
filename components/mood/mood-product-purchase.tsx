@@ -3,6 +3,7 @@
 import Link from "next/link";
 import type { CatalogProduct } from "@/lib/catalog";
 import { cartItemFromProduct } from "@/lib/cart/from-product";
+import { formatPriceDisplay } from "@/lib/cart/pricing";
 import {
   CartAddedToast,
   useCartAddedToast,
@@ -59,7 +60,7 @@ export function MoodProductPurchaseInline({
   return (
     <>
       <div className="mt-10 flex items-center gap-5">
-        <span className="text-[20px]">{priceDisplay}</span>
+        <span className="text-[20px]">{formatPriceDisplay(priceDisplay)}</span>
         <button
           type="button"
           onClick={addToCart}
@@ -89,7 +90,9 @@ export function MoodProductMobileDock({
         <div className="flex items-center justify-between">
           <div>
             <p className="text-[14px] font-medium">{displayTitle}</p>
-            <p className="mt-1 text-[13px] text-[#666]">{priceDisplay}</p>
+            <p className="mt-1 text-[13px] text-[#666]">
+              {formatPriceDisplay(priceDisplay)}
+            </p>
           </div>
           <button
             type="button"

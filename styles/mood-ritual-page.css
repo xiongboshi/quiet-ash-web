@@ -3,15 +3,12 @@
  */
 
 .mood-ritual-hero {
-  --mood-ritual-hero-height: 680px;
   --mood-ritual-hero-bg: #ebe6df;
   --mood-ritual-hero-content-bg: #d6cdc2;
   --mood-ritual-hero-content-bg-deep: #a89b8e;
   --mood-ritual-hero-content-bg-fade: #f5f0e9;
   --mood-ritual-hero-ink: #1a1816;
   --mood-ritual-hero-muted: #6f6a63;
-  position: relative;
-  overflow-x: clip;
   background: var(--mood-ritual-hero-bg);
   color: var(--mood-ritual-hero-ink);
 }
@@ -20,9 +17,6 @@
   display: grid;
   grid-template-columns: 1fr;
   align-items: stretch;
-  height: var(--mood-ritual-hero-height);
-  min-height: var(--mood-ritual-hero-height);
-  max-height: var(--mood-ritual-hero-height);
 }
 
 .mood-ritual-hero__content {
@@ -31,7 +25,7 @@
   flex-direction: column;
   justify-content: center;
   min-height: 0;
-  padding: 2rem 1.25rem 2.5rem;
+  padding: var(--qa-hero-overlay-pad-top) 1.25rem var(--qa-hero-overlay-pad-bottom);
   max-width: 32rem;
   background: linear-gradient(
     90deg,
@@ -147,7 +141,6 @@ a.mood-ritual-hero__tag:hover {
 }
 
 .mood-ritual-hero__img {
-  object-fit: cover;
   object-position: 58% 42%;
 }
 
@@ -651,7 +644,8 @@ a.mood-ritual-hero__tag:hover {
     height: 100%;
     order: unset;
     box-sizing: border-box;
-    padding: 3.5rem clamp(2rem, 4vw, 3.5rem) 3.5rem clamp(2.5rem, 5vw, 4.5rem);
+    padding: var(--qa-hero-overlay-pad-top) clamp(2rem, 4vw, 3.5rem)
+      var(--qa-hero-overlay-pad-bottom) clamp(2.5rem, 5vw, 4.5rem);
     max-width: none;
     background: transparent;
     pointer-events: none;

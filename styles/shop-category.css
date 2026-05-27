@@ -9,8 +9,6 @@
   object-fit: unset;
 }
 
-.shop-category-page .shop-category-hero__media img,
-.shop-category-page figure.shop-category-hero__media img,
 .shop-category-page .shop-product-card__media img {
   width: 100% !important;
   height: 100% !important;
@@ -29,20 +27,11 @@
   color: var(--shop-ink);
 }
 
-/* —— Hero — 整行大图 + 首页同款左侧渐变与字体 —— */
+/* —— Hero — full-bleed under overlay nav (height: styles/site-hero-overlay.css) —— */
 .shop-category-hero {
   --shop-hero-ink: #0d0d0d;
-  overflow-x: clip;
   background: var(--shop-bg);
   color: var(--shop-hero-ink);
-}
-
-.shop-category-hero__inner {
-  position: relative;
-  width: 100%;
-  min-height: min(420px, 56vw);
-  overflow: hidden;
-  isolation: isolate;
 }
 
 .shop-category-hero__media {
@@ -74,17 +63,7 @@
 }
 
 .shop-category-hero__copy {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  width: 100%;
   max-width: var(--qa-container-width);
-  min-height: min(420px, 56vw);
-  margin-inline: auto;
-  padding: 2rem var(--qa-container-px);
-  pointer-events: none;
 }
 
 .shop-category-hero__copy-inner {
@@ -982,7 +961,7 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* —— Value bar —— */
+/* —— Value bar (desktop / tablet landscape only) —— */
 .shop-category-value {
   border-top: 1px solid var(--shop-line);
   background: var(--shop-bg);
@@ -1102,11 +1081,6 @@
     );
   }
 
-  .shop-category-hero__inner,
-  .shop-category-hero__copy {
-    min-height: min(360px, 58vw);
-  }
-
   .shop-category-page .shop-category-hero h1.shop-category-hero__title,
   .shop-category-hero__title {
     font-size: clamp(2.25rem, 9vw, 2.875rem);
@@ -1206,56 +1180,6 @@
     box-shadow: none;
   }
 
-  .shop-category-value__inner {
-    padding-block: 1.5rem;
-  }
-
-  .shop-category-value__list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0;
-    border: 1px solid var(--shop-line);
-    border-radius: 6px;
-    overflow: hidden;
-    background: #fdfcfa;
-  }
-
-  .shop-category-value__item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.55rem;
-    padding: 1.15rem 1rem 1.1rem;
-    background: #fdfcfa;
-  }
-
-  .shop-category-value__item:nth-child(odd) {
-    border-right: 1px solid var(--shop-line);
-  }
-
-  .shop-category-value__item:nth-child(-n + 2) {
-    border-bottom: 1px solid var(--shop-line);
-  }
-
-  .shop-category-value__icon {
-    color: #4a4540;
-  }
-
-  .shop-category-value__icon svg {
-    width: 24px;
-    height: 24px;
-  }
-
-  .shop-category-value__title {
-    font-size: 13px;
-    font-weight: 600;
-    line-height: 1.35;
-    letter-spacing: 0.02em;
-  }
-
-  .shop-category-value__desc {
-    font-size: 11px;
-    line-height: 1.45;
-    letter-spacing: 0.01em;
-  }
 }
 
 @media (min-width: 1024px) {
@@ -1277,6 +1201,10 @@
 }
 
 @media (max-width: 1023px) {
+  .shop-category-value {
+    display: none;
+  }
+
   .shop-category-listing {
     --shop-listing-control-h: 2.5rem;
     --shop-listing-control-radius: 6px;
@@ -1546,15 +1474,6 @@
 }
 
 @media (min-width: 1024px) {
-  .shop-category-hero__inner {
-    min-height: min(480px, 52vh);
-  }
-
-  .shop-category-hero__copy {
-    min-height: min(480px, 52vh);
-    padding: clamp(2.5rem, 4vw, 3.5rem) var(--qa-container-px);
-  }
-
   .shop-category-page .shop-category-hero h1.shop-category-hero__title,
   .shop-category-hero__title {
     font-size: 4.625rem;

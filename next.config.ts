@@ -4,6 +4,10 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 160, 200, 256, 384],
+  },
+  experimental: {
+    optimizePackageImports: ["lucide-react", "@lucide/lab"],
   },
   // LAN phone testing: `192.168.*` does NOT match `192.168.10.171` — need `*.*` or explicit IP.
   allowedDevOrigins: [

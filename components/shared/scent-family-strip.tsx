@@ -19,6 +19,8 @@ type ScentFamilyStripProps = {
   exploreAll?: { label: string; href: string };
   /** Extra section class (e.g. homepage mood strip with 5 cards). */
   sectionClassName?: string;
+  /** Next/Image sizes — default matches ~36% image column in horizontal cards. */
+  imageSizes?: string;
 };
 
 /** Horizontal image + copy cards — same markup as About “Explore scent families”. */
@@ -29,6 +31,7 @@ export function ScentFamilyStrip({
   cards,
   exploreAll,
   sectionClassName = "",
+  imageSizes = "(max-width: 767px) 36vw, (max-width: 1023px) 20vw, 240px",
 }: ScentFamilyStripProps) {
   const sectionClass = [
     "about-scents",
@@ -54,7 +57,7 @@ export function ScentFamilyStrip({
                 <AboutMediaFrame
                   src={card.imageSrc}
                   alt={card.imageAlt}
-                  sizes="(max-width: 767px) 40vw, 12vw"
+                  sizes={imageSizes}
                   className="about-scent-card__media"
                 />
                 <div className="about-scent-card__body">

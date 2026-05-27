@@ -54,12 +54,21 @@ export type ShopCategoryValueBarItem = {
   icon: "hand" | "leaf" | "returns" | "shipping";
 };
 
+/** Homepage `#best-sellers` section chrome — products curated in `data/home-best-sellers.ts`. */
+export type ShopHomeBestSellersSection = {
+  heading: string;
+  viewAllLabel: string;
+  viewAllHref: string;
+};
+
 /** One shop aisle (incense, holders, tea, …). Register in `data/shop-catalog.ts`. */
 export type ShopCategoryDefinition = {
   /** Stable id — used in code and optional URL segment `/shop/[slug]`. */
   slug: string;
   /** Canonical listing URL (`/shop` for the default aisle). */
   pathname: string;
+  /** When true: no PLP route, filters, or shop UI — homepage (or other) listing only. */
+  hiddenFromShop?: boolean;
   navLabel: string;
   hero: {
     title: string;

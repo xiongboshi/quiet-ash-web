@@ -3,13 +3,6 @@
  */
 @import "./scent-family-strip.css";
 
-.about-page .about-hero__media img,
-.about-page figure.about-hero__media img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover;
-}
-
 .about-page {
   position: relative;
   z-index: 0;
@@ -85,14 +78,6 @@
   color: var(--about-hero-ink);
 }
 
-.about-hero__inner {
-  position: relative;
-  width: 100%;
-  min-height: min(420px, 56vw);
-  overflow: hidden;
-  isolation: isolate;
-}
-
 .about-hero__media {
   position: absolute;
   inset: 0;
@@ -123,17 +108,7 @@
 }
 
 .about-hero__copy {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  width: 100%;
   max-width: var(--qa-container-width);
-  min-height: min(420px, 56vw);
-  margin-inline: auto;
-  padding: 2rem var(--qa-container-px);
-  pointer-events: none;
 }
 
 .about-hero__copy-inner {
@@ -260,11 +235,6 @@
     );
   }
 
-  .about-hero__inner,
-  .about-hero__copy {
-    min-height: min(360px, 58vw);
-  }
-
   .about-page .about-hero h1.about-hero__title,
   .about-hero__title {
     font-size: clamp(2.25rem, 9vw, 2.875rem);
@@ -278,15 +248,6 @@
 }
 
 @media (min-width: 1024px) {
-  .about-hero__inner {
-    min-height: min(480px, 52vh);
-  }
-
-  .about-hero__copy {
-    min-height: min(480px, 52vh);
-    padding: clamp(2.5rem, 4vw, 3.5rem) var(--qa-container-px);
-  }
-
   .about-page .about-hero h1.about-hero__title,
   .about-hero__title {
     font-size: 4.625rem;

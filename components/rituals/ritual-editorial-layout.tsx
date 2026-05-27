@@ -8,6 +8,7 @@ import type { Ritual } from "@/lib/rituals";
 import { RitualBody } from "@/components/mdx/ritual-body";
 import { Container } from "@/components/layout/container";
 import { PageShell } from "@/components/layout/page-shell";
+import { formatPriceDisplay } from "@/lib/cart/pricing";
 import { getMoodRitualHero } from "@/data/mood-ritual-heroes";
 import {
   getMoodRitualPopularSearches,
@@ -272,7 +273,10 @@ export function RitualEditorialLayout({
                       <p className="mt-2 line-clamp-1 font-[family-name:var(--font-sans)] text-[12px] font-normal leading-relaxed text-[rgba(255,255,255,0.82)]">
                         {productMetaLine(p)}
                         {p.priceDisplay ? (
-                          <span className="text-white/95"> · {p.priceDisplay}</span>
+                          <span className="text-white/95">
+                            {" "}
+                            · {formatPriceDisplay(p.priceDisplay)}
+                          </span>
                         ) : null}
                       </p>
                       <span className="mt-5 inline-block shrink-0 font-[family-name:var(--font-sans)] text-[11px] font-normal uppercase tracking-[0.18em] text-white underline decoration-white/35 decoration-1 underline-offset-[6px]">

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ShoppingBag } from "lucide-react";
 import { HomeStarRating } from "@/components/home/home-icons";
 import type { ShopListingProduct } from "@/lib/shop-types";
+import { formatPriceDisplayCard } from "@/lib/cart/pricing";
 import { shopPath } from "@/lib/site-paths";
 import { useCartStore } from "@/stores/cart-store";
 
@@ -46,7 +47,9 @@ export function ShopProductCard({ item }: Props) {
           </div>
         </Link>
         <div className="shop-product-card__footer">
-          <span className="shop-product-card__price">{item.priceDisplay}</span>
+          <span className="shop-product-card__price">
+            {formatPriceDisplayCard(item.priceDisplay)}
+          </span>
           <button
             type="button"
             className="shop-product-card__add"

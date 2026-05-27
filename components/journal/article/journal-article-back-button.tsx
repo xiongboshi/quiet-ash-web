@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
+import { navigateHistoryBack } from "@/lib/history-back";
 import { JOURNAL_INDEX } from "@/lib/site-paths";
 import type { JournalArticleHero } from "@/types/journal-article";
 
@@ -20,13 +21,7 @@ export function JournalArticleBackButton({ breadcrumbs }: Props) {
     <button
       type="button"
       className="journal-article-hero__back"
-      onClick={() => {
-        if (typeof window !== "undefined" && window.history.length > 1) {
-          router.back();
-          return;
-        }
-        router.push(fallbackHref);
-      }}
+      onClick={() => navigateHistoryBack(router, fallbackHref)}
     >
       <ArrowLeft size={16} strokeWidth={1.5} aria-hidden />
       <span>Back</span>

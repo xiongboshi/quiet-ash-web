@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { HomeStarRating } from "@/components/home/home-icons";
+import { formatPriceDisplayCard } from "@/lib/cart/pricing";
 import { shopPath } from "@/lib/site-paths";
 import type { JournalArticleTemplate } from "@/types/journal-article";
 
@@ -50,7 +51,9 @@ export function JournalArticleProducts({ block }: Props) {
                   </span>
                 </div>
                 <div className="journal-article-products__foot">
-                  <p className="journal-article-products__price">{item.priceDisplay}</p>
+                  <p className="journal-article-products__price">
+                    {formatPriceDisplayCard(item.priceDisplay)}
+                  </p>
                   <Link href={shopPath(item.slug)} className="journal-article-products__cta">
                     Shop →
                   </Link>

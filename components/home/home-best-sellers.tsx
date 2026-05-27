@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { HomeProductCard } from "@/components/home/home-product-card";
-import { homeRedesign } from "@/data/home-redesign";
+import { getHomeBestSellersSection } from "@/lib/shop-best-sellers-home";
 
 export function HomeBestSellers() {
-  const { bestSellers } = homeRedesign;
+  const bestSellers = getHomeBestSellersSection();
+  if (!bestSellers) return null;
 
   return (
     <section

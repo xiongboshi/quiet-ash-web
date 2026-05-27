@@ -1,12 +1,16 @@
 import type { CSSProperties } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { formatPriceDisplayCard } from "@/lib/cart/pricing";
 import { shopPath } from "@/lib/site-paths";
-import { homeBestSellers } from "@/data/best-sellers-home";
 import { brandHome } from "@/data/brand-home";
+import { getHomeBestSellersSection } from "@/lib/shop-best-sellers-home";
 
 export function MoodBestSellers() {
+  const section = getHomeBestSellersSection();
   const { bestSellers } = brandHome;
+  const homeBestSellers = section?.products.slice(0, 3) ?? [];
+  if (!homeBestSellers.length) return null;
 
   return (
     <section className="qa-mood-best-sellers bg-white px-[var(--mood-px)] py-[28px]">
@@ -65,7 +69,7 @@ export function MoodBestSellers() {
                         </p>
                       </div>
                       <p className="mt-3 font-[family-name:var(--font-sans)] text-[15px] font-normal text-[var(--mood-ink)] sm:text-[16px]">
-                        {item.priceDisplay}
+                        {formatPriceDisplayCard(item.priceDisplay)}
                       </p>
                     </Link>
 

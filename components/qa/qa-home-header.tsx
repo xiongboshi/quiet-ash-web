@@ -4,8 +4,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
 import { QaHomeCartLink } from "@/components/qa/qa-home-cart-link";
+import { QaMobileBackButton } from "@/components/qa/qa-mobile-back-button";
 import { brandHome } from "@/data/brand-home";
 import { PRIMARY_NAV } from "@/lib/site-nav";
+import {
+  isMobileNavBackLeadingPath,
+  isMobileNavCartHiddenPath,
+  mobileNavBackFallbackHref,
+} from "@/lib/site-nav-layout";
 
 function normalizePath(pathname: string | null): string {
   if (!pathname) return "";
@@ -36,6 +42,9 @@ function isNavActive(path: string, href: string): boolean {
 export function QaHomeHeader() {
   const pathname = usePathname();
   const path = normalizePath(pathname);
+  const mobileNavBack = isMobileNavBackLeadingPath(pathname);
+  const mobileNavBackFallback = mobileNavBackFallbackHref(pathname);
+  const hideMobileNavCart = isMobileNavCartHiddenPath(pathname);
   const [menuOpen, setMenuOpen] = useState(false);
   const panelId = useId();
   const { siteTitle } = brandHome;
@@ -68,16 +77,20 @@ export function QaHomeHeader() {
     <>
       <nav className="navbar" aria-label="Site">
         <div className="container nav-inner">
-          <button
-            type="button"
-            className="nav-mobile-toggle"
-            aria-expanded={menuOpen}
-            aria-controls={panelId}
-            onClick={() => setMenuOpen((o) => !o)}
-          >
-            <span className="sr-only">Menu</span>
-            <span aria-hidden>{menuOpen ? "×" : "☰"}</span>
-          </button>
+          {mobileNavBack ? (
+            <QaMobileBackButton fallbackHref={mobileNavBackFallback} />
+          ) : (
+            <button
+              type="button"
+              className="nav-mobile-toggle"
+              aria-expanded={menuOpen}
+              aria-controls={panelId}
+              onClick={() => setMenuOpen((o) => !o)}
+            >
+              <span className="sr-only">Menu</span>
+              <span aria-hidden>{menuOpen ? "×" : "☰"}</span>
+            </button>
+          )}
 
           <Link href="/" className="nav-brand logo">
             <span className="nav-brand__text">{siteTitle}</span>
@@ -100,7 +113,9 @@ export function QaHomeHeader() {
           </div>
 
           <div className="nav-actions">
-            <QaHomeCartLink />
+            <QaHomeCartLink
+              className={hideMobileNavCart ? "nav-icon-btn--cart-on-detail" : undefined}
+            />
           </div>
         </div>
       </nav>

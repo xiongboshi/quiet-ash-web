@@ -6,6 +6,8 @@
  * 2. Set `pathname` (`/shop/your-slug`, or `/shop` for the default aisle only).
  * 3. Define `filters.groups` (any count); e.g. INCENSE HOLDERS + Stands/Trays sub-options; optional `tabLabel` for mobile tabs.
  * 4. Register static route: non-default slugs are served from `app/(site)/shop/[slug]/page.tsx`.
+ *
+ * Homepage best sellers: curate in `data/home-best-sellers.ts` (not a separate aisle).
  */
 import type { ShopCategoryDefinition } from "@/data/shop-catalog-types";
 import { SHOP_INDEX } from "@/lib/site-paths";

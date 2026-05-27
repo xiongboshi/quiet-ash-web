@@ -1,4 +1,5 @@
 import type { CatalogProduct } from "@/lib/catalog";
+import { formatPriceDisplay } from "@/lib/cart/pricing";
 import { brandMoods } from "@/data/brand-moods";
 import { moodPosterPublicPaths } from "@/data/mood-poster-image-prompts";
 
@@ -135,7 +136,7 @@ export function resolveMoodProductPage(
       override?.lifestyleImage ??
       product.narrativeImage ??
       product.image,
-    priceDisplay: product.priceDisplay ?? "$24",
+    priceDisplay: formatPriceDisplay(product.priceDisplay ?? "$24"),
     gallery,
   };
 }

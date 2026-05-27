@@ -13,6 +13,7 @@ export function HomeShopByNeed() {
       cards={section.cards}
       exploreAll={section.exploreAll}
       sectionClassName="about-scents--home"
+      imageSizes="(max-width: 767px) 140px, (max-width: 1023px) 200px, 240px"
     />
   );
 }

@@ -12,6 +12,8 @@ export type ShopPlpOverride = {
   imageSrc?: string;
   imageAlt?: string;
   imageObjectPosition?: string;
+  /** Homepage best-sellers band sort (lower first). */
+  homeOrder?: number;
 };
 
 export type ShopProductConfig = {

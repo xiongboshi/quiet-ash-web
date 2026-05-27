@@ -184,6 +184,10 @@ function parsePlpOverride(raw: unknown): ShopProductConfig["plp"] | undefined {
     typeof o.reviewCount === "number" && o.reviewCount >= 0
       ? Math.round(o.reviewCount)
       : undefined;
+  const homeOrder =
+    typeof o.homeOrder === "number" && Number.isFinite(o.homeOrder)
+      ? Math.round(o.homeOrder)
+      : undefined;
   if (
     !title &&
     !scentNotes &&
@@ -191,7 +195,8 @@ function parsePlpOverride(raw: unknown): ShopProductConfig["plp"] | undefined {
     !imageSrc &&
     !imageAlt &&
     reviewCount === undefined &&
-    !imageObjectPosition
+    !imageObjectPosition &&
+    homeOrder === undefined
   ) {
     return undefined;
   }
@@ -203,6 +208,7 @@ function parsePlpOverride(raw: unknown): ShopProductConfig["plp"] | undefined {
     ...(imageSrc ? { imageSrc } : {}),
     ...(imageAlt ? { imageAlt } : {}),
     ...(imageObjectPosition ? { imageObjectPosition } : {}),
+    ...(homeOrder !== undefined ? { homeOrder } : {}),
   };
 }
 

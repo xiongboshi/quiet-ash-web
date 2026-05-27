@@ -100,6 +100,33 @@ See `lib/shop-types.ts` → `ShopProductPdp`. Loaded in `lib/shop-pdp.ts` via `g
 4. Optional: `data/shop-pdp/<slug>.json` for full PDP.
 5. Do not add rows to `shop-catalog.ts` `products` (removed in P1).
 
+## Homepage “Best sellers” (`#best-sellers`)
+
+**One file to edit:** [`data/home-best-sellers.ts`](../data/home-best-sellers.ts)
+
+| Concern | Where |
+|--------|--------|
+| Which products, in what order | `homeBestSellersManifest[]` — array order = homepage order |
+| Section heading / “View all” | `homeBestSellersSection` in the same file |
+| Product belongs to shop | `data/products/**/<slug>.json` → `shop.categorySlugs` (`incense`, `holders`, …) |
+| PLP card per aisle | `shop.plp` / `shop.plpByCategory` on product JSON |
+| PDP | `shopPdp` on product JSON or `data/shop-pdp/<slug>.json` |
+
+**Flow**
+
+1. Product already exists in a normal shop aisle (`categorySlugs`).
+2. Add `{ slug: "your-slug", card?: { … } }` to `homeBestSellersManifest`.
+3. Optional `card` only changes the homepage band (title, image, notes). **Price** always matches `/shop` (incense PLP rules) — never set `priceDisplay` in the manifest.
+
+**Not allowed**
+
+- A separate `best-sellers` shop category or duplicate product rows.
+- Putting homepage curation only inside product JSON (use the manifest so the list stays visible).
+
+Build fails with a clear error if a manifest slug is missing or has no `shop.categorySlugs`.
+
+Runtime: `lib/shop-best-sellers-home.ts` → `HomeBestSellers` / `MoodBestSellers`.
+
 ## Homepage “Shop by need” (mood strip)
 
 - Copy: `moodHome` on the incense aisle in `shop-catalog.ts`.

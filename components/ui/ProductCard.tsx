@@ -2,6 +2,7 @@ import Image from "next/image";
 import { SHOP_INDEX, shopPath } from "@/lib/site-paths";
 import Link from "next/link";
 import type { CatalogProduct } from "@/lib/catalog";
+import { formatPriceDisplayCard } from "@/lib/cart/pricing";
 
 type Props = {
   product: CatalogProduct;
@@ -244,7 +245,7 @@ export function ProductCard({
           <p className={descClass}>{product.line}</p>
         )}
         {product.priceDisplay ? (
-          <p className={priceClass}>{product.priceDisplay}</p>
+          <p className={priceClass}>{formatPriceDisplayCard(product.priceDisplay)}</p>
         ) : null}
       </div>
     </Link>

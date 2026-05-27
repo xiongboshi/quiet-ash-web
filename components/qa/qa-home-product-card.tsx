@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { formatPriceDisplayCard } from "@/lib/cart/pricing";
 import { shopPath } from "@/lib/site-paths";
 import { useCartStore } from "@/stores/cart-store";
 import type { HomeBestSeller } from "@/data/best-sellers-home";
@@ -29,7 +30,7 @@ export function QaHomeProductCard({ item }: Props) {
           <h4>{item.title}</h4>
           <p>{item.scentNotes}</p>
           <div className="product-bottom">
-            <span className="price">{item.priceDisplay}</span>
+            <span className="price">{formatPriceDisplayCard(item.priceDisplay)}</span>
             <button
               type="button"
               className="plus"

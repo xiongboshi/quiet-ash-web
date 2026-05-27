@@ -13,6 +13,8 @@ import { getProductBySlug } from "@/lib/catalog";
 import { getEssayBySlug } from "@/lib/essays";
 import { JOURNAL_INDEX, journalPath } from "@/lib/site-paths";
 import { getJournalIndexArticleCards } from "@/lib/get-journal-index-articles";
+import { formatPriceDisplay } from "@/lib/cart/pricing";
+import { getHomeBestSellersProducts } from "@/lib/shop-best-sellers-home";
 
 /** Module 3 body — matches editorial mock section order & ids */
 const BODY_SECTION_META = [
@@ -312,7 +314,7 @@ function buildTakeaways(
 }
 
 function defaultProducts(): JournalArticleTemplate["products"] {
-  const items = homeRedesign.bestSellers.products.slice(0, 4);
+  const items = getHomeBestSellersProducts().slice(0, 4);
   return {
     heading: "Recommended Incense",
     items: items.map((p: (typeof items)[number]) => ({
@@ -339,7 +341,7 @@ function productsFromSlugs(
       title: p.title,
       rating: 4.5,
       reviewCount: 120,
-      priceDisplay: p.priceDisplay ?? "",
+      priceDisplay: formatPriceDisplay(p.priceDisplay ?? ""),
       imageSrc: p.image,
       imageAlt: p.title,
     }));

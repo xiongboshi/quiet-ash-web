@@ -131,6 +131,15 @@
   }
 }
 
+/* Below-fold sections — skip layout/paint until near viewport (PageSpeed / SI). */
+.home-page .home-bestsellers,
+.home-page .home-scents,
+.home-page .home-testimonials,
+.home-page .home-story {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 28rem;
+}
+
 .home-page .home-container {
   box-sizing: border-box;
   width: 100%;

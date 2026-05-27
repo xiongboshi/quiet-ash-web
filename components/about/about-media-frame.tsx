@@ -6,6 +6,7 @@ type AboutMediaFrameProps = {
   sizes: string;
   aspectRatio?: string;
   priority?: boolean;
+  quality?: number;
   className?: string;
   imgClassName?: string;
   objectPosition?: string;
@@ -21,6 +22,7 @@ export function AboutMediaFrame({
   sizes,
   aspectRatio,
   priority = false,
+  quality = priority ? 75 : 68,
   className = "",
   imgClassName = "",
   objectPosition = "50% 50%",
@@ -38,6 +40,7 @@ export function AboutMediaFrame({
         alt={alt}
         fill
         priority={priority}
+        quality={quality}
         sizes={sizes}
         className={["about-media-frame__img", imgClassName].filter(Boolean).join(" ")}
         style={{ objectPosition }}

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { CatalogProduct } from "@/lib/catalog";
 import type { MoodRitualSleepIncenseSpec } from "@/data/mood-ritual-sections";
+import { formatPriceDisplayCard } from "@/lib/cart/pricing";
 import { moodRitualSleepIncenseShopHref } from "@/data/mood-ritual-sections";
 import { MoodRitualIncenseAddButton } from "@/components/moods/mood-ritual-incense-add-button";
 
@@ -52,7 +53,9 @@ export function MoodRitualSleepIncense({
                   <h3 className="mood-ritual-incense__title">{item.title}</h3>
                   <p className="mood-ritual-incense__tags">{item.tags}</p>
                   <p className="mood-ritual-incense__desc">{item.description}</p>
-                  <p className="mood-ritual-incense__price">{item.priceDisplay}</p>
+                  <p className="mood-ritual-incense__price">
+                    {formatPriceDisplayCard(item.priceDisplay)}
+                  </p>
 
                   <div className="mood-ritual-incense__actions">
                     {product ? (

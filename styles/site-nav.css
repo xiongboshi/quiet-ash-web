@@ -170,6 +170,11 @@
   opacity: 0.72;
 }
 
+/* Journal article — mobile back in nav-actions (replaces cart icon in bar) */
+.site-nav-chrome .nav-icon-btn--back {
+  display: none;
+}
+
 .site-nav-chrome .nav-cart-badge {
   position: absolute;
   top: 0.35rem;
@@ -310,7 +315,8 @@
   color: var(--site-nav-ink);
 }
 
-.site-nav-chrome.site-nav-chrome--ink .nav-mobile-toggle {
+.site-nav-chrome.site-nav-chrome--ink .nav-mobile-toggle,
+.site-nav-chrome.site-nav-chrome--ink .nav-icon-btn--back {
   color: var(--site-nav-ink);
   border-color: color-mix(in srgb, var(--site-nav-ink) 32%, transparent);
 }
@@ -327,7 +333,8 @@
   color: var(--site-nav-ink-strong);
 }
 
-.site-nav-chrome.site-nav-chrome--overlay .nav-mobile-toggle {
+.site-nav-chrome.site-nav-chrome--overlay .nav-mobile-toggle,
+.site-nav-chrome.site-nav-chrome--overlay .nav-icon-btn--back {
   color: var(--site-nav-ink-strong);
   border-color: color-mix(in srgb, var(--site-nav-ink-strong) 32%, transparent);
 }
@@ -338,6 +345,26 @@
 }
 
 @media (max-width: 768px) {
+  .site-nav-chrome--mobile-nav-back .nav-icon-btn--back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid transparent;
+    background: transparent;
+  }
+
+  .site-nav-chrome .nav-inner > .nav-icon-btn--back {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+  }
+
+  .site-nav-chrome--mobile-nav-back .nav-icon-btn--cart-on-detail {
+    display: none;
+  }
+
   .site-nav-chrome .nav-inner {
     padding-inline: 18px;
   }
@@ -428,12 +455,14 @@
     line-height: 1.125rem;
   }
 
-  .site-nav-chrome.site-nav-chrome--ink .nav-mobile-toggle {
+  .site-nav-chrome.site-nav-chrome--ink .nav-mobile-toggle,
+  .site-nav-chrome.site-nav-chrome--ink .nav-icon-btn--back {
     color: var(--site-nav-ink);
     border-color: color-mix(in srgb, var(--site-nav-ink) 32%, transparent);
   }
 
-  .site-nav-chrome.site-nav-chrome--overlay .nav-mobile-toggle {
+  .site-nav-chrome.site-nav-chrome--overlay .nav-mobile-toggle,
+  .site-nav-chrome.site-nav-chrome--overlay .nav-icon-btn--back {
     color: var(--site-nav-ink-strong);
     border-color: color-mix(in srgb, var(--site-nav-ink-strong) 32%, transparent);
   }

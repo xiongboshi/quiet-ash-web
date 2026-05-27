@@ -22,7 +22,7 @@ export function HomeExploreScents() {
                   src={family.imageSrc}
                   alt={family.imageAlt}
                   fill
-                  sizes="(max-width: 767px) 80vw, 20vw"
+                  sizes="(max-width: 767px) 92vw, (max-width: 1279px) 48vw, 240px"
                   className="home-scent-card__img object-cover"
                 />
                 <span className="home-scent-card__scrim" aria-hidden />

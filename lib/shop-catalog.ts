@@ -11,25 +11,30 @@ export function listShopCategories(): ShopCategoryDefinition[] {
   return Object.values(shopCatalog);
 }
 
+/** PLP / sitemap / category routes — excludes `hiddenFromShop` aisles. */
+export function listShopCategoriesForShop(): ShopCategoryDefinition[] {
+  return listShopCategories().filter((category) => category.hiddenFromShop !== true);
+}
+
 export function getShopCategory(slug: ShopCatalogSlug = DEFAULT_SHOP_CATEGORY_SLUG): ShopCategoryDefinition {
   return shopCatalog[slug];
 }
 
 /** URL segment `/shop/[segment]` — category if segment matches a catalog slug. */
 export function getShopCategoryBySegment(segment: string): ShopCategoryDefinition | null {
-  if (segment in shopCatalog) {
-    return shopCatalog[segment as ShopCatalogSlug];
-  }
-  return null;
+  if (!isShopCategorySegment(segment)) return null;
+  return shopCatalog[segment as ShopCatalogSlug];
 }
 
 export function isShopCategorySegment(segment: string): boolean {
-  return segment in shopCatalog;
+  if (!(segment in shopCatalog)) return false;
+  const category = shopCatalog[segment as ShopCatalogSlug] as ShopCategoryDefinition;
+  return category.hiddenFromShop !== true;
 }
 
 /** Category pages at `/shop/[slug]` — excludes the default aisle served at `/shop`. */
 export function shopCategorySegmentsForStaticParams(): string[] {
-  return listShopCategories()
+  return listShopCategoriesForShop()
     .filter((category) => category.pathname !== "/shop")
     .map((category) => category.slug);
 }

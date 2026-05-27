@@ -15,11 +15,22 @@ export function parsePriceDisplay(display?: string): number {
   return Math.round(value * 100);
 }
 
+/** Site-wide price display — whole dollars omit cents (e.g. `$18.00` → `$18`, keeps `$18.50`). */
+export function formatPriceDisplay(display?: string): string {
+  if (!display?.trim()) return display ?? "";
+  return display.trim().replace(/\.00$/, "");
+}
+
+/** @alias formatPriceDisplay */
+export const formatPriceDisplayCard = formatPriceDisplay;
+
 export function formatMoney(cents: number): string {
+  const wholeDollars = cents % 100 === 0;
   return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
-    minimumFractionDigits: 2,
+    minimumFractionDigits: wholeDollars ? 0 : 2,
+    maximumFractionDigits: wholeDollars ? 0 : 2,
   }).format(cents / 100);
 }
 

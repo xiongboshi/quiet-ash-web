@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { formatPriceDisplay } from "@/lib/cart/pricing";
 import { SHOP_INDEX, shopPath } from "@/lib/site-paths";
 import Link from "next/link";
 import type { CatalogProduct } from "@/lib/catalog";
@@ -128,7 +129,9 @@ function PairRowLink({
   const materialLine =
     override?.materialLine ??
     [pairProduct.material, pairProduct.origin].filter(Boolean).join(" · ");
-  const pairPrice = override?.priceDisplay ?? pairProduct.priceDisplay;
+  const pairPrice = formatPriceDisplay(
+    override?.priceDisplay ?? pairProduct.priceDisplay,
+  );
 
   return (
     <Link
