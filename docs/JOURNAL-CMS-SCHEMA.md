@@ -103,6 +103,41 @@ Article bodies are still **plain text** parsed into paragraphs (`lib/journal-art
 
 Current hand guides: `best-incense-for-sleep`, `is-incense-safe-for-pets`, `best-incense-for-small-apartments`.
 
+### Guide article options
+
+| Field | Purpose |
+|-------|---------|
+| `quickAnswer.paragraphs` | Multi-paragraph quick answer |
+| `keyTakeaways` | Icon grid (preferred for Q&A guides) |
+| `keyTakeawayBullets` | Simple bullet list (no icons) — omit when `keyTakeaways` is set |
+| `intro.paragraphs` | Intro block after insight band |
+| `sections[].subsections` | H3 blocks (e.g. Tea Scents under a numbered section) |
+| `faq` | Collapsible FAQ (journal index style); omit to hide |
+| `sections` id `final-thoughts` | Rendered after FAQ, before products |
+
+Product strip uses **shop mobile PLP cards** — 2 columns, `ShopProductCard`.
+
+### Guide prose — no duplicate sentences
+
+Each block has a distinct job. **Do not repeat the same sentence** (or near-identical wording) across:
+
+| Block | Role |
+|-------|------|
+| Quick answer | One direct answer only |
+| Key takeaways | Four scannable facts — not copied from body |
+| Intro | Why read on — **do not restate** the quick answer |
+| Sections | Depth, examples, lists |
+| FAQ | Short, **new** angles — not copy-paste from sections |
+| Final thoughts | Brief close — no recap of quick answer |
+
+Before committing a hand guide, run:
+
+```bash
+npm run journal:check-duplicates
+```
+
+This fails if the same normalized sentence (≥30 characters) appears in two or more zones within one article.
+
 ## Legacy archive
 
 `/archive`, `/library`, `/series` still use the series-shelf UI. `/journal` is the magazine index driven by this schema.

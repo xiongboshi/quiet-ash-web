@@ -1,5 +1,7 @@
 /** Journal detail page template — one data file per article slug. */
 
+import type { JournalArticleFaq } from "@/types/journal-faq";
+
 export type JournalArticleBreadcrumb = {
   label: string;
   href: string;
@@ -19,7 +21,9 @@ export type JournalArticleHero = {
 };
 
 export type JournalArticleQuickAnswer = {
-  text: string;
+  /** Single block (legacy) — use `paragraphs` when multiple lines are needed. */
+  text?: string;
+  paragraphs?: readonly string[];
 };
 
 export type JournalArticleTakeaway = {
@@ -35,12 +39,20 @@ export type JournalArticleBullet = {
 
 export type JournalArticleBodyFormat = "editorial" | "guide";
 
+export type JournalArticleSubsection = {
+  heading?: string;
+  paragraphs?: readonly string[];
+  bullets?: readonly JournalArticleBullet[];
+};
+
 export type JournalArticleSection = {
   id: string;
-  number: number;
+  /** Omit for unnumbered sections (e.g. Intro). */
+  number?: number;
   heading: string;
   paragraphs?: readonly string[];
   bullets?: readonly JournalArticleBullet[];
+  subsections?: readonly JournalArticleSubsection[];
 };
 
 export type JournalArticleProduct = {
@@ -69,9 +81,16 @@ export type JournalArticleTemplate = {
   bodyFormat: JournalArticleBodyFormat;
   hero: JournalArticleHero;
   quickAnswer: JournalArticleQuickAnswer;
-  keyTakeaways: readonly JournalArticleTakeaway[];
+  /** Icon grid — omit when using `keyTakeawayBullets`. */
+  keyTakeaways?: readonly JournalArticleTakeaway[];
+  /** Simple bullet list under Key takeaways. */
+  keyTakeawayBullets?: readonly string[];
+  /** Optional intro block after insight band. */
+  intro?: { paragraphs: readonly string[] };
   /** Guide layout only */
   sections: readonly JournalArticleSection[];
+  /** Optional FAQ — omitted on articles without entries (e.g. sleep guide). */
+  faq?: JournalArticleFaq;
   /** Editorial layout — flowing paragraphs from MDX */
   editorialParagraphs?: readonly string[];
   epigraph?: string;

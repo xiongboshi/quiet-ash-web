@@ -25,141 +25,242 @@ export const journalArticleBestIncenseForSmallApartments: JournalArticleTemplate
       title: "Best Incense for Small Apartments and Bedrooms",
       subtitle:
         "Low-smoke scents and lighter burn habits for compact rooms that should feel calm — not overwhelming.",
-      readMinutes: 7,
+      readMinutes: 8,
       updatedLabel: "Updated May 19, 2026",
       imageSrc: "/images/generated/essay-night-incense-ritual.png",
       imageAlt:
         "Incense with soft smoke in a small bedroom — calm light and restrained fragrance",
     },
     quickAnswer: {
-      text: "For apartments and bedrooms, low-smoke incense with softer scent profiles is usually best. The goal is a subtle atmosphere — not filling the room with heavy fragrance. Shorter sessions (about 15–20 minutes) and good airflow matter most.",
+      paragraphs: [
+        "In apartments and bedrooms, low-smoke incense with softer profiles usually reads as cleaner — not louder. Light woods, tea, citrus, and gentle florals are common starting points.",
+      ],
     },
     keyTakeaways: [
       {
-        icon: "scent",
-        text: "Tea, light citrus, soft woods, and gentle florals tend to feel cleaner in small rooms.",
-      },
-      {
         icon: "leaf",
-        text: "Very smoky, sweet, or resin-heavy blends can become overwhelming quickly in compact spaces.",
+        text: "Low-smoke incense is often better for apartments and bedrooms.",
       },
       {
-        icon: "brain",
-        text: "15–20 minutes is often enough in a bedroom — you do not need to burn a full stick every time.",
+        icon: "scent",
+        text: "Softer scents usually feel cleaner in smaller rooms.",
       },
       {
         icon: "shield",
-        text: "Low-smoke formulas help rooms stay fresher and more comfortable for daily use.",
+        text: "Ventilation helps prevent fragrance from feeling too dense.",
+      },
+      {
+        icon: "brain",
+        text: "Subtle fragrance often works better than intense fragrance.",
       },
     ],
+    intro: {
+      paragraphs: [
+        "Studio flats and bedrooms punish heavy smoke faster than open-plan living rooms.",
+        "This guide compares scent families, burn length, and habits that keep fragrance present without taking over the space.",
+      ],
+    },
     sections: [
       {
         id: "what-works-best",
         number: 1,
         heading: "What Type of Incense Works Best in Small Spaces?",
         paragraphs: [
-          "For apartments and bedrooms, low-smoke incense with softer scent profiles is usually the best option.",
-          "The goal is not to completely fill the room with fragrance. A lighter scent often feels cleaner and more comfortable over time.",
-          "Many people now prefer incense that creates a subtle atmosphere instead of intense perfume-like projection.",
+          "Compact rooms amplify both smoke and scent throw.",
+          "Many readers choose formulas labeled low-smoke so the air stays readable, not hazy, during everyday burns.",
+          "The goal is atmosphere — a room that still feels like yours after the stick goes out.",
         ],
       },
       {
-        id: "best-scents",
+        id: "what-is-low-smoke",
         number: 2,
+        heading: "What Is Low-Smoke Incense?",
+        paragraphs: [
+          "Low-smoke incense is designed to create less visible smoke while maintaining a softer scent experience indoors.",
+          "In smaller rooms, this can help reduce air heaviness, smoke buildup, lingering intensity, and overwhelming fragrance.",
+          "This is one reason many modern incense brands now focus on cleaner-burning formulas.",
+        ],
+      },
+      {
+        id: "best-scents-apartments",
+        number: 3,
         heading: "Best Incense Scents for Apartments",
-        paragraphs: ["These families tend to work well when kept soft:"],
-        bullets: [
+        subsections: [
           {
-            lead: "Tea scents",
-            text: "White tea and green tea feel clean, soft, and easy to live with daily.",
+            heading: "Tea Scents",
+            paragraphs: [
+              "White tea and green tea blends often feel clean, airy, and easy to enjoy daily.",
+              "They work especially well in bedrooms and minimalist interiors.",
+            ],
           },
           {
-            lead: "Citrus scents",
-            text: "Light citrus helps smaller rooms feel fresher without feeling heavy.",
+            heading: "Light Citrus",
+            paragraphs: [
+              "Soft citrus fragrances can help compact spaces feel fresher and brighter without becoming overpowering.",
+            ],
           },
           {
-            lead: "Soft woods",
-            text: "Gentle sandalwood or cedarwood blends add warmth without overpowering the room.",
+            heading: "Gentle Woods",
+            paragraphs: [
+              "Subtle sandalwood or cedarwood blends create warmth while still feeling calm and balanced indoors.",
+            ],
           },
           {
-            lead: "Light florals",
-            text: "Simple florals like jasmine or linen-style blends work well when kept subtle.",
+            heading: "Light Florals",
+            paragraphs: [
+              "Simple floral scents like jasmine or linen-inspired blends usually work best when kept soft and understated.",
+            ],
           },
         ],
       },
       {
         id: "too-heavy",
-        number: 3,
+        number: 4,
         heading: "Scents That May Feel Too Heavy in Small Rooms",
         paragraphs: [
-          "Some fragrances can feel overwhelming in compact spaces, especially with limited ventilation.",
-          "These may include very smoky incense, extremely sweet scents, heavy synthetic fragrances, and dense resin-heavy blends.",
-          "A softer scent profile is usually easier for everyday apartment living.",
+          "Some fragrances can become overwhelming in enclosed spaces, especially with limited ventilation.",
+          "These may include:",
+        ],
+        bullets: [
+          { text: "Very smoky incense" },
+          { text: "Extremely sweet scents" },
+          { text: "Heavy synthetic fragrance" },
+          { text: "Dense resin-heavy blends" },
         ],
       },
       {
         id: "how-long",
-        number: 4,
+        number: 5,
         heading: "How Long Should You Burn Incense in a Bedroom?",
         paragraphs: [
-          "For most bedrooms, 15–20 minutes is enough.",
-          "You do not need to burn an entire stick every time. Shorter sessions often create a cleaner and more balanced scent experience.",
-          "Ventilation also helps prevent fragrance buildup.",
+          "For most bedrooms, 15–20 minutes is usually enough.",
+          "You do not need to burn a full stick every time.",
+          "Crack a door or run a fan briefly afterward if scent lingers on textiles.",
         ],
       },
       {
         id: "without-overwhelming",
-        number: 5,
+        number: 6,
         heading: "How to Use Incense Without Overwhelming the Room",
-        bullets: [
+        subsections: [
           {
-            lead: "Keep airflow moving",
-            text: "Open a window slightly or allow fresh air into the room.",
+            heading: "Keep airflow moving",
+            paragraphs: [
+              "Open a window slightly or allow fresh air into the room.",
+              "A little airflow often makes fragrance feel softer and more comfortable.",
+            ],
           },
           {
-            lead: "Start with shorter sessions",
-            text: "A little fragrance usually goes a long way in smaller spaces.",
+            heading: "Start with shorter sessions",
+            paragraphs: [
+              "A small amount of fragrance usually goes a long way in compact spaces.",
+            ],
           },
           {
-            lead: "Choose low-smoke incense",
-            text: "Cleaner-burning incense is easier to enjoy indoors.",
+            heading: "Choose lower-smoke incense",
+            paragraphs: [
+              "Cleaner-burning incense is generally easier to enjoy indoors every day.",
+            ],
           },
           {
-            lead: "Avoid layering too many scents",
-            text: "Using multiple fragrances at once can make a room feel heavy.",
+            heading: "Avoid layering too many scents",
+            paragraphs: [
+              "Using multiple fragrances at once can make smaller rooms feel heavy.",
+              "In a studio, one scent source at a time is usually enough.",
+            ],
           },
         ],
       },
       {
         id: "bedrooms",
-        number: 6,
+        number: 7,
         heading: "Best Incense for Bedrooms",
         paragraphs: [
-          "Bedrooms usually work best with calming and softer scents such as lavender, white tea, sandalwood, and linen-inspired blends.",
-          "Many people prefer lighter fragrances before sleep because they feel less stimulating.",
+          "Bedrooms often work best with calming and softer scents such as:",
+        ],
+        bullets: [
+          { text: "Lavender" },
+          { text: "White tea" },
+          { text: "Sandalwood" },
+          { text: "Cedarwood" },
+          { text: "Linen-inspired blends" },
         ],
       },
       {
-        id: "low-smoke",
-        number: 7,
+        id: "low-smoke-why",
+        number: 8,
         heading: "Why Low-Smoke Incense Matters in Apartments",
         paragraphs: [
-          "In small homes, smoke becomes noticeable much faster.",
-          "Low-smoke incense helps reduce heaviness in the air, keep rooms feeling fresher, create a softer scent experience, and improve everyday comfort.",
-          "This is one reason many modern incense brands now focus on cleaner-burning formulas.",
+          "When square footage is limited, smoke density matters as much as fragrance strength.",
+          "Low-smoke sticks can keep evening rituals without leaving a film on curtains or bedding.",
+          "That is why many apartment dwellers keep one mild profile for daily use and save stronger blends for rare occasions.",
         ],
       },
       {
         id: "final-thoughts",
-        number: 8,
+        number: 9,
         heading: "Final Thoughts",
         paragraphs: [
-          "The best incense for small apartments and bedrooms is usually low smoke, soft in strength, clean-smelling, and easy to enjoy daily.",
-          "In smaller spaces, subtle fragrance often feels better than strong fragrance.",
-          "A lighter approach creates a calmer and more comfortable home environment.",
+          "Match incense to room size: shorter burns, breathable air, and profiles that stay soft at arm's length.",
+          "When a bedroom still smells like yesterday's stick, lighter formulas and fresher airflow are usually the fix.",
         ],
       },
     ],
+    faq: {
+      heading: "FAQ",
+      items: [
+        {
+          id: "too-strong-apartments",
+          question: "Is incense too strong for apartments?",
+          answer: [
+            {
+              type: "paragraph",
+              text: "It can be — mainly when smoke has nowhere to go. Softer sticks plus airflow usually fix that without giving up incense entirely.",
+            },
+          ],
+        },
+        {
+          id: "bedroom-scents",
+          question: "What incense scents work best in bedrooms?",
+          answer: [
+            {
+              type: "paragraph",
+              text: "Calming does not have to mean sweet; linen, tea, and pale woods often sit quietly in the background.",
+            },
+          ],
+        },
+        {
+          id: "how-long-small",
+          question: "How long should incense burn in a small room?",
+          answer: [
+            {
+              type: "paragraph",
+              text: "Fifteen minutes is a useful default — you can always stop early, but you cannot un-smoke a room.",
+            },
+          ],
+        },
+        {
+          id: "why-heavy",
+          question: "Why does incense feel too heavy indoors?",
+          answer: [
+            {
+              type: "paragraph",
+              text: "Layering products (incense plus candles plus spray) is a frequent cause in studios.",
+            },
+          ],
+        },
+        {
+          id: "low-smoke-small",
+          question: "Is low-smoke incense better for small spaces?",
+          answer: [
+            {
+              type: "paragraph",
+              text: "Yes for daily use; reserve dense resin or spicy profiles for occasional open-window sessions.",
+            },
+          ],
+        },
+      ],
+    },
     products: {
       heading: "Recommended Incense",
       items: [
@@ -207,7 +308,7 @@ export const journalArticleBestIncenseForSmallApartments: JournalArticleTemplate
         {
           slug: "is-incense-safe-for-pets",
           title: "Is Incense Safe for Pets?",
-          readMinutes: 7,
+          readMinutes: 8,
           imageSrc: "/images/generated/essay-good-incense-not-loud.png",
           imageAlt: "Gentle incense smoke in a calm home",
         },

@@ -7,13 +7,26 @@ import type {
 
 type Props = {
   quickAnswer: JournalArticleQuickAnswer;
-  keyTakeaways: readonly JournalArticleTakeaway[];
+  keyTakeaways?: readonly JournalArticleTakeaway[];
+  keyTakeawayBullets?: readonly string[];
 };
+
+function quickAnswerParagraphs(quickAnswer: JournalArticleQuickAnswer): string[] {
+  if (quickAnswer.paragraphs?.length) return [...quickAnswer.paragraphs];
+  if (quickAnswer.text?.trim()) return [quickAnswer.text.trim()];
+  return [];
+}
 
 export function JournalArticleInsight({
   quickAnswer,
-  keyTakeaways,
+  keyTakeaways = [],
+  keyTakeawayBullets = [],
 }: Props) {
+  const quickParagraphs = quickAnswerParagraphs(quickAnswer);
+  /** Icon grid takes precedence — keeps guide layout under Quick answer unchanged. */
+  const useBulletTakeaways =
+    keyTakeawayBullets.length > 0 && keyTakeaways.length === 0;
+
   return (
     <section className="journal-article-insight" aria-label="Article summary">
       <div className="journal-article-insight__band">
@@ -24,37 +37,54 @@ export function JournalArticleInsight({
             </span>
             <div className="journal-article-insight__quick-copy">
               <h2 className="journal-article-insight__label">Quick answer</h2>
-              <p className="journal-article-insight__quick-text">{quickAnswer.text}</p>
+              {quickParagraphs.map((paragraph, index) => (
+                <p
+                  key={index}
+                  className={`journal-article-insight__quick-text${index > 0 ? " journal-article-insight__quick-text--follow" : ""}`}
+                >
+                  {paragraph}
+                </p>
+              ))}
             </div>
           </div>
 
-          <div className="journal-article-insight__takeaways-wrap">
-            <h2 className="journal-article-insight__label journal-article-insight__label--spaced">
-              Key takeaways
-            </h2>
-            <ul className="journal-article-insight__takeaways">
-              {keyTakeaways.map((item, index) => (
-                <li
-                  key={`${item.icon}-${index}`}
-                  className="journal-article-insight__takeaway"
-                >
-                  <span className="journal-article-insight__takeaway-icon" aria-hidden>
-                    <JournalArticleTakeawayIcon id={item.icon} />
-                  </span>
-                  <p className="journal-article-insight__takeaway-text">
-                    {item.text.split("\n").map((line, lineIndex) => (
-                      <span
-                        key={`${item.icon}-line-${lineIndex}`}
-                        className="journal-article-insight__takeaway-line"
-                      >
-                        {line}
+          {useBulletTakeaways || keyTakeaways.length > 0 ? (
+            <div className="journal-article-insight__takeaways-wrap">
+              <h2 className="journal-article-insight__label journal-article-insight__label--spaced">
+                Key takeaways
+              </h2>
+              {useBulletTakeaways ? (
+                <ul className="journal-article-insight__takeaway-bullets">
+                  {keyTakeawayBullets.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              ) : (
+                <ul className="journal-article-insight__takeaways">
+                  {keyTakeaways.map((item, index) => (
+                    <li
+                      key={`${item.icon}-${index}`}
+                      className="journal-article-insight__takeaway"
+                    >
+                      <span className="journal-article-insight__takeaway-icon" aria-hidden>
+                        <JournalArticleTakeawayIcon id={item.icon} />
                       </span>
-                    ))}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
+                      <p className="journal-article-insight__takeaway-text">
+                        {item.text.split("\n").map((line, lineIndex) => (
+                          <span
+                            key={`${item.icon}-line-${lineIndex}`}
+                            className="journal-article-insight__takeaway-line"
+                          >
+                            {line}
+                          </span>
+                        ))}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ) : null}
         </div>
       </div>
     </section>

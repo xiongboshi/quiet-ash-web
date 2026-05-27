@@ -926,6 +926,10 @@
 
 /* —— Popular questions (3-col collapsible cards) —— */
 .journal-index-faq {
+  /* Self-contained tokens — same on /journal index and guide articles */
+  --journal-line: #e8e4dc;
+  --journal-ink: #1a1816;
+  --journal-muted: #6f6a63;
   --faq-card-radius: 10px;
   --faq-card-bg: #ececec;
   --faq-card-bg-hover: #e4e4e4;

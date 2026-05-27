@@ -29,6 +29,7 @@ export const journalArticleBestIncenseForSleep: JournalArticleTemplate = {
   quickAnswer: {
     text: "The best incense for sleep includes sandalwood, lavender, and white tea. These scents help calm the mind, reduce stress, and create a peaceful atmosphere for better rest.",
   },
+  // No `faq` — section hidden on article page
   keyTakeaways: [
     {
       icon: "leaf",

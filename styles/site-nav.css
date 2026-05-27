@@ -170,11 +170,6 @@
   opacity: 0.72;
 }
 
-/* Journal article — mobile back in nav-actions (replaces cart icon in bar) */
-.site-nav-chrome .nav-icon-btn--back {
-  display: none;
-}
-
 .site-nav-chrome .nav-cart-badge {
   position: absolute;
   top: 0.35rem;
@@ -315,8 +310,7 @@
   color: var(--site-nav-ink);
 }
 
-.site-nav-chrome.site-nav-chrome--ink .nav-mobile-toggle,
-.site-nav-chrome.site-nav-chrome--ink .nav-icon-btn--back {
+.site-nav-chrome.site-nav-chrome--ink .nav-mobile-toggle {
   color: var(--site-nav-ink);
   border-color: color-mix(in srgb, var(--site-nav-ink) 32%, transparent);
 }
@@ -333,8 +327,7 @@
   color: var(--site-nav-ink-strong);
 }
 
-.site-nav-chrome.site-nav-chrome--overlay .nav-mobile-toggle,
-.site-nav-chrome.site-nav-chrome--overlay .nav-icon-btn--back {
+.site-nav-chrome.site-nav-chrome--overlay .nav-mobile-toggle {
   color: var(--site-nav-ink-strong);
   border-color: color-mix(in srgb, var(--site-nav-ink-strong) 32%, transparent);
 }
@@ -345,27 +338,22 @@
 }
 
 @media (max-width: 768px) {
-  .site-nav-chrome--mobile-nav-back .nav-icon-btn--back {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    border: 1px solid transparent;
-    background: transparent;
+  .site-nav-chrome {
+    --site-nav-mobile-control: 2.75rem;
   }
 
-  .site-nav-chrome .nav-inner > .nav-icon-btn--back {
-    grid-column: 1;
-    grid-row: 1;
-    justify-self: start;
+  .site-nav-chrome .navbar {
+    padding-block: 1.125rem;
   }
 
-  .site-nav-chrome--mobile-nav-back .nav-icon-btn--cart-on-detail {
-    display: none;
+  .site-nav-chrome--overlay {
+    min-height: 0;
   }
 
+  /* Balanced leading/trailing columns — brand stays centered when cart is hidden */
   .site-nav-chrome .nav-inner {
+    grid-template-columns: 1fr auto 1fr;
+    column-gap: 0.5rem;
     padding-inline: 18px;
   }
 
@@ -377,26 +365,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
+    width: var(--site-nav-mobile-control);
+    height: var(--site-nav-mobile-control);
     border: 1px solid transparent;
     background: transparent;
     font-size: 20px;
     cursor: pointer;
   }
 
-  .site-nav-chrome .nav-inner {
-    grid-template-columns: 44px 1fr auto;
-    column-gap: 0.5rem;
-  }
-
   .site-nav-chrome .nav-inner > .nav-mobile-toggle {
     grid-column: 1;
     grid-row: 1;
+    justify-self: start;
   }
 
   .site-nav-chrome .nav-brand {
     grid-column: 2;
+    grid-row: 1;
     justify-self: center;
     min-width: 0;
     max-width: 100%;
@@ -425,12 +410,23 @@
 
   .site-nav-chrome .nav-actions {
     grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+    align-self: center;
     gap: 0;
+    min-width: var(--site-nav-mobile-control);
+    min-height: var(--site-nav-mobile-control);
+  }
+
+  /* Keep trailing column width — journal + cart hide the bag but preserve balance */
+  .site-nav-chrome--mobile-nav-back .nav-icon-btn--cart-on-detail {
+    visibility: hidden;
+    pointer-events: none;
   }
 
   .site-nav-chrome .nav-icon-btn--cart {
-    width: 3.125rem;
-    height: 3.125rem;
+    width: var(--site-nav-mobile-control);
+    height: var(--site-nav-mobile-control);
   }
 
   .site-nav-chrome .nav-icon-btn--cart .nav-cart-icon {
@@ -455,14 +451,12 @@
     line-height: 1.125rem;
   }
 
-  .site-nav-chrome.site-nav-chrome--ink .nav-mobile-toggle,
-  .site-nav-chrome.site-nav-chrome--ink .nav-icon-btn--back {
+  .site-nav-chrome.site-nav-chrome--ink .nav-mobile-toggle {
     color: var(--site-nav-ink);
     border-color: color-mix(in srgb, var(--site-nav-ink) 32%, transparent);
   }
 
-  .site-nav-chrome.site-nav-chrome--overlay .nav-mobile-toggle,
-  .site-nav-chrome.site-nav-chrome--overlay .nav-icon-btn--back {
+  .site-nav-chrome.site-nav-chrome--overlay .nav-mobile-toggle {
     color: var(--site-nav-ink-strong);
     border-color: color-mix(in srgb, var(--site-nav-ink-strong) 32%, transparent);
   }

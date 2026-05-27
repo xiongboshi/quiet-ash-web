@@ -36,7 +36,10 @@ export function isCartPath(pathname: string | null): boolean {
   return normalizeSitePath(pathname) === "/cart";
 }
 
-/** Mobile nav: back on the leading edge instead of menu. */
+/**
+ * Mobile nav: back on the leading edge instead of menu.
+ * Journal + cart hide the cart icon but keep a balanced trailing slot (see site-nav.css).
+ */
 export function isMobileNavBackLeadingPath(pathname: string | null): boolean {
   return (
     isJournalArticlePath(pathname) ||

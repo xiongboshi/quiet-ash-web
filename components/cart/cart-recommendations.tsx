@@ -1,70 +1,36 @@
-"use client";
-
-import { useRef } from "react";
-import Image from "next/image";
-import { ChevronRight, Gift } from "lucide-react";
+import { Gift } from "lucide-react";
+import { ShopProductCard } from "@/components/shop/shop-product-card";
 import {
   cartPageCopy,
   cartRecommendations,
   type CartRecommendation,
 } from "@/data/cart-page";
+import { DEFAULT_SHOP_CATEGORY_SLUG } from "@/data/shop-catalog";
+import { getProductBySlug } from "@/lib/catalog";
 import { formatMoney } from "@/lib/cart/pricing";
-import { useCartStore } from "@/stores/cart-store";
+import { catalogProductToListing } from "@/lib/shop-products";
+import type { ShopListingProduct } from "@/lib/shop-types";
 
-function RecommendationCard({
-  product,
-  onAdd,
-}: {
-  product: CartRecommendation;
-  onAdd: () => void;
-}) {
-  return (
-    <li className="cart-rec__card">
-      <div className="cart-rec__media-wrap">
-        <Image
-          src={product.image}
-          alt=""
-          fill
-          sizes="(max-width: 1023px) 72vw, 22vw"
-          className="cart-rec__img object-cover"
-          unoptimized
-        />
-      </div>
-      <div className="cart-rec__body">
-        <p className="cart-rec__name">{product.title}</p>
-        <p className="cart-rec__type">{product.type}</p>
-        <p className="cart-rec__pack">{product.pack}</p>
-        <p className="cart-rec__price">{formatMoney(product.priceCents)}</p>
-        <button type="button" className="cart-rec__add" onClick={onAdd}>
-          {cartPageCopy.recommendations.addToCart}
-        </button>
-      </div>
-    </li>
-  );
+function toListingProduct(product: CartRecommendation): ShopListingProduct {
+  const catalog = getProductBySlug(product.slug);
+  const fromCatalog = catalog
+    ? catalogProductToListing(catalog, DEFAULT_SHOP_CATEGORY_SLUG)
+    : null;
+
+  return {
+    slug: product.slug,
+    title: product.title,
+    scentNotes: fromCatalog?.scentNotes ?? product.type,
+    priceDisplay: fromCatalog?.priceDisplay ?? formatMoney(product.priceCents),
+    priceCents: fromCatalog?.priceCents ?? product.priceCents,
+    reviewCount: fromCatalog?.reviewCount ?? 0,
+    imageSrc: product.image,
+    imageAlt: fromCatalog?.imageAlt ?? product.title,
+    filterTags: fromCatalog?.filterTags ?? {},
+  };
 }
 
 export function CartRecommendations() {
-  const trackRef = useRef<HTMLUListElement>(null);
-  const addItem = useCartStore((s) => s.addItem);
-
-  function scrollNext() {
-    const el = trackRef.current;
-    if (!el) return;
-    const card = el.querySelector<HTMLElement>(".cart-rec__card");
-    const gap = 20;
-    const step = card ? card.offsetWidth + gap : 280;
-    el.scrollBy({ left: step, behavior: "smooth" });
-  }
-
-  function handleAdd(product: CartRecommendation) {
-    addItem({
-      slug: product.slug,
-      title: product.title,
-      priceCents: product.priceCents,
-      image: product.image,
-    });
-  }
-
   return (
     <section className="cart-rec" aria-labelledby="cart-rec-heading">
       <div className="cart-rec__inner">
@@ -75,25 +41,13 @@ export function CartRecommendations() {
           <p className="cart-rec__sub">{cartPageCopy.recommendations.subheading}</p>
         </header>
 
-        <div className="cart-rec__track-wrap">
-          <ul ref={trackRef} className="cart-rec__track">
-            {cartRecommendations.map((product) => (
-              <RecommendationCard
-                key={product.slug}
-                product={product}
-                onAdd={() => handleAdd(product)}
-              />
-            ))}
-          </ul>
-          <button
-            type="button"
-            className="cart-rec__next"
-            onClick={scrollNext}
-            aria-label="Scroll recommendations"
-          >
-            <ChevronRight size={18} strokeWidth={1.5} aria-hidden />
-          </button>
-        </div>
+        <ul className="cart-rec__grid shop-category-listing__grid">
+          {cartRecommendations.map((product) => (
+            <li key={product.slug} className="shop-category-listing__cell">
+              <ShopProductCard item={toListingProduct(product)} />
+            </li>
+          ))}
+        </ul>
 
         <p className="cart-rec__promo">
           <Gift className="cart-rec__promo-icon" size={15} strokeWidth={1.25} aria-hidden />

@@ -1,14 +1,8 @@
-/** One block in an FAQ answer — add paragraphs, lists, or subheadings in order. */
-export type JournalFaqBlock =
-  | { type: "paragraph"; text: string }
-  | { type: "list"; items: readonly string[] }
-  | { type: "subheading"; text: string };
+import type { JournalFaqBlock, JournalFaqItem } from "@/types/journal-faq";
 
-export type JournalPopularQuestion = {
-  id: string;
-  question: string;
-  answer: readonly JournalFaqBlock[];
-};
+export type { JournalFaqBlock, JournalFaqItem };
+
+export type JournalPopularQuestion = JournalFaqItem;
 
 /**
  * Journal index — Popular Questions (FAQ).

@@ -1,15 +1,41 @@
-import Image from "next/image";
-import Link from "next/link";
-import { HomeStarRating } from "@/components/home/home-icons";
-import { formatPriceDisplayCard } from "@/lib/cart/pricing";
-import { shopPath } from "@/lib/site-paths";
+import { ShopProductCard } from "@/components/shop/shop-product-card";
+import { DEFAULT_SHOP_CATEGORY_SLUG } from "@/data/shop-catalog";
+import { getProductBySlug } from "@/lib/catalog";
+import { parsePriceDisplay } from "@/lib/cart/pricing";
+import { catalogProductToListing } from "@/lib/shop-products";
+import type { ShopListingProduct } from "@/lib/shop-types";
 import type { JournalArticleTemplate } from "@/types/journal-article";
 
 type Props = {
   block: JournalArticleTemplate["products"];
 };
 
+function toListingProduct(
+  item: JournalArticleTemplate["products"]["items"][number],
+): ShopListingProduct {
+  const product = getProductBySlug(item.slug);
+  const fromCatalog = product
+    ? catalogProductToListing(product, DEFAULT_SHOP_CATEGORY_SLUG)
+    : null;
+
+  return {
+    slug: item.slug,
+    title: item.title,
+    scentNotes: fromCatalog?.scentNotes ?? product?.line ?? "",
+    priceDisplay: item.priceDisplay,
+    priceCents:
+      fromCatalog?.priceCents ??
+      (parsePriceDisplay(item.priceDisplay) || 0),
+    reviewCount: item.reviewCount,
+    imageSrc: item.imageSrc,
+    imageAlt: item.imageAlt,
+    filterTags: fromCatalog?.filterTags ?? {},
+  };
+}
+
 export function JournalArticleProducts({ block }: Props) {
+  if (!block.items.length) return null;
+
   return (
     <section
       id="recommended"
@@ -19,47 +45,10 @@ export function JournalArticleProducts({ block }: Props) {
       <h2 id="journal-article-products-heading" className="journal-article-products__heading">
         {block.heading}
       </h2>
-      <ul className="journal-article-products__grid">
+      <ul className="journal-article-products__grid shop-category-listing__grid">
         {block.items.map((item) => (
-          <li key={item.slug} className="journal-article-products__cell">
-            <article className="journal-article-products__card">
-              <Link
-                href={shopPath(item.slug)}
-                className="journal-article-products__media-link"
-              >
-                <figure className="journal-article-products__media">
-                  <Image
-                    src={item.imageSrc}
-                    alt={item.imageAlt}
-                    fill
-                    sizes="(max-width: 639px) 50vw, 25vw"
-                    className="journal-article-products__img"
-                  />
-                </figure>
-              </Link>
-              <div className="journal-article-products__body">
-                <Link
-                  href={shopPath(item.slug)}
-                  className="journal-article-products__text-link"
-                >
-                  <h3 className="journal-article-products__title">{item.title}</h3>
-                </Link>
-                <div className="journal-article-products__rating">
-                  <HomeStarRating variant="hero" value={item.rating} tone="gold" />
-                  <span className="journal-article-products__reviews">
-                    ({item.reviewCount})
-                  </span>
-                </div>
-                <div className="journal-article-products__foot">
-                  <p className="journal-article-products__price">
-                    {formatPriceDisplayCard(item.priceDisplay)}
-                  </p>
-                  <Link href={shopPath(item.slug)} className="journal-article-products__cta">
-                    Shop →
-                  </Link>
-                </div>
-              </div>
-            </article>
+          <li key={item.slug} className="shop-category-listing__cell">
+            <ShopProductCard item={toListingProduct(item)} />
           </li>
         ))}
       </ul>

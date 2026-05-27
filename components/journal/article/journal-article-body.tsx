@@ -14,7 +14,13 @@ export function JournalArticleBody({ sections }: Props) {
           className="journal-article-body__section"
         >
           <h2 className="journal-article-body__heading">
-            <span className="journal-article-body__heading-num">{section.number}.</span>{" "}
+            {section.number !== undefined ? (
+              <>
+                <span className="journal-article-body__heading-num">
+                  {section.number}.
+                </span>{" "}
+              </>
+            ) : null}
             {section.heading}
           </h2>
 
@@ -41,6 +47,42 @@ export function JournalArticleBody({ sections }: Props) {
               ))}
             </ul>
           ) : null}
+
+          {section.subsections?.map((sub, subIndex) => (
+            <div
+              key={`${section.id}-sub-${subIndex}`}
+              className="journal-article-body__subsection"
+            >
+              {sub.heading ? (
+                <h3 className="journal-article-body__subheading">{sub.heading}</h3>
+              ) : null}
+              {sub.paragraphs?.map((paragraph, index) => (
+                <p
+                  key={`${section.id}-sub-${subIndex}-p-${index}`}
+                  className="journal-article-body__paragraph"
+                >
+                  {paragraph}
+                </p>
+              ))}
+              {sub.bullets && sub.bullets.length > 0 ? (
+                <ul className="journal-article-body__list">
+                  {sub.bullets.map((bullet) => (
+                    <li key={`${bullet.lead ?? ""}-${bullet.text}`}>
+                      {bullet.lead ? (
+                        <>
+                          <strong>{bullet.lead}</strong>
+                          {" – "}
+                          {bullet.text}
+                        </>
+                      ) : (
+                        bullet.text
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
+          ))}
         </section>
       ))}
     </div>

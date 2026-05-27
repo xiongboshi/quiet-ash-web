@@ -9,14 +9,14 @@ type Props = {
   className?: string;
 };
 
-/** Mobile nav bar — same bordered control as `.nav-mobile-toggle`. */
+/** Mobile nav bar — uses `.nav-mobile-toggle` for parity with the menu control. */
 export function QaMobileBackButton({ fallbackHref, className = "" }: Props) {
   const router = useRouter();
 
   return (
     <button
       type="button"
-      className={`nav-icon-btn nav-icon-btn--back${className ? ` ${className}` : ""}`}
+      className={`nav-mobile-toggle${className ? ` ${className}` : ""}`}
       aria-label="Go back"
       onClick={() => navigateHistoryBack(router, fallbackHref)}
     >

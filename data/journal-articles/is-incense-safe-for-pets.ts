@@ -24,14 +24,16 @@ export const journalArticleIsIncenseSafeForPets: JournalArticleTemplate = {
     title: "Is Incense Safe for Pets?",
     subtitle:
       "What cat and dog owners should know about smoke, scent strength, and everyday habits at home.",
-    readMinutes: 7,
+    readMinutes: 8,
     updatedLabel: "Updated May 19, 2026",
     imageSrc: "/images/generated/essay-good-incense-not-loud.png",
     imageAlt:
       "Soft incense smoke in a calm home with natural light — gentle everyday use",
   },
   quickAnswer: {
-    text: "Incense can usually be enjoyed safely in moderation when the room is well ventilated. Pets are often more sensitive to smoke and strong fragrance than humans — choose low-smoke incense, softer scents, and shorter burn times.",
+    paragraphs: [
+      "Incense can usually be enjoyed safely in moderation when the room is well ventilated. Pets are often more sensitive to smoke and strong fragrance than humans — choose low-smoke incense, softer scents, and shorter burn times.",
+    ],
   },
   keyTakeaways: [
     {
@@ -51,6 +53,12 @@ export const journalArticleIsIncenseSafeForPets: JournalArticleTemplate = {
       text: "Let pets leave the room freely; reduce use if they avoid the area or seem irritated.",
     },
   ],
+  intro: {
+    paragraphs: [
+      "Many pet owners wonder whether incense belongs in a home shared with cats or dogs.",
+      "The sections below cover smell sensitivity, smoke, practical burn habits, and scent choices that usually feel easier in shared rooms.",
+    ],
+  },
   sections: [
     {
       id: "can-pets-smell",
@@ -58,8 +66,14 @@ export const journalArticleIsIncenseSafeForPets: JournalArticleTemplate = {
       heading: "Can Cats and Dogs Smell Incense?",
       paragraphs: [
         "Yes. Cats and dogs have a much stronger sense of smell than humans.",
-        "A scent that feels soft and subtle to people may feel much stronger to pets, especially in small apartments or closed rooms.",
-        "Because of this, lighter fragrances are usually a better choice for homes with pets.",
+        "A scent that feels soft and balanced to people may feel far more intense to pets.",
+        "This is especially noticeable in:",
+      ],
+      bullets: [
+        { text: "Small apartments" },
+        { text: "Bedrooms" },
+        { text: "Rooms with limited airflow" },
+        { text: "Spaces where incense burns for long periods" },
       ],
     },
     {
@@ -67,104 +81,175 @@ export const journalArticleIsIncenseSafeForPets: JournalArticleTemplate = {
       number: 2,
       heading: "Is Incense Smoke Bad for Pets?",
       paragraphs: [
-        "Too much smoke in an enclosed space can irritate both humans and animals.",
-        "Heavy smoke exposure may cause discomfort for some pets, especially when:",
+        "Too much smoke in an enclosed space can feel uncomfortable for both humans and animals.",
+        "Heavy smoke exposure may irritate some pets, especially when:",
       ],
       bullets: [
         { text: "The room has poor ventilation" },
-        { text: "The incense is very smoky" },
-        { text: "The scent is overly strong" },
-        { text: "Incense is burned for long periods" },
+        { text: "The incense produces dense smoke" },
+        { text: "The fragrance is overly strong" },
+        { text: "Incense burns continuously for long periods" },
       ],
     },
     {
-      id: "safer-habits",
+      id: "what-is-low-smoke",
       number: 3,
-      heading: "How to Burn Incense More Safely Around Pets",
+      heading: "What Is Low-Smoke Incense?",
       paragraphs: [
-        "If you have pets at home, these simple habits can help create a more comfortable environment:",
+        "Low-smoke incense is designed to produce less visible smoke while creating a softer indoor scent experience.",
+        "Many people prefer it because it can help rooms feel cleaner, lighter, less overwhelming, and more comfortable for daily use.",
+        "This is especially helpful in apartments, bedrooms, and shared living spaces.",
       ],
-      bullets: [
+    },
+    {
+      id: "burn-comfortably",
+      number: 4,
+      heading: "How to Burn Incense More Comfortably Around Pets",
+      subsections: [
         {
-          lead: "Keep the room ventilated",
-          text: "Open a window or allow airflow while burning incense.",
+          heading: "Keep airflow moving",
+          paragraphs: [
+            "Open a window slightly or allow fresh air into the room while burning incense.",
+            "A little ventilation often makes a space feel noticeably lighter.",
+          ],
         },
         {
-          lead: "Burn incense for shorter periods",
-          text: "15–30 minutes is usually enough for most rooms.",
+          heading: "Burn incense for shorter periods",
+          paragraphs: [
+            "You do not always need to burn a full stick.",
+            "For many smaller homes, 15–30 minutes is often enough.",
+          ],
         },
         {
-          lead: "Avoid very heavy fragrances",
-          text: "Strong synthetic scents may feel overwhelming in smaller spaces.",
+          heading: "Avoid very heavy fragrances",
+          paragraphs: [
+            "Strong synthetic or overly sweet scents may feel overwhelming in enclosed rooms.",
+            "Softer woods, tea scents, and lighter blends are usually easier to live with daily.",
+          ],
         },
         {
-          lead: "Give pets space",
-          text: "Pets should always be able to leave the room if they want to.",
-        },
-        {
-          lead: "Choose low-smoke incense",
-          text: "Cleaner-burning incense is usually better for everyday use indoors.",
+          heading: "Give pets space",
+          paragraphs: [
+            "Pets should always be able to leave the room if they want to.",
+            "If your cat or dog avoids the area, reduce usage or try a lighter scent profile.",
+          ],
         },
       ],
     },
     {
       id: "better-scents",
-      number: 4,
+      number: 5,
       heading: "What Incense Scents Are Better for Homes With Pets?",
       paragraphs: [
         "Lighter and softer scents are generally easier to enjoy in shared spaces.",
         "Popular options include:",
       ],
       bullets: [
-        { lead: "White tea", text: "Clean and unobtrusive." },
-        { lead: "Light citrus", text: "Bright without heavy sweetness." },
-        { lead: "Soft woods", text: "Warm and steady, not dense." },
-        { lead: "Gentle florals", text: "Simple, not perfume-heavy." },
+        { text: "White tea" },
+        { text: "Green tea" },
+        { text: "Soft woods" },
+        { text: "Light citrus" },
+        { text: "Gentle florals" },
       ],
     },
     {
       id: "around-cats",
-      number: 5,
+      number: 6,
       heading: "Should You Burn Incense Around Cats?",
       paragraphs: [
-        "Cats are usually more sensitive to scent and airborne particles than dogs.",
-        "For cat owners, it is especially important to use ventilation, avoid excessive smoke, burn incense in moderation, and watch for signs of discomfort.",
-        "If your cat leaves the room or seems irritated, reduce usage or switch to lighter scents.",
+        "Cats often notice airborne particles sooner than dogs.",
+        "They may react to dense smoke even when the scent seems mild to you.",
+        "Watch for sneezing, hiding, or extra grooming after a burn — and ease off if those patterns show up.",
       ],
     },
     {
       id: "around-dogs",
-      number: 6,
+      number: 7,
       heading: "Should You Burn Incense Around Dogs?",
       paragraphs: [
         "Most dogs tolerate mild home fragrance well in ventilated spaces.",
-        "However, strong smoke buildup or very concentrated scents may still feel uncomfortable for some dogs.",
-        "As with humans, moderation and airflow are important.",
+        "However, very dense smoke or concentrated scents may still feel uncomfortable for some dogs.",
+        "As with people, moderation and airflow usually make the biggest difference.",
       ],
     },
     {
       id: "too-strong",
-      number: 7,
+      number: 8,
       heading: "Signs Your Incense May Be Too Strong",
-      paragraphs: ["Your incense may be too intense if:"],
+      paragraphs: ["Your incense may feel too intense if:"],
       bullets: [
-        { text: "The room feels smoky" },
-        { text: "The scent lingers heavily for hours" },
+        { text: "The room becomes visibly smoky" },
+        { text: "The fragrance lingers heavily for hours" },
+        { text: "The air feels heavy or overwhelming" },
         { text: "Your eyes feel irritated" },
-        { text: "Your pet avoids the area" },
+        { text: "Your pet avoids the space" },
       ],
     },
     {
       id: "final-thoughts",
-      number: 8,
+      number: 9,
       heading: "Final Thoughts",
       paragraphs: [
-        "Incense can usually be enjoyed safely around pets when used carefully and in moderation.",
-        "The most important things are good ventilation, lower smoke levels, softer scent profiles, and shorter burn sessions.",
-        "For many homes, cleaner and lighter incense works better than strong, smoky fragrances.",
+        "Ventilation, shorter burns, and softer scents are the practical baseline for pet-friendly incense.",
+        "Let animals move freely, and treat avoidance as useful feedback rather than background noise.",
       ],
     },
   ],
+  faq: {
+    heading: "FAQ",
+    items: [
+      {
+        id: "cats-uncomfortable",
+        question: "Can incense make cats uncomfortable?",
+        answer: [
+          {
+            type: "paragraph",
+            text: "Yes — especially in closed rooms. Sneezing, leaving, or grooming more than usual are common signals to lighten up.",
+          },
+        ],
+      },
+      {
+        id: "low-smoke-better",
+        question: "Is low-smoke incense better for pets?",
+        answer: [
+          {
+            type: "paragraph",
+            text: "It is not mandatory, but less visible smoke often means less buildup for animals that stay in the same room.",
+          },
+        ],
+      },
+      {
+        id: "open-windows",
+        question: "Should I open windows while burning incense?",
+        answer: [
+          {
+            type: "paragraph",
+            text: "Even a cracked window helps fragrance circulate so it does not pool near the floor where pets spend time.",
+          },
+        ],
+      },
+      {
+        id: "how-long-pets",
+        question: "How long should incense burn around pets?",
+        answer: [
+          {
+            type: "paragraph",
+            text: "Try 15 minutes first, then air the room before deciding whether to relight.",
+          },
+        ],
+      },
+      {
+        id: "softer-scents",
+        question: "What scents are usually softer indoors?",
+        answer: [
+          {
+            type: "paragraph",
+            text: "Unscented breaks between sessions matter too — pets recover faster when fragrance is not constant.",
+          },
+        ],
+      },
+    ],
+  },
   products: {
     heading: "Recommended Incense",
     items: [
@@ -212,7 +297,7 @@ export const journalArticleIsIncenseSafeForPets: JournalArticleTemplate = {
       {
         slug: "best-incense-for-small-apartments",
         title: "Best Incense for Small Apartments and Bedrooms",
-        readMinutes: 7,
+        readMinutes: 8,
         imageSrc: "/images/generated/essay-night-incense-ritual.png",
         imageAlt: "Incense in a small bedroom with soft evening light",
       },
@@ -231,11 +316,11 @@ export const journalArticleIsIncenseSafeForPets: JournalArticleTemplate = {
         imageAlt: "Evening incense ritual",
       },
       {
-        slug: "incense-patience",
-        title: "How to Build a Daily Incense Ritual",
-        readMinutes: 6,
-        imageSrc: "/images/generated/essay-incense-patience.png",
-        imageAlt: "Calm space with incense smoke",
+        slug: "good-incense-not-loud",
+        title: "Good Incense Is Not Loud",
+        readMinutes: 5,
+        imageSrc: "/images/generated/essay-good-incense-not-loud.png",
+        imageAlt: "Quiet incense still life",
       },
     ],
   },

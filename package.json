@@ -22,7 +22,8 @@
     "images:products-install": "node scripts/install-product-images.mjs",
     "knockout-seal": "node scripts/knockout-quote-seal.mjs",
     "knockout-mat": "node scripts/knockout-png-mat.mjs",
-    "indexnow:submit": "npx --yes tsx scripts/submit-indexnow.ts"
+    "indexnow:submit": "npx --yes tsx scripts/submit-indexnow.ts",
+    "journal:check-duplicates": "npx --yes tsx scripts/check-journal-guide-duplicates.ts"
   },
   "dependencies": {
     "@lucide/lab": "^0.1.2",
