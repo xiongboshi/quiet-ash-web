@@ -1,21 +1,21 @@
-import type { JournalCategoryId, JournalTagId } from "@/data/journal-index";
+import type { JournalTagId } from "@/data/journal-index";
+import {
+  JOURNAL_TOPIC_HUB_IDS,
+  journalLegacyCategoryToTopicHub,
+  isJournalTopicHubId,
+  type JournalTopicHubId,
+} from "@/data/journal-topic-hubs";
 
 export type JournalBodyFormat = "editorial" | "guide";
 
-export type JournalEssayCategoryId = Exclude<
-  JournalCategoryId,
-  "all" | "popular-questions"
->;
+export type JournalEssayCategoryId = JournalTopicHubId;
 
-export const JOURNAL_ESSAY_CATEGORY_IDS = [
-  "mind-wellness",
-  "scents-ingredients",
-  "rituals-practices",
-  "living-lifestyle",
-  "guides-tips",
-] as const satisfies readonly JournalEssayCategoryId[];
+export const JOURNAL_ESSAY_CATEGORY_IDS = JOURNAL_TOPIC_HUB_IDS;
 
-const CATEGORY_ID_SET = new Set<string>(JOURNAL_ESSAY_CATEGORY_IDS);
+const CATEGORY_ID_SET = new Set<string>([
+  ...JOURNAL_ESSAY_CATEGORY_IDS,
+  ...Object.keys(journalLegacyCategoryToTopicHub),
+]);
 
 export const JOURNAL_TAG_IDS = [
   "sleep",
@@ -28,12 +28,12 @@ export const JOURNAL_TAG_IDS = [
 
 const TAG_ID_SET = new Set<string>(JOURNAL_TAG_IDS);
 
-export const journalCategoryLabels: Record<JournalEssayCategoryId, string> = {
-  "mind-wellness": "MIND & WELLNESS",
-  "scents-ingredients": "SCENTS & INGREDIENTS",
-  "rituals-practices": "RITUALS & PRACTICES",
-  "living-lifestyle": "LIVING & LIFESTYLE",
-  "guides-tips": "GUIDES & TIPS",
+export const journalCategoryLabels: Record<JournalTopicHubId, string> = {
+  "better-sleep": "BETTER SLEEP",
+  "small-space-living": "SMALL SPACE LIVING",
+  "calm-evenings": "CALM EVENINGS",
+  "quiet-routines": "QUIET ROUTINES",
+  "guides-care": "GUIDES & CARE",
 };
 
 function optString(value: unknown): string | undefined {
@@ -51,12 +51,20 @@ function parseStringList(value: unknown): string[] | undefined {
   return items.length ? items : undefined;
 }
 
+export function normalizeEssayCategoryId(
+  raw: string | undefined,
+): JournalTopicHubId | undefined {
+  if (!raw) return undefined;
+  if (isJournalTopicHubId(raw)) return raw;
+  return journalLegacyCategoryToTopicHub[raw];
+}
+
 export function parseJournalCategoryId(
   value: unknown,
 ): JournalEssayCategoryId | undefined {
   const raw = optString(value);
   if (!raw || !CATEGORY_ID_SET.has(raw)) return undefined;
-  return raw as JournalEssayCategoryId;
+  return normalizeEssayCategoryId(raw) ?? undefined;
 }
 
 export function parseJournalTags(value: unknown): JournalTagId[] {
@@ -98,7 +106,7 @@ export function parseEssayJournalFields(
   const categoryId =
     parseJournalCategoryId(data.categoryId) ??
     parseJournalCategoryId(data.category_id) ??
-    "scents-ingredients";
+    "calm-evenings";
 
   const tags = parseJournalTags(data.tags);
   const resolvedTags: JournalTagId[] =

@@ -12,7 +12,7 @@ export const journalArticleBestIncenseForSleep: JournalArticleTemplate = {
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "Journal", href: JOURNAL_INDEX },
-      { label: "Guides", href: `${JOURNAL_INDEX}?category=guides-tips` },
+      { label: "Better Sleep", href: `${JOURNAL_INDEX}/better-sleep` },
       {
         label: "Let the Room Grow Quiet Before Sleep",
         href: journalPath("best-incense-for-sleep"),

@@ -12,6 +12,7 @@ import {
   shopPath,
 } from "@/lib/site-paths";
 import { listShopCategoriesForShop } from "@/lib/shop-catalog";
+import { journalTopicHubs } from "@/data/journal-topic-hubs";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = getSiteUrl();
@@ -69,6 +70,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+  const journalHubs: MetadataRoute.Sitemap = journalTopicHubs.map((hub) => ({
+    url: `${base}${hub.pathname}`,
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: 0.88,
+  }));
+
   const essays: MetadataRoute.Sitemap = getAllEssays().map((essay) => ({
     url: `${base}${journalPath(essay.slug)}`,
     lastModified: essay.date ? new Date(essay.date) : now,
@@ -106,5 +114,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }),
   );
 
-  return [...staticRoutes, ...shopCategories, ...essays, ...rituals, ...objects, ...collections];
+  return [
+    ...staticRoutes,
+    ...shopCategories,
+    ...journalHubs,
+    ...essays,
+    ...rituals,
+    ...objects,
+    ...collections,
+  ];
 }

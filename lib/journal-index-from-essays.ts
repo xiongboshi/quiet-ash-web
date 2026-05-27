@@ -1,5 +1,8 @@
 import type { JournalIndexArticleCard } from "@/data/journal-index-articles";
-import { journalCategoryLabels } from "@/lib/journal-mdx-meta";
+import {
+  journalCategoryLabels,
+  normalizeEssayCategoryId,
+} from "@/lib/journal-mdx-meta";
 import { getAllEssays } from "@/lib/essays";
 
 const FALLBACK_IMAGE = "/images/generated/essay-good-incense-not-loud.png";
@@ -14,13 +17,14 @@ export function buildJournalIndexCardsFromEssays(
     .sort((a, b) => (a.date > b.date ? -1 : a.date < b.date ? 1 : 0))
     .map((essay) => {
       const journal = essay.journal ?? {
-        categoryId: "scents-ingredients" as const,
+        categoryId: "calm-evenings" as const,
         tags: ["relaxation"] as const,
         headline: essay.title,
         seoTitle: essay.title,
         bodyFormat: "editorial" as const,
       };
-      const categoryId = journal.categoryId;
+      const categoryId =
+        normalizeEssayCategoryId(journal.categoryId) ?? "calm-evenings";
       const headline = journal.headline;
       const seoTitle = journal.seoTitle;
 

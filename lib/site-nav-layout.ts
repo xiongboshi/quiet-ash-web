@@ -1,3 +1,4 @@
+import { isJournalTopicHubId } from "@/data/journal-topic-hubs";
 import { isShopCategorySegment } from "@/lib/shop-catalog";
 import { JOURNAL_INDEX, SHOP_INDEX } from "@/lib/site-paths";
 
@@ -17,10 +18,19 @@ export function isShopCategoryHeroPath(pathname: string | null): boolean {
   return segment.length > 0 && isShopCategorySegment(segment);
 }
 
-/** Journal article detail — e.g. /journal/incense-patience */
+/** Topic hub — e.g. /journal/better-sleep */
+export function isJournalTopicHubPath(pathname: string | null): boolean {
+  const path = normalizeSitePath(pathname);
+  if (!path.startsWith("/journal/")) return false;
+  const segment = path.slice("/journal/".length).split("/")[0] ?? "";
+  return segment.length > 0 && isJournalTopicHubId(segment);
+}
+
+/** Journal article detail — e.g. /journal/incense-patience (not topic hubs). */
 export function isJournalArticlePath(pathname: string | null): boolean {
   const path = normalizeSitePath(pathname);
-  return /^\/journal\/[^/]+$/.test(path);
+  if (!/^\/journal\/[^/]+$/.test(path)) return false;
+  return !isJournalTopicHubPath(pathname);
 }
 
 /** Shop product PDP — e.g. /shop/wood-tray (not category PLP). */

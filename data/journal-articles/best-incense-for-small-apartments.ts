@@ -1,7 +1,7 @@
 import type { JournalArticleTemplate } from "@/types/journal-article";
 import { JOURNAL_INDEX, journalPath } from "@/lib/site-paths";
 
-const CATEGORY_HREF = `${JOURNAL_INDEX}?category=guides-tips`;
+const CATEGORY_HREF = `${JOURNAL_INDEX}/small-space-living`;
 
 /** Guide — `/journal/best-incense-for-small-apartments` */
 export const journalArticleBestIncenseForSmallApartments: JournalArticleTemplate =

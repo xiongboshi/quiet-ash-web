@@ -205,7 +205,7 @@ export const MOOD_RITUAL_SLEEP_JOURNAL: Record<string, MoodRitualSleepJournalSpe
   "evening-room-ritual": {
     label: "JOURNAL STORIES FOR SLEEP",
     viewAllLabel: "View All Articles",
-    viewAllHref: JOURNAL_INDEX,
+    viewAllHref: journalPath("better-sleep"),
     articles: [
       {
         category: "SLEEP · RITUAL",

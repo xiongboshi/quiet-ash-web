@@ -1,13 +1,15 @@
 import { JOURNAL_INDEX } from "@/lib/site-paths";
 import { journalPopularQuestions } from "@/data/journal-popular-questions";
+import type { JournalTopicHubId } from "@/data/journal-topic-hubs";
+
+export type { JournalTopicHubId };
+
+/** Topic-first semantic categories (hub pages at `/journal/{id}`). */
+export type JournalEssayCategoryId = JournalTopicHubId;
 
 export type JournalCategoryId =
   | "all"
-  | "mind-wellness"
-  | "scents-ingredients"
-  | "rituals-practices"
-  | "living-lifestyle"
-  | "guides-tips"
+  | JournalTopicHubId
   | "popular-questions";
 
 export type JournalSortId = "newest" | "oldest";
@@ -20,17 +22,14 @@ export type JournalTagId =
   | "morning-routine"
   | "relaxation";
 
-/** Filter groups for sidebar — counts computed at runtime (`resolveJournalIndexCategories`). */
+/** Sidebar + filters — topic clusters, not generic blog aisles. */
 export const journalIndexCategoryDefinitions = [
-  { id: "mind-wellness", label: "Mind & Wellness" },
-  { id: "scents-ingredients", label: "Scents & Ingredients" },
-  { id: "rituals-practices", label: "Rituals & Practices" },
-  { id: "living-lifestyle", label: "Living & Lifestyle" },
-  { id: "guides-tips", label: "Guides & Tips" },
-] as const satisfies readonly {
-  id: Exclude<JournalCategoryId, "all" | "popular-questions">;
-  label: string;
-}[];
+  { id: "better-sleep", label: "Better Sleep" },
+  { id: "small-space-living", label: "Small Space Living" },
+  { id: "calm-evenings", label: "Calm Evenings" },
+  { id: "quiet-routines", label: "Quiet Routines" },
+  { id: "guides-care", label: "Guides & Care" },
+] as const satisfies readonly { id: JournalTopicHubId; label: string }[];
 
 /** @deprecated Use `resolveJournalIndexCategories(articles)` on the journal index page. */
 export const journalIndexCategories = [

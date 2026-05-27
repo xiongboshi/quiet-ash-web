@@ -18,12 +18,12 @@ export type JournalIndexArticleCard = {
   tags: readonly JournalTagId[];
 };
 
-/** Hand-authored guide templates — also listed on `/journal?category=guides-tips`. */
+/** Hand-authored guide templates — topic-clustered for discovery hubs. */
 export const journalGuidesTipsHandCards: readonly JournalIndexArticleCard[] = [
   {
     slug: "best-incense-for-sleep",
-    categoryId: "guides-tips",
-    categoryLabel: "GUIDES & TIPS",
+    categoryId: "better-sleep",
+    categoryLabel: "BETTER SLEEP",
     headline: "Let the Room Grow Quiet Before Sleep",
     seoTitle: "Best Incense for Sleep: Calming Scents for Better Rest",
     title: "Let the Room Grow Quiet Before Sleep",
@@ -37,8 +37,8 @@ export const journalGuidesTipsHandCards: readonly JournalIndexArticleCard[] = [
   },
   {
     slug: "is-incense-safe-for-pets",
-    categoryId: "guides-tips",
-    categoryLabel: "GUIDES & TIPS",
+    categoryId: "guides-care",
+    categoryLabel: "GUIDES & CARE",
     headline: "Is Incense Safe for Pets?",
     seoTitle:
       "Is Incense Safe for Pets? What Cat and Dog Owners Should Know",
@@ -54,8 +54,8 @@ export const journalGuidesTipsHandCards: readonly JournalIndexArticleCard[] = [
   },
   {
     slug: "best-incense-for-small-apartments",
-    categoryId: "guides-tips",
-    categoryLabel: "GUIDES & TIPS",
+    categoryId: "small-space-living",
+    categoryLabel: "SMALL SPACE LIVING",
     headline: "Best Incense for Small Apartments and Bedrooms",
     seoTitle: "Best Incense for Small Apartments and Bedrooms",
     title: "Best Incense for Small Apartments and Bedrooms",

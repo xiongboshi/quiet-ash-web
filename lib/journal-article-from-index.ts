@@ -28,11 +28,11 @@ const CATEGORY_BREADCRUMB: Record<
   Exclude<JournalCategoryId, "all" | "popular-questions">,
   string
 > = {
-  "mind-wellness": "Mind & Wellness",
-  "scents-ingredients": "Scents & Ingredients",
-  "rituals-practices": "Rituals & Practices",
-  "living-lifestyle": "Living & Lifestyle",
-  "guides-tips": "Guides & Tips",
+  "better-sleep": "Better Sleep",
+  "small-space-living": "Small Space Living",
+  "calm-evenings": "Calm Evenings",
+  "quiet-routines": "Quiet Routines",
+  "guides-care": "Guides & Care",
 };
 
 const TAG_TAKEAWAY_ICON: Record<JournalTagId, JournalTakeawayIconId> = {
@@ -405,7 +405,7 @@ export function buildJournalArticleFromIndexCard(
         { label: "Journal", href: JOURNAL_INDEX },
         {
           label: categoryCrumb,
-          href: `${JOURNAL_INDEX}?category=${card.categoryId}`,
+          href: journalPath(card.categoryId),
         },
         { label: card.headline, href: journalPath(card.slug) },
       ],

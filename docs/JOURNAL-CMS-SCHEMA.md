@@ -30,7 +30,7 @@ series: incense-culture
 reading_time: 11
 
 # Journal index + detail (canonical for PLP/PDP titles)
-categoryId: scents-ingredients   # mind-wellness | scents-ingredients | rituals-practices | living-lifestyle | guides-tips
+categoryId: better-sleep   # better-sleep | small-space-living | calm-evenings | quiet-routines | guides-care
 tags:
   - relaxation
   - focus
@@ -95,9 +95,23 @@ Public API: `resolveJournalArticle(slug)` in `lib/journal-articles.ts` (alias of
 
 Article bodies are still **plain text** parsed into paragraphs (`lib/journal-article-from-index.ts`). Custom MDX components would require `@next/mdx` or Contentlayer — out of scope for this schema pass.
 
-## Hand templates (Guides & Tips)
+## Topic hubs (`/journal/{topic}`)
 
-1. Add index card to `journalGuidesTipsHandCards` in `data/journal-index-articles.ts` (`categoryId: guides-tips`).
+Discovery-first clusters — not chronological blog aisles. Data: `data/journal-topic-hubs.ts`.
+
+| Hub slug | Purpose |
+|----------|---------|
+| `better-sleep` | Sleep, rest, nighttime rituals |
+| `small-space-living` | Apartments, low-smoke, ventilation |
+| `calm-evenings` | Decompression, softer evenings |
+| `quiet-routines` | Writing, tea, reading, focus |
+| `guides-care` | Pet safety, care, how-to guides |
+
+Legacy MDX `categoryId` values (`guides-tips`, `mind-wellness`, …) are mapped automatically.
+
+## Hand templates (Guides & Care)
+
+1. Add index card to `journalGuidesTipsHandCards` in `data/journal-index-articles.ts` (topic `categoryId`).
 2. Add full template `data/journal-articles/<slug>.ts` and register in `data/journal-articles/index.ts` → `journalHandArticleOverrides`.
 3. Add slug to `journalGuideArticleSlugs` in `data/journal-guide-slugs.ts`.
 

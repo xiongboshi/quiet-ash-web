@@ -4,6 +4,7 @@ import {
   type JournalCategoryId,
   type JournalTagId,
 } from "@/data/journal-index";
+import { normalizeJournalTopicCategoryId } from "@/data/journal-topic-hubs";
 
 const CATEGORY_IDS = new Set<JournalCategoryId>([
   "all",
@@ -16,8 +17,9 @@ const TAG_IDS = new Set(journalIndexTags.map((tag) => tag.id));
 export function parseJournalCategoryParam(
   value: string | null | undefined,
 ): JournalCategoryId {
-  if (value && CATEGORY_IDS.has(value as JournalCategoryId)) {
-    return value as JournalCategoryId;
+  const normalized = normalizeJournalTopicCategoryId(value ?? undefined);
+  if (normalized && CATEGORY_IDS.has(normalized)) {
+    return normalized;
   }
   return "all";
 }
