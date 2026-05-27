@@ -1,6 +1,6 @@
 import { journalIndexSeriesSlugs } from "@/data/journal-index-config";
 import {
-  journalDesignShowcaseCard,
+  journalGuidesTipsHandCards,
   type JournalIndexArticleCard,
 } from "@/data/journal-index-articles";
 import { getEssayBySlug } from "@/lib/essays";
@@ -20,7 +20,13 @@ export function getJournalIndexArticleCards(): JournalIndexArticleCard[] {
     }
   }
 
-  return [journalDesignShowcaseCard, ...fromSeries];
+  const handCards = journalGuidesTipsHandCards.filter((card) => {
+    if (seen.has(card.slug)) return false;
+    seen.add(card.slug);
+    return true;
+  });
+
+  return [...handCards, ...fromSeries];
 }
 
 export function getJournalIndexArticles(): JournalIndexArticleResolved[] {

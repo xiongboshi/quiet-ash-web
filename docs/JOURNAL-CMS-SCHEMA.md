@@ -10,7 +10,8 @@ Quiet Ash journal data is **MDX-first**: one file per essay drives the index car
 | `content/series/{series}.mdx` | Registers which essay folders are scanned |
 | `data/journal-index-config.ts` | Which series appear on `/journal` (`journalIndexSeriesSlugs`) |
 | `data/journal-index.ts` | Hero, filter definitions, tags, sort labels |
-| `data/journal-index-articles.ts` | Design showcase card (`best-incense-for-sleep`) |
+| `data/journal-index-articles.ts` | Hand guide index cards (`journalGuidesTipsHandCards`) |
+| `data/journal-articles/<slug>.ts` | Full guide PDP for hand cards (pets, apartments, sleep, …) |
 | `data/journal-articles/<slug>.ts` | Optional full PDP override (guide mock) |
 | `data/journal-popular-questions.ts` | FAQ when `?category=popular-questions` |
 
@@ -94,10 +95,13 @@ Public API: `resolveJournalArticle(slug)` in `lib/journal-articles.ts` (alias of
 
 Article bodies are still **plain text** parsed into paragraphs (`lib/journal-article-from-index.ts`). Custom MDX components would require `@next/mdx` or Contentlayer — out of scope for this schema pass.
 
-## Hand templates
+## Hand templates (Guides & Tips)
 
-- `best-incense-for-sleep`: index card in `data/journal-index-articles.ts`, full PDP in `data/journal-articles/best-incense-for-sleep.ts`
-- `journalGuideArticleSlugs`: fallback when no MDX file sets `bodyFormat`
+1. Add index card to `journalGuidesTipsHandCards` in `data/journal-index-articles.ts` (`categoryId: guides-tips`).
+2. Add full template `data/journal-articles/<slug>.ts` and register in `data/journal-articles/index.ts` → `journalHandArticleOverrides`.
+3. Add slug to `journalGuideArticleSlugs` in `data/journal-guide-slugs.ts`.
+
+Current hand guides: `best-incense-for-sleep`, `is-incense-safe-for-pets`, `best-incense-for-small-apartments`.
 
 ## Legacy archive
 

@@ -1,7 +1,11 @@
 import { getEssayBySlug } from "@/lib/essays";
 
 /** Hand-authored guide templates not backed by `content/essays/*.mdx`. */
-export const journalGuideArticleSlugs = new Set<string>(["best-incense-for-sleep"]);
+export const journalGuideArticleSlugs = new Set<string>([
+  "best-incense-for-sleep",
+  "is-incense-safe-for-pets",
+  "best-incense-for-small-apartments",
+]);
 
 export function isJournalGuideArticle(slug: string): boolean {
   const essay = getEssayBySlug(slug);
