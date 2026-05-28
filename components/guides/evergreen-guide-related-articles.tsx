@@ -15,6 +15,9 @@ export function EvergreenGuideRelatedArticles({
   resolvedBySlug,
   viewAllHref,
 }: Props) {
+  const visible = articles.filter((item) => resolvedBySlug.has(item.slug));
+  if (visible.length === 0) return null;
+
   return (
     <section
       id="related-articles"
@@ -30,9 +33,8 @@ export function EvergreenGuideRelatedArticles({
         </Link>
       </header>
       <ul className="evergreen-guide__articles-grid">
-        {articles.map((item) => {
-          const resolved = resolvedBySlug.get(item.slug);
-          if (!resolved) return null;
+        {visible.map((item) => {
+          const resolved = resolvedBySlug.get(item.slug)!;
           return (
             <li key={item.slug}>
               <article className="evergreen-guide__article-card">

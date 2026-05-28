@@ -47,6 +47,16 @@ const nextConfig: NextConfig = {
         destination: "/guides/incense-care-guide",
         permanent: true,
       },
+      {
+        source: "/guides/evening-wind-down-guide",
+        destination: "/guides/evening-calm-guide",
+        permanent: true,
+      },
+      {
+        source: "/guides/quiet-ritual-handbook",
+        destination: "/guides/slow-living-ritual-guide",
+        permanent: true,
+      },
       /* /library, /archive, /series — real App Router pages (no 301); see app/(site)/ */
     ];
   },

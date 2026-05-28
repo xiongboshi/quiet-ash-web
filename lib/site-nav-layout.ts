@@ -61,6 +61,7 @@ export function isCartPath(pathname: string | null): boolean {
  */
 export function isMobileNavBackLeadingPath(pathname: string | null): boolean {
   return (
+    isJournalTopicHubPath(pathname) ||
     isJournalArticlePath(pathname) ||
     isEvergreenGuidePath(pathname) ||
     isShopProductPdpPath(pathname) ||
@@ -68,13 +69,23 @@ export function isMobileNavBackLeadingPath(pathname: string | null): boolean {
   );
 }
 
+/** Topic + guide pages: trailing cart slot becomes history back. */
+export function isMobileNavBackTrailingPath(pathname: string | null): boolean {
+  return isJournalTopicHubPath(pathname) || isEvergreenGuidePath(pathname);
+}
+
 /** Mobile detail nav: hide cart icon in the bar (journal + cart page; shop PDP keeps cart). */
 export function isMobileNavCartHiddenPath(pathname: string | null): boolean {
-  return isJournalArticlePath(pathname) || isCartPath(pathname);
+  return (
+    isJournalArticlePath(pathname) ||
+    isCartPath(pathname) ||
+    isMobileNavBackTrailingPath(pathname)
+  );
 }
 
 /** Fallback when `history.back()` is unavailable. */
 export function mobileNavBackFallbackHref(pathname: string | null): string {
+  if (isJournalTopicHubPath(pathname)) return JOURNAL_INDEX;
   if (isEvergreenGuidePath(pathname)) return JOURNAL_INDEX;
   if (isJournalArticlePath(pathname)) return JOURNAL_INDEX;
   if (isShopProductPdpPath(pathname)) return SHOP_INDEX;

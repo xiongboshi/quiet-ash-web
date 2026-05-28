@@ -55,8 +55,14 @@ export function JournalIndexDiscovery({ hubCounts }: Props) {
         <nav className="journal-discovery__topic-row" aria-label="Explore by topic">
           {journalDiscoveryExploreTopics.map((topic) => (
             <Link key={topic.id} href={topic.href} className="journal-discovery__topic-pill">
-              <JournalDiscoveryTopicIcon topicId={topic.id} />
-              <span>{topic.label}</span>
+              <span
+                className="journal-discovery__topic-pill-icon"
+                data-topic={topic.id}
+                aria-hidden
+              >
+                <JournalDiscoveryTopicIcon topicId={topic.id} />
+              </span>
+              <span className="journal-discovery__topic-pill-label">{topic.label}</span>
             </Link>
           ))}
         </nav>
@@ -107,7 +113,9 @@ export function JournalIndexDiscovery({ hubCounts }: Props) {
                       {copy?.tagline ?? hub.tagline}
                     </span>
                     <span className="journal-discovery__hub-meta">
-                      {count} {count === 1 ? "article" : "articles"} →
+                      {count > 0
+                        ? `${count} ${count === 1 ? "article" : "articles"} →`
+                        : "Explore topic →"}
                     </span>
                   </span>
                 </Link>

@@ -59,6 +59,10 @@
     .shop-category-page figure.shop-category-hero__media img,
     .journal-index .journal-index-hero__media img,
     .journal-index figure.journal-index-hero__media img,
+    .journal-topic-page .journal-index-hero__media img,
+    .journal-topic-page figure.journal-index-hero__media img,
+    .evergreen-guide .journal-index-hero__media img,
+    .evergreen-guide figure.journal-index-hero__media img,
     .journal-article .journal-article-hero__media img,
     .journal-article figure.journal-article-hero__media img
   ) {

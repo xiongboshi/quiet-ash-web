@@ -675,6 +675,28 @@
   margin: 0;
 }
 
+/* —— Final thoughts —— */
+.evergreen-guide__closing {
+  padding-top: 0.1rem;
+}
+
+.evergreen-guide__closing-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  max-width: 42rem;
+}
+
+.evergreen-guide__closing-text {
+  margin: 0;
+  font-family: var(--eg-font-sans);
+  font-size: var(--eg-sans-body);
+  font-weight: 400;
+  line-height: var(--eg-sans-lh-body);
+  color: var(--eg-text-secondary);
+  text-align: left;
+}
+
 /* —— 6 Related articles —— */
 .evergreen-guide__articles {
   padding-top: 0.1rem;

@@ -46,19 +46,16 @@ export const evergreenGuides: readonly EvergreenGuide[] = [
       "sandalwood",
       "deeper rest",
     ],
-    featuredSlugs: [
-      "best-incense-for-sleep",
-      "night-incense-ritual",
-      "what-is-agarwood",
-    ],
+    featuredSlugs: ["best-incense-for-sleep"],
   },
   {
     slug: "small-apartment-fragrance-guide",
     pathname: guidePath("small-apartment-fragrance-guide"),
-    title: "Small Apartment Fragrance Guide",
-    tagline: "Low-smoke fragrance and softer indoor atmosphere.",
+    title: "The Small Apartment Fragrance Guide",
+    tagline:
+      "Softer scent, lower smoke, and calmer indoor living for compact spaces.",
     description:
-      "How to scent compact homes without overwhelm — ventilation, subtle smoke, and incense that stays in the background.",
+      "How to use incense comfortably in apartments, bedrooms, and modern indoor environments — ventilation, low smoke, and softer scent profiles.",
     heroImageSrc: "/images/generated/essay-night-incense-ritual.webp",
     heroImageAlt: "Incense with restrained smoke in a small bedroom",
     topicHubId: "small-space-living",
@@ -69,15 +66,16 @@ export const evergreenGuides: readonly EvergreenGuide[] = [
       "subtle fragrance",
       "compact homes",
     ],
-    featuredSlugs: ["best-incense-for-small-apartments", "good-incense-not-loud"],
+    featuredSlugs: ["best-incense-for-small-apartments"],
   },
   {
     slug: "evening-calm-guide",
     pathname: guidePath("evening-calm-guide"),
-    title: "Evening Ritual Handbook",
-    tagline: "Slower rituals for overstimulated days.",
+    title: "The Evening Wind-Down Guide",
+    tagline:
+      "Softer evenings, slower rituals, and calmer atmosphere after overstimulated days.",
     description:
-      "Emotional decompression, nervous-system reset, and softer evening atmosphere — incense, light, and quiet at home.",
+      "How lighting, fragrance, and simple routines can help evenings feel quieter and more balanced at home.",
     heroImageSrc: "/images/generated/essay-good-incense-not-loud.webp",
     heroImageAlt: "Quiet incense still life in warm evening light",
     topicHubId: "calm-evenings",
@@ -89,15 +87,16 @@ export const evergreenGuides: readonly EvergreenGuide[] = [
       "softer atmosphere",
       "emotional rest",
     ],
-    featuredSlugs: ["good-incense-not-loud", "incense-patience", "forgotten-incense-culture"],
+    featuredSlugs: [],
   },
   {
     slug: "slow-living-ritual-guide",
     pathname: guidePath("slow-living-ritual-guide"),
-    title: "Slow Living Ritual Guide",
-    tagline: "Writing, tea, reading, and quiet focus.",
+    title: "The Quiet Ritual Handbook",
+    tagline:
+      "Gentle routines for reading, tea, writing, reflection, and slower living.",
     description:
-      "Desk rituals, tea, reading, and creative solitude — building atmosphere without noise in everyday routines.",
+      "Simple daily rituals that help indoor spaces feel quieter, calmer, and more intentional.",
     heroImageSrc: "/images/generated/essay-incense-patience.webp",
     heroImageAlt: "Writing desk with tea and incense in soft daylight",
     topicHubId: "quiet-routines",
@@ -110,19 +109,16 @@ export const evergreenGuides: readonly EvergreenGuide[] = [
       "quiet mornings",
       "focus",
     ],
-    featuredSlugs: [
-      "why-scholars-burned-incense",
-      "incense-ink-silence",
-      "incense-patience",
-    ],
+    featuredSlugs: [],
   },
   {
     slug: "incense-care-guide",
     pathname: guidePath("incense-care-guide"),
-    title: "Guide to Low-Smoke Incense",
-    tagline: "Practical answers for safer, cleaner indoor fragrance.",
+    title: "The Quiet Ash Care Guide",
+    tagline:
+      "Practical guidance for safer, softer, and more comfortable incense use indoors.",
     description:
-      "Pet safety, ventilation, burn times, and everyday care — clear guidance for low-smoke incense at home.",
+      "Indoor fragrance, low-smoke incense, ventilation, pets, and everyday comfort — clear guidance for home use.",
     heroImageSrc: "/images/generated/essay-good-incense-not-loud.webp",
     heroImageAlt: "Gentle incense smoke in a well-ventilated home",
     topicHubId: "guides-care",
@@ -133,11 +129,7 @@ export const evergreenGuides: readonly EvergreenGuide[] = [
       "indoor fragrance",
       "incense care",
     ],
-    featuredSlugs: [
-      "is-incense-safe-for-pets",
-      "best-incense-for-small-apartments",
-      "what-is-agarwood",
-    ],
+    featuredSlugs: ["is-incense-safe-for-pets"],
   },
 ];
 

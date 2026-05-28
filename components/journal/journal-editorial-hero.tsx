@@ -42,7 +42,7 @@ export function JournalEditorialHero({
               {title}
             </h1>
             <p className="journal-index-hero__tagline">{tagline}</p>
-            <p className="journal-index-hero__lede">{lede}</p>
+            {lede ? <p className="journal-index-hero__lede">{lede}</p> : null}
           </div>
         </div>
       </div>

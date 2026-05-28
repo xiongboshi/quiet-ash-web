@@ -41,10 +41,13 @@ export type GuidePageFeatureCard = {
 export type EvergreenGuidePageContent = {
   heroTagline: string;
   heroLede: string;
+  quickAnswerTitle?: string;
   quickAnswer: readonly string[];
   quickAnswerImageSrc: string;
   quickAnswerImageAlt: string;
+  tocHeading?: string;
   toc: readonly GuidePageTocItem[];
+  closingThoughts?: readonly string[];
   scents: {
     title: string;
     subtitle: string;
@@ -219,32 +222,37 @@ export const evergreenGuidePageContent: Record<EvergreenGuideSlug, EvergreenGuid
     saveShareSub: "Bookmark this guide to revisit your sleep rituals anytime.",
   },
   "small-apartment-fragrance-guide": {
-    heroTagline: "Ventilation. Subtle scent. Compact homes.",
-    heroLede: "How to fragrance small rooms without overwhelm.",
+    heroTagline:
+      "Softer scent, lower smoke, and calmer indoor living for compact spaces.",
+    heroLede:
+      "Small homes often feel fragrance more intensely than larger spaces. This guide explores how to use incense comfortably in apartments, bedrooms, and modern indoor environments.",
+    quickAnswerTitle: "Introduction",
     quickAnswer: [
-      "Low-smoke incense and lighter woods read cleaner in apartments than heavy smoke buildup.",
-      "Short sessions, open windows when you can, and softer scents keep the air comfortable.",
+      "Not all incense works well in smaller homes.",
+      "In apartments and bedrooms, heavy smoke or overly strong fragrances can quickly feel overwhelming. Many people now prefer cleaner-burning incense with softer scent profiles that create atmosphere without filling the room too aggressively.",
+      "A lighter approach usually feels more comfortable for daily indoor living.",
     ],
     quickAnswerImageSrc: "/images/generated/essay-night-incense-ritual.webp",
     quickAnswerImageAlt: "Incense with light smoke in a bedroom",
+    tocHeading: "Quick Navigation",
     toc: [
-      { id: "best-scents", label: "Best Scents for Small Spaces", icon: "scents" },
-      { id: "bedroom-atmosphere", label: "Room Setup", icon: "atmosphere" },
-      { id: "evening-rituals", label: "Daily Habits", icon: "rituals" },
-      { id: "how-to-use-incense", label: "How to Use Incense", icon: "incense" },
-      { id: "faq", label: "FAQ", icon: "faq" },
-      { id: "related-articles", label: "Related Articles", icon: "articles" },
+      { id: "best-types", label: "Best incense for apartments", icon: "scents" },
+      { id: "best-types", label: "Low-smoke incense", icon: "incense" },
+      { id: "bedroom-atmosphere", label: "Bedroom fragrance tips", icon: "atmosphere" },
+      { id: "common-problems", label: "Ventilation and airflow", icon: "rituals" },
+      { id: "best-scents", label: "Softer scent profiles", icon: "scents" },
+      { id: "common-problems", label: "Common mistakes in small spaces", icon: "faq" },
     ],
     scents: {
-      title: "Best Scents for Small Spaces",
+      title: "Recommended Scents For Smaller Homes",
       subtitle:
-        "Lighter profiles stay in the background — tea, soft woods, and gentle florals are common starting points.",
+        "White tea · Sandalwood · Cedarwood · Linen-inspired blends · Light citrus · Gentle florals",
       viewAllHref: SHOP_INDEX,
       viewAllLabel: "View all scents →",
       cards: [
         {
           title: "White Tea",
-          description: "Airy and clean. Reads fresh without filling the room.",
+          description: "Airy and clean — often feels balanced in compact rooms.",
           href: SHOP_INDEX,
           ctaLabel: "Explore White Tea →",
           imageSrc: "/images/generated/products/ceramic-tea-cup/atmosphere.webp",
@@ -252,98 +260,88 @@ export const evergreenGuidePageContent: Record<EvergreenGuideSlug, EvergreenGuid
           icon: "sprout",
         },
         {
-          title: "Soft Woods",
-          description: "Grounding but restrained — good for bedrooms and desks.",
+          title: "Sandalwood",
+          description: "Soft woods that stay present without filling the room.",
           href: SHOP_INDEX,
-          ctaLabel: "Explore Soft Woods →",
+          ctaLabel: "Explore Sandalwood →",
           imageSrc: "/images/generated/essay-what-is-agarwood.webp",
           imageAlt: "Wood incense materials",
           icon: "tree",
         },
         {
-          title: "Light Florals",
-          description: "Gentle florals add calm without sharp sweetness.",
+          title: "Light Citrus",
+          description: "Bright but restrained — good for everyday apartments.",
           href: SHOP_INDEX,
-          ctaLabel: "Explore Light Florals →",
-          imageSrc: "/images/generated/mood-poster-calm-jasmine.webp",
-          imageAlt: "Soft floral mood still life",
+          ctaLabel: "Explore Light Citrus →",
+          imageSrc: "/images/generated/mood-poster-energy-citrus.webp",
+          imageAlt: "Light citrus mood still life",
           icon: "moon",
         },
       ],
     },
     features: [
       {
-        id: "bedroom-atmosphere",
-        title: "Room Setup",
-        description: "A few spatial habits make incense feel lighter indoors.",
+        id: "best-types",
+        title: "Best Types Of Incense For Apartments",
+        description: "Cleaner-burning, softer profiles usually feel more comfortable indoors.",
         imageSrc: "/images/generated/essay-good-incense-not-loud.webp",
         imageAlt: "Quiet room with incense",
-        listType: "checklist",
+        listType: "numbered",
         items: [
-          "Burn near an open window or vent when possible",
-          "Keep sessions short in bedrooms",
-          "Use a stable holder away from fabrics",
-          "Choose low-smoke formulas for daily use",
+          "Low-Smoke Incense — Cleaner-burning incense is usually easier to enjoy in enclosed indoor spaces.",
+          "Softer Fragrance Profiles — Tea scents, soft woods, and light florals often feel more balanced in compact rooms.",
+          "Shorter Burn Sessions — Smaller spaces usually need less fragrance than larger open homes.",
         ],
       },
       {
-        id: "evening-rituals",
-        title: "Daily Habits",
-        description: "Small routines keep fragrance subtle in compact homes.",
+        id: "common-problems",
+        title: "Common Problems In Small Spaces",
+        description: "Heavy smoke and poor airflow are the most common comfort issues indoors.",
         imageSrc: "/images/generated/products/small-agarwood-box/atmosphere.webp",
         imageAlt: "Incense box on a shelf",
-        listType: "numbered",
+        listType: "checklist",
         items: [
-          "Air the room first",
-          "Light one stick or cone",
-          "Extinguish before smoke builds",
-          "Note what feels too strong",
-          "Adjust scent or burn time",
-          "Store sticks sealed and dry",
+          "Too Much Smoke — Heavy smoke builds up quickly indoors with limited ventilation.",
+          "Fragrance Fatigue — Overly strong scent can make a room feel crowded over time.",
+          "Poor Airflow — Without ventilation, incense becomes much more noticeable.",
         ],
       },
     ],
     faq: [
       {
-        id: "apt-smoke",
-        question: "Is low-smoke incense better for apartments?",
+        id: "apt-good",
+        question: "Is incense good for apartments?",
         answer: [
           {
             type: "paragraph",
-            text: "Many readers choose low-smoke incense so the air stays readable, not hazy, during everyday burns in small rooms.",
+            text: "Many people enjoy incense in apartments when using softer scents and lower smoke levels.",
           },
         ],
       },
       {
-        id: "apt-bedroom",
-        question: "Can I burn incense in a bedroom?",
+        id: "apt-lighter",
+        question: "What incense smells feel lighter indoors?",
         answer: [
           {
             type: "paragraph",
-            text: "Yes — with ventilation, shorter sessions, and softer scents. Avoid burning while you sleep.",
+            text: "Tea scents, soft woods, and clean linen-inspired fragrances often feel more balanced indoors.",
           },
         ],
       },
       {
-        id: "apt-vent",
-        question: "How often should I ventilate?",
+        id: "apt-strong",
+        question: "Why does incense feel too strong in small rooms?",
         answer: [
           {
             type: "paragraph",
-            text: "Opening a window for a few minutes before and after burning helps clear residual smoke and keeps the room comfortable.",
+            text: "Limited airflow and enclosed spaces cause smoke and fragrance to build up more quickly.",
           },
         ],
       },
-      {
-        id: "apt-scent",
-        question: "What if the scent feels too strong?",
-        answer: [
-          {
-            type: "paragraph",
-            text: "Try a lighter profile, burn half a stick, or move the holder farther from where you sit or sleep.",
-          },
-        ],
-      },
+    ],
+    closingThoughts: [
+      "In smaller homes, subtle fragrance often feels better than intense fragrance.",
+      "Cleaner-burning incense and softer scent profiles usually create a calmer and more comfortable indoor atmosphere.",
     ],
     relatedArticles: [
       {
@@ -371,32 +369,37 @@ export const evergreenGuidePageContent: Record<EvergreenGuideSlug, EvergreenGuid
     saveShareSub: "Bookmark this guide for apartment fragrance tips anytime.",
   },
   "evening-calm-guide": {
-    heroTagline: "Decompression. Softer light. Slower evenings.",
-    heroLede: "Rituals that help you transition out of the day.",
+    heroTagline:
+      "Softer evenings, slower rituals, and calmer atmosphere after overstimulating days.",
+    heroLede:
+      "This guide explores how lighting, fragrance, and simple routines can help evenings feel quieter and more balanced.",
+    quickAnswerTitle: "Introduction",
     quickAnswer: [
-      "Gentle woods and familiar scents support emotional decompression after busy days.",
-      "Pair incense with dim light, a short pause, and one quiet activity — not more stimulation.",
+      "Many people today feel overstimulated by fast-paced daily routines and constant digital noise.",
+      "Small evening rituals can help create a softer transition into rest.",
+      "Fragrance, lighting, silence, and slower atmosphere often work together to make evenings feel calmer.",
     ],
     quickAnswerImageSrc: "/images/generated/essay-good-incense-not-loud.webp",
     quickAnswerImageAlt: "Incense in warm evening light",
+    tocHeading: "Quick Navigation",
     toc: [
-      { id: "best-scents", label: "Calming Scents", icon: "scents" },
-      { id: "bedroom-atmosphere", label: "Evening Atmosphere", icon: "atmosphere" },
-      { id: "evening-rituals", label: "Wind-Down Rituals", icon: "rituals" },
-      { id: "how-to-use-incense", label: "How to Use Incense", icon: "incense" },
-      { id: "faq", label: "FAQ", icon: "faq" },
-      { id: "related-articles", label: "Related Articles", icon: "articles" },
+      { id: "evening-rituals", label: "Evening rituals", icon: "rituals" },
+      { id: "best-scents", label: "Relaxing fragrance", icon: "scents" },
+      { id: "bedroom-atmosphere", label: "Bedroom atmosphere", icon: "atmosphere" },
+      { id: "evening-rituals", label: "Wind-down routines", icon: "rituals" },
+      { id: "bedroom-atmosphere", label: "Softer lighting", icon: "atmosphere" },
+      { id: "bedroom-atmosphere", label: "Calm indoor spaces", icon: "incense" },
     ],
     scents: {
-      title: "Calming Scents",
+      title: "Recommended Evening Scents",
       subtitle:
-        "Scents that feel familiar and soft — not sharp — help the nervous system settle.",
+        "Sandalwood · White tea · Cedarwood · Lavender · Soft amber blends",
       viewAllHref: SHOP_INDEX,
       viewAllLabel: "View all scents →",
       cards: [
         {
           title: "Sandalwood",
-          description: "Warm and grounding for overstimulated evenings.",
+          description: "Warm and grounding after overstimulating days.",
           href: SHOP_INDEX,
           ctaLabel: "Explore Sandalwood →",
           imageSrc: "/images/generated/essay-what-is-agarwood.webp",
@@ -404,21 +407,21 @@ export const evergreenGuidePageContent: Record<EvergreenGuideSlug, EvergreenGuid
           icon: "moon",
         },
         {
-          title: "Soft Florals",
-          description: "Light florals add calm without feeling sugary.",
+          title: "White Tea",
+          description: "Clean and subtle — often feels relaxing at night.",
           href: SHOP_INDEX,
-          ctaLabel: "Explore Soft Florals →",
-          imageSrc: "/images/generated/mood-poster-calm-jasmine.webp",
-          imageAlt: "Calm floral mood",
+          ctaLabel: "Explore White Tea →",
+          imageSrc: "/images/generated/products/ceramic-tea-cup/atmosphere.webp",
+          imageAlt: "Tea cup in soft evening light",
           icon: "sprout",
         },
         {
-          title: "Agarwood",
-          description: "Deep, resinous quiet for slow, reflective nights.",
+          title: "Lavender",
+          description: "Gentle florals that support slower evening transitions.",
           href: SHOP_INDEX,
-          ctaLabel: "Explore Agarwood →",
-          imageSrc: "/images/generated/products/small-agarwood-box/hero.webp",
-          imageAlt: "Agarwood box",
+          ctaLabel: "Explore Lavender →",
+          imageSrc: "/images/generated/mood-poster-calm-jasmine.webp",
+          imageAlt: "Calm floral mood",
           icon: "tree",
         },
       ],
@@ -426,76 +429,66 @@ export const evergreenGuidePageContent: Record<EvergreenGuideSlug, EvergreenGuid
     features: [
       {
         id: "bedroom-atmosphere",
-        title: "Evening Atmosphere",
-        description: "Lower stimulation in the room before you try to rest.",
+        title: "Creating A Calmer Evening Atmosphere",
+        description: "Lighting, scent, and quiet often work together at night.",
         imageSrc: "/images/generated/mood-hero-still-life.webp",
         imageAlt: "Soft evening still life",
         listType: "checklist",
         items: [
-          "Dim overhead lights",
-          "Put screens out of reach",
-          "Keep one soft texture nearby",
-          "Choose a scent you already trust",
+          "Softer Lighting — Warm lighting helps reduce harsh stimulation at night.",
+          "Gentle Fragrance — Subtle scent often feels more relaxing than strong fragrance indoors.",
+          "Quiet Space — Removing noise and visual clutter changes the feeling of a room significantly.",
         ],
       },
       {
         id: "evening-rituals",
-        title: "Wind-Down Rituals",
-        description: "A short sequence signals the day is ending.",
+        title: "Wind-Down Routines",
+        description: "Small repeated habits help evenings feel slower and more intentional.",
         imageSrc: "/images/generated/essay-night-incense-ritual.webp",
         imageAlt: "Evening incense ritual",
         listType: "numbered",
         items: [
-          "Close the work tab",
-          "Light incense",
-          "Breathe slowly for one minute",
-          "Stretch or make tea",
-          "Lower the lights again",
-          "Let the room settle",
+          "Dim the lights and close busy tabs",
+          "Light incense for a short session",
+          "Make tea or stretch briefly",
+          "Let the room settle before sleep",
         ],
       },
     ],
     faq: [
       {
-        id: "calm-when",
-        question: "When should I start an evening ritual?",
+        id: "calm-scents-night",
+        question: "What scents feel calming at night?",
         answer: [
           {
             type: "paragraph",
-            text: "Many people begin 30–60 minutes before bed — enough time to decompress without rushing.",
+            text: "Soft woods, tea scents, and gentle florals are commonly preferred.",
           },
         ],
       },
       {
-        id: "calm-scent",
-        question: "What if a scent feels distracting?",
+        id: "calm-routine",
+        question: "Is incense good for evening routines?",
         answer: [
           {
             type: "paragraph",
-            text: "Switch to something softer or reduce burn time. Calm evenings favor familiarity over intensity.",
+            text: "Many people use fragrance as part of slower nighttime rituals.",
           },
         ],
       },
       {
-        id: "calm-length",
-        question: "How long should I burn incense?",
+        id: "calm-soft",
+        question: "Why do softer scents feel more relaxing?",
         answer: [
           {
             type: "paragraph",
-            text: "Often 15–20 minutes is enough. You can extinguish early and let the aroma linger.",
+            text: "Subtle fragrance often feels less overstimulating indoors.",
           },
         ],
       },
-      {
-        id: "calm-mood",
-        question: "Can incense replace other wind-down habits?",
-        answer: [
-          {
-            type: "paragraph",
-            text: "It works best as one cue alongside light, breath, or quiet activity — not as the only step.",
-          },
-        ],
-      },
+    ],
+    closingThoughts: [
+      "A calmer evening atmosphere often comes from simplicity: softer lighting, lower stimulation, gentle fragrance, and slower routines.",
     ],
     relatedArticles: [
       {
@@ -523,54 +516,59 @@ export const evergreenGuidePageContent: Record<EvergreenGuideSlug, EvergreenGuid
     saveShareSub: "Bookmark this guide to return to your evening wind-down rituals.",
   },
   "slow-living-ritual-guide": {
-    heroTagline: "Writing. Tea. Reading. Quiet focus.",
-    heroLede: "Desk rituals and creative solitude without noise.",
+    heroTagline:
+      "Gentle routines for reading, tea, writing, reflection, and slower living.",
+    heroLede:
+      "This guide explores simple daily rituals that help indoor spaces feel quieter, calmer, and more intentional.",
+    quickAnswerTitle: "Introduction",
     quickAnswer: [
-      "Light woods and tea notes support focus without pulling attention away from the page.",
-      "A short incense session at your desk can mark the start of writing or reading time.",
+      "Quiet rituals are often less about productivity and more about atmosphere.",
+      "A slower morning, tea preparation, reading, or writing with soft fragrance can help a home feel calmer and less overstimulating.",
+      "Many people today are seeking softer daily experiences instead of constant intensity.",
     ],
     quickAnswerImageSrc: "/images/generated/essay-incense-patience.webp",
     quickAnswerImageAlt: "Desk with tea and incense",
+    tocHeading: "Quick Navigation",
     toc: [
-      { id: "best-scents", label: "Scents for Focus", icon: "scents" },
-      { id: "bedroom-atmosphere", label: "Desk Atmosphere", icon: "atmosphere" },
-      { id: "evening-rituals", label: "Daily Rituals", icon: "rituals" },
-      { id: "how-to-use-incense", label: "How to Use Incense", icon: "incense" },
-      { id: "faq", label: "FAQ", icon: "faq" },
-      { id: "related-articles", label: "Related Articles", icon: "articles" },
+      { id: "evening-rituals", label: "Morning rituals", icon: "rituals" },
+      { id: "best-scents", label: "Tea and incense", icon: "scents" },
+      { id: "bedroom-atmosphere", label: "Writing atmosphere", icon: "atmosphere" },
+      { id: "best-scents", label: "Focus and calm", icon: "incense" },
+      { id: "evening-rituals", label: "Slow living", icon: "rituals" },
+      { id: "bedroom-atmosphere", label: "Quiet home habits", icon: "faq" },
     ],
     scents: {
-      title: "Scents for Focus",
+      title: "Recommended Fragrance Styles",
       subtitle:
-        "Subtle fragrance marks the start of quiet work — without competing with your thoughts.",
+        "Soft woods · Tea-inspired scents · Linen blends · Gentle incense smoke · Earthy minimalist fragrances",
       viewAllHref: SHOP_INDEX,
       viewAllLabel: "View all scents →",
       cards: [
         {
-          title: "Tea Notes",
-          description: "Clean and steady — good for morning pages and study.",
+          title: "Soft Woods",
+          description: "Grounding scent that stays in the background while you read or write.",
           href: SHOP_INDEX,
-          ctaLabel: "Explore Tea Notes →",
-          imageSrc: "/images/generated/products/ceramic-tea-cup/atmosphere.webp",
-          imageAlt: "Tea and desk light",
-          icon: "sprout",
-        },
-        {
-          title: "Light Woods",
-          description: "Grounding scent that stays in the background.",
-          href: SHOP_INDEX,
-          ctaLabel: "Explore Light Woods →",
+          ctaLabel: "Explore Soft Woods →",
           imageSrc: "/images/generated/essay-incense-ink-silence.webp",
           imageAlt: "Ink and incense still life",
           icon: "tree",
         },
         {
-          title: "Soft Resins",
-          description: "Warm depth for longer reading or reflection sessions.",
+          title: "Tea-Inspired Scents",
+          description: "Clean and steady — good for morning pages and quiet tea rituals.",
           href: SHOP_INDEX,
-          ctaLabel: "Explore Soft Resins →",
-          imageSrc: "/images/generated/essay-why-scholars-burned-incense.webp",
-          imageAlt: "Scholarly desk ritual",
+          ctaLabel: "Explore Tea Scents →",
+          imageSrc: "/images/generated/products/ceramic-tea-cup/atmosphere.webp",
+          imageAlt: "Tea and desk light",
+          icon: "sprout",
+        },
+        {
+          title: "Linen Blends",
+          description: "Airy, minimalist fragrance for calm corners at home.",
+          href: SHOP_INDEX,
+          ctaLabel: "Explore Linen Blends →",
+          imageSrc: "/images/generated/products/linen-cloth/atmosphere.webp",
+          imageAlt: "Linen and soft daylight",
           icon: "moon",
         },
       ],
@@ -578,76 +576,67 @@ export const evergreenGuidePageContent: Record<EvergreenGuideSlug, EvergreenGuid
     features: [
       {
         id: "bedroom-atmosphere",
-        title: "Desk Atmosphere",
-        description: "A calm desk makes focus feel easier to enter.",
+        title: "Small Rituals That Change Atmosphere",
+        description: "Simple habits can make a room feel quieter without much effort.",
         imageSrc: "/images/generated/essay-incense-patience.webp",
         imageAlt: "Writing desk with incense",
         listType: "checklist",
         items: [
-          "Clear one small area of clutter",
-          "Keep the holder stable and away from paper",
-          "Use natural light when you can",
-          "Choose a scent you associate with work",
+          "Tea Rituals — Simple tea routines create natural pauses during the day.",
+          "Reading Corners — Lighting, scent, and silence can completely change a reading space.",
+          "Writing Atmosphere — Many people prefer subtle fragrance while journaling or focusing quietly.",
         ],
       },
       {
         id: "evening-rituals",
-        title: "Daily Rituals",
-        description: "Repeatable cues help quiet routines stick.",
+        title: "Quiet Home Habits",
+        description: "Repeatable cues help slower routines feel natural over time.",
         imageSrc: "/images/generated/products/wood-tray/atmosphere.webp",
         imageAlt: "Wood tray with incense tools",
         listType: "numbered",
         items: [
-          "Boil water or open a book",
-          "Light incense",
-          "Set a gentle time limit",
-          "Write or read without tabs",
-          "Extinguish when the session ends",
-          "Close with one line of reflection",
+          "Choose one soft scent for the room",
+          "Light incense for a short session",
+          "Read, write, or make tea without multitasking",
+          "Close with a few minutes of silence",
         ],
       },
     ],
     faq: [
       {
-        id: "slow-when",
-        question: "When is the best time for a desk ritual?",
+        id: "slow-focus",
+        question: "What incense is good for focus?",
         answer: [
           {
             type: "paragraph",
-            text: "Morning or early evening works for many people — whenever you can protect 20–30 quiet minutes.",
+            text: "Many people prefer subtle wood or tea-inspired fragrances.",
           },
         ],
       },
       {
-        id: "slow-writing",
-        question: "Does incense help with writing?",
+        id: "slow-calming",
+        question: "Why do rituals feel calming?",
         answer: [
           {
             type: "paragraph",
-            text: "It can mark the start of a session. Familiar, soft scents work better than strong novelty.",
+            text: "Rituals create slower transitions and reduce overstimulation.",
           },
         ],
       },
       {
-        id: "slow-length",
-        question: "How long should I burn incense at a desk?",
+        id: "slow-quieter",
+        question: "How do I make my home feel quieter?",
         answer: [
           {
             type: "paragraph",
-            text: "Often one short stick or the first third of a stick is enough for a focused block.",
+            text: "Lighting, scent, and removing visual clutter often help significantly.",
           },
         ],
       },
-      {
-        id: "slow-scent",
-        question: "What scents are too strong for focus?",
-        answer: [
-          {
-            type: "paragraph",
-            text: "Heavy smoke or sweet florals can pull attention. Tea, soft woods, and light resins are common choices.",
-          },
-        ],
-      },
+    ],
+    closingThoughts: [
+      "Quiet routines are usually built from small repeated moments: soft lighting, gentle fragrance, silence, tea, reading, and reflection.",
+      "These small habits can gradually shape a calmer indoor atmosphere.",
     ],
     relatedArticles: [
       {
@@ -675,54 +664,59 @@ export const evergreenGuidePageContent: Record<EvergreenGuideSlug, EvergreenGuid
     saveShareSub: "Bookmark this guide for desk rituals and quiet focus anytime.",
   },
   "incense-care-guide": {
-    heroTagline: "Safety. Ventilation. Everyday care.",
-    heroLede: "Clear guidance for low-smoke incense at home.",
+    heroTagline:
+      "Practical guidance for safer, softer, and more comfortable incense use indoors.",
+    heroLede:
+      "This guide covers the most common questions about indoor fragrance, low-smoke incense, ventilation, pets, and everyday comfort.",
+    quickAnswerTitle: "Introduction",
     quickAnswer: [
-      "Low-smoke incense, shorter burn times, and good ventilation are the basics for indoor use.",
-      "Pets and small rooms need softer scents, stable holders, and never leaving incense unattended.",
+      "Modern incense use is changing.",
+      "Many people today prefer lighter fragrance, lower smoke, and cleaner indoor atmosphere compared to traditional heavy incense styles.",
+      "This guide explains practical ways to use incense more comfortably at home.",
     ],
     quickAnswerImageSrc: "/images/generated/essay-good-incense-not-loud.webp",
     quickAnswerImageAlt: "Gentle incense smoke in a ventilated room",
+    tocHeading: "Quick Navigation",
     toc: [
-      { id: "best-scents", label: "Low-Smoke Choices", icon: "scents" },
-      { id: "bedroom-atmosphere", label: "Safe Setup", icon: "atmosphere" },
-      { id: "evening-rituals", label: "Care Steps", icon: "rituals" },
-      { id: "how-to-use-incense", label: "How to Use Incense", icon: "incense" },
-      { id: "faq", label: "FAQ", icon: "faq" },
-      { id: "related-articles", label: "Related Articles", icon: "articles" },
+      { id: "best-scents", label: "Indoor incense tips", icon: "incense" },
+      { id: "bedroom-atmosphere", label: "Pets and incense", icon: "atmosphere" },
+      { id: "best-scents", label: "Low-smoke incense", icon: "scents" },
+      { id: "bedroom-atmosphere", label: "Bedroom use", icon: "atmosphere" },
+      { id: "evening-rituals", label: "Ventilation", icon: "rituals" },
+      { id: "evening-rituals", label: "Burn duration", icon: "rituals" },
     ],
     scents: {
-      title: "Low-Smoke Choices",
+      title: "Indoor Incense Basics",
       subtitle:
-        "Formulas labeled low-smoke are designed to keep indoor air more comfortable during regular use.",
+        "Ventilation, lower smoke, and shorter sessions are the foundation of comfortable everyday use.",
       viewAllHref: SHOP_INDEX,
       viewAllLabel: "View all scents →",
       cards: [
         {
-          title: "Low-Smoke Sticks",
-          description: "Less visible smoke — good for apartments and shared spaces.",
+          title: "Ventilation Matters",
+          description: "Fresh airflow helps prevent smoke buildup indoors.",
           href: SHOP_INDEX,
-          ctaLabel: "Explore Low-Smoke →",
+          ctaLabel: "Shop low-smoke incense →",
           imageSrc: "/images/generated/products/paper-incense-sleeve/hero.webp",
           imageAlt: "Incense sticks in paper sleeve",
           icon: "moon",
         },
         {
-          title: "Soft Woods",
-          description: "Gentle profiles that do not dominate a room.",
+          title: "Less Smoke Often Feels Better",
+          description: "Cleaner-burning incense usually creates a softer atmosphere.",
           href: SHOP_INDEX,
-          ctaLabel: "Explore Soft Woods →",
+          ctaLabel: "Explore low-smoke →",
           imageSrc: "/images/generated/essay-what-is-agarwood.webp",
           imageAlt: "Wood incense materials",
           icon: "tree",
         },
         {
-          title: "Light Florals",
-          description: "Airy scents for shorter, ventilated sessions.",
+          title: "Short Sessions Work Well",
+          description: "You do not always need long burn sessions for fragrance to feel noticeable.",
           href: SHOP_INDEX,
-          ctaLabel: "Explore Light Florals →",
-          imageSrc: "/images/generated/mood-poster-calm-jasmine.webp",
-          imageAlt: "Soft floral incense mood",
+          ctaLabel: "View care essentials →",
+          imageSrc: "/images/generated/products/brass-incense-stand/atmosphere.webp",
+          imageAlt: "Incense holder on a stable surface",
           icon: "sprout",
         },
       ],
@@ -730,76 +724,69 @@ export const evergreenGuidePageContent: Record<EvergreenGuideSlug, EvergreenGuid
     features: [
       {
         id: "bedroom-atmosphere",
-        title: "Safe Setup",
-        description: "A stable, ventilated setup matters more than scent alone.",
+        title: "Using Incense Around Pets",
+        description:
+          "Cats and dogs often have stronger scent sensitivity than humans. Good airflow, moderation, and lower smoke levels are especially important in homes with pets.",
         imageSrc: "/images/generated/products/brass-incense-stand/atmosphere.webp",
         imageAlt: "Incense holder on a stable surface",
         listType: "checklist",
         items: [
-          "Use a heat-safe holder on a stable surface",
-          "Keep away from curtains, paper, and pets",
-          "Ventilate before and after burning",
-          "Never leave incense unattended",
+          "Ventilate the room before and after burning",
+          "Choose low-smoke incense for shared spaces",
+          "Keep sessions short and watch for irritation",
+          "Let pets leave the room freely if they prefer",
         ],
       },
       {
         id: "evening-rituals",
-        title: "Care Steps",
-        description: "Simple habits keep incense pleasant and safe indoors.",
+        title: "Bedroom Incense Tips",
+        description:
+          "Bedrooms are smaller and more enclosed than larger living spaces. Softer fragrance and shorter sessions often feel more comfortable before sleep.",
         imageSrc: "/images/generated/products/small-agarwood-box/atmosphere.webp",
         imageAlt: "Incense storage and care",
         listType: "numbered",
         items: [
-          "Check the holder is cool before relighting",
-          "Trim or tap ash into a safe dish",
-          "Store sticks dry and sealed",
-          "Start with shorter burn times",
-          "Watch pets for sensitivity",
-          "Extinguish fully when finished",
+          "Burn for 15–30 minutes, not all night",
+          "Use a stable holder away from bedding",
+          "Open a window or door slightly when possible",
+          "Extinguish early if the room feels heavy",
         ],
       },
     ],
     faq: [
       {
-        id: "care-pets",
+        id: "care-indoors",
+        question: "Is incense bad indoors?",
+        answer: [
+          {
+            type: "paragraph",
+            text: "Ventilation and moderation are important for indoor comfort.",
+          },
+        ],
+      },
+      {
+        id: "care-low-smoke-def",
+        question: "What is low-smoke incense?",
+        answer: [
+          {
+            type: "paragraph",
+            text: "Low-smoke incense is designed to produce a softer and cleaner indoor fragrance experience.",
+          },
+        ],
+      },
+      {
+        id: "care-pets-safe",
         question: "Is incense safe around pets?",
         answer: [
           {
             type: "paragraph",
-            text: "Often yes in moderation with ventilation. Pets may be more sensitive — use low-smoke options and shorter sessions.",
+            text: "Many pet owners prefer lower smoke levels and softer fragrances with good airflow.",
           },
         ],
       },
-      {
-        id: "care-low-smoke",
-        question: "What does low-smoke incense mean?",
-        answer: [
-          {
-            type: "paragraph",
-            text: "It usually produces less visible smoke while burning — helpful in bedrooms and small apartments.",
-          },
-        ],
-      },
-      {
-        id: "care-vent",
-        question: "Do I need to open a window?",
-        answer: [
-          {
-            type: "paragraph",
-            text: "Fresh air helps, especially in small rooms. Even a few minutes of ventilation before and after makes a difference.",
-          },
-        ],
-      },
-      {
-        id: "care-time",
-        question: "How long should I burn incense indoors?",
-        answer: [
-          {
-            type: "paragraph",
-            text: "Many people use 15–30 minutes for everyday sessions. You can extinguish early if the room feels heavy.",
-          },
-        ],
-      },
+    ],
+    closingThoughts: [
+      "The most comfortable indoor incense experience usually comes from softer scent profiles, lower smoke levels, better airflow, and shorter burn sessions.",
     ],
     relatedArticles: [
       {

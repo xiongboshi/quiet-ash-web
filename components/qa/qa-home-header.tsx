@@ -9,6 +9,7 @@ import { brandHome } from "@/data/brand-home";
 import { PRIMARY_NAV } from "@/lib/site-nav";
 import {
   isMobileNavBackLeadingPath,
+  isMobileNavBackTrailingPath,
   isMobileNavCartHiddenPath,
   mobileNavBackFallbackHref,
 } from "@/lib/site-nav-layout";
@@ -43,6 +44,7 @@ export function QaHomeHeader() {
   const path = normalizePath(pathname);
   const mobileNavBack = isMobileNavBackLeadingPath(pathname);
   const mobileNavBackFallback = mobileNavBackFallbackHref(pathname);
+  const showTrailingBack = isMobileNavBackTrailingPath(pathname);
   const hideMobileNavCart = isMobileNavCartHiddenPath(pathname);
   const [menuOpen, setMenuOpen] = useState(false);
   const panelId = useId();
@@ -109,9 +111,16 @@ export function QaHomeHeader() {
           </div>
 
           <div className="nav-actions">
-            <QaHomeCartLink
-              className={hideMobileNavCart ? "nav-icon-btn--cart-on-detail" : undefined}
-            />
+            {showTrailingBack ? (
+              <QaMobileBackButton
+                variant="trailing"
+                fallbackHref={mobileNavBackFallback}
+              />
+            ) : (
+              <QaHomeCartLink
+                className={hideMobileNavCart ? "nav-icon-btn--cart-on-detail" : undefined}
+              />
+            )}
           </div>
         </div>
       </nav>

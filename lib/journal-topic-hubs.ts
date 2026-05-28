@@ -5,6 +5,7 @@ import {
   type JournalTopicHub,
   type JournalTopicHubId,
 } from "@/data/journal-topic-hubs";
+import { isJournalGuideArticle } from "@/data/journal-guide-slugs";
 import type { JournalIndexArticleResolved } from "@/lib/journal-index-articles";
 import { filterAndSortJournalArticles } from "@/lib/journal-index-articles";
 
@@ -37,13 +38,18 @@ export function getArticlesForTopicHub(
     null,
   );
 
-  if (!featuredSlugs?.length) return byCategory;
+  if (!featuredSlugs?.length) {
+    return byCategory.filter((a) => isJournalGuideArticle(a.slug));
+  }
 
   const bySlug = new Map(articles.map((a) => [a.slug, a]));
   const featured = new Set(featuredSlugs);
   const pinned = featuredSlugs
+    .filter((slug) => isJournalGuideArticle(slug))
     .map((slug) => bySlug.get(slug) ?? byCategory.find((a) => a.slug === slug))
     .filter((a): a is JournalIndexArticleResolved => Boolean(a));
-  const rest = byCategory.filter((a) => !featured.has(a.slug));
+  const rest = byCategory.filter(
+    (a) => !featured.has(a.slug) && isJournalGuideArticle(a.slug),
+  );
   return [...pinned, ...rest];
 }

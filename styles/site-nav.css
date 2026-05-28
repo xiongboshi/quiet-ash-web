@@ -445,9 +445,14 @@
     pointer-events: none;
   }
 
-  .site-nav-chrome .nav-icon-btn--cart {
+  .site-nav-chrome .nav-icon-btn--cart,
+  .site-nav-chrome .nav-icon-btn--back {
     width: var(--site-nav-mobile-control);
     height: var(--site-nav-mobile-control);
+  }
+
+  .site-nav-chrome--overlay .nav-icon-btn--back {
+    color: var(--site-nav-ink-strong, #0d0d0d);
   }
 
   .site-nav-chrome .nav-icon-btn--cart .nav-cart-icon {
@@ -487,7 +492,8 @@
     z-index: 65;
   }
 
-  .site-nav-chrome--menu-open .nav-icon-btn--cart {
+  .site-nav-chrome--menu-open .nav-icon-btn--cart,
+  .site-nav-chrome--menu-open .nav-icon-btn--back {
     visibility: hidden;
     pointer-events: none;
   }

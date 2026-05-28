@@ -70,17 +70,14 @@ export const journalTopicHubs: readonly JournalTopicHub[] = [
     categoryId: "better-sleep",
     relatedMoodSlug: "evening-room-ritual",
     relatedMoodLabel: "Explore Calm Evenings",
-    featuredSlugs: [
-      "best-incense-for-sleep",
-      "night-incense-ritual",
-      "what-is-agarwood",
-    ],
+    featuredSlugs: ["best-incense-for-sleep"],
   },
   {
     id: "small-space-living",
     pathname: journalPath("small-space-living"),
     title: "Small Space Living",
-    tagline: "Low-smoke fragrance and softer indoor atmosphere.",
+    tagline:
+      "Low-smoke fragrance and softer atmosphere for apartments, studios, and quieter indoor spaces.",
     description:
       "Apartments, bedrooms, and compact homes — ventilation, subtle scent, and low-smoke incense.",
     semanticKeywords: [
@@ -94,13 +91,14 @@ export const journalTopicHubs: readonly JournalTopicHub[] = [
     heroImageSrc: "/images/generated/essay-night-incense-ritual.webp",
     heroImageAlt: "Incense with restrained smoke in a small bedroom",
     categoryId: "small-space-living",
-    featuredSlugs: ["best-incense-for-small-apartments", "good-incense-not-loud"],
+    featuredSlugs: ["best-incense-for-small-apartments"],
   },
   {
     id: "calm-evenings",
     pathname: journalPath("calm-evenings"),
     title: "Calm Evenings",
-    tagline: "Slower rituals for overstimulated days.",
+    tagline:
+      "Slower rituals, softer lighting, and quieter atmosphere after long days.",
     description:
       "Emotional decompression, nervous-system reset, and softer evening atmosphere at home.",
     semanticKeywords: [
@@ -115,13 +113,14 @@ export const journalTopicHubs: readonly JournalTopicHub[] = [
     categoryId: "calm-evenings",
     relatedMoodSlug: "evening-room-ritual",
     relatedMoodLabel: "Explore Calm Evenings",
-    featuredSlugs: ["good-incense-not-loud", "incense-patience", "forgotten-incense-culture"],
+    featuredSlugs: [],
   },
   {
     id: "quiet-routines",
     pathname: journalPath("quiet-routines"),
     title: "Quiet Routines",
-    tagline: "Writing, tea, reading, and quiet focus.",
+    tagline:
+      "Gentle rituals for reading, writing, tea, reflection, and slower daily living.",
     description:
       "Desk rituals, tea, reading, and creative solitude — atmosphere without noise.",
     semanticKeywords: [
@@ -137,11 +136,7 @@ export const journalTopicHubs: readonly JournalTopicHub[] = [
     categoryId: "quiet-routines",
     relatedMoodSlug: "incense-before-writing",
     relatedMoodLabel: "Incense Before Writing",
-    featuredSlugs: [
-      "why-scholars-burned-incense",
-      "incense-ink-silence",
-      "incense-patience",
-    ],
+    featuredSlugs: [],
   },
   {
     id: "cozy-home",
@@ -161,13 +156,14 @@ export const journalTopicHubs: readonly JournalTopicHub[] = [
     heroImageSrc: "/images/generated/essay-good-incense-not-loud.webp",
     heroImageAlt: "Quiet incense still life in a warm, cozy interior",
     categoryId: "cozy-home",
-    featuredSlugs: ["forgotten-incense-culture"],
+    featuredSlugs: [],
   },
   {
     id: "guides-care",
     pathname: journalPath("guides-care"),
     title: "Guides & Care",
-    tagline: "Practical answers for safer, cleaner indoor fragrance.",
+    tagline:
+      "Practical answers and everyday guidance for cleaner, calmer incense use at home.",
     description:
       "Pet safety, low-smoke incense, ventilation, burn times, and everyday care — clear guides for home use.",
     semanticKeywords: [
@@ -180,11 +176,7 @@ export const journalTopicHubs: readonly JournalTopicHub[] = [
     heroImageSrc: "/images/generated/essay-good-incense-not-loud.webp",
     heroImageAlt: "Gentle incense smoke in a well-ventilated home",
     categoryId: "guides-care",
-    featuredSlugs: [
-      "is-incense-safe-for-pets",
-      "best-incense-for-small-apartments",
-      "what-is-agarwood",
-    ],
+    featuredSlugs: ["is-incense-safe-for-pets"],
   },
 ];
 

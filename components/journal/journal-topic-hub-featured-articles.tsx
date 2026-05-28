@@ -15,6 +15,9 @@ export function JournalTopicHubFeaturedArticles({
   resolvedBySlug,
   viewAllHref,
 }: Props) {
+  const visible = articles.filter((item) => resolvedBySlug.has(item.slug));
+  if (visible.length === 0) return null;
+
   return (
     <section
       className="journal-topic-page__featured-articles"
@@ -29,9 +32,8 @@ export function JournalTopicHubFeaturedArticles({
         </Link>
       </header>
       <ul className="journal-topic-page__featured-articles-grid">
-        {articles.map((item) => {
-          const resolved = resolvedBySlug.get(item.slug);
-          if (!resolved) return null;
+        {visible.map((item) => {
+          const resolved = resolvedBySlug.get(item.slug)!;
           return (
             <li key={`${item.slug}-${item.title}`}>
               <article className="journal-topic-page__article-card">
@@ -50,7 +52,7 @@ export function JournalTopicHubFeaturedArticles({
                   </h3>
                   <p className="journal-topic-page__article-card-desc">{item.description}</p>
                   <p className="journal-topic-page__article-card-meta">
-                    {resolved.readMinutes} min read
+                    {item.readMinutes ?? resolved.readMinutes} min read
                   </p>
                 </Link>
               </article>

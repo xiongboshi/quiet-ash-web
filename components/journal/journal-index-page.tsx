@@ -2,17 +2,16 @@ import { JournalIndexDiscovery } from "@/components/journal/journal-index-discov
 import { JournalIndexHero } from "@/components/journal/journal-index-hero";
 import { journalDiscoveryHubOrder } from "@/data/journal-index-discovery";
 import type { JournalTopicHubId } from "@/data/journal-topic-hubs";
+import { countJournalQaArticlesForTopicHub } from "@/data/journal-guide-slugs";
 import { getJournalIndexArticles } from "@/lib/get-journal-index-articles";
-import { resolveJournalIndexCategories } from "@/lib/journal-index-categories";
 
 export function JournalIndexPage() {
   const articles = getJournalIndexArticles();
-  const categories = resolveJournalIndexCategories(articles);
   const hubCounts = Object.fromEntries(
-    journalDiscoveryHubOrder.map((hubId) => {
-      const row = categories.find((c) => c.id === hubId);
-      return [hubId, row?.count ?? 0];
-    }),
+    journalDiscoveryHubOrder.map((hubId) => [
+      hubId,
+      countJournalQaArticlesForTopicHub(articles, hubId),
+    ]),
   ) as Record<JournalTopicHubId, number>;
 
   return (

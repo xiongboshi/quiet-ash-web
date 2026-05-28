@@ -6,7 +6,7 @@ import { navigateHistoryBack } from "@/lib/history-back";
 
 type Props = {
   fallbackHref: string;
-  variant?: "bar" | "drawer";
+  variant?: "bar" | "drawer" | "trailing";
   className?: string;
   onNavigate?: () => void;
 };
@@ -19,6 +19,7 @@ export function QaMobileBackButton({
 }: Props) {
   const router = useRouter();
   const isDrawer = variant === "drawer";
+  const isTrailing = variant === "trailing";
 
   return (
     <button
@@ -26,7 +27,9 @@ export function QaMobileBackButton({
       className={
         isDrawer
           ? `qa-mobile-panel__back${className ? ` ${className}` : ""}`
-          : `nav-mobile-toggle${className ? ` ${className}` : ""}`
+          : isTrailing
+            ? `nav-icon-btn nav-icon-btn--back${className ? ` ${className}` : ""}`
+            : `nav-mobile-toggle${className ? ` ${className}` : ""}`
       }
       aria-label="Go back"
       onClick={() => {
