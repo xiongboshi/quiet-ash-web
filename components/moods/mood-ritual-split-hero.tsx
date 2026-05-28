@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import Link from "next/link";
 import type { MoodRitualHeroSpec } from "@/data/mood-ritual-heroes";
 import { siteRailExemptClass } from "@/lib/site-rail";

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import Link from "next/link";
 import type { EssayMeta } from "@/lib/essays";
 import { essayCardImageUrl, essayCardSubtitle } from "@/lib/essay-visuals";

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { RelatedObjectsStrip } from "@/components/commerce/related-objects-strip";

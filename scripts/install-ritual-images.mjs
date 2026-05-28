@@ -26,7 +26,7 @@ const slugArg = process.argv[2];
 const fileArg = process.argv[3];
 
 function destFor(slug, file) {
-  const name = file === "cover" ? "cover.png" : `step-0${file}.png`;
+  const name = file === "cover" ? "cover.webp" : `step-0${file}.webp`;
   return path.join(root, "public", "images", "generated", "rituals", slug, name);
 }
 
@@ -49,7 +49,7 @@ async function installOne(slug, file) {
   fs.mkdirSync(path.dirname(dest), { recursive: true });
   await sharp(src)
     .resize(width, height, { fit: "cover", position: "centre" })
-    .png({ compressionLevel: 9 })
+    .webp({ quality: 82, effort: 4 })
     .toFile(dest);
   console.log(`installed ${path.relative(root, dest)}`);
   return true;

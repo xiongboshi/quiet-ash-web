@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import Link from "next/link";
 import { brandHome } from "@/data/brand-home";
 import { homeSocialTiles } from "@/data/social-home";

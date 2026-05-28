@@ -54,6 +54,9 @@ export function JournalArticlePage({ article }: Props) {
           {finalSection ? <JournalArticleBody sections={[finalSection]} /> : null}
           <JournalArticleProducts block={article.products} />
           <JournalArticleRelated block={article.related} />
+          {article.articleNote ? (
+            <p className="journal-article__note">{article.articleNote}</p>
+          ) : null}
         </div>
       </div>
     </article>

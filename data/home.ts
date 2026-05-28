@@ -11,7 +11,7 @@ import { JOURNAL_INDEX, SHOP_INDEX } from "@/lib/site-paths";
 export const homeFeaturedRitualSlug = "incense-before-writing" as const;
 
 export const defaultHero = {
-  imageSrc: "/images/generated/hero-cinematic.png",
+  imageSrc: "/images/generated/hero-cinematic.webp",
   /** Focal point — short stick incense + smoke; left lockup stays clear for type. */
   imagePosition: "62% 48%",
   /** Uppercase cadence — rendered below the display title in `Hero`. */

@@ -11,16 +11,18 @@ import { ShopCategoryListingState } from "@/components/shop/shop-category-listin
 
 type Props = {
   categorySlug?: ShopCatalogSlug;
+  initialMood?: string | null;
 };
 
 export function ShopCategoryPage({
   categorySlug = DEFAULT_SHOP_CATEGORY_SLUG,
+  initialMood = null,
 }: Props) {
   const category = resolveShopCategory(categorySlug);
 
   return (
     <ShopCategoryProvider category={category}>
-      <ShopCategoryListingState category={category}>
+      <ShopCategoryListingState category={category} initialMood={initialMood}>
         <div className="shop-category-page">
           <ShopCategoryHero />
           <div className="shop-category-page__body">

@@ -5,6 +5,7 @@ import {
   Suspense,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useState,
   type ReactNode,
@@ -39,26 +40,49 @@ const ShopListingContext = createContext<ShopListingState | null>(null);
 
 type Props = {
   category: ResolvedShopCategory;
+  /** From server `searchParams` — avoids suspending the whole PLP. */
+  initialMood?: string | null;
   children: ReactNode;
 };
 
-function initialCheckedFromMoodParam(
-  searchParams: ReturnType<typeof useSearchParams>,
+function checkedFromMood(
+  mood: string | null | undefined,
   moodIds: readonly string[],
 ): Record<string, boolean> {
-  const mood = parseShopMoodFromSearchParams(searchParams, moodIds);
-  return mood ? { [mood]: true } : {};
+  if (!mood || !moodIds.includes(mood)) return {};
+  return { [mood]: true };
 }
 
-function ShopCategoryListingStateInner({ category, children }: Props) {
+/** Syncs `?mood=` without suspending listing children. */
+function ShopMoodParamSync({
+  moodIds,
+  onApply,
+}: {
+  moodIds: readonly string[];
+  onApply: (checked: Record<string, boolean>) => void;
+}) {
   const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const mood = parseShopMoodFromSearchParams(searchParams, moodIds);
+    onApply(mood ? { [mood]: true } : {});
+  }, [searchParams, moodIds, onApply]);
+
+  return null;
+}
+
+export function ShopCategoryListingState({
+  category,
+  initialMood = null,
+  children,
+}: Props) {
   const moodIds = useMemo(
     () => getMoodFilterOptionIds(category.slug as ShopCatalogSlug),
     [category.slug],
   );
 
   const [checked, setChecked] = useState<Record<string, boolean>>(() =>
-    initialCheckedFromMoodParam(searchParams, moodIds),
+    checkedFromMood(initialMood, moodIds),
   );
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -117,17 +141,12 @@ function ShopCategoryListingStateInner({ category, children }: Props) {
   );
 
   return (
-    <ShopListingContext.Provider value={value}>{children}</ShopListingContext.Provider>
-  );
-}
-
-export function ShopCategoryListingState({ category, children }: Props) {
-  return (
-    <Suspense fallback={null}>
-      <ShopCategoryListingStateInner category={category}>
-        {children}
-      </ShopCategoryListingStateInner>
-    </Suspense>
+    <ShopListingContext.Provider value={value}>
+      <Suspense fallback={null}>
+        <ShopMoodParamSync moodIds={moodIds} onApply={setChecked} />
+      </Suspense>
+      {children}
+    </ShopListingContext.Provider>
   );
 }
 

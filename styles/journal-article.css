@@ -928,6 +928,14 @@
   }
 }
 
+.journal-article__note {
+  margin: 2.5rem 0 0;
+  max-width: 42rem;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--qa-ink-muted, rgba(28, 26, 24, 0.62));
+}
+
 @media (max-width: 639px) {
   .journal-article-insight__band {
     padding: 1.75rem 0 2rem;

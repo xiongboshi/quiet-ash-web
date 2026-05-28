@@ -1,6 +1,6 @@
 import { EssenceBand } from "@/components/sections/essence-band";
 
-const OBJECTS_ESSENCE_IMG = "/images/generated/objects-essence-hero.png";
+const OBJECTS_ESSENCE_IMG = "/images/generated/objects-essence-hero.webp";
 
 /**
  * Objects index — same {@link EssenceBand} shell as `/moods`.

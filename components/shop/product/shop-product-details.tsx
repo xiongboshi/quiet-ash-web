@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import { candlestickBigLit } from "@lucide/lab";
 import { Flame, Icon, Sparkles } from "lucide-react";
 import type { ShopProductPdp } from "@/data/shop-product-pdp";

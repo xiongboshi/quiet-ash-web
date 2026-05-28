@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import Link from "next/link";
 import { formatPriceDisplayCard } from "@/lib/cart/pricing";
 import { shopPath } from "@/lib/site-paths";

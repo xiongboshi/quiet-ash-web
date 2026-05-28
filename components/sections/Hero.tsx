@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import Link from "next/link";
 import { defaultHero } from "@/data/home";
 import { HeroNav } from "@/components/sections/hero-nav";

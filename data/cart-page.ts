@@ -36,7 +36,7 @@ export const cartRecommendations: CartRecommendation[] = [
     type: "Incense Sticks",
     pack: "20 Sticks / Pack",
     priceCents: parsePriceDisplay("$24.00"),
-    image: "/images/generated/best-sellers/white-jasmine-v3.png",
+    image: "/images/generated/best-sellers/white-jasmine-v3.webp",
   },
   {
     slug: "paper-incense-sleeve",
@@ -44,7 +44,7 @@ export const cartRecommendations: CartRecommendation[] = [
     type: "Incense Sticks",
     pack: "20 Sticks / Pack",
     priceCents: parsePriceDisplay("$24.00"),
-    image: "/images/generated/best-sellers/lavender-field-v3.png",
+    image: "/images/generated/best-sellers/lavender-field-v3.webp",
   },
   {
     slug: "small-agarwood-box",
@@ -52,7 +52,7 @@ export const cartRecommendations: CartRecommendation[] = [
     type: "Incense Sticks",
     pack: "20 Sticks / Pack",
     priceCents: parsePriceDisplay("$26.00"),
-    image: "/images/generated/best-sellers/sandalwood-night-v2.png",
+    image: "/images/generated/best-sellers/sandalwood-night-v2.webp",
   },
   {
     slug: "linen-cloth",
@@ -60,6 +60,6 @@ export const cartRecommendations: CartRecommendation[] = [
     type: "4 Scents / 40 Sticks",
     pack: "Perfect for exploring",
     priceCents: parsePriceDisplay("$42.00"),
-    image: "/images/generated/best-sellers/quiet-cloud-v3.png",
+    image: "/images/generated/best-sellers/quiet-cloud-v3.webp",
   },
 ];

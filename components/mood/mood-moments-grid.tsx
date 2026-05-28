@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import { homeMoments, homeMomentsKicker } from "@/data/moments-home";
 import { brandHome } from "@/data/brand-home";
 

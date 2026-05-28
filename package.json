@@ -6,6 +6,8 @@
     "dev": "next dev -H 0.0.0.0",
     "dev:mobile": "next dev -H 0.0.0.0",
     "build": "next build",
+    "build:self-host": "npm run build && npm run gzip:static",
+    "gzip:static": "node scripts/gzip-static-chunks.mjs",
     "start": "next start",
     "start:lan": "next start -H 0.0.0.0",
     "lint": "eslint",
@@ -20,6 +22,8 @@
     "images:hero-prompts": "npx --yes tsx scripts/print-hero-image-prompts.ts",
     "images:hero-install": "node scripts/install-hero-image.mjs",
     "images:products-install": "node scripts/install-product-images.mjs",
+    "images:webp": "node scripts/convert-raster-to-webp.mjs",
+    "images:webp:replace": "node scripts/convert-raster-to-webp.mjs --replace",
     "knockout-seal": "node scripts/knockout-quote-seal.mjs",
     "knockout-mat": "node scripts/knockout-png-mat.mjs",
     "indexnow:submit": "npx --yes tsx scripts/submit-indexnow.ts",
@@ -40,6 +44,13 @@
     "remark-gfm": "^4.0.1",
     "zustand": "^5.0.13"
   },
+  "browserslist": [
+    "chrome >= 111",
+    "edge >= 111",
+    "firefox >= 111",
+    "safari >= 16.4",
+    "ios_saf >= 16.4"
+  ],
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",

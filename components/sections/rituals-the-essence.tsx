@@ -9,7 +9,7 @@ export function RitualsTheEssence() {
       eyebrow="The essence"
       titleLines={["Ways of", "Returning"]}
       body="Each ritual is an invitation to slow down, reconnect, and create space for what truly matters."
-      imageSrc="/images/generated/rituals-the-essence.png"
+      imageSrc="/images/generated/rituals-the-essence.webp"
     />
   );
 }

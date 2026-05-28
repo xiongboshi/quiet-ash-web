@@ -5,7 +5,7 @@ import {
 } from "@/lib/journal-mdx-meta";
 import { getAllEssays } from "@/lib/essays";
 
-const FALLBACK_IMAGE = "/images/generated/essay-good-incense-not-loud.png";
+const FALLBACK_IMAGE = "/images/generated/essay-good-incense-not-loud.webp";
 
 /** Build journal index cards from a registered `content/essays/{series}` folder. */
 export function buildJournalIndexCardsFromEssays(

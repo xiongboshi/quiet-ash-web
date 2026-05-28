@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import { HomeStarRating } from "@/components/home/home-icons";
 import type { ShopProductPdp } from "@/data/shop-product-pdp";
 

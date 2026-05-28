@@ -5,7 +5,7 @@
   "origin": "Small batch",
   "line": "Bright • Uplifting • Fresh",
   "priceDisplay": "$18.00",
-  "image": "/images/generated/best-sellers/citrus-grove-v5.png",
+  "image": "/images/generated/best-sellers/citrus-grove-v5.webp",
   "universe": "ritual",
   "seriesSlugs": ["incense-culture", "ash-and-time"],
   "featured": true,
@@ -25,7 +25,7 @@
       "scentNotes": "Lemon · Bergamot · Mandarin",
       "priceDisplay": "$18.00",
       "reviewCount": 276,
-      "imageSrc": "/images/generated/best-sellers/citrus-grove-v5.png",
+      "imageSrc": "/images/generated/best-sellers/citrus-grove-v5.webp",
       "imageAlt": "Citrus Sleep incense"
     },
     "plpByCategory": {
@@ -34,16 +34,16 @@
         "scentNotes": "Walnut · Ash channel · Hand-rubbed",
         "priceDisplay": "$78",
         "reviewCount": 116,
-        "imageSrc": "/images/generated/products/wood-tray/hero.png",
+        "imageSrc": "/images/generated/products/wood-tray/hero.webp",
         "imageAlt": "Walnut tea and incense tray"
       }
     }
   },
   "gallery": [
-    "/images/generated/best-sellers/citrus-grove-v5.png",
-    "/images/generated/best-sellers/citrus-grove-v4.png",
-    "/images/generated/best-sellers/citrus-grove-v3.png",
-    "/images/generated/best-sellers/citrus-grove.png",
-    "/images/generated/best-sellers/citrus-grove-v5.png"
+    "/images/generated/best-sellers/citrus-grove-v5.webp",
+    "/images/generated/best-sellers/citrus-grove-v4.webp",
+    "/images/generated/best-sellers/citrus-grove-v3.webp",
+    "/images/generated/best-sellers/citrus-grove.webp",
+    "/images/generated/best-sellers/citrus-grove-v5.webp"
   ]
 }

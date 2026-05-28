@@ -33,6 +33,7 @@ const CATEGORY_BREADCRUMB: Record<
   "calm-evenings": "Calm Evenings",
   "quiet-routines": "Quiet Routines",
   "guides-care": "Guides & Care",
+  "cozy-home": "Cozy Home",
 };
 
 const TAG_TAKEAWAY_ICON: Record<JournalTagId, JournalTakeawayIconId> = {

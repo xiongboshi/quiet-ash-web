@@ -40,7 +40,7 @@ export const homeRedesign = {
     ],
     cta: { label: "SHOP BEST SELLERS", href: SHOP_INDEX },
     rating: { score: "4.8/5", value: 4.8, label: "from 2,000+ customers" },
-    imageSrc: "/images/generated/mood-hero-ins-mockup-lock.png",
+    imageSrc: "/images/generated/mood-hero-ins-mockup-lock.webp",
     imageAlt:
       "Quiet Ash citrus incense with lemons, flowers, and incense stick in warm light",
   },
@@ -77,31 +77,31 @@ export const homeRedesign = {
     families: [
       {
         label: "CITRUS",
-        imageSrc: "/images/generated/best-sellers/citrus-grove-v5.png",
+        imageSrc: "/images/generated/best-sellers/citrus-grove-v5.webp",
         imageAlt: "Citrus scent family",
         href: SHOP_INDEX,
       },
       {
         label: "FLORAL",
-        imageSrc: "/images/generated/best-sellers/white-jasmine-v3.png",
+        imageSrc: "/images/generated/best-sellers/white-jasmine-v3.webp",
         imageAlt: "Floral scent family",
         href: SHOP_INDEX,
       },
       {
         label: "TEA",
-        imageSrc: "/images/generated/best-sellers/quiet-cloud-v3.png",
+        imageSrc: "/images/generated/best-sellers/quiet-cloud-v3.webp",
         imageAlt: "Tea scent family",
         href: SHOP_INDEX,
       },
       {
         label: "WOOD",
-        imageSrc: "/images/generated/best-sellers/sandalwood-night-v2.png",
+        imageSrc: "/images/generated/best-sellers/sandalwood-night-v2.webp",
         imageAlt: "Wood scent family",
         href: SHOP_INDEX,
       },
       {
         label: "HERBAL",
-        imageSrc: "/images/generated/best-sellers/lavender-field-v3.png",
+        imageSrc: "/images/generated/best-sellers/lavender-field-v3.webp",
         imageAlt: "Herbal scent family",
         href: SHOP_INDEX,
       },
@@ -127,7 +127,7 @@ export const homeRedesign = {
       "and now it can be yours too.",
     ] as const,
     cta: { label: "READ OUR STORY", href: "/about" },
-    imageSrc: "/images/generated/mood-hero-ins-mockup-lock.png",
+    imageSrc: "/images/generated/mood-hero-ins-mockup-lock.webp",
     imageAlt: "Woman lighting incense in a calm interior",
     features: [
       {

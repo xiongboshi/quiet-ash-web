@@ -67,6 +67,8 @@ export type JournalArticleProduct = {
 
 export type JournalArticleRelated = {
   slug: string;
+  /** When set, used instead of `/journal/{slug}` (e.g. evergreen guides). */
+  href?: string;
   title: string;
   readMinutes: number;
   imageSrc: string;
@@ -102,4 +104,6 @@ export type JournalArticleTemplate = {
     heading: string;
     items: readonly JournalArticleRelated[];
   };
+  /** Optional disclaimer shown after related reading. */
+  articleNote?: string;
 };

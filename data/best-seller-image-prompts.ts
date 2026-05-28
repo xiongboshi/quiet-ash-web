@@ -16,14 +16,14 @@ Thin white smoke curl from lit tip. Light stone surface; warm beige wall with so
 export const bestSellerImagePrompts = [
   {
     id: "citrus-grove",
-    outfile: "public/images/generated/best-sellers/citrus-grove-v4.png",
+    outfile: "public/images/generated/best-sellers/citrus-grove-v4.webp",
     prompt: `${BEST_SELLER_FRAME_LOCK}
 Pale yellow matte carton. Props: yellow lemons (whole and half), white citrus blossoms, dark driftwood.
 Scent: Citrus Grove — Lemon, Bergamot, Mandarin.`,
   },
   {
     id: "white-jasmine",
-    outfile: "public/images/generated/best-sellers/white-jasmine-v2.png",
+    outfile: "public/images/generated/best-sellers/white-jasmine-v2.webp",
     prompt: `${BEST_SELLER_FRAME_LOCK}
 Pale sage green matte carton. Props: white jasmine sprays with green leaves, dark driftwood.
 Scent: White Jasmine — Jasmine, White Floral, Green Leaves.`,

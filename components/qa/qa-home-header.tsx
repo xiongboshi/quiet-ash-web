@@ -27,7 +27,6 @@ function isNavActive(path: string, href: string): boolean {
   const pathnamePart = hashAt >= 0 ? href.slice(0, hashAt) : href;
   const hasHash = hashAt >= 0;
 
-  /* /#best-sellers etc. — same document as /; do not mark active on homepage load */
   if (hasHash && (pathnamePart === "/" || pathnamePart === "")) {
     return false;
   }
@@ -77,20 +76,17 @@ export function QaHomeHeader() {
     <>
       <nav className="navbar" aria-label="Site">
         <div className="container nav-inner">
-          {mobileNavBack ? (
-            <QaMobileBackButton fallbackHref={mobileNavBackFallback} />
-          ) : (
-            <button
-              type="button"
-              className="nav-mobile-toggle"
-              aria-expanded={menuOpen}
-              aria-controls={panelId}
-              onClick={() => setMenuOpen((o) => !o)}
-            >
-              <span className="sr-only">Menu</span>
-              <span aria-hidden>{menuOpen ? "×" : "☰"}</span>
-            </button>
-          )}
+          <button
+            type="button"
+            className="nav-mobile-toggle"
+            aria-expanded={menuOpen}
+            aria-controls={panelId}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            onClick={() => setMenuOpen((o) => !o)}
+          >
+            <span className="sr-only">Menu</span>
+            <span aria-hidden>{menuOpen ? "×" : "☰"}</span>
+          </button>
 
           <Link href="/" className="nav-brand logo">
             <span className="nav-brand__text">{siteTitle}</span>
@@ -134,6 +130,13 @@ export function QaHomeHeader() {
             onClick={() => setMenuOpen(false)}
           />
           <div id={panelId} className="qa-mobile-panel-inner">
+            {mobileNavBack ? (
+              <QaMobileBackButton
+                variant="drawer"
+                fallbackHref={mobileNavBackFallback}
+                onNavigate={() => setMenuOpen(false)}
+              />
+            ) : null}
             {PRIMARY_NAV.map(({ href, label }) => {
               const active = isNavActive(path, href);
               return (

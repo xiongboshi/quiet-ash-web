@@ -10,7 +10,7 @@ import {
   Waves,
   type LucideIcon,
 } from "lucide-react";
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import { AboutMediaFrame } from "@/components/about/about-media-frame";
 import { ScentFamilyStrip } from "@/components/shared/scent-family-strip";
 import { aboutPage } from "@/data/about-page";

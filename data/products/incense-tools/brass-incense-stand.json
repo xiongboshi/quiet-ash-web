@@ -5,7 +5,7 @@
   "origin": "Japan",
   "line": "Small, steady, balanced.",
   "priceDisplay": "$68",
-  "image": "/images/generated/products/brass-incense-stand/hero.png",
+  "image": "/images/generated/products/brass-incense-stand/hero.webp",
   "universe": "incense",
   "seriesSlugs": ["incense-culture", "making-incense"],
   "featured": true,
@@ -29,24 +29,24 @@
         "scentNotes": "Bronze · Low stand · Patina",
         "priceDisplay": "$68",
         "reviewCount": 142,
-        "imageSrc": "/images/generated/products/brass-incense-stand/hero.png",
+        "imageSrc": "/images/generated/products/brass-incense-stand/hero.webp",
         "imageAlt": "Bronze incense holder"
       }
     }
   },
   "gallery": [
-    "/images/generated/products/brass-incense-stand/hero.png",
-    "/images/generated/products/brass-incense-stand/gallery-01.png",
-    "/images/generated/products/brass-incense-stand/gallery-02.png",
-    "/images/generated/products/brass-incense-stand/gallery-03.png",
-    "/images/generated/products/brass-incense-stand/gallery-04.png"
+    "/images/generated/products/brass-incense-stand/hero.webp",
+    "/images/generated/products/brass-incense-stand/gallery-01.webp",
+    "/images/generated/products/brass-incense-stand/gallery-02.webp",
+    "/images/generated/products/brass-incense-stand/gallery-03.webp",
+    "/images/generated/products/brass-incense-stand/gallery-04.webp"
   ],
   "narrativeTitle": "Heat at the right height — smoke that remembers the room.",
   "narrativeBody": "The stand is a small anchor: it keeps the line thin, the ash honest, and the desk from becoming a stage.",
-  "narrativeImage": "/images/generated/products/brass-incense-stand/narrative.png",
+  "narrativeImage": "/images/generated/products/brass-incense-stand/narrative.webp",
   "pairsWith": ["paper-incense-sleeve", "small-agarwood-box", "wood-tray"],
   "atmosphereQuote": "When the line rises thin, the room learns its own metronome.",
-  "atmosphereImage": "/images/generated/products/brass-incense-stand/atmosphere.png",
+  "atmosphereImage": "/images/generated/products/brass-incense-stand/atmosphere.webp",
   "relatedEssaySlugs": [
     "why-scholars-burned-incense",
     "incense-patience",

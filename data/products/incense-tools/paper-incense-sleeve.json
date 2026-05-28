@@ -5,7 +5,7 @@
   "origin": "Japan",
   "line": "For a branch, or for nothing.",
   "priceDisplay": "$72",
-  "image": "/images/generated/products/paper-incense-sleeve/hero.png",
+  "image": "/images/generated/products/paper-incense-sleeve/hero.webp",
   "universe": "ritual",
   "seriesSlugs": ["making-incense"],
   "featured": true,
@@ -29,24 +29,24 @@
         "scentNotes": "Stoneware · Matte charcoal",
         "priceDisplay": "$72",
         "reviewCount": 98,
-        "imageSrc": "/images/generated/products/paper-incense-sleeve/hero.png",
+        "imageSrc": "/images/generated/products/paper-incense-sleeve/hero.webp",
         "imageAlt": "Black ash vase for incense ritual"
       }
     }
   },
   "gallery": [
-    "/images/generated/products/paper-incense-sleeve/hero.png",
-    "/images/generated/products/paper-incense-sleeve/gallery-01.png",
-    "/images/generated/products/paper-incense-sleeve/gallery-02.png",
-    "/images/generated/products/paper-incense-sleeve/gallery-03.png",
-    "/images/generated/products/paper-incense-sleeve/gallery-04.png"
+    "/images/generated/products/paper-incense-sleeve/hero.webp",
+    "/images/generated/products/paper-incense-sleeve/gallery-01.webp",
+    "/images/generated/products/paper-incense-sleeve/gallery-02.webp",
+    "/images/generated/products/paper-incense-sleeve/gallery-03.webp",
+    "/images/generated/products/paper-incense-sleeve/gallery-04.webp"
   ],
   "narrativeTitle": "Emptiness as composition — the wall reads differently with one stem.",
   "narrativeBody": "Stoneware here is not loud; it holds light the way paper holds ink — slowly, without argument.",
-  "narrativeImage": "/images/generated/products/paper-incense-sleeve/narrative.png",
+  "narrativeImage": "/images/generated/products/paper-incense-sleeve/narrative.webp",
   "pairsWith": ["brass-incense-stand", "linen-cloth", "ceramic-tea-cup"],
   "atmosphereQuote": "Sometimes the object is there to teach you what not to fill.",
-  "atmosphereImage": "/images/generated/products/paper-incense-sleeve/atmosphere.png",
+  "atmosphereImage": "/images/generated/products/paper-incense-sleeve/atmosphere.webp",
   "relatedEssaySlugs": [
     "forgotten-incense-culture",
     "king-of-incense",

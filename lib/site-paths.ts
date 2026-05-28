@@ -4,6 +4,7 @@ export const SHOP_INDEX = "/shop" as const;
 export const BEST_SELLERS_INDEX = "/#best-sellers" as const;
 export const MOODS_INDEX = "/moods" as const;
 export const JOURNAL_INDEX = "/journal" as const;
+export const GUIDES_INDEX = "/guides" as const;
 
 /** Catalog index + product detail (nav label: Shop). */
 export function shopPath(slug?: string): string {
@@ -21,4 +22,8 @@ export function moodPath(slug?: string): string {
 
 export function journalPath(slug?: string): string {
   return slug ? `${JOURNAL_INDEX}/${slug}` : JOURNAL_INDEX;
+}
+
+export function guidePath(slug?: string): string {
+  return slug ? `${GUIDES_INDEX}/${slug}` : GUIDES_INDEX;
 }

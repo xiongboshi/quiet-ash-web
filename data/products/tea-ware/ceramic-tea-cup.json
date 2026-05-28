@@ -5,7 +5,7 @@
   "origin": "Japan",
   "line": "Warm hand feel. For slow tea.",
   "priceDisplay": "$85",
-  "image": "/images/generated/products/ceramic-tea-cup/hero.png",
+  "image": "/images/generated/products/ceramic-tea-cup/hero.webp",
   "universe": "tea",
   "seriesSlugs": ["scholar-rituals", "incense-culture"],
   "featured": false,
@@ -24,15 +24,15 @@
     }
   },
   "gallery": [
-    "/images/generated/products/ceramic-tea-cup/hero.png",
-    "/images/generated/products/ceramic-tea-cup/gallery-01.png",
-    "/images/generated/products/ceramic-tea-cup/gallery-02.png",
-    "/images/generated/products/ceramic-tea-cup/gallery-03.png",
-    "/images/generated/products/ceramic-tea-cup/gallery-04.png"
+    "/images/generated/products/ceramic-tea-cup/hero.webp",
+    "/images/generated/products/ceramic-tea-cup/gallery-01.webp",
+    "/images/generated/products/ceramic-tea-cup/gallery-02.webp",
+    "/images/generated/products/ceramic-tea-cup/gallery-03.webp",
+    "/images/generated/products/ceramic-tea-cup/gallery-04.webp"
   ],
   "narrativeTitle": "Made for quiet moments. Held by hand. Used without hurry.",
   "narrativeBody": "Each bowl carries slight variations from the kiln — glaze depth, a softer rim, the way light rests on the foot. That is the point of hand-finished stoneware: not sameness, but continuity.",
-  "narrativeImage": "/images/generated/products/ceramic-tea-cup/narrative.png",
+  "narrativeImage": "/images/generated/products/ceramic-tea-cup/narrative.webp",
   "usedInRituals": [
     {
       "slug": "tea-after-rain",
@@ -72,7 +72,7 @@
   ],
   "detailsDisclaimer": "Due to the nature of hand-finished ceramics, size and color may vary slightly.",
   "atmosphereQuote": "The beauty of this bowl is in what it holds, and how it makes you slow down.",
-  "atmosphereImage": "/images/generated/products/ceramic-tea-cup/atmosphere.png",
+  "atmosphereImage": "/images/generated/products/ceramic-tea-cup/atmosphere.webp",
   "relatedEssaySlugs": [
     "why-scholars-burned-incense",
     "good-incense-not-loud",

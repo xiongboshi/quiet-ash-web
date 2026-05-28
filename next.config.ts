@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  /** Gzip HTML + static assets when using `next start` (default true; kept explicit). */
+  compress: true,
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
@@ -16,6 +18,19 @@ const nextConfig: NextConfig = {
     "10.*.*.*",
     "172.16.*.*",
   ],
+  async headers() {
+    return [
+      {
+        source: "/_next/static/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+    ];
+  },
   async redirects() {
     return [
       { source: "/objects", destination: "/shop", permanent: true },
@@ -27,6 +42,11 @@ const nextConfig: NextConfig = {
       { source: "/essays/:slug", destination: "/journal/:slug", permanent: true },
       { source: "/posts", destination: "/journal", permanent: true },
       { source: "/posts/:slug", destination: "/journal/:slug", permanent: true },
+      {
+        source: "/guides/low-smoke-incense-guide",
+        destination: "/guides/incense-care-guide",
+        permanent: true,
+      },
       /* /library, /archive, /series — real App Router pages (no 301); see app/(site)/ */
     ];
   },

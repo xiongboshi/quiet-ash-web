@@ -1,8 +1,8 @@
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import type { SeriesMeta } from "@/lib/series";
 
 const ESSAYS_ESSENCE_FALLBACK_IMG =
-  "/images/generated/series-incense-culture.png";
+  "/images/generated/series-incense-culture.webp";
 
 type Props = {
   series: SeriesMeta;

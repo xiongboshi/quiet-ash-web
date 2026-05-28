@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import { SHOP_INDEX, shopPath } from "@/lib/site-paths";
 import Link from "next/link";
 import { EditorialBackLink } from "@/components/editorial/editorial-back-link";
@@ -51,7 +51,7 @@ export function RitualEditorialLayout({
 }: Props) {
   const heroSrc = ritual.coverImage ?? "/images/hero-objects.svg";
   const asideSrc =
-    ritual.introAsideImage ?? ritual.coverImage ?? "/images/generated/ritual-tea-rain.png";
+    ritual.introAsideImage ?? ritual.coverImage ?? "/images/generated/ritual-tea-rain.webp";
   const readMin = ritual.readTime ?? 5;
   const eyebrow = ritual.mood.toUpperCase();
   const excerptLines = ritual.excerpt
@@ -60,8 +60,8 @@ export function RitualEditorialLayout({
     .filter(Boolean);
   const quote = closingLine(ritual);
   const essayThumb =
-    relatedEssay.coverImage ?? "/images/generated/essay-night-incense-ritual.png";
-  const nextThumb = nextRitual.coverImage ?? "/images/generated/ritual-incense-writing.png";
+    relatedEssay.coverImage ?? "/images/generated/essay-night-incense-ritual.webp";
+  const nextThumb = nextRitual.coverImage ?? "/images/generated/ritual-incense-writing.webp";
   const steps = ritual.steps;
   const ritualSectionLabel = ritual.ritualSectionLabel;
   const objectsSection = ritual.objectsSection;

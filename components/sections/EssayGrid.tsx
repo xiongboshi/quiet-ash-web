@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import Link from "next/link";
 import type { EssayMeta } from "@/lib/essays";
 import { defaultEssayGridIntro } from "@/data/home";

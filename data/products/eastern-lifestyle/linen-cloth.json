@@ -5,7 +5,7 @@
   "origin": "Lithuania",
   "line": "Absorbent, soft, made to age.",
   "priceDisplay": "$36",
-  "image": "/images/generated/products/linen-cloth/hero.png",
+  "image": "/images/generated/products/linen-cloth/hero.webp",
   "universe": "textile",
   "seriesSlugs": ["scholar-rituals", "ash-and-time"],
   "featured": false,
@@ -21,18 +21,18 @@
     }
   },
   "gallery": [
-    "/images/generated/products/linen-cloth/hero.png",
-    "/images/generated/products/linen-cloth/gallery-01.png",
-    "/images/generated/products/linen-cloth/gallery-02.png",
-    "/images/generated/products/linen-cloth/gallery-03.png",
-    "/images/generated/products/linen-cloth/gallery-04.png"
+    "/images/generated/products/linen-cloth/hero.webp",
+    "/images/generated/products/linen-cloth/gallery-01.webp",
+    "/images/generated/products/linen-cloth/gallery-02.webp",
+    "/images/generated/products/linen-cloth/gallery-03.webp",
+    "/images/generated/products/linen-cloth/gallery-04.webp"
   ],
   "narrativeTitle": "Under bowl and kettle — a quiet layer of care.",
   "narrativeBody": "Linen darkens where water touches; that is not wear, it is a map of evenings.",
-  "narrativeImage": "/images/generated/products/linen-cloth/narrative.png",
+  "narrativeImage": "/images/generated/products/linen-cloth/narrative.webp",
   "pairsWith": ["ceramic-tea-cup", "wood-tray", "brass-incense-stand"],
   "atmosphereQuote": "The tray looks different when linen remembers the steam.",
-  "atmosphereImage": "/images/generated/products/linen-cloth/atmosphere.png",
+  "atmosphereImage": "/images/generated/products/linen-cloth/atmosphere.webp",
   "relatedEssaySlugs": [
     "agarwood-time-rain-injury",
     "why-scholars-burned-incense",

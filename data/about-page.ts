@@ -35,7 +35,7 @@ export const aboutPage = {
       },
     ],
     cta: { label: "SHOP BEST SELLERS", href: SHOP_INDEX },
-    imageSrc: "/images/generated/products/brass-incense-stand/atmosphere.png",
+    imageSrc: "/images/generated/products/brass-incense-stand/atmosphere.webp",
     imageAlt: "Quiet Ash sandalwood incense with ceramic holder and packaging",
   },
   scentFamilies: {
@@ -49,7 +49,7 @@ export const aboutPage = {
         description: "Bright, fresh, and energizing. Great for focus and clarity.",
         cta: "SHOP CITRUS →",
         href: SHOP_INDEX,
-        imageSrc: "/images/generated/best-sellers/citrus-grove-v5.png",
+        imageSrc: "/images/generated/best-sellers/citrus-grove-v5.webp",
         imageAlt: "Citrus scent family",
       },
       {
@@ -58,7 +58,7 @@ export const aboutPage = {
         description: "Soft, clean, and comforting. Perfect for relaxation.",
         cta: "SHOP TEA →",
         href: SHOP_INDEX,
-        imageSrc: "/images/generated/products/ceramic-tea-cup/atmosphere.png",
+        imageSrc: "/images/generated/products/ceramic-tea-cup/atmosphere.webp",
         imageAlt: "Tea scent family",
       },
       {
@@ -67,7 +67,7 @@ export const aboutPage = {
         description: "Warm, grounding, and steady. Ideal for calm and presence.",
         cta: "SHOP WOOD →",
         href: SHOP_INDEX,
-        imageSrc: "/images/generated/products/wood-tray/gallery-01.png",
+        imageSrc: "/images/generated/products/wood-tray/gallery-01.webp",
         imageAlt: "Wood scent family",
       },
       {
@@ -76,7 +76,7 @@ export const aboutPage = {
         description: "Light, airy, and soothing. Adds softness to any space.",
         cta: "SHOP FLORAL →",
         href: SHOP_INDEX,
-        imageSrc: "/images/generated/best-sellers/white-jasmine-v3.png",
+        imageSrc: "/images/generated/best-sellers/white-jasmine-v3.webp",
         imageAlt: "Floral scent family",
       },
     ],
@@ -141,7 +141,7 @@ export const aboutPage = {
       "Thank you for supporting small batch and intentional living.",
     ],
     signature: "The Quiet Ash Team",
-    imageSrc: "/images/generated/essay-night-incense-ritual.png",
+    imageSrc: "/images/generated/essay-night-incense-ritual.webp",
     imageAlt: "Hands lighting a Quiet Ash incense stick at a calm table",
   },
   cta: {

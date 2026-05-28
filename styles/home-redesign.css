@@ -715,6 +715,15 @@
   opacity: 0.65;
 }
 
+/* Below-fold sections: skip layout/paint until near viewport (mobile perf) */
+.home-bestsellers,
+.home-scents,
+.home-testimonials,
+.home-story {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 28rem;
+}
+
 .home-bestsellers__grid {
   display: grid;
   grid-template-columns: repeat(
@@ -1326,6 +1335,10 @@
   .home-bestsellers__grid {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+
+  .home-bestsellers__cell:nth-child(n + 3) {
+    display: none;
   }
 
   .home-product-card {

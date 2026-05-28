@@ -23,7 +23,7 @@ export const MOOD_RITUAL_HEROES: Record<string, MoodRitualHeroSpec> = {
     title: "Scents For Quieter Nights",
     description:
       "Calming incense for deeper rest, softer breathing and nights that feel like a reset.",
-    imageSrc: "/images/generated/mood-hero-slide-03-sleep.png",
+    imageSrc: "/images/generated/mood-hero-slide-03-sleep.webp",
     imageAlt: "Bedside with incense, linen, flowers, and soft morning light",
     tags: [
       { label: "SLEEP" },

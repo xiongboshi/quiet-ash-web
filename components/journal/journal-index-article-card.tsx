@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import Link from "next/link";
 import type { JournalIndexArticleResolved } from "@/lib/journal-index-articles";
 import { formatJournalArticleDate } from "@/lib/journal-index-articles";

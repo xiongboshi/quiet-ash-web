@@ -1,3 +1,4 @@
+import { isEvergreenGuideSlug } from "@/data/evergreen-guides";
 import { isJournalTopicHubId } from "@/data/journal-topic-hubs";
 import { isShopCategorySegment } from "@/lib/shop-catalog";
 import { JOURNAL_INDEX, SHOP_INDEX } from "@/lib/site-paths";
@@ -16,6 +17,14 @@ export function isShopCategoryHeroPath(pathname: string | null): boolean {
   if (!path.startsWith("/shop/")) return false;
   const segment = path.slice("/shop/".length).split("/")[0] ?? "";
   return segment.length > 0 && isShopCategorySegment(segment);
+}
+
+/** Evergreen guide — e.g. /guides/sleep-guide */
+export function isEvergreenGuidePath(pathname: string | null): boolean {
+  const path = normalizeSitePath(pathname);
+  if (!path.startsWith("/guides/")) return false;
+  const segment = path.slice("/guides/".length).split("/")[0] ?? "";
+  return segment.length > 0 && isEvergreenGuideSlug(segment);
 }
 
 /** Topic hub — e.g. /journal/better-sleep */
@@ -53,6 +62,7 @@ export function isCartPath(pathname: string | null): boolean {
 export function isMobileNavBackLeadingPath(pathname: string | null): boolean {
   return (
     isJournalArticlePath(pathname) ||
+    isEvergreenGuidePath(pathname) ||
     isShopProductPdpPath(pathname) ||
     isCartPath(pathname)
   );
@@ -65,6 +75,7 @@ export function isMobileNavCartHiddenPath(pathname: string | null): boolean {
 
 /** Fallback when `history.back()` is unavailable. */
 export function mobileNavBackFallbackHref(pathname: string | null): string {
+  if (isEvergreenGuidePath(pathname)) return JOURNAL_INDEX;
   if (isJournalArticlePath(pathname)) return JOURNAL_INDEX;
   if (isShopProductPdpPath(pathname)) return SHOP_INDEX;
   if (isCartPath(pathname)) return "/";
@@ -77,6 +88,7 @@ export function isOverlayHeroPath(pathname: string | null): boolean {
   if (path === "/") return false;
   if (path === "/about" || path === "/journal") return true;
   if (path.startsWith("/journal/")) return true;
+  if (isEvergreenGuidePath(pathname)) return true;
   if (isShopCategoryHeroPath(pathname)) return true;
   if (path.startsWith("/moods/")) return true;
   return false;

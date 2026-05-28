@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 
 type Props = {
   /** Path under `public/`, e.g. `/images/collections/incense-culture.svg` */

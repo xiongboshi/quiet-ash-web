@@ -1,3 +1,4 @@
+import "@/styles/mood-tokens.css";
 import "@/styles/moods-index.css";
 import "@/styles/mood-ritual-page.css";
 

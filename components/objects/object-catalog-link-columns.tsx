@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import { formatPriceDisplay } from "@/lib/cart/pricing";
 import { SHOP_INDEX, shopPath } from "@/lib/site-paths";
 import Link from "next/link";

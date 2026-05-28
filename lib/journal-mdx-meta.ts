@@ -34,6 +34,7 @@ export const journalCategoryLabels: Record<JournalTopicHubId, string> = {
   "calm-evenings": "CALM EVENINGS",
   "quiet-routines": "QUIET ROUTINES",
   "guides-care": "GUIDES & CARE",
+  "cozy-home": "COZY HOME",
 };
 
 function optString(value: unknown): string | undefined {

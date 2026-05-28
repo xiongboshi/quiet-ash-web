@@ -11,6 +11,16 @@ export const metadata: Metadata = {
   alternates: { canonical: SHOP_INDEX },
 };
 
-export default function ShopPage() {
-  return <ShopCategoryPage categorySlug={DEFAULT_SHOP_CATEGORY_SLUG} />;
+type PageProps = {
+  searchParams: Promise<{ mood?: string }>;
+};
+
+export default async function ShopPage({ searchParams }: PageProps) {
+  const { mood } = await searchParams;
+  return (
+    <ShopCategoryPage
+      categorySlug={DEFAULT_SHOP_CATEGORY_SLUG}
+      initialMood={mood ?? null}
+    />
+  );
 }

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { journalPath } from "@/lib/site-paths";
@@ -21,7 +21,10 @@ export function JournalArticleRelated({ block }: Props) {
       <ul className="journal-article-related__grid">
         {block.items.map((item) => (
           <li key={item.slug}>
-            <Link href={journalPath(item.slug)} className="journal-article-related__card">
+            <Link
+              href={item.href ?? journalPath(item.slug)}
+              className="journal-article-related__card"
+            >
               <figure className="journal-article-related__media">
                 <Image
                   src={item.imageSrc}

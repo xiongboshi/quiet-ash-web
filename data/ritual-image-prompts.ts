@@ -195,7 +195,7 @@ export function ritualImagePath(
   slug: string,
   file: "cover" | 1 | 2 | 3 | 4,
 ): string {
-  const name = file === "cover" ? "cover.png" : `step-0${file}.png`;
+  const name = file === "cover" ? "cover.webp" : `step-0${file}.webp`;
   return `/images/generated/moods/${slug}/${name}`;
 }
 

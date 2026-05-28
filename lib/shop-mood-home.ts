@@ -12,7 +12,7 @@ import { shopMoodFilterHref } from "@/lib/shop-filter-url";
 const MOOD_GROUP_ID = "mood";
 
 const DEFAULT_MOOD_IMAGE =
-  "/images/generated/objects-essence-hero.png";
+  "/images/generated/objects-essence-hero.webp";
 
 export type ShopMoodHomeCard = {
   id: string;

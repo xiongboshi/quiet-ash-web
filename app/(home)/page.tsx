@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { preload } from "react-dom";
 import { QaHomePage } from "@/components/qa/qa-home-page";
+import { homeRedesign } from "@/data/home-redesign";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
@@ -12,6 +14,11 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
+  preload(homeRedesign.hero.imageSrc, {
+    as: "image",
+    fetchPriority: "high",
+  });
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",

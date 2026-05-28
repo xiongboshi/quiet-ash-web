@@ -202,13 +202,13 @@ export function productImagePath(
   file: "hero" | "g1" | "g2" | "g3" | "g4" | "narrative" | "atmosphere",
 ): string {
   const map: Record<typeof file, string> = {
-    hero: "hero.png",
-    g1: "gallery-01.png",
-    g2: "gallery-02.png",
-    g3: "gallery-03.png",
-    g4: "gallery-04.png",
-    narrative: "narrative.png",
-    atmosphere: "atmosphere.png",
+    hero: "hero.webp",
+    g1: "gallery-01.webp",
+    g2: "gallery-02.webp",
+    g3: "gallery-03.webp",
+    g4: "gallery-04.webp",
+    narrative: "narrative.webp",
+    atmosphere: "atmosphere.webp",
   };
   return `/images/generated/products/${slug}/${map[file]}`;
 }

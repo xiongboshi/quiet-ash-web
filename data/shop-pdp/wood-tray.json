@@ -14,11 +14,11 @@
   "badge": "HANDMADE INCENSE",
   "scentName": "Citrus Grove",
   "gallery": [
-    "/images/generated/best-sellers/citrus-grove-v5.png",
-    "/images/generated/best-sellers/citrus-grove-v4.png",
-    "/images/generated/best-sellers/citrus-grove-v3.png",
-    "/images/generated/best-sellers/citrus-grove.png",
-    "/images/generated/best-sellers/citrus-grove-v5.png"
+    "/images/generated/best-sellers/citrus-grove-v5.webp",
+    "/images/generated/best-sellers/citrus-grove-v4.webp",
+    "/images/generated/best-sellers/citrus-grove-v3.webp",
+    "/images/generated/best-sellers/citrus-grove.webp",
+    "/images/generated/best-sellers/citrus-grove-v5.webp"
   ],
   "highlights": [
     { "icon": "leaf", "label": "100% Natural Ingredients" },
@@ -34,11 +34,11 @@
   },
   "aboutScent": {
     "body": "Citrus Grove brings the feeling of a sunny morning into your home. The bright citrus top notes uplift your mood, while soft florals and warm woods create balance and calm.",
-    "imageSrc": "/images/generated/best-sellers/citrus-grove-v4.png"
+    "imageSrc": "/images/generated/best-sellers/citrus-grove-v4.webp"
   },
   "packaging": {
     "body": "Each set ships in a cream paper box with a subtle citrus label — minimal, gift-ready, and easy to store between burns.",
-    "imageSrc": "/images/generated/best-sellers/citrus-grove.png",
+    "imageSrc": "/images/generated/best-sellers/citrus-grove.webp",
     "details": ["20 sticks per box", "Recyclable paper outer sleeve"]
   },
   "howToUse": [
@@ -57,17 +57,17 @@
     "items": [
       {
         "name": "Emma L.",
-        "avatarSrc": "/images/generated/best-sellers/citrus-grove-v3.png",
+        "avatarSrc": "/images/generated/best-sellers/citrus-grove-v3.webp",
         "quote": "The scent is so fresh and natural. Perfect for my morning routine. It helps me feel energized and focused!"
       },
       {
         "name": "Sarah M.",
-        "avatarSrc": "/images/generated/best-sellers/white-jasmine-v3.png",
+        "avatarSrc": "/images/generated/best-sellers/white-jasmine-v3.webp",
         "quote": "Not too strong, not too light. It fills the room beautifully and the burn time is perfect."
       },
       {
         "name": "Daniel K.",
-        "avatarSrc": "/images/generated/best-sellers/sandalwood-night-v2.png",
+        "avatarSrc": "/images/generated/best-sellers/sandalwood-night-v2.webp",
         "quote": "Beautiful packaging and amazing quality. I've tried many incense brands, this is my favorite."
       }
     ]

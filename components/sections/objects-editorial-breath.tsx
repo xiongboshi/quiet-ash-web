@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 
 const BREATH_QUOTES = [
   "An object should not ask for attention. Only for return.",
@@ -19,7 +19,7 @@ export function ObjectsEditorialBreath({ index }: Props) {
       <div className="grid min-h-[min(280px,52vw)] grid-cols-1 md:min-h-[320px] md:grid-cols-2">
         <figure className="relative min-h-[220px] overflow-hidden bg-[#ece7e1] md:min-h-0 md:h-full">
           <Image
-            src="/images/generated/objects-essence-hero.png"
+            src="/images/generated/objects-essence-hero.webp"
             alt=""
             fill
             sizes="(max-width: 768px) 100vw, 50vw"

@@ -41,7 +41,7 @@ export const brandHome = {
   siteTitle: "QUIET ASH",
   siteSubtitle: "INCENSE",
   hero: {
-    backgroundSrc: "/images/generated/mood-hero-ins-mockup-lock.png",
+    backgroundSrc: "/images/generated/mood-hero-ins-mockup-lock.webp",
     /** Bust Next/browser cache when hero asset is replaced */
     backgroundVersion: "20260521-mockup",
     backgroundAlt:
@@ -70,18 +70,18 @@ export const brandHome = {
     ] as const,
     slides: [
       {
-        backgroundSrc: "/images/generated/mood-hero-ins-mockup-lock.png",
+        backgroundSrc: "/images/generated/mood-hero-ins-mockup-lock.webp",
         backgroundAlt:
           "Quiet Ash hero: woman at window, 15cm pack and small crystal holder on white marble table",
         objectPosition: "52% 50%",
       },
       {
-        backgroundSrc: "/images/generated/mood-hero-still-life.png",
+        backgroundSrc: "/images/generated/mood-hero-still-life.webp",
         backgroundAlt: "Editorial still life: incense with soft smoke",
         objectPosition: "68% 52%",
       },
       {
-        backgroundSrc: "/images/generated/mood-hero-slide-03-sleep.png",
+        backgroundSrc: "/images/generated/mood-hero-slide-03-sleep.webp",
         backgroundAlt: "Moon Sleep mood incense: lilac pack, purple amethyst crystal",
         objectPosition: "68% 52%",
       },
@@ -111,8 +111,8 @@ export const brandHome = {
     titleLines: ["FRUITY", "COLLECTION"] as const,
     description: "Juicy scents.\nGood vibes.",
     cta: { label: "EXPLORE NOW →", href: SHOP_INDEX },
-    /** Shot-lock — mood-hero-fruity-collection-lock-v6.png */
-    imageSrc: "/images/generated/mood-hero-fruity-collection-lock-v6.png",
+    /** Shot-lock — mood-hero-fruity-collection-lock-v6.webp */
+    imageSrc: "/images/generated/mood-hero-fruity-collection-lock-v6.webp",
     imageAlt: "Fruity collection mood incense still life",
   },
   bestSellers: {

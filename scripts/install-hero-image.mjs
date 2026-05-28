@@ -13,7 +13,7 @@ const assetsRoot = path.join(
 );
 
 const assetBasename = process.argv[2] ?? "mood-hero-ins-mockup-lock.png";
-const publicBasename = process.argv[3] ?? "mood-hero-ins-mockup-lock.png";
+const publicBasename = process.argv[3] ?? "mood-hero-ins-mockup-lock.webp";
 const src = path.join(assetsRoot, assetBasename);
 const dest = path.join(root, "public", "images", "generated", publicBasename);
 
@@ -27,7 +27,7 @@ fs.mkdirSync(path.dirname(dest), { recursive: true });
 /** Trim excess left wall — keep product + window */
 await sharp(src)
   .resize(1920, 1080, { fit: "cover", position: "right" })
-  .png({ compressionLevel: 9 })
+  .webp({ quality: 82, effort: 4 })
   .toFile(dest);
 
 console.log(`Installed ${dest}`);

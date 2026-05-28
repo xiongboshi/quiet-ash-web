@@ -64,6 +64,13 @@ export function JournalIndexCategoryIcon({
           <circle cx="9" cy="8.5" r="0.75" fill="currentColor" stroke="none" />
         </TopicIcon>
       );
+    case "cozy-home":
+      return (
+        <TopicIcon>
+          <path d="M3.5 8.5 9 4l5.5 4.5V15h-11V8.5Z" />
+          <path d="M7.5 15v-3.5h3V15" />
+        </TopicIcon>
+      );
     case "popular-questions":
       return (
         <TopicIcon>

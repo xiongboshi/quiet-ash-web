@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import Link from "next/link";
 import { shopPath, SHOP_INDEX } from "@/lib/site-paths";
 import type { CartItem } from "@/lib/cart/types";

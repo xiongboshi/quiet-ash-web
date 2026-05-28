@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import { Calendar, Clock } from "lucide-react";
 import { JournalArticleBackButton } from "@/components/journal/article/journal-article-back-button";
 import { JournalArticleShare } from "@/components/journal/article/journal-article-share";

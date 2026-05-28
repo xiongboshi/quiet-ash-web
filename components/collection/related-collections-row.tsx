@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import Link from "next/link";
 import { essaysCollectionHref } from "@/lib/archive";
 import type { SeriesMeta } from "@/lib/series";

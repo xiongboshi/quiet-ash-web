@@ -7,10 +7,29 @@ export const JOURNAL_TOPIC_HUB_IDS = [
   "small-space-living",
   "calm-evenings",
   "quiet-routines",
+  "cozy-home",
   "guides-care",
 ] as const;
 
 export type JournalTopicHubId = (typeof JOURNAL_TOPIC_HUB_IDS)[number];
+
+/** Core topic pages (spec §2) — `/journal/{id}`. */
+export const JOURNAL_CORE_TOPIC_HUB_IDS = [
+  "better-sleep",
+  "small-space-living",
+  "calm-evenings",
+  "quiet-routines",
+  "cozy-home",
+] as const satisfies readonly JournalTopicHubId[];
+
+export type JournalCoreTopicHubId =
+  (typeof JOURNAL_CORE_TOPIC_HUB_IDS)[number];
+
+export function isJournalCoreTopicHubId(
+  value: string,
+): value is JournalCoreTopicHubId {
+  return (JOURNAL_CORE_TOPIC_HUB_IDS as readonly string[]).includes(value);
+}
 
 export type JournalTopicHub = {
   id: JournalTopicHubId;
@@ -46,7 +65,7 @@ export const journalTopicHubs: readonly JournalTopicHub[] = [
       "deeper rest",
       "warm lighting",
     ],
-    heroImageSrc: "/images/generated/essay-night-incense-ritual.png",
+    heroImageSrc: "/images/generated/essay-night-incense-ritual.webp",
     heroImageAlt: "Soft evening light with incense and calm bedroom atmosphere",
     categoryId: "better-sleep",
     relatedMoodSlug: "evening-room-ritual",
@@ -72,7 +91,7 @@ export const journalTopicHubs: readonly JournalTopicHub[] = [
       "ventilation",
       "subtle fragrance",
     ],
-    heroImageSrc: "/images/generated/essay-night-incense-ritual.png",
+    heroImageSrc: "/images/generated/essay-night-incense-ritual.webp",
     heroImageAlt: "Incense with restrained smoke in a small bedroom",
     categoryId: "small-space-living",
     featuredSlugs: ["best-incense-for-small-apartments", "good-incense-not-loud"],
@@ -91,7 +110,7 @@ export const journalTopicHubs: readonly JournalTopicHub[] = [
       "quiet living",
       "emotional rest",
     ],
-    heroImageSrc: "/images/generated/essay-good-incense-not-loud.png",
+    heroImageSrc: "/images/generated/essay-good-incense-not-loud.webp",
     heroImageAlt: "Quiet incense still life in warm evening light",
     categoryId: "calm-evenings",
     relatedMoodSlug: "evening-room-ritual",
@@ -113,7 +132,7 @@ export const journalTopicHubs: readonly JournalTopicHub[] = [
       "solitude",
       "quiet mornings",
     ],
-    heroImageSrc: "/images/generated/essay-incense-patience.png",
+    heroImageSrc: "/images/generated/essay-incense-patience.webp",
     heroImageAlt: "Writing desk with tea and incense in soft daylight",
     categoryId: "quiet-routines",
     relatedMoodSlug: "incense-before-writing",
@@ -123,6 +142,26 @@ export const journalTopicHubs: readonly JournalTopicHub[] = [
       "incense-ink-silence",
       "incense-patience",
     ],
+  },
+  {
+    id: "cozy-home",
+    pathname: journalPath("cozy-home"),
+    title: "Cozy Home",
+    tagline: "Warm rooms, soft light, and lived-in calm.",
+    description:
+      "Home atmosphere, seasonal comfort, and quiet interiors — incense, textiles, and slower domestic rituals.",
+    semanticKeywords: [
+      "cozy home",
+      "warm interiors",
+      "soft light",
+      "seasonal comfort",
+      "quiet living",
+      "home rituals",
+    ],
+    heroImageSrc: "/images/generated/essay-good-incense-not-loud.webp",
+    heroImageAlt: "Quiet incense still life in a warm, cozy interior",
+    categoryId: "cozy-home",
+    featuredSlugs: ["forgotten-incense-culture"],
   },
   {
     id: "guides-care",
@@ -138,7 +177,7 @@ export const journalTopicHubs: readonly JournalTopicHub[] = [
       "ventilation",
       "indoor fragrance",
     ],
-    heroImageSrc: "/images/generated/essay-good-incense-not-loud.png",
+    heroImageSrc: "/images/generated/essay-good-incense-not-loud.webp",
     heroImageAlt: "Gentle incense smoke in a well-ventilated home",
     categoryId: "guides-care",
     featuredSlugs: [
@@ -155,7 +194,7 @@ export const journalDiscoveryTopicPills = [
   { label: "Calm Evenings", href: journalPath("calm-evenings") },
   { label: "Small Apartments", href: journalPath("small-space-living") },
   { label: "Quiet Routines", href: journalPath("quiet-routines") },
-  { label: "Cozy Home", href: journalPath("calm-evenings") },
+  { label: "Cozy Home", href: journalPath("cozy-home") },
   { label: "Low-Smoke Incense", href: journalPath("guides-care") },
 ] as const;
 
@@ -174,40 +213,20 @@ export const journalDiscoveryFeaturedEditorial = [
   {
     title: "Softer fragrance for smaller homes",
     href: journalPath("best-incense-for-small-apartments"),
-    imageSrc: "/images/generated/essay-night-incense-ritual.png",
+    imageSrc: "/images/generated/essay-night-incense-ritual.webp",
     imageAlt: "Soft smoke in a compact bedroom",
   },
   {
     title: "A quieter room before sleep",
     href: journalPath("best-incense-for-sleep"),
-    imageSrc: "/images/generated/essay-night-incense-ritual.png",
+    imageSrc: "/images/generated/essay-night-incense-ritual.webp",
     imageAlt: "Evening incense beside a calm bed",
   },
   {
     title: "The atmosphere after long days",
     href: journalPath("good-incense-not-loud"),
-    imageSrc: "/images/generated/essay-good-incense-not-loud.png",
+    imageSrc: "/images/generated/essay-good-incense-not-loud.webp",
     imageAlt: "Restrained incense in warm light",
-  },
-] as const;
-
-/** Long-form authority pages (existing + hub entry points). */
-export const journalDiscoveryEvergreenGuides = [
-  {
-    title: "The Quiet Ash Sleep Guide",
-    href: journalPath("best-incense-for-sleep"),
-  },
-  {
-    title: "Guide to Low-Smoke Incense",
-    href: journalPath("guides-care"),
-  },
-  {
-    title: "Evening Ritual Handbook",
-    href: journalPath("calm-evenings"),
-  },
-  {
-    title: "Small Apartment Fragrance Guide",
-    href: journalPath("best-incense-for-small-apartments"),
   },
 ] as const;
 
@@ -216,17 +235,17 @@ export const journalDiscoveryMoodLinks = [
   {
     label: "Explore Calm Evenings",
     href: moodPath("evening-room-ritual"),
-    imageSrc: "/images/generated/essay-night-incense-ritual.png",
+    imageSrc: "/images/generated/essay-night-incense-ritual.webp",
   },
   {
     label: "Quiet Desk Ritual",
     href: moodPath("quiet-desk-ritual"),
-    imageSrc: "/images/generated/essay-incense-patience.png",
+    imageSrc: "/images/generated/essay-incense-patience.webp",
   },
   {
     label: "Incense Before Writing",
     href: moodPath("incense-before-writing"),
-    imageSrc: "/images/generated/essay-why-scholars-burned-incense.png",
+    imageSrc: "/images/generated/essay-why-scholars-burned-incense.webp",
   },
 ] as const;
 
@@ -248,7 +267,7 @@ export const journalLegacyCategoryToTopicHub: Record<string, JournalTopicHubId> 
     "mind-wellness": "better-sleep",
     "scents-ingredients": "small-space-living",
     "rituals-practices": "quiet-routines",
-    "living-lifestyle": "calm-evenings",
+    "living-lifestyle": "cozy-home",
     "guides-tips": "guides-care",
   };
 

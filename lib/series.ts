@@ -11,7 +11,7 @@ export type SeriesMeta = {
   description: string;
   /** One line under the title: shown after essay count. */
   tagline?: string;
-  /** Hero image path under `public/` (e.g. `/images/collections/incense.jpg`). */
+  /** Hero image path under `public/` (e.g. `/images/collections/incense.webp`). */
   cover?: string;
   order: number;
   note?: string;

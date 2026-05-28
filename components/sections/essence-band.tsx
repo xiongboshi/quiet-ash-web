@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import { Fragment } from "react";
 import { siteRailExemptClass } from "@/lib/site-rail";
 

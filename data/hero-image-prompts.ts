@@ -85,8 +85,8 @@ export const heroSlide01Prompt = buildImagePrompt(
 
 /** Fruity Collection banner — shot-lock (approved 2026-05). Do not replace without explicit approval. */
 export const HERO_SLIDE_01_OUTPUT = {
-  publicPath: "/images/generated/mood-hero-fruity-collection-lock-v6.png",
-  assetBasename: "mood-hero-fruity-collection-lock-v6.png",
+  publicPath: "/images/generated/mood-hero-fruity-collection-lock-v6.webp",
+  assetBasename: "mood-hero-fruity-collection-lock-v6.webp",
   width: 1920,
   height: 1080,
 } as const;
@@ -120,8 +120,8 @@ export const heroSlide03Prompt = buildImagePrompt(
 );
 
 export const HERO_SLIDE_03_OUTPUT = {
-  publicPath: "/images/generated/mood-hero-slide-03-sleep.png",
-  assetBasename: "mood-hero-slide-03-sleep.png",
+  publicPath: "/images/generated/mood-hero-slide-03-sleep.webp",
+  assetBasename: "mood-hero-slide-03-sleep.webp",
 } as const;
 
 /** Primary homepage hero — INS mockup shot-lock (match reference frame exactly). */
@@ -147,8 +147,8 @@ export const heroV5HomePrompt = buildConstitutionImagePrompt({
 });
 
 export const HERO_V5_HOME_OUTPUT = {
-  publicPath: "/images/generated/mood-hero-ins-mockup-lock-v2.png",
-  assetBasename: "mood-hero-ins-mockup-lock-v2.png",
+  publicPath: "/images/generated/mood-hero-ins-mockup-lock-v2.webp",
+  assetBasename: "mood-hero-ins-mockup-lock-v2.webp",
   width: 1920,
   height: 1080,
 } as const;

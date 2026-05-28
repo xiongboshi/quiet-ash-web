@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import Link from "next/link";
 import { MoodsIndexCardIcon } from "@/components/moods/moods-index-card-icon";
 import type { MoodsIndexCard } from "@/data/moods-index";

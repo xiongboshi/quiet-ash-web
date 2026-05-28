@@ -1,0 +1,932 @@
+/**
+ * Evergreen guide pages — /guides/{slug}
+ */
+
+.evergreen-guide {
+  --eg-cream: #f3f0ea;
+  --eg-cream-light: #f9f8f6;
+  --eg-border: #e5e2dc;
+  --eg-faq-bg: #f5f5f5;
+
+  /* Typography — aligned with journal-topic-page */
+  --eg-font-serif: var(--font-serif), "Cormorant Garamond", ui-serif, serif;
+  --eg-font-sans: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --eg-serif-section: clamp(1.3rem, 2.4vw, 1.6rem);
+  --eg-serif-panel: clamp(1.2rem, 2.1vw, 1.375rem);
+  --eg-serif-card: 1.125rem;
+  --eg-serif-article: 1.0625rem;
+
+  --eg-serif-lh-tight: 1.12;
+  --eg-serif-lh-card: 1.22;
+  --eg-serif-lh-article: 1.3;
+  --eg-serif-tracking: -0.02em;
+  --eg-serif-tracking-card: -0.015em;
+
+  --eg-sans-body: 0.875rem;
+  --eg-sans-ui: 0.8125rem;
+  --eg-sans-small: 0.75rem;
+  --eg-sans-micro: 0.6875rem;
+
+  --eg-sans-lh-body: 1.58;
+  --eg-sans-lh-ui: 1.5;
+  --eg-sans-lh-compact: 1.42;
+  --eg-sans-lh-meta: 1.45;
+
+  --eg-text-ink: var(--journal-ink, #1a1816);
+  --eg-text-body: color-mix(in srgb, var(--journal-ink, #1a1816) 88%, transparent);
+  --eg-text-secondary: color-mix(in srgb, var(--journal-ink, #1a1816) 68%, transparent);
+  --eg-text-muted: var(--journal-muted, #6f6a63);
+
+  background: var(--journal-body-bg, #faf9f7);
+  color: var(--eg-text-ink);
+}
+
+/* Shared type roles */
+.evergreen-guide :is(
+    .evergreen-guide__toc-heading,
+    .evergreen-guide__section-title,
+    .evergreen-guide__faq-title
+  ) {
+  margin: 0;
+  font-family: var(--eg-font-serif);
+  font-size: var(--eg-serif-section);
+  font-weight: 500;
+  line-height: var(--eg-serif-lh-tight);
+  letter-spacing: var(--eg-serif-tracking);
+  color: var(--eg-text-ink);
+  text-align: left;
+}
+
+.evergreen-guide :is(
+    .evergreen-guide__quick-title,
+    .evergreen-guide__feature-title
+  ) {
+  margin: 0;
+  font-family: var(--eg-font-serif);
+  font-size: var(--eg-serif-panel);
+  font-weight: 500;
+  line-height: var(--eg-serif-lh-tight);
+  letter-spacing: var(--eg-serif-tracking);
+  color: var(--eg-text-ink);
+  text-align: left;
+}
+
+.evergreen-guide :is(
+    .evergreen-guide__section-sub,
+    .evergreen-guide__scent-desc,
+    .evergreen-guide__feature-desc,
+    .evergreen-guide__feature-checklist li,
+    .evergreen-guide__feature-steps li
+  ) {
+  font-family: var(--eg-font-sans);
+  font-size: var(--eg-sans-ui);
+  font-weight: 400;
+  line-height: var(--eg-sans-lh-ui);
+  color: var(--eg-text-secondary);
+  text-align: left;
+}
+
+.evergreen-guide :is(
+    .evergreen-guide__section-link,
+    .evergreen-guide__scent-cta
+  ) {
+  font-family: var(--eg-font-sans);
+  font-size: var(--eg-sans-small);
+  line-height: var(--eg-sans-lh-meta);
+  color: var(--eg-text-ink);
+  text-decoration: none;
+}
+
+.evergreen-guide .evergreen-guide__section-link {
+  font-weight: 500;
+}
+
+.evergreen-guide .evergreen-guide__scent-cta {
+  font-weight: 600;
+}
+
+.evergreen-guide .evergreen-guide__quick-text {
+  font-family: var(--eg-font-sans);
+  font-size: var(--eg-sans-body);
+  font-weight: 400;
+  line-height: var(--eg-sans-lh-body);
+  color: var(--eg-text-body);
+  text-align: left;
+}
+
+.evergreen-guide .evergreen-guide__faq-question {
+  font-family: var(--eg-font-sans);
+  font-size: var(--eg-sans-ui);
+  font-weight: 400;
+  line-height: var(--eg-sans-lh-compact);
+  color: var(--eg-text-ink);
+  text-align: left;
+}
+
+.evergreen-guide :is(
+    .evergreen-guide__faq-answer,
+    .evergreen-guide__save-share-sub
+  ) {
+  font-family: var(--eg-font-sans);
+  font-size: var(--eg-sans-small);
+  font-weight: 400;
+  line-height: var(--eg-sans-lh-meta);
+  color: var(--eg-text-muted);
+  text-align: left;
+}
+
+.evergreen-guide :is(
+    .evergreen-guide__article-meta,
+    .evergreen-guide__toc-label
+  ) {
+  font-family: var(--eg-font-sans);
+  font-size: var(--eg-sans-micro);
+  font-weight: 400;
+  line-height: var(--eg-sans-lh-meta);
+  color: var(--eg-text-muted);
+}
+
+.evergreen-guide :is(
+    .evergreen-guide__save-share-label
+  ) {
+  font-family: var(--eg-font-sans);
+  font-size: var(--eg-sans-ui);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--eg-text-ink);
+  text-align: left;
+}
+
+.evergreen-guide img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+}
+
+.evergreen-guide svg.lucide {
+  width: auto !important;
+  height: auto !important;
+  max-width: none !important;
+  object-fit: unset !important;
+  flex-shrink: 0;
+}
+
+.evergreen-guide .journal-index-hero__img {
+  object-position: 62% center;
+}
+
+/* Hero — same type scale as journal index / topic hubs */
+.evergreen-guide .journal-index-hero__copy-inner {
+  text-align: left;
+}
+
+.evergreen-guide .journal-index-hero__title {
+  font-family: var(--eg-font-serif);
+  font-weight: 400;
+  letter-spacing: -0.032em;
+}
+
+.evergreen-guide .journal-index-hero__tagline {
+  font-family: var(--eg-font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.55;
+  text-align: left;
+}
+
+.evergreen-guide .journal-index-hero__lede {
+  font-family: var(--eg-font-sans);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.evergreen-guide__body {
+  box-sizing: border-box;
+  max-width: var(--qa-container-width, 1680px);
+  margin: 0 auto;
+  padding: clamp(1.75rem, 4vw, 2.75rem) var(--qa-container-px, 16px)
+    clamp(2.75rem, 6vw, 4.25rem);
+}
+
+.evergreen-guide__body > section,
+.evergreen-guide__body > .evergreen-guide__anchor {
+  margin-bottom: clamp(2.25rem, 5vw, 3.5rem);
+}
+
+.evergreen-guide__body > section:last-child {
+  margin-bottom: 0;
+}
+
+.evergreen-guide__anchor {
+  height: 0;
+  overflow: hidden;
+  margin-top: -1.5rem !important;
+  margin-bottom: 0 !important;
+}
+
+.evergreen-guide [id] {
+  scroll-margin-top: 5.5rem;
+}
+
+/* —— 1 Quick answer —— */
+.evergreen-guide__quick-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--eg-border) 85%, transparent);
+  border-radius: 12px;
+  background: var(--eg-cream-light);
+}
+
+.evergreen-guide__quick-copy {
+  padding: clamp(1.35rem, 3.2vw, 1.85rem) clamp(1.35rem, 3.2vw, 1.9rem);
+}
+
+.evergreen-guide__quick-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.evergreen-guide__quick-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  color: var(--journal-ink);
+}
+
+.evergreen-guide__quick-title {
+  font-weight: 600;
+}
+
+.evergreen-guide__quick-body {
+  margin-top: 0.65rem;
+}
+
+.evergreen-guide__quick-text {
+  margin: 0;
+  max-width: 42rem;
+}
+
+.evergreen-guide__quick-text + .evergreen-guide__quick-text {
+  margin-top: 0.35rem;
+}
+
+.evergreen-guide__quick-media {
+  position: relative;
+  min-height: 6.5rem;
+  margin: 0;
+  overflow: hidden;
+}
+
+.evergreen-guide__quick-img {
+  object-position: 72% 28%;
+  transform: scale(1.08) rotate(8deg);
+}
+
+.evergreen-guide__quick-media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    var(--eg-cream-light) 0%,
+    color-mix(in srgb, var(--eg-cream-light) 88%, transparent) 28%,
+    transparent 52%
+  );
+  pointer-events: none;
+}
+
+/* —— 2 In this guide —— */
+.evergreen-guide__toc-heading {
+  margin-bottom: 1.2rem;
+}
+
+.evergreen-guide__toc-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.evergreen-guide__toc-item {
+  min-width: 0;
+}
+
+.evergreen-guide__toc-item:not(:nth-child(3n + 1)) {
+  border-left: 1px solid var(--eg-border);
+}
+
+.evergreen-guide__toc-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.55rem;
+  min-height: 5rem;
+  padding: 0.45rem 0.5rem 0.6rem;
+  color: inherit;
+  text-align: center;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.evergreen-guide__toc-link:hover {
+  opacity: 0.72;
+}
+
+.evergreen-guide__toc-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 999px;
+  background: #f5f3ef;
+  color: var(--journal-ink);
+}
+
+.evergreen-guide__toc-icon-wrap > svg {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.evergreen-guide__toc-label {
+  display: -webkit-box;
+  max-width: 6.75rem;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-align: center;
+  color: var(--eg-text-ink);
+}
+
+/* —— Section head —— */
+.evergreen-guide__section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+  text-align: left;
+}
+
+.evergreen-guide__section-head > div {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.evergreen-guide__section-sub {
+  margin: 0.5rem 0 0;
+  max-width: 36rem;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  color: var(--eg-text-muted);
+}
+
+.evergreen-guide__section-link {
+  flex-shrink: 0;
+  align-self: baseline;
+  white-space: nowrap;
+}
+
+.evergreen-guide__section-link:hover {
+  text-decoration: underline;
+}
+
+/* —— 3 Scents grid —— */
+.evergreen-guide__scents {
+  padding-top: 0.15rem;
+}
+
+.evergreen-guide__scents-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.evergreen-guide__scent-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.evergreen-guide__scent-media-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.evergreen-guide__scent-media {
+  position: relative;
+  aspect-ratio: 16 / 11;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  background: var(--eg-cream);
+}
+
+.evergreen-guide__scent-badge {
+  position: absolute;
+  left: 0.7rem;
+  bottom: 0.7rem;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--journal-ink);
+  box-shadow: 0 1px 4px rgba(26, 24, 22, 0.1);
+}
+
+.evergreen-guide__scent-badge > svg {
+  width: 13px !important;
+  height: 13px !important;
+}
+
+.evergreen-guide__scent-title {
+  margin: 0.85rem 0 0;
+  font-family: var(--eg-font-serif);
+  font-size: var(--eg-serif-card);
+  font-weight: 600;
+  line-height: var(--eg-serif-lh-card);
+  letter-spacing: var(--eg-serif-tracking-card);
+  color: var(--eg-text-ink);
+  text-align: left;
+}
+
+.evergreen-guide__scent-desc {
+  margin: 0.45rem 0 0;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.evergreen-guide__scent-cta {
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: auto;
+  padding-top: 0.8rem;
+  font-weight: 600;
+}
+
+.evergreen-guide__scent-cta:hover {
+  text-decoration: underline;
+}
+
+/* —— 4 Feature pair —— */
+.evergreen-guide__features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.15rem;
+}
+
+.evergreen-guide__feature-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--eg-border) 75%, transparent);
+  border-radius: 12px;
+  background: var(--eg-cream-light);
+}
+
+.evergreen-guide__feature-body {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.4rem, 3.2vw, 1.85rem) clamp(1.3rem, 3vw, 1.7rem);
+}
+
+.evergreen-guide__feature-desc {
+  margin: 0.45rem 0 0;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.evergreen-guide__feature-checklist {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.evergreen-guide__feature-checklist li:first-child {
+  margin-top: 0.45rem;
+}
+
+.evergreen-guide__feature-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+  color: var(--eg-text-ink);
+}
+
+.evergreen-guide__feature-checklist li svg {
+  width: 15px !important;
+  height: 15px !important;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  color: var(--journal-ink);
+}
+
+.evergreen-guide__feature-steps {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.evergreen-guide__feature-steps li:first-child {
+  margin-top: 0.45rem;
+}
+
+.evergreen-guide__feature-steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin-top: 0.6rem;
+  color: var(--eg-text-ink);
+}
+
+.evergreen-guide__feature-step-num {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 999px;
+  background: #e4eaf4;
+  font-family: var(--eg-font-sans);
+  font-size: var(--eg-sans-micro);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: color-mix(in srgb, var(--eg-text-ink) 78%, #4a5568);
+}
+
+.evergreen-guide__feature-media {
+  position: relative;
+  aspect-ratio: 5 / 6;
+  margin: 0;
+  min-height: 12rem;
+}
+
+.evergreen-guide__feature-card:nth-child(2) .evergreen-guide__feature-media {
+  aspect-ratio: 4 / 3;
+}
+
+/* —— 5 FAQ —— */
+.evergreen-guide__faq {
+  box-sizing: border-box;
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: clamp(2.15rem, 4.8vw, 3rem) max(var(--qa-container-px, 16px), calc((100vw - var(--qa-container-width, 1680px)) / 2));
+  background: var(--eg-faq-bg);
+}
+
+.evergreen-guide__faq-title {
+  margin: 0 auto 1.2rem;
+  max-width: var(--qa-container-width, 1680px);
+}
+
+.evergreen-guide__faq-columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  max-width: var(--qa-container-width, 1680px);
+  margin: 0 auto;
+}
+
+.evergreen-guide__faq-col {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid color-mix(in srgb, var(--eg-border) 70%, transparent);
+  border-radius: 9px;
+  background: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 1px 0 rgba(26, 24, 22, 0.03);
+}
+
+.evergreen-guide__faq-col + .evergreen-guide__faq-col {
+  margin-top: 0.65rem;
+}
+
+.evergreen-guide__faq-item + .evergreen-guide__faq-item {
+  border-top: 1px solid var(--eg-border);
+}
+
+.evergreen-guide__faq-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 1.05rem 1.15rem;
+  border: none;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.evergreen-guide__faq-question {
+  flex: 1;
+  min-width: 0;
+}
+
+.evergreen-guide__faq-chevron {
+  flex-shrink: 0;
+  width: 15px !important;
+  height: 15px !important;
+  color: #a39e96;
+  transition: transform 0.2s ease;
+}
+
+.evergreen-guide__faq-chevron--open {
+  transform: rotate(180deg);
+}
+
+.evergreen-guide__faq-panel {
+  padding: 0 1.05rem 1rem;
+}
+
+.evergreen-guide__faq-answer p {
+  margin: 0;
+}
+
+/* —— 6 Related articles —— */
+.evergreen-guide__articles {
+  padding-top: 0.1rem;
+}
+
+.evergreen-guide__articles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.evergreen-guide__article-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.evergreen-guide__article-media {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: 10px;
+  background: var(--eg-cream);
+}
+
+.evergreen-guide__article-title {
+  margin: 0;
+}
+
+.evergreen-guide__article-title-text {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  font-family: var(--eg-font-serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: var(--eg-serif-lh-article);
+  letter-spacing: var(--eg-serif-tracking-card);
+  color: var(--eg-text-ink);
+  text-align: left;
+}
+
+.evergreen-guide__article-meta {
+  margin: 0;
+  text-align: left;
+}
+
+/* —— 7 Save & share —— */
+.evergreen-guide__save-share-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--eg-border) 75%, transparent);
+  border-radius: 12px;
+  background: var(--eg-cream-light);
+}
+
+.evergreen-guide__save-share-botanical {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.25rem;
+  z-index: 0;
+  width: 4.25rem;
+  height: 6.25rem;
+  color: color-mix(in srgb, var(--journal-ink) 32%, transparent);
+  pointer-events: none;
+}
+
+.evergreen-guide__save-share-botanical svg {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+}
+
+.evergreen-guide__save-share-half {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 0.8rem;
+  padding: 1.35rem 1.2rem;
+}
+
+.evergreen-guide__save-share-half--save {
+  align-items: center;
+}
+
+.evergreen-guide__save-share-half--save > svg {
+  width: 18px !important;
+  height: 18px !important;
+  flex-shrink: 0;
+  color: var(--journal-ink);
+}
+
+.evergreen-guide__save-share-icon > svg {
+  width: 15px !important;
+  height: 15px !important;
+}
+
+.evergreen-guide__save-share-divider {
+  height: 1px;
+  background: var(--eg-border);
+}
+
+.evergreen-guide__save-share-half--share {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding-right: 4.5rem;
+}
+
+.evergreen-guide__save-share-label {
+  margin: 0;
+}
+
+.evergreen-guide__save-share-sub {
+  margin: 0.3rem 0 0;
+  max-width: 16rem;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.evergreen-guide__save-share-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.evergreen-guide__save-share-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.125rem;
+  height: 2.125rem;
+  border: none;
+  border-radius: 999px;
+  background: color-mix(in srgb, #ffffff 92%, var(--journal-pill-bg, #f5f2ed));
+  color: var(--journal-ink);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.evergreen-guide__save-share-icon:hover {
+  background: #ffffff;
+}
+
+@media (min-width: 640px) {
+  .evergreen-guide__quick-card {
+    grid-template-columns: 1fr minmax(9.5rem, 12.5rem);
+    align-items: stretch;
+  }
+
+  .evergreen-guide__quick-media {
+    min-height: 100%;
+  }
+
+  .evergreen-guide__toc-list {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .evergreen-guide__toc-item:not(:nth-child(3n + 1)) {
+    border-left: none;
+  }
+
+  .evergreen-guide__toc-item:not(:first-child) {
+    border-left: 1px solid var(--eg-border);
+  }
+
+  .evergreen-guide__toc-link {
+    min-height: 5.25rem;
+    padding-inline: 0.4rem;
+    gap: 0.6rem;
+  }
+
+  .evergreen-guide__toc-label {
+    max-width: 7.5rem;
+  }
+
+  .evergreen-guide__scents-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.1rem;
+  }
+
+  .evergreen-guide__faq-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.15rem;
+  }
+
+  .evergreen-guide__faq-col + .evergreen-guide__faq-col {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 900px) {
+  .evergreen-guide__features-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .evergreen-guide__feature-card {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    min-height: 19.5rem;
+  }
+
+  .evergreen-guide__feature-media {
+    aspect-ratio: auto;
+    min-height: 100%;
+  }
+
+  .evergreen-guide__articles-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.9rem;
+  }
+
+  .evergreen-guide__article-title-text {
+    font-size: var(--eg-serif-article);
+  }
+
+  .evergreen-guide__save-share-card {
+    grid-template-columns: 1fr auto 1fr;
+    align-items: stretch;
+    min-height: 7.5rem;
+  }
+
+  .evergreen-guide__save-share-divider {
+    width: 1px;
+    height: auto;
+    align-self: stretch;
+  }
+
+  .evergreen-guide__save-share-half {
+    padding: 1.5rem 1.75rem;
+  }
+
+  .evergreen-guide__save-share-half--share {
+    justify-content: center;
+    padding-right: 5rem;
+  }
+
+  .evergreen-guide__save-share-botanical {
+    right: 1.25rem;
+    bottom: 0.75rem;
+    width: 4.75rem;
+    height: 6.75rem;
+  }
+}

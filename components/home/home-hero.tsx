@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import Link from "next/link";
 import { HomeStarRating } from "@/components/home/home-icons";
 import { homeRedesign } from "@/data/home-redesign";
@@ -13,8 +13,8 @@ export function HomeHero() {
           alt={hero.imageAlt}
           fill
           priority
-          quality={75}
-          sizes="100vw"
+          quality={70}
+          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 1200px, 1920px"
           className="home-hero__bg"
         />
         <div className="home-hero__scrim" aria-hidden />

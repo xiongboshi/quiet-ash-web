@@ -4,6 +4,7 @@ import { JournalArticlePage } from "@/components/journal/article/journal-article
 import { JournalTopicHubPage } from "@/components/journal/journal-topic-hub-page";
 import { getJournalArticle, getJournalArticleSlugs } from "@/lib/journal-articles";
 import { getJournalIndexArticles } from "@/lib/get-journal-index-articles";
+import { isJournalCoreTopicHubId } from "@/data/journal-topic-hubs";
 import {
   getArticlesForTopicHub,
   getJournalTopicHub,
@@ -14,8 +15,9 @@ import { journalPath } from "@/lib/site-paths";
 type Props = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
+  const hubSlugs = journalTopicHubSlugs().filter((slug) => !isJournalCoreTopicHubId(slug));
   return [
-    ...journalTopicHubSlugs().map((slug) => ({ slug })),
+    ...hubSlugs.map((slug) => ({ slug })),
     ...getJournalArticleSlugs().map((slug) => ({ slug })),
   ];
 }
@@ -59,6 +61,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function JournalSlugPage({ params }: Props) {
   const { slug } = await params;
+
+  if (isJournalCoreTopicHubId(slug)) notFound();
 
   const hub = getJournalTopicHub(slug);
   if (hub) {

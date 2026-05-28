@@ -1,10 +1,10 @@
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 
 type Props = {
   className?: string;
 };
 
-/** Homepage spec quote — seal chop asset (`public/images/generated/quote-seal-stamp.png`). */
+/** Homepage spec quote — seal chop asset (`public/images/generated/quote-seal-stamp.webp`). */
 export function QuoteSeal({ className = "" }: Props) {
   return (
     <span
@@ -12,7 +12,7 @@ export function QuoteSeal({ className = "" }: Props) {
       aria-hidden
     >
       <Image
-        src="/images/generated/quote-seal-stamp.png"
+        src="/images/generated/quote-seal-stamp.webp"
         alt=""
         width={96}
         height={96}

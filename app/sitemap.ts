@@ -12,6 +12,7 @@ import {
   shopPath,
 } from "@/lib/site-paths";
 import { listShopCategoriesForShop } from "@/lib/shop-catalog";
+import { evergreenGuides } from "@/data/evergreen-guides";
 import { journalTopicHubs } from "@/data/journal-topic-hubs";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -77,6 +78,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.88,
   }));
 
+  const guides: MetadataRoute.Sitemap = evergreenGuides.map((guide) => ({
+    url: `${base}${guide.pathname}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.87,
+  }));
+
   const essays: MetadataRoute.Sitemap = getAllEssays().map((essay) => ({
     url: `${base}${journalPath(essay.slug)}`,
     lastModified: essay.date ? new Date(essay.date) : now,
@@ -118,6 +126,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...staticRoutes,
     ...shopCategories,
     ...journalHubs,
+    ...guides,
     ...essays,
     ...rituals,
     ...objects,

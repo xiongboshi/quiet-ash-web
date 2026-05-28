@@ -5,7 +5,7 @@
   "origin": "Japan",
   "line": "Resin, time, closed lid.",
   "priceDisplay": "$210",
-  "image": "/images/generated/products/small-agarwood-box/hero.png",
+  "image": "/images/generated/products/small-agarwood-box/hero.webp",
   "universe": "incense",
   "seriesSlugs": ["incense-culture"],
   "featured": true,
@@ -29,24 +29,24 @@
         "scentNotes": "Walnut · Lidded storage",
         "priceDisplay": "$210",
         "reviewCount": 64,
-        "imageSrc": "/images/generated/products/small-agarwood-box/hero.png",
+        "imageSrc": "/images/generated/products/small-agarwood-box/hero.webp",
         "imageAlt": "Walnut agarwood keeper box"
       }
     }
   },
   "gallery": [
-    "/images/generated/products/small-agarwood-box/hero.png",
-    "/images/generated/products/small-agarwood-box/gallery-01.png",
-    "/images/generated/products/small-agarwood-box/gallery-02.png",
-    "/images/generated/products/small-agarwood-box/gallery-03.png",
-    "/images/generated/products/small-agarwood-box/gallery-04.png"
+    "/images/generated/products/small-agarwood-box/hero.webp",
+    "/images/generated/products/small-agarwood-box/gallery-01.webp",
+    "/images/generated/products/small-agarwood-box/gallery-02.webp",
+    "/images/generated/products/small-agarwood-box/gallery-03.webp",
+    "/images/generated/products/small-agarwood-box/gallery-04.webp"
   ],
   "narrativeTitle": "Depth training begins with a closed box.",
   "narrativeBody": "Agarwood is not a trend note — it is time made legible. The keeper is the first discipline: wait, then open.",
-  "narrativeImage": "/images/generated/products/small-agarwood-box/narrative.png",
+  "narrativeImage": "/images/generated/products/small-agarwood-box/narrative.webp",
   "pairsWith": ["brass-incense-stand", "paper-incense-sleeve", "wood-tray"],
   "atmosphereQuote": "The reward is quieter: a room that remembers you differently.",
-  "atmosphereImage": "/images/generated/products/small-agarwood-box/atmosphere.png",
+  "atmosphereImage": "/images/generated/products/small-agarwood-box/atmosphere.webp",
   "relatedEssaySlugs": [
     "what-is-agarwood",
     "king-of-incense",

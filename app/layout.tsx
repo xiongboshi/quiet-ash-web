@@ -18,7 +18,7 @@ const cormorant = Cormorant_Garamond({
   weight: ["300", "400", "500"],
   variable: "--font-serif",
   display: "swap",
-  preload: true,
+  preload: false,
   adjustFontFallback: true,
 });
 

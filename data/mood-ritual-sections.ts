@@ -49,9 +49,9 @@ export type MoodRitualSleepRitualSpec = {
 };
 
 const EVENING_RITUAL_IMAGES = {
-  step01: "/images/generated/rituals/evening-room-ritual/step-01.png",
-  step03: "/images/generated/rituals/evening-room-ritual/step-03.png",
-  step04: "/images/generated/rituals/evening-room-ritual/step-04.png",
+  step01: "/images/generated/rituals/evening-room-ritual/step-01.webp",
+  step03: "/images/generated/rituals/evening-room-ritual/step-03.webp",
+  step04: "/images/generated/rituals/evening-room-ritual/step-04.webp",
 } as const;
 
 export const MOOD_RITUAL_SLEEP_RITUAL: Record<string, MoodRitualSleepRitualSpec> = {
@@ -111,10 +111,10 @@ export type MoodRitualSleepIncenseSpec = {
 };
 
 const SLEEP_INCENSE_IMAGES = {
-  sandalwood: "/images/generated/best-sellers/sandalwood-night-v2.png",
-  lavender: "/images/generated/best-sellers/lavender-field-v3.png",
-  jasmine: "/images/generated/best-sellers/white-jasmine-v3.png",
-  citrus: "/images/generated/best-sellers/citrus-grove-v5.png",
+  sandalwood: "/images/generated/best-sellers/sandalwood-night-v2.webp",
+  lavender: "/images/generated/best-sellers/lavender-field-v3.webp",
+  jasmine: "/images/generated/best-sellers/white-jasmine-v3.webp",
+  citrus: "/images/generated/best-sellers/citrus-grove-v5.webp",
 } as const;
 
 export const MOOD_RITUAL_SLEEP_INCENSE: Record<string, MoodRitualSleepIncenseSpec> =
@@ -195,10 +195,10 @@ export type MoodRitualSleepJournalSpec = {
 };
 
 const SLEEP_JOURNAL_IMAGES = {
-  sleepGuide: "/images/generated/essay-night-incense-ritual.png",
-  sandalwood: "/images/generated/essay-what-is-agarwood.png",
-  eveningRitual: "/images/generated/essay-why-scholars-burned-incense.png",
-  scentSleep: "/images/generated/essay-good-incense-not-loud.png",
+  sleepGuide: "/images/generated/essay-night-incense-ritual.webp",
+  sandalwood: "/images/generated/essay-what-is-agarwood.webp",
+  eveningRitual: "/images/generated/essay-why-scholars-burned-incense.webp",
+  scentSleep: "/images/generated/essay-good-incense-not-loud.webp",
 } as const;
 
 export const MOOD_RITUAL_SLEEP_JOURNAL: Record<string, MoodRitualSleepJournalSpec> = {
@@ -263,7 +263,7 @@ export const MOOD_RITUAL_EVENING_CTA: Record<string, MoodRitualEveningCtaSpec> =
     description:
       "Discover more scents, journal stories and quiet apartment moments.",
     cta: { label: "Explore All Scents", href: SHOP_INDEX },
-    imageSrc: "/images/generated/mood-index-hero-shop-by-mood.png",
+    imageSrc: "/images/generated/mood-index-hero-shop-by-mood.webp",
     imageAlt: "Evening incense still life in warm soft light",
   },
 };

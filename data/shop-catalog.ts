@@ -26,7 +26,7 @@ export const shopCatalog = {
         "Handcrafted scents for every mood",
         "and moment.",
       ],
-      imageSrc: "/images/generated/objects-essence-hero.png",
+      imageSrc: "/images/generated/objects-essence-hero.webp",
       imageAlt: "Quiet Ash Sandalwood & Fig incense with figs and flowers",
     },
     breadcrumbs: [
@@ -66,7 +66,7 @@ export const shopCatalog = {
               count: 6,
               homeCard: {
                 imageSrc:
-                  "/images/generated/mood-poster-sleep-white-blossom.png",
+                  "/images/generated/mood-poster-sleep-white-blossom.webp",
                 imageAlt: "Better sleep — incense on soft bedding",
                 description:
                   "Calming scents for deeper, restful sleep.",
@@ -78,7 +78,7 @@ export const shopCatalog = {
               label: "Stress Relief",
               count: 5,
               homeCard: {
-                imageSrc: "/images/generated/mood-poster-calm-jasmine.png",
+                imageSrc: "/images/generated/mood-poster-calm-jasmine.webp",
                 imageAlt: "Stress relief — calm jasmine still life",
                 description:
                   "Scents that help you relax and unwind.",
@@ -90,7 +90,7 @@ export const shopCatalog = {
               label: "Focus & Study",
               count: 4,
               homeCard: {
-                imageSrc: "/images/generated/mood-poster-focus-lavender.png",
+                imageSrc: "/images/generated/mood-poster-focus-lavender.webp",
                 imageAlt: "Focus and study — desk with incense",
                 description: "Stay clear, focused and productive.",
                 ctaLabel: "SHOP FOCUS →",
@@ -101,7 +101,7 @@ export const shopCatalog = {
               label: "Fresh Home",
               count: 4,
               homeCard: {
-                imageSrc: "/images/generated/mood-poster-rainy-day.png",
+                imageSrc: "/images/generated/mood-poster-rainy-day.webp",
                 imageAlt: "Fresh home — incense by a bright window",
                 description: "Make your space smell clean and calm.",
                 ctaLabel: "SHOP FRESH →",
@@ -112,7 +112,7 @@ export const shopCatalog = {
               label: "Daily Reset",
               count: 5,
               homeCard: {
-                imageSrc: "/images/generated/mood-poster-energy-citrus.png",
+                imageSrc: "/images/generated/mood-poster-energy-citrus.webp",
                 imageAlt: "Daily reset — morning citrus incense",
                 description:
                   "Start or end your day with intention.",
@@ -168,7 +168,7 @@ export const shopCatalog = {
         "Stands, trays, and vessels",
         "for unhurried ritual.",
       ],
-      imageSrc: "/images/generated/products/brass-incense-stand/atmosphere.png",
+      imageSrc: "/images/generated/products/brass-incense-stand/atmosphere.webp",
       imageAlt: "Bronze incense holder on a quiet walnut surface",
     },
     breadcrumbs: [

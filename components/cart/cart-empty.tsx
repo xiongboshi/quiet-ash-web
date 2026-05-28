@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import { SHOP_INDEX, shopPath } from "@/lib/site-paths";
 import Link from "next/link";
 
@@ -18,7 +18,7 @@ export function CartEmpty() {
       </div>
       <figure className="relative aspect-[4/3] w-full overflow-hidden bg-[#161210] lg:aspect-[16/10] lg:max-w-[min(100%,52%)] lg:flex-1">
         <Image
-          src="/images/generated/ritual-smoke-void.png"
+          src="/images/generated/ritual-smoke-void.webp"
           alt=""
           fill
           sizes="(max-width: 1024px) 100vw, 560px"

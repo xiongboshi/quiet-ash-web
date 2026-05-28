@@ -35,14 +35,14 @@ async function install(slug) {
     "public",
     "images",
     "generated",
-    `essay-${slug}.png`,
+    `essay-${slug}.webp`,
   );
   fs.mkdirSync(path.dirname(dest), { recursive: true });
   await sharp(src)
     .resize(width, height, { fit: "cover", position: "centre" })
-    .png({ compressionLevel: 9 })
+    .webp({ quality: 82, effort: 4 })
     .toFile(dest);
-  console.log(`installed essay-${slug}.png`);
+  console.log(`installed essay-${slug}.webp`);
   return true;
 }
 

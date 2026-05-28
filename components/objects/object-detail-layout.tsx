@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import { SHOP_INDEX, shopPath } from "@/lib/site-paths";
 import Link from "next/link";
 import type { CatalogProduct } from "@/lib/catalog";
@@ -482,7 +482,7 @@ export function ObjectDetailLayout({ product }: Props) {
                       <Image
                         src={
                           e.coverImage ??
-                          "/images/generated/essay-night-incense-ritual.png"
+                          "/images/generated/essay-night-incense-ritual.webp"
                         }
                         alt=""
                         fill

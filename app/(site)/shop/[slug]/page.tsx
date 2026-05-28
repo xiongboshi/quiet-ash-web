@@ -42,15 +42,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function ShopSlugPage({ params }: Props) {
+type ShopSlugPageProps = Props & {
+  searchParams: Promise<{ mood?: string }>;
+};
+
+export default async function ShopSlugPage({ params, searchParams }: ShopSlugPageProps) {
   const { slug } = await params;
+  const { mood } = await searchParams;
 
   if (isShopCategorySegment(slug)) {
     const category = getShopCategoryBySegment(slug)!;
     if (category.slug === DEFAULT_SHOP_CATEGORY_SLUG && category.pathname === SHOP_INDEX) {
       redirect(SHOP_INDEX);
     }
-    return <ShopCategoryPage categorySlug={slug as ShopCatalogSlug} />;
+    return (
+      <ShopCategoryPage
+        categorySlug={slug as ShopCatalogSlug}
+        initialMood={mood ?? null}
+      />
+    );
   }
 
   const product = getProductBySlug(slug);

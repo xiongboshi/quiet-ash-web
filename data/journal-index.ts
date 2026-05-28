@@ -28,6 +28,7 @@ export const journalIndexCategoryDefinitions = [
   { id: "small-space-living", label: "Small Space Living" },
   { id: "calm-evenings", label: "Calm Evenings" },
   { id: "quiet-routines", label: "Quiet Routines" },
+  { id: "cozy-home", label: "Cozy Home" },
   { id: "guides-care", label: "Guides & Care" },
 ] as const satisfies readonly { id: JournalTopicHubId; label: string }[];
 
@@ -64,11 +65,9 @@ export const journalIndexSortOptions = [
 
 export const journalIndexHero = {
   title: "Journal",
-  descriptionLines: [
-    "Stories, tips, and inspiration for mindful living",
-    "and everyday rituals.",
-  ] as const,
-  imageSrc: "/images/generated/essay-good-incense-not-loud.png",
+  tagline: "Scents, rituals, and slower ways of living.",
+  lede: "Thoughtful guides and quiet inspiration for calmer days and softer homes.",
+  imageSrc: "/images/generated/essay-good-incense-not-loud.webp",
   imageAlt:
     "Incense with smoke, ceramic mug, greenery and book on a cream surface in soft light",
 } as const;

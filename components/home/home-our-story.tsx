@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import Link from "next/link";
 import { HomeStoryIcon } from "@/components/home/home-icons";
 import { homeRedesign } from "@/data/home-redesign";

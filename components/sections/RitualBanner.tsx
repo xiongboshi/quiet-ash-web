@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import { defaultRitualBanner } from "@/data/home";
 import { Container } from "@/components/ui/Container";
 

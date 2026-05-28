@@ -42,7 +42,7 @@ const MOOD_PRODUCT_OVERRIDES: Record<string, MoodProductPageOverride> = {
     ritualBody:
       "Light one stick. Pour something warm. Let the smoke drift while the light stays soft and the day begins without hurry.",
     heroImage: moodPosterPublicPaths.calm,
-    lifestyleImage: "/images/generated/products/brass-incense-stand/narrative.png",
+    lifestyleImage: "/images/generated/products/brass-incense-stand/narrative.webp",
   },
   "ceramic-tea-cup": {
     displayTitle: "Rainy Day",
@@ -56,7 +56,7 @@ const MOOD_PRODUCT_OVERRIDES: Record<string, MoodProductPageOverride> = {
     ritualBody:
       "Light one stick. Open the window slightly. Let soft rain sounds fill the room while the smoke drifts slowly beside your tea.",
     heroImage: moodPosterPublicPaths["rainy-day"],
-    lifestyleImage: "/images/generated/products/ceramic-tea-cup/narrative.png",
+    lifestyleImage: "/images/generated/products/ceramic-tea-cup/narrative.webp",
   },
   "wood-tray": {
     displayTitle: "Citrus Reset",
@@ -66,7 +66,7 @@ const MOOD_PRODUCT_OVERRIDES: Record<string, MoodProductPageOverride> = {
     scentCore: "Green tea",
     scentAfter: "Warm sun on skin",
     heroImage: moodPosterPublicPaths.energy,
-    lifestyleImage: "/images/generated/products/wood-tray/narrative.png",
+    lifestyleImage: "/images/generated/products/wood-tray/narrative.webp",
   },
   "small-agarwood-box": {
     displayTitle: "Sunday Sleep",
@@ -77,7 +77,7 @@ const MOOD_PRODUCT_OVERRIDES: Record<string, MoodProductPageOverride> = {
     scentAfter: "Soft dusk musk",
     heroImage: moodPosterPublicPaths.sleep,
     lifestyleImage:
-      "/images/generated/products/small-agarwood-box/narrative.png",
+      "/images/generated/products/small-agarwood-box/narrative.webp",
   },
   "paper-incense-sleeve": {
     displayTitle: "Sandal Focus",
@@ -88,7 +88,7 @@ const MOOD_PRODUCT_OVERRIDES: Record<string, MoodProductPageOverride> = {
     scentAfter: "Still air",
     heroImage: moodPosterPublicPaths.focus,
     lifestyleImage:
-      "/images/generated/products/paper-incense-sleeve/narrative.png",
+      "/images/generated/products/paper-incense-sleeve/narrative.webp",
   },
 };
 

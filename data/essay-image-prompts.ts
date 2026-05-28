@@ -7,7 +7,7 @@ export type EssayImageEntry = {
   time: TimeMode;
 };
 
-/** One cover per canonical essay slug — paths: `/images/generated/essay-{slug}.png` */
+/** One cover per canonical essay slug — paths: `/images/generated/essay-{slug}.webp` */
 export const essayImagePrompts: EssayImageEntry[] = [
   {
     slug: "why-scholars-burned-incense",
@@ -84,7 +84,7 @@ export const essayImagePrompts: EssayImageEntry[] = [
 ];
 
 export function essayImagePath(slug: string): string {
-  return `/images/generated/essay-${slug}.png`;
+  return `/images/generated/essay-${slug}.webp`;
 }
 
 export function getEssayImagePrompt(slug: string): EssayImageEntry | undefined {

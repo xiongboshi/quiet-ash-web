@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import Link from "next/link";
 import { HomeProductCardAdd } from "@/components/home/home-product-card-add";
 import { HomeStarRating } from "@/components/home/home-icons";

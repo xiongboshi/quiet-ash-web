@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import Link from "next/link";
 import { siteRailExemptClass } from "@/lib/site-rail";
 import { MoodsIndexDayInScent } from "@/components/moods/moods-index-day-in-scent";

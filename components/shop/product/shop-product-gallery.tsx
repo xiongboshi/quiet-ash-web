@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import { ChevronDown, ChevronUp, Expand, X } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 
@@ -119,26 +119,26 @@ export function ShopProductGallery({ title, badge, gallery }: Props) {
 
         <div className="shop-product-gallery__main-wrap">
           <div className="shop-product-gallery__main">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               key={`${mainSrc}-backdrop`}
               src={mainSrc}
               alt=""
               aria-hidden
               width={PDP_IMAGE_WIDTH}
               height={PDP_IMAGE_HEIGHT}
+              priority={safe === 0}
+              sizes="(max-width: 1023px) 100vw, min(50vw, 560px)"
               className="shop-product-gallery__main-img shop-product-gallery__main-img--backdrop"
-              decoding="async"
             />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               key={`${mainSrc}-photo`}
               src={mainSrc}
               alt={title}
               width={PDP_IMAGE_WIDTH}
               height={PDP_IMAGE_HEIGHT}
+              priority={safe === 0}
+              sizes="(max-width: 1023px) 100vw, min(50vw, 560px)"
               className="shop-product-gallery__main-img shop-product-gallery__main-img--photo"
-              decoding="async"
             />
             {badge ? <span className="shop-product-gallery__badge">{badge}</span> : null}
             <button
@@ -188,10 +188,12 @@ export function ShopProductGallery({ title, badge, gallery }: Props) {
           >
             <X size={22} strokeWidth={1.25} aria-hidden />
           </button>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src={mainSrc}
             alt={title}
+            width={PDP_IMAGE_WIDTH}
+            height={PDP_IMAGE_HEIGHT}
+            sizes="100vw"
             className="shop-product-gallery__lightbox-img"
             onClick={(e) => e.stopPropagation()}
           />

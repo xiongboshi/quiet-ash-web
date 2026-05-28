@@ -5,7 +5,7 @@ import { JOURNAL_INDEX } from "@/lib/site-paths";
 
 export const metadata: Metadata = {
   title: "Journal",
-  description: journalIndexHero.descriptionLines.join(" "),
+  description: `${journalIndexHero.tagline} ${journalIndexHero.lede}`,
   alternates: { canonical: JOURNAL_INDEX },
 };
 

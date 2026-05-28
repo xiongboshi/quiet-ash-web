@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import { useRouter } from "next/navigation";
 import {
   FlaskConical,

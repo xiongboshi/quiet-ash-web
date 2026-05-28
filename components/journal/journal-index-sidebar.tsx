@@ -9,7 +9,9 @@ import {
   type JournalCategoryId,
   type JournalTagId,
 } from "@/data/journal-index";
+import { isJournalTopicHubId } from "@/data/journal-topic-hubs";
 import type { JournalIndexCategoryRow } from "@/lib/journal-index-categories";
+import { journalPath } from "@/lib/site-paths";
 
 type Props = {
   categories: readonly JournalIndexCategoryRow[];
@@ -152,27 +154,50 @@ export function JournalIndexSidebar({
             <ul className="journal-index-sidebar__categories">
               {categories.map((category) => {
                 const active = activeCategory === category.id;
+                const topicHref =
+                  category.id !== "all" &&
+                  category.id !== "popular-questions" &&
+                  isJournalTopicHubId(category.id)
+                    ? journalPath(category.id)
+                    : null;
+                const className = `journal-index-sidebar__category${
+                  active ? " journal-index-sidebar__category--active" : ""
+                }`;
+                const content = (
+                  <>
+                    <JournalIndexCategoryIcon categoryId={category.id} />
+                    <span className="journal-index-sidebar__category-label">
+                      {category.label}
+                    </span>
+                    <span className="journal-index-sidebar__category-count">
+                      {category.count}
+                    </span>
+                  </>
+                );
                 return (
                   <li key={category.id}>
-                    <button
-                      type="button"
-                      className={`journal-index-sidebar__category${
-                        active ? " journal-index-sidebar__category--active" : ""
-                      }`}
-                      aria-current={active ? "true" : undefined}
-                      onClick={() => {
-                        onTagChange(null);
-                        onCategoryChange(category.id);
-                      }}
-                    >
-                      <JournalIndexCategoryIcon categoryId={category.id} />
-                      <span className="journal-index-sidebar__category-label">
-                        {category.label}
-                      </span>
-                      <span className="journal-index-sidebar__category-count">
-                        {category.count}
-                      </span>
-                    </button>
+                    {topicHref ? (
+                      <Link
+                        href={topicHref}
+                        className={className}
+                        aria-current={active ? "page" : undefined}
+                        onClick={() => onTagChange(null)}
+                      >
+                        {content}
+                      </Link>
+                    ) : (
+                      <button
+                        type="button"
+                        className={className}
+                        aria-current={active ? "true" : undefined}
+                        onClick={() => {
+                          onTagChange(null);
+                          onCategoryChange(category.id);
+                        }}
+                      >
+                        {content}
+                      </button>
+                    )}
                   </li>
                 );
               })}

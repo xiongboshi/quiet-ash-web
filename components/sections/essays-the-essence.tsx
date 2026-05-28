@@ -3,7 +3,7 @@ import { seriesTitleLines } from "@/lib/series-title-lines";
 import type { SeriesMeta } from "@/lib/series";
 
 const ESSAYS_ESSENCE_FALLBACK_IMG =
-  "/images/generated/series-incense-culture.png";
+  "/images/generated/series-incense-culture.webp";
 
 /**
  * Essays index — same {@link EssenceBand} shell as `/moods` and `/objects`.

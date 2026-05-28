@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import { SHOP_INDEX, shopPath } from "@/lib/site-paths";
 import Link from "next/link";
 import type { CatalogProduct } from "@/lib/catalog";

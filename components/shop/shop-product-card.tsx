@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { QaImage as Image } from "@/components/ui/qa-image";
 import Link from "next/link";
 import { ShoppingBag } from "lucide-react";
 import { HomeStarRating } from "@/components/home/home-icons";

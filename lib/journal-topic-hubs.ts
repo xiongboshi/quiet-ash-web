@@ -39,9 +39,10 @@ export function getArticlesForTopicHub(
 
   if (!featuredSlugs?.length) return byCategory;
 
+  const bySlug = new Map(articles.map((a) => [a.slug, a]));
   const featured = new Set(featuredSlugs);
   const pinned = featuredSlugs
-    .map((slug) => byCategory.find((a) => a.slug === slug))
+    .map((slug) => bySlug.get(slug) ?? byCategory.find((a) => a.slug === slug))
     .filter((a): a is JournalIndexArticleResolved => Boolean(a));
   const rest = byCategory.filter((a) => !featured.has(a.slug));
   return [...pinned, ...rest];

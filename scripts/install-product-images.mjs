@@ -61,14 +61,14 @@ async function install(slug, file) {
     "generated",
     "products",
     slug,
-    `${file}.png`,
+    `${file}.webp`,
   );
   fs.mkdirSync(path.dirname(dest), { recursive: true });
   await sharp(src)
     .resize(width, height, { fit: "cover", position: "centre" })
-    .png({ compressionLevel: 9 })
+    .webp({ quality: 82, effort: 4 })
     .toFile(dest);
-  console.log(`installed products/${slug}/${file}.png`);
+  console.log(`installed products/${slug}/${file}.webp`);
   return true;
 }
 
