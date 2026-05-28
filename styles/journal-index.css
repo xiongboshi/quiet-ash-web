@@ -1185,6 +1185,11 @@
 .journal-discovery {
   --journal-discovery-pill: #ebe4d9;
   --journal-discovery-pill-hover: #e3dacb;
+  /* Section headings — match journal-topic-page__section-title */
+  --jd-font-serif: var(--font-serif), "Cormorant Garamond", ui-serif, serif;
+  --jd-serif-section: clamp(1.3rem, 2.4vw, 1.6rem);
+  --jd-serif-lh-tight: 1.12;
+  --jd-serif-tracking: -0.02em;
   box-sizing: border-box;
   max-width: var(--qa-container-width, 1680px);
   margin: 0 auto;
@@ -1215,45 +1220,73 @@
 }
 
 .journal-discovery__eyebrow {
-  margin: 0 0 1.05rem;
-  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--journal-muted);
+  margin: 0 0 1.2rem;
+  font-family: var(--jd-font-serif);
+  font-size: var(--jd-serif-section);
+  font-weight: 500;
+  line-height: var(--jd-serif-lh-tight);
+  letter-spacing: var(--jd-serif-tracking);
+  color: var(--journal-ink);
+  text-align: left;
 }
 
-/* 1 — Explore by topic */
+/* 1 — Explore by topic (icon + label tiles — not horizontal chips) */
 .journal-discovery__topic-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  column-gap: 0.45rem;
+  row-gap: 0.65rem;
+  justify-items: stretch;
 }
 
 .journal-discovery__topic-pill {
-  display: inline-flex;
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   gap: 0.5rem;
-  padding: 0.58rem 1.05rem;
-  border: none;
-  border-radius: 999px;
-  background: var(--journal-discovery-pill);
+  width: 100%;
+  min-width: 0;
+  min-height: 5.35rem;
+  padding: 0.65rem 0.35rem 0.55rem;
+  border: 1px solid color-mix(in srgb, var(--journal-line) 72%, transparent);
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.92),
+    0 1px 3px rgba(26, 24, 22, 0.04);
   font-family: var(--font-serif), "Cormorant Garamond", ui-serif, serif;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 500;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
+  line-height: 1.25;
+  letter-spacing: -0.012em;
   color: var(--journal-ink);
+  text-align: center;
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
   transition:
-    background 0.2s ease,
-    border-color 0.2s ease;
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.journal-discovery__topic-pill:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.journal-discovery__topic-pill:nth-child(5) {
+  grid-column: 4 / span 2;
 }
 
 .journal-discovery__topic-pill:hover {
-  background: var(--journal-discovery-pill-hover);
+  background: #fdfcfa;
+  border-color: color-mix(in srgb, var(--journal-ink) 12%, var(--journal-line));
+}
+
+.journal-discovery__topic-pill:active {
+  transform: scale(0.98);
 }
 
 .journal-discovery__topic-pill-icon {
@@ -1263,8 +1296,8 @@
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  width: 2rem;
-  height: 2rem;
+  width: 2.625rem;
+  height: 2.625rem;
   border-radius: 50%;
   border: 1px solid color-mix(in srgb, var(--journal-ink) 9%, #e3ddd2);
   background: linear-gradient(
@@ -1310,8 +1343,8 @@
 
 .journal-discovery__topic-pill-icon svg {
   flex-shrink: 0;
-  width: 1.125rem;
-  height: 1.125rem;
+  width: 1.2rem;
+  height: 1.2rem;
   opacity: 1;
 }
 
@@ -1323,8 +1356,20 @@
 }
 
 .journal-discovery__topic-pill-label {
+  display: -webkit-box;
+  max-width: 5.5rem;
+  min-height: 2.5em;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   font: inherit;
   color: inherit;
+  text-wrap: balance;
+}
+
+.journal-discovery__topic-pill:hover .journal-discovery__topic-pill-icon,
+.journal-discovery__topic-pill:active .journal-discovery__topic-pill-icon {
+  transform: translateY(-1px);
 }
 
 @media (max-width: 767px) {
@@ -1333,102 +1378,115 @@
     border-top: none;
   }
 
-  /* Auto-wrap grid: scales as topics are added (no horizontal scroll). */
-  .journal-discovery__topic-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(6.5rem, 1fr));
-    gap: 1.1rem 0.75rem;
-    justify-items: center;
-  }
-
-  .journal-discovery__topic-pill {
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 0.55rem;
-    width: 100%;
-    max-width: 7.75rem;
-    min-width: 0;
-    padding: 0.15rem 0.25rem 0.1rem;
-    border-radius: 0;
-    background: transparent;
-    text-align: center;
-  }
-
-  .journal-discovery__topic-pill:hover,
-  .journal-discovery__topic-pill:active {
-    background: transparent;
-    opacity: 1;
-  }
-
-  .journal-discovery__topic-pill:hover .journal-discovery__topic-pill-label,
-  .journal-discovery__topic-pill:active .journal-discovery__topic-pill-label {
-    opacity: 0.72;
+  .journal-discovery__eyebrow {
+    margin-bottom: 1.2rem;
   }
 
   .journal-discovery__topic-pill-icon {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2.625rem;
+    height: 2.625rem;
+    border-color: color-mix(in srgb, var(--journal-ink) 7%, #e8e2d8);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.85),
+      0 2px 5px rgba(26, 24, 22, 0.06);
+  }
+
+  .journal-discovery__topic-pill-icon svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .journal-discovery__topic-row {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    column-gap: 0.65rem;
+    row-gap: 0.75rem;
+  }
+
+  .journal-discovery__topic-pill,
+  .journal-discovery__topic-pill:nth-child(4),
+  .journal-discovery__topic-pill:nth-child(5) {
+    grid-column: auto;
+  }
+
+  .journal-discovery__topic-pill {
+    min-height: 5.75rem;
+    padding: 0.75rem 0.5rem 0.65rem;
+    font-size: 14px;
+  }
+
+  .journal-discovery__topic-pill-label {
+    max-width: 6.75rem;
+  }
+
+  .journal-discovery__topic-pill-icon {
+    width: 2.875rem;
+    height: 2.875rem;
   }
 
   .journal-discovery__topic-pill-icon svg {
     width: 1.25rem;
     height: 1.25rem;
   }
-
-  .journal-discovery__topic-pill:hover .journal-discovery__topic-pill-icon,
-  .journal-discovery__topic-pill:active .journal-discovery__topic-pill-icon {
-    transform: translateY(-1px);
-  }
-
-  .journal-discovery__topic-pill-label {
-    font-family: var(--font-serif), "Cormorant Garamond", ui-serif, serif;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.32;
-    letter-spacing: -0.01em;
-    text-wrap: balance;
-    transition: opacity 0.2s ease;
-  }
 }
 
-/* 2 — Explore common searches */
+/* 2 — Explore common searches (always 2 per row; capsule pills per design) */
 .journal-discovery__search-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.625rem;
 }
 
 .journal-discovery__search-pill {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 0.38rem;
-  padding: 0.42rem 0.8rem;
-  border: 1px solid #d8d2c8;
+  gap: 0.5rem;
+  width: 100%;
+  min-width: 0;
+  padding: 0.625rem 1rem;
+  border: none;
   border-radius: 999px;
-  background: #ffffff;
+  background: #f6f6f4;
   font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
-  font-size: 12px;
+  font-size: 0.8125rem;
   font-weight: 400;
-  line-height: 1.3;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
   color: var(--journal-ink);
   text-decoration: none;
-  text-transform: lowercase;
-  transition:
-    border-color 0.2s ease,
-    background 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.2s ease;
 }
 
 .journal-discovery__search-pill:hover {
-  border-color: color-mix(in srgb, var(--journal-ink) 22%, #d8d2c8);
-  background: #faf9f7;
+  background: #efede8;
 }
 
-.journal-discovery__search-pill svg {
+.journal-discovery__search-pill:active {
+  background: #e8e6e1;
+}
+
+.journal-discovery__search-pill-icon {
+  display: inline-flex;
   flex-shrink: 0;
-  width: 13px;
-  height: 13px;
-  opacity: 0.5;
+  align-items: center;
+  justify-content: center;
+  color: color-mix(in srgb, var(--journal-ink) 52%, var(--journal-muted));
+}
+
+.journal-discovery__search-pill-icon svg {
+  width: 0.8125rem;
+  height: 0.8125rem;
+}
+
+.journal-discovery__search-pill-label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
 }
 
 /* 3 — Browse topic hubs */
@@ -1582,7 +1640,7 @@
   letter-spacing: 0.01em;
 }
 
-/* 5 — Three columns */
+/* 5 — Guides + questions */
 .journal-discovery__triptych {
   display: grid;
   grid-template-columns: 1fr;
@@ -1613,74 +1671,6 @@
 .journal-discovery__latest-head .journal-discovery__footer-link {
   margin-top: 0;
   padding-top: 0;
-}
-
-/* Evergreen guides */
-.journal-discovery__guide-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.journal-discovery__guide-row {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  padding: 0.8rem 0;
-  border-bottom: 1px solid var(--journal-line);
-  color: inherit;
-  text-decoration: none;
-  transition: opacity 0.2s ease;
-}
-
-.journal-discovery__guide-row:hover {
-  opacity: 0.82;
-}
-
-.journal-discovery__guide-list li:last-child .journal-discovery__guide-row {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-
-.journal-discovery__guide-thumb {
-  position: relative;
-  flex-shrink: 0;
-  width: 3.25rem;
-  height: 3.25rem;
-  overflow: hidden;
-  border-radius: 7px;
-  background: #ebe6de;
-}
-
-.journal-discovery__guide-text {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  gap: 0.15rem;
-  min-width: 0;
-}
-
-.journal-discovery__guide-title {
-  font-family: var(--font-serif), "Cormorant Garamond", ui-serif, serif;
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.22;
-  color: var(--journal-ink);
-}
-
-.journal-discovery__guide-sub {
-  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
-  font-size: 11px;
-  line-height: 1.38;
-  color: var(--journal-muted);
-}
-
-.journal-discovery__row-arrow {
-  flex-shrink: 0;
-  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  color: var(--journal-muted);
 }
 
 /* Popular questions */
@@ -1754,7 +1744,7 @@
   padding-left: 1rem;
 }
 
-/* Explore moods */
+/* Evergreen guides (card rows) */
 .journal-discovery__mood-list {
   display: flex;
   flex-direction: column;
@@ -1944,7 +1934,7 @@
   }
 
   .journal-discovery__triptych {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: clamp(1.5rem, 2.8vw, 2.25rem);
   }
 

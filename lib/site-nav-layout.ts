@@ -1,4 +1,5 @@
 import { isEvergreenGuideSlug } from "@/data/evergreen-guides";
+import { isJournalQaGuideArticleSlug } from "@/data/journal-qa-guide-article-slugs";
 import { isJournalTopicHubId } from "@/data/journal-topic-hubs";
 import { isShopCategorySegment } from "@/lib/shop-catalog";
 import { JOURNAL_INDEX, SHOP_INDEX } from "@/lib/site-paths";
@@ -42,6 +43,14 @@ export function isJournalArticlePath(pathname: string | null): boolean {
   return !isJournalTopicHubPath(pathname);
 }
 
+/** Hand-authored Q&A guide at `/journal/{slug}` (not topic hubs). */
+export function isJournalGuideArticlePath(pathname: string | null): boolean {
+  const path = normalizeSitePath(pathname);
+  if (!/^\/journal\/[^/]+$/.test(path)) return false;
+  const slug = path.slice("/journal/".length);
+  return isJournalQaGuideArticleSlug(slug);
+}
+
 /** Shop product PDP — e.g. /shop/wood-tray (not category PLP). */
 export function isShopProductPdpPath(pathname: string | null): boolean {
   const path = normalizeSitePath(pathname);
@@ -69,9 +78,16 @@ export function isMobileNavBackLeadingPath(pathname: string | null): boolean {
   );
 }
 
-/** Topic + guide pages: trailing cart slot becomes history back. */
-export function isMobileNavBackTrailingPath(pathname: string | null): boolean {
-  return isJournalTopicHubPath(pathname) || isEvergreenGuidePath(pathname);
+/**
+ * Topic hub, evergreen guide, and Q&A guide articles: leading slot is history back
+ * (not the hamburger). Keeps overlay hero nav aligned with editorial detail UX.
+ */
+export function isMobileNavLeadingBackOnlyPath(pathname: string | null): boolean {
+  return (
+    isJournalTopicHubPath(pathname) ||
+    isEvergreenGuidePath(pathname) ||
+    isJournalGuideArticlePath(pathname)
+  );
 }
 
 /** Mobile detail nav: hide cart icon in the bar (journal + cart page; shop PDP keeps cart). */
@@ -79,7 +95,7 @@ export function isMobileNavCartHiddenPath(pathname: string | null): boolean {
   return (
     isJournalArticlePath(pathname) ||
     isCartPath(pathname) ||
-    isMobileNavBackTrailingPath(pathname)
+    isMobileNavLeadingBackOnlyPath(pathname)
   );
 }
 
@@ -87,6 +103,7 @@ export function isMobileNavCartHiddenPath(pathname: string | null): boolean {
 export function mobileNavBackFallbackHref(pathname: string | null): string {
   if (isJournalTopicHubPath(pathname)) return JOURNAL_INDEX;
   if (isEvergreenGuidePath(pathname)) return JOURNAL_INDEX;
+  if (isJournalGuideArticlePath(pathname)) return JOURNAL_INDEX;
   if (isJournalArticlePath(pathname)) return JOURNAL_INDEX;
   if (isShopProductPdpPath(pathname)) return SHOP_INDEX;
   if (isCartPath(pathname)) return "/";

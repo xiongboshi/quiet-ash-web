@@ -49,6 +49,34 @@ import { Truck } from "lucide-react";
 ```
 <!-- END:quietash-icons -->
 
+<!-- BEGIN:journal-index-discovery -->
+## Journal index discovery (`/journal`)
+
+**Explore by topic** — icon-above-label **tiles** in a grid (3+2 centered on narrow viewports, 5-across from 900px). Never revert to horizontal rounded chips (icon beside label in a flex row).
+
+**Explore common searches** — always `grid-template-columns: repeat(2, 1fr)` at every breakpoint.
+
+**Section headings** — `.journal-discovery__eyebrow` matches topic hub `.journal-topic-page__section-title` (serif).
+
+Styles: `styles/journal-index.css` (`.journal-discovery__*`).
+<!-- END:journal-index-discovery -->
+
+<!-- BEGIN:journal-qa-guide-insight -->
+## Journal Q&A guide — Insight band (do not drift)
+
+Hand-authored guides (`data/journal-articles/*.ts`, `bodyFormat: "guide"`) use **`JournalArticleInsight`** — layout is locked to the product design.
+
+**Quick answer:** Sparkles icon in a round `#e5ddd2` tile · `QUICK ANSWER` label (uppercase sans) · body copy · **divider** below.
+
+**Key takeaways:** `KEY TAKEAWAYS` label · **2-column icon grid** (mobile and desktop) · each cell = round `#f2ede4` icon tile + **centered** sans caption (`leaf` / `shield` / `scent` / `brain`).
+
+- Prefer `keyTakeaways` with explicit icons in article data.
+- `keyTakeawayBullets` may only be used when icons are assigned automatically — never a plain bullet list.
+- Do **not** switch takeaways to 4-column rows, vertical dividers, or left-aligned bullet lists.
+- Styles: `styles/journal-article.css` (`.journal-article-insight__*`).
+- Reference article: `/journal/is-incense-safe-for-pets`.
+<!-- END:journal-qa-guide-insight -->
+
 <!-- BEGIN:nextjs-agent-rules -->
 # This is NOT the Next.js you know
 

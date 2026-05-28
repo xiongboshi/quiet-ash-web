@@ -3,7 +3,6 @@ import { JournalTopicHubFeaturedArticles } from "@/components/journal/journal-to
 import { JournalTopicHubFeaturedGuide } from "@/components/journal/journal-topic-hub-featured-guide";
 import { JournalTopicHubPeopleAlsoAsk } from "@/components/journal/journal-topic-hub-people-also-ask";
 import { JournalTopicHubPopularSearches } from "@/components/journal/journal-topic-hub-popular-searches";
-import { JournalTopicHubRelatedMoods } from "@/components/journal/journal-topic-hub-related-moods";
 import { JournalTopicHubSaveShare } from "@/components/journal/journal-topic-hub-save-share";
 import { getJournalTopicPageContent } from "@/data/journal-topic-page-content";
 import type { TopicPageFeaturedArticle } from "@/data/journal-topic-page-content";
@@ -53,7 +52,6 @@ export function JournalTopicHubPage({ hub, articles }: Props) {
           viewAllHref={hub.pathname}
         />
         <JournalTopicHubPeopleAlsoAsk items={content.peopleAlsoAsk} />
-        <JournalTopicHubRelatedMoods moods={content.relatedMoods} />
         <JournalTopicHubSaveShare saveSub={content.saveShareSub} />
       </div>
     </div>

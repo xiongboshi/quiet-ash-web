@@ -68,6 +68,36 @@ export const journalGuidesTipsHandCards: readonly JournalIndexArticleCard[] = [
       "Incense with soft smoke in a small bedroom — calm light and restrained fragrance",
     tags: ["sleep", "relaxation"],
   },
+  {
+    slug: "incense-after-work",
+    categoryId: "calm-evenings",
+    categoryLabel: "CALM EVENINGS",
+    headline: "Incense After Work: Softer Scents for Slower Evenings",
+    seoTitle: "Best Incense After Work for Relaxing Evenings",
+    title: "Incense After Work: Softer Scents for Slower Evenings",
+    description:
+      "Discover softer incense scents and calming evening rituals that help create a quieter atmosphere after long workdays.",
+    readMinutes: 8,
+    date: "2026-05-19",
+    imageSrc: "/images/generated/essay-good-incense-not-loud.webp",
+    imageAlt: "Soft incense smoke in a calm living room after work",
+    tags: ["relaxation", "stress-relief"],
+  },
+  {
+    slug: "tea-and-incense-rituals",
+    categoryId: "quiet-routines",
+    categoryLabel: "QUIET ROUTINES",
+    headline: "Tea and Incense Rituals for Slower Evenings",
+    seoTitle: "Tea and Incense Rituals for Calm Evenings",
+    title: "Tea and Incense Rituals for Slower Evenings",
+    description:
+      "Discover simple tea and incense rituals that create softer evenings, calmer atmosphere, and slower daily routines at home.",
+    readMinutes: 8,
+    date: "2026-05-19",
+    imageSrc: "/images/generated/essay-incense-patience.webp",
+    imageAlt: "Tea and incense on a quiet desk in soft evening light",
+    tags: ["relaxation", "stress-relief"],
+  },
 ];
 
 /** @deprecated Use `journalGuidesTipsHandCards[0]` */

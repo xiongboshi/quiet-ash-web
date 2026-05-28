@@ -1,4 +1,5 @@
 import { Bookmark, Link2, Mail } from "lucide-react";
+import { JournalEditorialSaveShareAccent } from "@/components/journal/journal-editorial-save-share-accent";
 import {
   JOURNAL_EDITORIAL_SAVE_ICON,
   JOURNAL_EDITORIAL_SHARE_ICON,
@@ -30,11 +31,7 @@ export function JournalTopicHubSaveShare({ saveSub }: Props) {
   return (
     <section className="journal-topic-page__save-share" aria-label="Save and share">
       <div className="journal-topic-page__save-share-card">
-        <span className="journal-topic-page__save-share-botanical" aria-hidden>
-          <svg viewBox="0 0 80 120" fill="none" stroke="currentColor" strokeWidth="0.9">
-            <path d="M40 110V45M40 45c-8-18-22-28-30-32M40 45c8-18 22-28 30-32M40 70c-12-8-20-14-26-22M40 70c12-8 20-14 26-22" />
-          </svg>
-        </span>
+        <JournalEditorialSaveShareAccent className="journal-topic-page__save-share-accent" />
 
         <div className="journal-topic-page__save-share-half journal-topic-page__save-share-half--save">
           <Bookmark {...JOURNAL_EDITORIAL_SAVE_ICON} />

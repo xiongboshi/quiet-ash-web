@@ -28,11 +28,11 @@ export function catalogProductToListing(
   const canonicalNotes = materialLine || product.line;
 
   const title =
-    categoryPlp?.title ?? product.title ?? basePlp?.title ?? "";
+    categoryPlp?.title ?? basePlp?.title ?? product.title ?? "";
   const scentNotes =
     categoryPlp?.scentNotes ??
-    canonicalNotes ??
     basePlp?.scentNotes ??
+    canonicalNotes ??
     "";
   const rawPrice =
     categoryPlp?.priceDisplay ??

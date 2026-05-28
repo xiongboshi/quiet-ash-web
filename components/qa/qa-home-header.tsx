@@ -9,8 +9,8 @@ import { brandHome } from "@/data/brand-home";
 import { PRIMARY_NAV } from "@/lib/site-nav";
 import {
   isMobileNavBackLeadingPath,
-  isMobileNavBackTrailingPath,
   isMobileNavCartHiddenPath,
+  isMobileNavLeadingBackOnlyPath,
   mobileNavBackFallbackHref,
 } from "@/lib/site-nav-layout";
 
@@ -43,9 +43,10 @@ export function QaHomeHeader() {
   const pathname = usePathname();
   const path = normalizePath(pathname);
   const mobileNavBack = isMobileNavBackLeadingPath(pathname);
+  const mobileNavLeadingBackOnly = isMobileNavLeadingBackOnlyPath(pathname);
   const mobileNavBackFallback = mobileNavBackFallbackHref(pathname);
-  const showTrailingBack = isMobileNavBackTrailingPath(pathname);
   const hideMobileNavCart = isMobileNavCartHiddenPath(pathname);
+  const showMobileMenu = !mobileNavLeadingBackOnly;
   const [menuOpen, setMenuOpen] = useState(false);
   const panelId = useId();
   const { siteTitle } = brandHome;
@@ -78,17 +79,24 @@ export function QaHomeHeader() {
     <>
       <nav className="navbar" aria-label="Site">
         <div className="container nav-inner">
-          <button
-            type="button"
-            className="nav-mobile-toggle"
-            aria-expanded={menuOpen}
-            aria-controls={panelId}
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-            onClick={() => setMenuOpen((o) => !o)}
-          >
-            <span className="sr-only">Menu</span>
-            <span aria-hidden>{menuOpen ? "×" : "☰"}</span>
-          </button>
+          {mobileNavLeadingBackOnly ? (
+            <QaMobileBackButton
+              variant="bar"
+              fallbackHref={mobileNavBackFallback}
+            />
+          ) : (
+            <button
+              type="button"
+              className="nav-mobile-toggle"
+              aria-expanded={menuOpen}
+              aria-controls={panelId}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              onClick={() => setMenuOpen((o) => !o)}
+            >
+              <span className="sr-only">Menu</span>
+              <span aria-hidden>{menuOpen ? "×" : "☰"}</span>
+            </button>
+          )}
 
           <Link href="/" className="nav-brand logo">
             <span className="nav-brand__text">{siteTitle}</span>
@@ -111,21 +119,14 @@ export function QaHomeHeader() {
           </div>
 
           <div className="nav-actions">
-            {showTrailingBack ? (
-              <QaMobileBackButton
-                variant="trailing"
-                fallbackHref={mobileNavBackFallback}
-              />
-            ) : (
-              <QaHomeCartLink
-                className={hideMobileNavCart ? "nav-icon-btn--cart-on-detail" : undefined}
-              />
-            )}
+            <QaHomeCartLink
+              className={hideMobileNavCart ? "nav-icon-btn--cart-on-detail" : undefined}
+            />
           </div>
         </div>
       </nav>
 
-      {menuOpen ? (
+      {showMobileMenu && menuOpen ? (
         <div
           className="qa-mobile-panel qa-mobile-panel--open"
           role="dialog"
@@ -139,7 +140,7 @@ export function QaHomeHeader() {
             onClick={() => setMenuOpen(false)}
           />
           <div id={panelId} className="qa-mobile-panel-inner">
-            {mobileNavBack ? (
+            {mobileNavBack && !mobileNavLeadingBackOnly ? (
               <QaMobileBackButton
                 variant="drawer"
                 fallbackHref={mobileNavBackFallback}

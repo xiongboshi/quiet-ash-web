@@ -17,7 +17,7 @@
     "categorySlugs": ["incense", "holders"],
     "filterTags": {
       "scent": ["floral"],
-      "mood": ["sleep"],
+      "mood": ["sleep", "stress", "reset", "focus"],
       "price": ["50-100"],
       "material": ["stoneware"],
       "type": ["vessel"],

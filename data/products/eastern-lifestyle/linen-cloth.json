@@ -16,7 +16,7 @@
     "categorySlugs": ["incense"],
     "filterTags": {
       "scent": ["herbal"],
-      "mood": ["reset"],
+      "mood": ["reset", "sleep", "stress", "fresh", "focus"],
       "price": ["20-35"]
     }
   },

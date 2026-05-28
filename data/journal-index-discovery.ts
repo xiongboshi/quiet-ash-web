@@ -1,7 +1,7 @@
 import type { JournalTopicHubId } from "@/data/journal-topic-hubs";
 import { evergreenGuides } from "@/data/evergreen-guides";
 import { journalPopularQuestions } from "@/data/journal-popular-questions";
-import { guidePath, journalPath, moodPath } from "@/lib/site-paths";
+import { guidePath, journalPath } from "@/lib/site-paths";
 
 /** Explore by topic — design order (5 pills, no Cozy Home). */
 export const journalDiscoveryExploreTopics = [
@@ -75,28 +75,33 @@ export const journalDiscoverySearchIntents = [
   { label: "incense for apartments", href: journalPath("best-incense-for-small-apartments") },
   { label: "calming evening rituals", href: guidePath("evening-calm-guide") },
   { label: "incense safe for pets", href: journalPath("is-incense-safe-for-pets") },
-  { label: "evening wind-down ideas", href: journalPath("calm-evenings") },
+  { label: "incense after work", href: journalPath("incense-after-work") },
 ] as const;
 
-/** Featured editorial — design copy. */
+/** Featured editorial — three journal Q&A guides. */
 export const journalDiscoveryFeaturedEditorial = [
   {
-    title: "Softer fragrance for smaller homes.",
-    href: guidePath("small-apartment-fragrance-guide"),
+    slug: "best-incense-for-small-apartments",
+    title: "Best incense for small apartments.",
+    href: journalPath("best-incense-for-small-apartments"),
     imageSrc: "/images/generated/essay-night-incense-ritual.webp",
-    imageAlt: "Soft smoke in a compact bedroom",
+    imageAlt:
+      "Incense with soft smoke in a small bedroom — calm light and restrained fragrance",
   },
   {
-    title: "A quieter room before sleep.",
-    href: guidePath("sleep-guide"),
+    slug: "best-incense-for-sleep",
+    title: "Best incense for sleep.",
+    href: journalPath("best-incense-for-sleep"),
     imageSrc: "/images/generated/essay-night-incense-ritual.webp",
-    imageAlt: "Evening incense beside a calm bed",
+    imageAlt: "Incense stick burning in a ceramic bowl with soft evening light",
   },
   {
-    title: "The atmosphere after long days.",
-    href: guidePath("evening-calm-guide"),
+    slug: "is-incense-safe-for-pets",
+    title: "Is incense safe for pets?",
+    href: journalPath("is-incense-safe-for-pets"),
     imageSrc: "/images/generated/essay-good-incense-not-loud.webp",
-    imageAlt: "Restrained incense in warm light",
+    imageAlt:
+      "Soft incense smoke in a calm home with natural light — gentle everyday use",
   },
 ] as const;
 
@@ -173,31 +178,6 @@ export const journalDiscoveryFaqItems = [
   },
 ] as const;
 
-/** Explore moods column — design copy. */
-export const journalDiscoveryMoodCards = [
-  {
-    title: "Calm Evenings",
-    subtitle: "Slow down and unwind.",
-    href: moodPath("evening-room-ritual"),
-    imageSrc: "/images/generated/essay-night-incense-ritual.webp",
-    imageAlt: "Dimly lit room with a candle",
-  },
-  {
-    title: "Deep Rest",
-    subtitle: "Prepare your space for sleep.",
-    href: moodPath("evening-room-ritual"),
-    imageSrc: "/images/generated/mood-poster-sleep-white-blossom.webp",
-    imageAlt: "Soft bedding and calm bedroom light",
-  },
-  {
-    title: "Creative Focus",
-    subtitle: "Gentle atmosphere for your flow.",
-    href: moodPath("quiet-desk-ritual"),
-    imageSrc: "/images/generated/essay-incense-patience.webp",
-    imageAlt: "Desk with branches in soft daylight",
-  },
-] as const;
-
 /** Latest articles — design order and display titles. */
 export const journalDiscoveryLatestSlugs = [
   { slug: "is-incense-safe-for-pets" },
@@ -210,6 +190,5 @@ export const journalDiscoveryLatestSlugs = [
 export const journalDiscoveryFooterLinks = {
   guides: guidePath("sleep-guide"),
   faqs: journalPath("best-incense-for-sleep"),
-  moods: moodPath(),
   articles: journalPath("better-sleep"),
 } as const;

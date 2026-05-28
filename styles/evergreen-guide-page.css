@@ -3,6 +3,12 @@
  */
 
 .evergreen-guide {
+  --journal-bg: #faf7f2;
+  --journal-body-bg: #faf9f7;
+  --journal-ink: #1a1816;
+  --journal-muted: #6f6a63;
+  --journal-pill-bg: #f5f2ed;
+
   --eg-cream: #f3f0ea;
   --eg-cream-light: #f9f8f6;
   --eg-border: #e5e2dc;
@@ -177,31 +183,136 @@
   object-position: 62% center;
 }
 
-/* Hero — same type scale as journal index / topic hubs */
+/* Hero — self-contained (site-hero-overlay band + topic-hub type scale) */
+.evergreen-guide .journal-index-hero {
+  --journal-hero-ink: #0d0d0d;
+  overflow-x: clip;
+  background: var(--journal-bg);
+  color: var(--journal-hero-ink);
+}
+
+.evergreen-guide .journal-index-hero__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: var(--journal-bg);
+}
+
+.evergreen-guide .journal-index-hero__copy {
+  max-width: var(--qa-container-width, 1680px);
+}
+
+.evergreen-guide .journal-index-hero__copy-inner {
+  max-width: min(31rem, 100%);
+  pointer-events: auto;
+}
+
+.evergreen-guide .journal-index-hero__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    rgba(248, 244, 238, 0.58) 0%,
+    rgba(248, 244, 238, 0.34) 28%,
+    rgba(248, 244, 238, 0.08) 46%,
+    transparent 54%
+  );
+}
+
 .evergreen-guide .journal-index-hero__copy-inner {
   text-align: left;
 }
 
 .evergreen-guide .journal-index-hero__title {
+  margin: 0;
   font-family: var(--eg-font-serif);
+  font-size: clamp(2.875rem, 5.1vw, 4.625rem);
   font-weight: 400;
+  line-height: 1.02;
   letter-spacing: -0.032em;
+  color: #0d0d0d;
+  text-align: left;
 }
 
 .evergreen-guide .journal-index-hero__tagline {
+  margin: 1.5rem 0 0;
+  max-width: min(28rem, 100%);
   font-family: var(--eg-font-sans);
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.55;
+  color: #0d0d0d;
   text-align: left;
 }
 
 .evergreen-guide .journal-index-hero__lede {
+  margin: 0.65rem 0 0;
+  max-width: min(28rem, 100%);
   font-family: var(--eg-font-sans);
   font-size: 0.9375rem;
   font-weight: 400;
   line-height: 1.6;
+  color: color-mix(in srgb, #0d0d0d 78%, transparent);
   text-align: left;
+}
+
+@media (max-width: 639px) {
+  .evergreen-guide .journal-index-hero__scrim {
+    background: linear-gradient(
+      180deg,
+      rgba(250, 247, 243, 0.62) 0%,
+      rgba(250, 247, 243, 0.3) 42%,
+      transparent 66%
+    );
+  }
+
+  /* Long guide titles + lede: anchor copy below overlay nav (topic hubs use the same band) */
+  .evergreen-guide .journal-index-hero__copy {
+    align-items: flex-start;
+    padding-top: max(
+      var(--qa-hero-overlay-pad-top),
+      calc(env(safe-area-inset-top, 0px) + 5rem)
+    );
+  }
+
+  .evergreen-guide .journal-index-hero__title {
+    font-size: clamp(2.35rem, 9vw, 2.85rem);
+  }
+
+  .evergreen-guide .journal-index-hero__tagline {
+    margin-top: 1rem;
+    max-width: 100%;
+  }
+
+  .evergreen-guide .journal-index-hero__lede {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .evergreen-guide .journal-index-hero__title {
+    font-size: 4.625rem;
+  }
+
+  .evergreen-guide .journal-index-hero__tagline {
+    margin-top: 1.75rem;
+    max-width: min(28rem, 100%);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  .evergreen-guide .journal-index-hero__lede {
+    margin-top: 0.75rem;
+    max-width: min(28rem, 100%);
+    font-size: 1rem;
+    line-height: 1.65;
+  }
 }
 
 .evergreen-guide__body {
@@ -408,7 +519,8 @@
 
 /* —— 3 Scents grid —— */
 .evergreen-guide__scents {
-  padding-top: 0.15rem;
+  margin-top: 48px;
+  padding-top: 0;
 }
 
 .evergreen-guide__scents-grid {
@@ -586,13 +698,10 @@
 
 .evergreen-guide__feature-media {
   position: relative;
-  aspect-ratio: 5 / 6;
   margin: 0;
-  min-height: 12rem;
-}
-
-.evergreen-guide__feature-card:nth-child(2) .evergreen-guide__feature-media {
+  overflow: hidden;
   aspect-ratio: 4 / 3;
+  min-height: 0;
 }
 
 /* —— 5 FAQ —— */
@@ -752,6 +861,10 @@
 }
 
 /* —— 7 Save & share —— */
+.evergreen-guide__save-share {
+  padding-top: 0.1rem;
+}
+
 .evergreen-guide__save-share-card {
   position: relative;
   display: grid;
@@ -759,24 +872,44 @@
   overflow: hidden;
   border: 1px solid color-mix(in srgb, var(--eg-border) 75%, transparent);
   border-radius: 12px;
-  background: var(--eg-cream-light);
+  background: linear-gradient(
+    145deg,
+    var(--eg-cream-light) 0%,
+    color-mix(in srgb, var(--eg-cream-light) 88%, #e8e0d4) 100%
+  );
 }
 
-.evergreen-guide__save-share-botanical {
+.evergreen-guide__save-share-card::before {
+  content: "";
   position: absolute;
-  right: 0.5rem;
-  bottom: 0.25rem;
+  inset: 0;
   z-index: 0;
-  width: 4.25rem;
-  height: 6.25rem;
-  color: color-mix(in srgb, var(--journal-ink) 32%, transparent);
   pointer-events: none;
+  background: radial-gradient(
+    ellipse 85% 70% at 100% 100%,
+    color-mix(in srgb, #d9cfc0 22%, transparent) 0%,
+    transparent 62%
+  );
 }
 
-.evergreen-guide__save-share-botanical svg {
+.evergreen-guide__save-share-accent {
+  position: absolute;
+  right: -0.25rem;
+  bottom: 0;
+  z-index: 0;
+  width: min(10.5rem, 46%);
+  height: 100%;
+  color: var(--journal-ink);
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(108deg, transparent 18%, #000 72%);
+  mask-image: linear-gradient(108deg, transparent 18%, #000 72%);
+}
+
+.evergreen-guide__save-share-accent svg {
   width: 100% !important;
   height: 100% !important;
   object-fit: contain !important;
+  object-position: right bottom;
 }
 
 .evergreen-guide__save-share-half {
@@ -812,7 +945,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 0.7rem;
-  padding-right: 4.5rem;
+  padding-right: 1.35rem;
 }
 
 .evergreen-guide__save-share-label {
@@ -942,13 +1075,11 @@
 
   .evergreen-guide__save-share-half--share {
     justify-content: center;
-    padding-right: 5rem;
+    padding-right: 1.75rem;
   }
 
-  .evergreen-guide__save-share-botanical {
-    right: 1.25rem;
-    bottom: 0.75rem;
-    width: 4.75rem;
-    height: 6.75rem;
+  .evergreen-guide__save-share-accent {
+    width: min(12rem, 44%);
+    right: 0;
   }
 }

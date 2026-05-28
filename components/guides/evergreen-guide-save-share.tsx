@@ -1,4 +1,5 @@
 import { Bookmark, Link2, Mail } from "lucide-react";
+import { JournalEditorialSaveShareAccent } from "@/components/journal/journal-editorial-save-share-accent";
 import {
   EVERGREEN_GUIDE_SAVE_ICON,
   EVERGREEN_GUIDE_SHARE_ICON,
@@ -30,11 +31,7 @@ export function EvergreenGuideSaveShare({ saveSub }: Props) {
   return (
     <section className="evergreen-guide__save-share" aria-label="Save and share">
       <div className="evergreen-guide__save-share-card">
-        <span className="evergreen-guide__save-share-botanical" aria-hidden>
-          <svg viewBox="0 0 80 120" fill="none" stroke="currentColor" strokeWidth="0.9">
-            <path d="M40 110V45M40 45c-8-18-22-28-30-32M40 45c8-18 22-28 30-32M40 70c-12-8-20-14-26-22M40 70c12-8 20-14 26-22" />
-          </svg>
-        </span>
+        <JournalEditorialSaveShareAccent className="evergreen-guide__save-share-accent" />
 
         <div className="evergreen-guide__save-share-half evergreen-guide__save-share-half--save">
           <Bookmark size={18} strokeWidth={1.35} aria-hidden />

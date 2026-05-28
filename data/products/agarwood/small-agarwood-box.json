@@ -17,7 +17,7 @@
     "categorySlugs": ["incense", "holders"],
     "filterTags": {
       "scent": ["woody"],
-      "mood": ["reset"],
+      "mood": ["reset", "sleep", "stress", "focus"],
       "price": ["under-20", "100-plus"],
       "material": ["walnut"],
       "type": ["storage"],

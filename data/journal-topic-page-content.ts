@@ -7,11 +7,6 @@ export type TopicPageSearchPill = {
   href: string;
 };
 
-export type TopicPageRelatedMood = {
-  label: string;
-  href: string;
-};
-
 export type TopicPageFeaturedArticle = {
   slug: string;
   title: string;
@@ -40,7 +35,6 @@ export type TopicPageContent = {
   featuredGuide: TopicPageFeaturedGuide;
   featuredArticles: readonly TopicPageFeaturedArticle[];
   peopleAlsoAsk: readonly TopicPageFaqItem[];
-  relatedMoods: readonly TopicPageRelatedMood[];
   saveShareSub: string;
 };
 
@@ -119,11 +113,6 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
         answer: sleepFaqAnswers.anxiety,
       },
     ],
-    relatedMoods: [
-      { label: "Deep Rest", href: moodPath("evening-room-ritual") },
-      { label: "Calm Evenings", href: journalPath("calm-evenings") },
-      { label: "Cozy Home", href: journalPath("cozy-home") },
-    ],
     saveShareSub: "Bookmark this topic to revisit sleep tips and evening rituals anytime.",
   },
   "small-space-living": {
@@ -198,13 +187,6 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
         ],
       },
     ],
-    relatedMoods: [
-      { label: "Cozy Home", href: journalPath("cozy-home") },
-      { label: "Quiet Mornings", href: journalPath("quiet-routines") },
-      { label: "Slow Living", href: guidePath("slow-living-ritual-guide") },
-      { label: "Calm Evenings", href: journalPath("calm-evenings") },
-      { label: "Soft Focus", href: moodPath("quiet-desk-ritual") },
-    ],
     saveShareSub: "Bookmark this topic for apartment fragrance and ventilation tips anytime.",
   },
   "calm-evenings": {
@@ -213,11 +195,11 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
     heroLede:
       "This guide explores how lighting, fragrance, and simple routines can help evenings feel quieter and more balanced.",
     popularSearches: [
-      { label: "calming evening rituals", href: guidePath("evening-calm-guide") },
       {
-        label: "incense for relaxing evenings",
-        href: journalPath("best-incense-for-sleep"),
+        label: "incense after work",
+        href: journalPath("incense-after-work"),
       },
+      { label: "calming evening rituals", href: guidePath("evening-calm-guide") },
       { label: "unwind after work", href: moodPath("evening-room-ritual") },
     ],
     featuredGuide: {
@@ -228,7 +210,14 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
       description:
         "Simple nighttime rituals for calmer evenings and softer transitions.",
     },
-    featuredArticles: [],
+    featuredArticles: [
+      {
+        slug: "incense-after-work",
+        title: "Incense After Work: Softer Scents for Slower Evenings",
+        description:
+          "Softer fragrance and quieter atmosphere for slower evenings at home.",
+      },
+    ],
     peopleAlsoAsk: [
       {
         id: "evening-scents",
@@ -266,13 +255,6 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
         ],
       },
     ],
-    relatedMoods: [
-      { label: "Deep Rest", href: moodPath("evening-room-ritual") },
-      { label: "Cozy Home", href: journalPath("cozy-home") },
-      { label: "Quiet Routines", href: journalPath("quiet-routines") },
-      { label: "Slow Living", href: guidePath("slow-living-ritual-guide") },
-      { label: "Soft Lighting", href: journalPath("cozy-home") },
-    ],
     saveShareSub: "Bookmark this topic to return to your evening wind-down rituals.",
   },
   "quiet-routines": {
@@ -282,10 +264,13 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
       "This guide explores simple daily rituals that help indoor spaces feel quieter, calmer, and more intentional.",
     popularSearches: [
       {
+        label: "tea and incense ritual",
+        href: journalPath("tea-and-incense-rituals"),
+      },
+      {
         label: "incense before writing",
         href: guidePath("slow-living-ritual-guide"),
       },
-      { label: "tea and incense ritual", href: moodPath("tea-after-rain") },
       { label: "quiet morning routines", href: journalPath("quiet-routines") },
     ],
     featuredGuide: {
@@ -296,7 +281,14 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
       description:
         "Simple routines that create calmer moments throughout the day.",
     },
-    featuredArticles: [],
+    featuredArticles: [
+      {
+        slug: "tea-and-incense-rituals",
+        title: "Tea and Incense Rituals for Slower Evenings",
+        description:
+          "Quiet routines, softer atmosphere, and slower moments at home.",
+      },
+    ],
     peopleAlsoAsk: [
       {
         id: "routine-focus-incense",
@@ -338,13 +330,6 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
           },
         ],
       },
-    ],
-    relatedMoods: [
-      { label: "Gentle Focus", href: moodPath("quiet-desk-ritual") },
-      { label: "Slow Living", href: guidePath("slow-living-ritual-guide") },
-      { label: "Cozy Home", href: journalPath("cozy-home") },
-      { label: "Quiet Mornings", href: journalPath("quiet-routines") },
-      { label: "Calm Evenings", href: journalPath("calm-evenings") },
     ],
     saveShareSub: "Bookmark this topic for desk rituals and quiet focus anytime.",
   },
@@ -396,11 +381,6 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
           },
         ],
       },
-    ],
-    relatedMoods: [
-      { label: "Cozy Home", href: journalPath("cozy-home") },
-      { label: "Calm Evenings", href: journalPath("calm-evenings") },
-      { label: "Slow Living", href: guidePath("slow-living-ritual-guide") },
     ],
     saveShareSub: "Bookmark this topic for cozy home rituals and softer interiors anytime.",
   },
@@ -472,13 +452,6 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
           },
         ],
       },
-    ],
-    relatedMoods: [
-      { label: "Quiet Home", href: journalPath("cozy-home") },
-      { label: "Calm Evenings", href: journalPath("calm-evenings") },
-      { label: "Slow Living", href: guidePath("slow-living-ritual-guide") },
-      { label: "Deep Rest", href: journalPath("better-sleep") },
-      { label: "Gentle Focus", href: moodPath("quiet-desk-ritual") },
     ],
     saveShareSub: "Bookmark this topic for incense care and safety tips anytime.",
   },

@@ -887,6 +887,9 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--shop-ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .shop-product-card__notes {
@@ -896,6 +899,9 @@
   font-weight: 400;
   line-height: 1.45;
   color: var(--shop-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .shop-product-card__rating {

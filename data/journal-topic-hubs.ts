@@ -113,7 +113,7 @@ export const journalTopicHubs: readonly JournalTopicHub[] = [
     categoryId: "calm-evenings",
     relatedMoodSlug: "evening-room-ritual",
     relatedMoodLabel: "Explore Calm Evenings",
-    featuredSlugs: [],
+    featuredSlugs: ["incense-after-work"],
   },
   {
     id: "quiet-routines",
@@ -136,7 +136,7 @@ export const journalTopicHubs: readonly JournalTopicHub[] = [
     categoryId: "quiet-routines",
     relatedMoodSlug: "incense-before-writing",
     relatedMoodLabel: "Incense Before Writing",
-    featuredSlugs: [],
+    featuredSlugs: ["tea-and-incense-rituals"],
   },
   {
     id: "cozy-home",

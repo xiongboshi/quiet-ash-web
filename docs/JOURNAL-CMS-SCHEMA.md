@@ -137,8 +137,8 @@ Each block has a distinct job. **Do not repeat the same sentence** (or near-iden
 
 | Block | Role |
 |-------|------|
-| Quick answer | One direct answer only |
-| Key takeaways | Four scannable facts — not copied from body |
+| Quick answer | One direct answer only — Sparkles icon + `QUICK ANSWER` label + divider (see `journal-article-insight`) |
+| Key takeaways | **2×2 icon grid** (leaf / shield / scent / brain), centered captions — never a bullet list; four scannable facts — not copied from body |
 | Intro | Why read on — **do not restate** the quick answer |
 | Sections | Depth, examples, lists |
 | FAQ | Short, **new** angles — not copy-paste from sections |

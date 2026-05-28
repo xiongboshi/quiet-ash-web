@@ -1,5 +1,4 @@
-import "@/styles/journal-index.css";
-import "@/styles/journal-topic-page.css";
+/** Guide pages only — do not import journal-index.css (unscoped hero rules bleed here). */
 import "@/styles/evergreen-guide-page.css";
 
 export default function GuidesLayout({

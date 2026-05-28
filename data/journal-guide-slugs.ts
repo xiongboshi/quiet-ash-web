@@ -1,16 +1,16 @@
 import type { JournalTopicHubId } from "@/data/journal-topic-hubs";
+import {
+  JOURNAL_QA_GUIDE_ARTICLE_SLUGS,
+  journalGuideArticleSlugs,
+  type JournalQaGuideArticleSlug,
+} from "@/data/journal-qa-guide-article-slugs";
 import { getEssayBySlug } from "@/lib/essays";
 
-/** Hand-authored Q&A guide articles (`data/journal-articles/*.ts`). */
-export const JOURNAL_QA_GUIDE_ARTICLE_SLUGS = [
-  "best-incense-for-sleep",
-  "is-incense-safe-for-pets",
-  "best-incense-for-small-apartments",
-] as const;
-
-export type JournalQaGuideArticleSlug = (typeof JOURNAL_QA_GUIDE_ARTICLE_SLUGS)[number];
-
-export const journalGuideArticleSlugs = new Set<string>(JOURNAL_QA_GUIDE_ARTICLE_SLUGS);
+export {
+  JOURNAL_QA_GUIDE_ARTICLE_SLUGS,
+  journalGuideArticleSlugs,
+  type JournalQaGuideArticleSlug,
+};
 
 /** Primary Q&A article per topic hub (only hubs with a matching guide). */
 export const journalQaGuideSlugByTopicHub: Partial<
@@ -18,6 +18,8 @@ export const journalQaGuideSlugByTopicHub: Partial<
 > = {
   "better-sleep": "best-incense-for-sleep",
   "small-space-living": "best-incense-for-small-apartments",
+  "calm-evenings": "incense-after-work",
+  "quiet-routines": "tea-and-incense-rituals",
   "guides-care": "is-incense-safe-for-pets",
 };
 

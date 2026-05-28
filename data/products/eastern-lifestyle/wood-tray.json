@@ -1,7 +1,7 @@
 {
   "slug": "wood-tray",
-  "title": "Citrus Grove Incense Sticks",
-  "material": "Natural incense",
+  "title": "Citrus Sleep",
+  "material": "Citrus",
   "origin": "Small batch",
   "line": "Bright • Uplifting • Fresh",
   "priceDisplay": "$18.00",
@@ -14,7 +14,7 @@
     "categorySlugs": ["incense", "holders"],
     "filterTags": {
       "scent": ["fruity"],
-      "mood": ["sleep"],
+      "mood": ["sleep", "stress", "fresh", "reset", "focus"],
       "price": ["under-20"],
       "material": ["walnut"],
       "type": ["tray"],

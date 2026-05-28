@@ -17,7 +17,7 @@
     "categorySlugs": ["incense", "holders"],
     "filterTags": {
       "scent": ["floral"],
-      "mood": ["fresh"],
+      "mood": ["fresh", "sleep", "stress", "focus", "reset"],
       "price": ["under-20", "50-100"],
       "material": ["bronze"],
       "type": ["stand"],

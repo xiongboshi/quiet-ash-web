@@ -27,12 +27,14 @@ export function JournalTopicHubPopularSearches({ pills }: Props) {
       className="journal-topic-page__popular-searches"
       aria-labelledby="journal-topic-popular-searches-heading"
     >
-      <h2
-        id="journal-topic-popular-searches-heading"
-        className="journal-topic-page__eyebrow"
-      >
-        Popular searches
-      </h2>
+      <header className="journal-topic-page__section-head">
+        <h2
+          id="journal-topic-popular-searches-heading"
+          className="journal-topic-page__section-title"
+        >
+          Popular searches
+        </h2>
+      </header>
       <div className="journal-topic-page__popular-searches-track" role="list">
         {pills.map((pill) => (
           <Link

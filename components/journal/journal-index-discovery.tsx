@@ -13,7 +13,6 @@ import {
   journalDiscoveryHubCopy,
   journalDiscoveryHubOrder,
   journalDiscoveryLatestSlugs,
-  journalDiscoveryMoodCards,
   journalDiscoverySearchIntents,
 } from "@/data/journal-index-discovery";
 import { journalTopicHubById } from "@/data/journal-topic-hubs";
@@ -76,8 +75,10 @@ export function JournalIndexDiscovery({ hubCounts }: Props) {
         <div className="journal-discovery__search-row">
           {journalDiscoverySearchIntents.map((item) => (
             <Link key={item.label} href={item.href} className="journal-discovery__search-pill">
-              <Search size={14} strokeWidth={1.5} aria-hidden />
-              <span>{item.label}</span>
+              <span className="journal-discovery__search-pill-icon" aria-hidden>
+                <Search size={14} strokeWidth={1.5} />
+              </span>
+              <span className="journal-discovery__search-pill-label">{item.label}</span>
             </Link>
           ))}
         </div>
@@ -132,7 +133,7 @@ export function JournalIndexDiscovery({ hubCounts }: Props) {
         </h2>
         <ul className="journal-discovery__editorial-grid">
           {journalDiscoveryFeaturedEditorial.map((item) => (
-            <li key={item.title}>
+            <li key={item.slug}>
               <Link href={item.href} className="journal-discovery__editorial-card">
                 <span className="journal-discovery__editorial-media">
                   <Image
@@ -146,7 +147,7 @@ export function JournalIndexDiscovery({ hubCounts }: Props) {
                 <span className="journal-discovery__editorial-overlay" aria-hidden />
                 <span className="journal-discovery__editorial-copy">
                   <span className="journal-discovery__editorial-title">{item.title}</span>
-                  <span className="journal-discovery__editorial-cta">Read the guide →</span>
+                  <span className="journal-discovery__editorial-cta">Read the article →</span>
                 </span>
               </Link>
             </li>
@@ -154,32 +155,29 @@ export function JournalIndexDiscovery({ hubCounts }: Props) {
         </ul>
       </section>
 
-      {/* 5. Three columns */}
+      {/* 5. Guides + questions */}
       <section
         className="journal-discovery__section journal-discovery__triptych"
-        aria-label="Guides, questions, and moods"
+        aria-label="Guides and questions"
       >
         <div className="journal-discovery__column">
           <h2 className="journal-discovery__eyebrow">Evergreen guides</h2>
-          <ul className="journal-discovery__guide-list">
+          <ul className="journal-discovery__mood-list">
             {journalDiscoveryEvergreenList.map((guide) => (
               <li key={guide.href}>
-                <Link href={guide.href} className="journal-discovery__guide-row">
-                  <span className="journal-discovery__guide-thumb">
+                <Link href={guide.href} className="journal-discovery__mood-row">
+                  <span className="journal-discovery__mood-text">
+                    <span className="journal-discovery__mood-title">{guide.title}</span>
+                    <span className="journal-discovery__mood-sub">{guide.subtitle}</span>
+                  </span>
+                  <span className="journal-discovery__mood-thumb">
                     <Image
                       src={guide.imageSrc}
                       alt={guide.imageAlt}
                       fill
-                      sizes="56px"
+                      sizes="120px"
                       className="object-cover"
                     />
-                  </span>
-                  <span className="journal-discovery__guide-text">
-                    <span className="journal-discovery__guide-title">{guide.title}</span>
-                    <span className="journal-discovery__guide-sub">{guide.subtitle}</span>
-                  </span>
-                  <span className="journal-discovery__row-arrow" aria-hidden>
-                    →
                   </span>
                 </Link>
               </li>
@@ -195,34 +193,6 @@ export function JournalIndexDiscovery({ hubCounts }: Props) {
           <JournalDiscoveryFaqColumn />
           <Link href={journalDiscoveryFooterLinks.faqs} className="journal-discovery__footer-link">
             View all FAQs →
-          </Link>
-        </div>
-
-        <div className="journal-discovery__column">
-          <h2 className="journal-discovery__eyebrow">Explore moods</h2>
-          <ul className="journal-discovery__mood-list">
-            {journalDiscoveryMoodCards.map((mood) => (
-              <li key={mood.title}>
-                <Link href={mood.href} className="journal-discovery__mood-row">
-                  <span className="journal-discovery__mood-text">
-                    <span className="journal-discovery__mood-title">{mood.title}</span>
-                    <span className="journal-discovery__mood-sub">{mood.subtitle}</span>
-                  </span>
-                  <span className="journal-discovery__mood-thumb">
-                    <Image
-                      src={mood.imageSrc}
-                      alt={mood.imageAlt}
-                      fill
-                      sizes="120px"
-                      className="object-cover"
-                    />
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <Link href={journalDiscoveryFooterLinks.moods} className="journal-discovery__footer-link">
-            View all moods →
           </Link>
         </div>
       </section>

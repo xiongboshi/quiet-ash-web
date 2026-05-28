@@ -19,7 +19,7 @@
     "categorySlugs": ["incense"],
     "filterTags": {
       "scent": ["floral"],
-      "mood": ["fresh"],
+      "mood": ["fresh", "focus", "stress", "sleep", "reset"],
       "price": ["35-plus"]
     }
   },
