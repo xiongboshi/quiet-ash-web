@@ -70,7 +70,11 @@ export const journalTopicHubs: readonly JournalTopicHub[] = [
     categoryId: "better-sleep",
     relatedMoodSlug: "evening-room-ritual",
     relatedMoodLabel: "Explore Calm Evenings",
-    featuredSlugs: ["best-incense-for-sleep"],
+    featuredSlugs: [
+      "best-incense-for-sleep",
+      "bedroom-scents-for-better-sleep",
+      "evening-wind-down-rituals-for-better-sleep",
+    ],
   },
   {
     id: "small-space-living",

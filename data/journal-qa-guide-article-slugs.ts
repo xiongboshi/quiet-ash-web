@@ -1,6 +1,8 @@
 /** Hand-authored Q&A guide articles (`data/journal-articles/*.ts`) — client-safe slug list. */
 export const JOURNAL_QA_GUIDE_ARTICLE_SLUGS = [
   "best-incense-for-sleep",
+  "bedroom-scents-for-better-sleep",
+  "evening-wind-down-rituals-for-better-sleep",
   "is-incense-safe-for-pets",
   "best-incense-for-small-apartments",
   "incense-after-work",

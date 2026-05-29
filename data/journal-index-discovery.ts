@@ -73,7 +73,10 @@ export const journalDiscoverySearchIntents = [
   { label: "best incense for sleep", href: journalPath("best-incense-for-sleep") },
   { label: "low smoke incense", href: guidePath("incense-care-guide") },
   { label: "incense for apartments", href: journalPath("best-incense-for-small-apartments") },
-  { label: "calming evening rituals", href: guidePath("evening-calm-guide") },
+  {
+    label: "evening wind-down rituals",
+    href: journalPath("evening-wind-down-rituals-for-better-sleep"),
+  },
   { label: "incense safe for pets", href: journalPath("is-incense-safe-for-pets") },
   { label: "incense after work", href: journalPath("incense-after-work") },
 ] as const;
@@ -180,6 +183,8 @@ export const journalDiscoveryFaqItems = [
 
 /** Latest articles — design order and display titles. */
 export const journalDiscoveryLatestSlugs = [
+  { slug: "bedroom-scents-for-better-sleep" },
+  { slug: "evening-wind-down-rituals-for-better-sleep" },
   { slug: "is-incense-safe-for-pets" },
   { slug: "best-incense-for-small-apartments" },
   { slug: "best-incense-for-sleep", displayTitle: "Best Incense for Sleep" },

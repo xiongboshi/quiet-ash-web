@@ -6,6 +6,8 @@ import { journalArticleBestIncenseForSmallApartments } from "@/data/journal-arti
 import { journalArticleIncenseAfterWork } from "@/data/journal-articles/incense-after-work";
 import { journalArticleIsIncenseSafeForPets } from "@/data/journal-articles/is-incense-safe-for-pets";
 import { journalArticleTeaAndIncenseRituals } from "@/data/journal-articles/tea-and-incense-rituals";
+import { journalArticleBedroomScentsForBetterSleep } from "@/data/journal-articles/bedroom-scents-for-better-sleep";
+import { journalArticleEveningWindDownRitualsForBetterSleep } from "@/data/journal-articles/evening-wind-down-rituals-for-better-sleep";
 
 /** Full PDP overrides for hand-authored guide templates. */
 const journalHandArticleOverrides: Record<string, JournalArticleTemplate> = {
@@ -15,6 +17,10 @@ const journalHandArticleOverrides: Record<string, JournalArticleTemplate> = {
     journalArticleBestIncenseForSmallApartments,
   [journalArticleIncenseAfterWork.slug]: journalArticleIncenseAfterWork,
   [journalArticleTeaAndIncenseRituals.slug]: journalArticleTeaAndIncenseRituals,
+  [journalArticleBedroomScentsForBetterSleep.slug]:
+    journalArticleBedroomScentsForBetterSleep,
+  [journalArticleEveningWindDownRitualsForBetterSleep.slug]:
+    journalArticleEveningWindDownRitualsForBetterSleep,
 };
 
 /** Index-listed articles — auto-filled from card + `content/essays` MDX when available. */

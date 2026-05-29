@@ -71,8 +71,14 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
     heroLede: "to help you fall asleep faster and wake up refreshed.",
     popularSearches: [
       { label: "best incense for sleep", href: journalPath("best-incense-for-sleep") },
-      { label: "bedroom fragrance ideas", href: journalPath("best-incense-for-sleep") },
-      { label: "calming evening rituals", href: guidePath("sleep-guide") },
+      {
+        label: "bedroom scents for sleep",
+        href: journalPath("bedroom-scents-for-better-sleep"),
+      },
+      {
+        label: "evening wind-down rituals",
+        href: journalPath("evening-wind-down-rituals-for-better-sleep"),
+      },
     ],
     featuredGuide: {
       href: guidePath("sleep-guide"),
@@ -88,6 +94,20 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
         title: "Best Incense for Sleep and Relaxing Evenings",
         description:
           "Discover the best incense scents for sleep, calming evenings, and nighttime relaxation with softer fragrances and low-smoke incense.",
+        readMinutes: 8,
+      },
+      {
+        slug: "bedroom-scents-for-better-sleep",
+        title: "Bedroom Scents for Better Sleep",
+        description:
+          "Softer bedroom scents for calmer evenings and a more relaxing nighttime atmosphere with low-smoke incense and subtle fragrance.",
+        readMinutes: 8,
+      },
+      {
+        slug: "evening-wind-down-rituals-for-better-sleep",
+        title: "Evening Wind-Down Rituals for Better Sleep",
+        description:
+          "Simple evening rituals for calmer nights through softer lighting, quiet routines, and gentle fragrance.",
         readMinutes: 8,
       },
     ],
