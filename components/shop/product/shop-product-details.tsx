@@ -3,7 +3,10 @@ import { candlestickBigLit } from "@lucide/lab";
 import { Flame, Icon, Sparkles } from "lucide-react";
 import type { ShopProductPdp } from "@/data/shop-product-pdp";
 
-type Props = Pick<ShopProductPdp, "aboutScent" | "howToUse" | "safetyTips" | "packaging">;
+type Props = Pick<
+  ShopProductPdp,
+  "title" | "aboutScent" | "howToUse" | "safetyTips" | "packaging"
+>;
 
 const STEP_ICON_PROPS = {
   size: 18,
@@ -19,6 +22,7 @@ function StepIcon({ index }: { index: number }) {
 }
 
 export function ShopProductDetails({
+  title,
   aboutScent,
   howToUse,
   safetyTips,
@@ -36,7 +40,7 @@ export function ShopProductDetails({
             <figure className="shop-product-details__media">
               <Image
                 src={aboutScent.imageSrc}
-                alt=""
+                alt={`${title} — scent and atmosphere`}
                 fill
                 sizes="(max-width: 1023px) 100vw, 28vw"
                 className="shop-product-details__media-img object-cover"
@@ -106,7 +110,7 @@ export function ShopProductDetails({
             <figure className="shop-product-details__media">
               <Image
                 src={packaging.imageSrc}
-                alt=""
+                alt={`${title} — packaging`}
                 fill
                 sizes="(max-width: 1023px) 100vw, 28vw"
                 className="shop-product-details__media-img object-cover"

@@ -25,7 +25,7 @@ export const journalArticleBedroomScentsForBetterSleep: JournalArticleTemplate =
     subtitle:
       "Softer fragrance and calmer atmosphere for quieter nights at home.",
     readMinutes: 8,
-    updatedLabel: "Updated May 19, 2026",
+    updatedLabel: "Updated May 20, 2026",
     imageSrc: "/images/generated/essay-night-incense-ritual.webp",
     imageAlt: "Soft evening light with incense and calm bedroom atmosphere",
   },

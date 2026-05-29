@@ -45,7 +45,7 @@ export const journalGuidesTipsHandCards: readonly JournalIndexArticleCard[] = [
     description:
       "Discover softer bedroom scents for better sleep, calmer evenings, and a more relaxing nighttime atmosphere with low-smoke incense and subtle fragrance.",
     readMinutes: 8,
-    date: "2026-05-19",
+    date: "2026-05-20",
     imageSrc: "/images/generated/essay-night-incense-ritual.webp",
     imageAlt: "Soft evening light with incense and calm bedroom atmosphere",
     tags: ["sleep", "relaxation"],
@@ -60,7 +60,7 @@ export const journalGuidesTipsHandCards: readonly JournalIndexArticleCard[] = [
     description:
       "Simple evening rituals for better sleep, calmer nights, and less overstimulation through softer lighting, quiet routines, and gentle fragrance.",
     readMinutes: 8,
-    date: "2026-05-19",
+    date: "2026-05-20",
     imageSrc: "/images/generated/essay-night-incense-ritual.webp",
     imageAlt: "Soft evening light with incense and calm bedroom atmosphere",
     tags: ["sleep", "relaxation"],

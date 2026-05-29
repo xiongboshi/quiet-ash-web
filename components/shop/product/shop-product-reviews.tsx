@@ -29,7 +29,7 @@ export function ShopProductReviews({ reviews }: Props) {
                 <span className="shop-product-reviews__avatar">
                   <Image
                     src={review.avatarSrc}
-                    alt=""
+                    alt={`${review.name}, customer review`}
                     width={32}
                     height={32}
                     sizes="32px"

@@ -26,7 +26,7 @@ export const journalArticleEveningWindDownRitualsForBetterSleep: JournalArticleT
       subtitle:
         "Slower routines, softer atmosphere, and quieter transitions into the night.",
       readMinutes: 8,
-      updatedLabel: "Updated May 19, 2026",
+      updatedLabel: "Updated May 20, 2026",
       imageSrc: "/images/generated/essay-night-incense-ritual.webp",
       imageAlt: "Soft evening light with incense and calm bedroom atmosphere",
     },

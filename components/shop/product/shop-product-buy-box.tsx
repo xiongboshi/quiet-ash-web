@@ -110,7 +110,7 @@ export function ShopProductBuyBox({ pdp }: Props) {
             <span className="shop-product-buy__scent-thumb">
               <Image
                 src={pdp.gallery[0]}
-                alt=""
+                alt={`${pdp.title} — ${pdp.scentName} scent`}
                 width={32}
                 height={32}
                 className="shop-product-buy__scent-img object-cover"

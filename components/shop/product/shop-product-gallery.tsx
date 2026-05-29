@@ -17,11 +17,13 @@ const THUMB_SIZE = 136;
 
 function ThumbButton({
   src,
+  title,
   index,
   isActive,
   onSelect,
 }: {
   src: string;
+  title: string;
   index: number;
   isActive: boolean;
   onSelect: () => void;
@@ -41,7 +43,7 @@ function ThumbButton({
       ) : null}
       <Image
         src={src}
-        alt=""
+        alt={`${title}, product image ${index + 1}`}
         width={THUMB_SIZE}
         height={THUMB_SIZE}
         sizes={`${THUMB_SIZE}px`}
@@ -100,6 +102,7 @@ export function ShopProductGallery({ title, badge, gallery }: Props) {
               <li key={`${src}-${index}`} className="shop-product-gallery__thumb-item">
                 <ThumbButton
                   src={src}
+                  title={title}
                   index={index}
                   isActive={safe === index}
                   onSelect={() => setActive(index)}
@@ -122,7 +125,7 @@ export function ShopProductGallery({ title, badge, gallery }: Props) {
             <Image
               key={`${mainSrc}-backdrop`}
               src={mainSrc}
-              alt=""
+              alt={title}
               aria-hidden
               width={PDP_IMAGE_WIDTH}
               height={PDP_IMAGE_HEIGHT}
@@ -162,6 +165,7 @@ export function ShopProductGallery({ title, badge, gallery }: Props) {
               <li key={`m-${src}-${index}`} className="shop-product-gallery__thumb-item">
                 <ThumbButton
                   src={src}
+                  title={title}
                   index={index}
                   isActive={safe === index}
                   onSelect={() => setActive(index)}

@@ -50,6 +50,7 @@ export function ShopProductDetailPage({ product }: Props) {
       <ShopProductSpecBar specs={pdp.specs} />
 
       <ShopProductDetails
+        title={pdp.title}
         aboutScent={pdp.aboutScent}
         howToUse={pdp.howToUse}
         safetyTips={pdp.safetyTips}
