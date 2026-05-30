@@ -79,6 +79,14 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
         label: "evening wind-down rituals",
         href: journalPath("evening-wind-down-rituals-for-better-sleep"),
       },
+      {
+        label: "calming bedroom atmosphere",
+        href: journalPath("calming-bedroom-atmosphere-for-better-sleep"),
+      },
+      {
+        label: "soft scents before sleep",
+        href: journalPath("why-soft-scents-feel-relaxing-before-sleep"),
+      },
     ],
     featuredGuide: {
       href: guidePath("sleep-guide"),
@@ -108,6 +116,20 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
         title: "Evening Wind-Down Rituals for Better Sleep",
         description:
           "Simple evening rituals for calmer nights through softer lighting, quiet routines, and gentle fragrance.",
+        readMinutes: 8,
+      },
+      {
+        slug: "calming-bedroom-atmosphere-for-better-sleep",
+        title: "How to Create a Calming Bedroom Atmosphere",
+        description:
+          "Lighting, scent, airflow, and simple evening habits for a calmer bedroom and more relaxing nights.",
+        readMinutes: 8,
+      },
+      {
+        slug: "why-soft-scents-feel-relaxing-before-sleep",
+        title: "Why Soft Scents Feel More Relaxing Before Sleep",
+        description:
+          "Why subtle fragrance often works better at night and how softer scents support a calmer bedroom.",
         readMinutes: 8,
       },
     ],

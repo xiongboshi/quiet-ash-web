@@ -8,6 +8,8 @@ import { journalArticleIsIncenseSafeForPets } from "@/data/journal-articles/is-i
 import { journalArticleTeaAndIncenseRituals } from "@/data/journal-articles/tea-and-incense-rituals";
 import { journalArticleBedroomScentsForBetterSleep } from "@/data/journal-articles/bedroom-scents-for-better-sleep";
 import { journalArticleEveningWindDownRitualsForBetterSleep } from "@/data/journal-articles/evening-wind-down-rituals-for-better-sleep";
+import { journalArticleCalmingBedroomAtmosphereForBetterSleep } from "@/data/journal-articles/calming-bedroom-atmosphere-for-better-sleep";
+import { journalArticleWhySoftScentsFeelRelaxingBeforeSleep } from "@/data/journal-articles/why-soft-scents-feel-relaxing-before-sleep";
 
 /** Full PDP overrides for hand-authored guide templates. */
 const journalHandArticleOverrides: Record<string, JournalArticleTemplate> = {
@@ -21,6 +23,10 @@ const journalHandArticleOverrides: Record<string, JournalArticleTemplate> = {
     journalArticleBedroomScentsForBetterSleep,
   [journalArticleEveningWindDownRitualsForBetterSleep.slug]:
     journalArticleEveningWindDownRitualsForBetterSleep,
+  [journalArticleCalmingBedroomAtmosphereForBetterSleep.slug]:
+    journalArticleCalmingBedroomAtmosphereForBetterSleep,
+  [journalArticleWhySoftScentsFeelRelaxingBeforeSleep.slug]:
+    journalArticleWhySoftScentsFeelRelaxingBeforeSleep,
 };
 
 /** Index-listed articles — auto-filled from card + `content/essays` MDX when available. */

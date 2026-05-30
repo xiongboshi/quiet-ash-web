@@ -183,6 +183,8 @@ export const journalDiscoveryFaqItems = [
 
 /** Latest articles — design order and display titles. */
 export const journalDiscoveryLatestSlugs = [
+  { slug: "calming-bedroom-atmosphere-for-better-sleep" },
+  { slug: "why-soft-scents-feel-relaxing-before-sleep" },
   { slug: "bedroom-scents-for-better-sleep" },
   { slug: "evening-wind-down-rituals-for-better-sleep" },
   { slug: "is-incense-safe-for-pets" },
