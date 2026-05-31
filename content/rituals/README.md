@@ -22,18 +22,18 @@ Add a new ritual: create `{slug}.mdx` here. All page copy and structure are conf
 
 Place files under `public/images/generated/rituals/{slug}/`:
 
-- `cover.png`
-- `step-01.png` … `step-04.png`
+- `cover.webp`
+- `step-01.webp` … `step-04.webp`
 
 Prompts: `data/ritual-image-prompts.ts` · brand rules: `docs/QUIET-ASH-VISUAL-BIBLE.md`
 
 ## Example paths
 
 ```yaml
-coverImage: /images/generated/rituals/my-ritual/cover.png
+coverImage: /images/generated/rituals/my-ritual/cover.webp
 ritual_section:
   steps:
     - title: "Step one"
       body: "…"
-      image: /images/generated/rituals/my-ritual/step-01.png
+      image: /images/generated/rituals/my-ritual/step-01.webp
 ```

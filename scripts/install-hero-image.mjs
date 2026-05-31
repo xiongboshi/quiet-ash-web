@@ -12,7 +12,7 @@ const assetsRoot = path.join(
   "assets",
 );
 
-const assetBasename = process.argv[2] ?? "mood-hero-ins-mockup-lock.png";
+const assetBasename = process.argv[2] ?? "mood-hero-ins-mockup-lock.webp";
 const publicBasename = process.argv[3] ?? "mood-hero-ins-mockup-lock.webp";
 const src = path.join(assetsRoot, assetBasename);
 const dest = path.join(root, "public", "images", "generated", publicBasename);

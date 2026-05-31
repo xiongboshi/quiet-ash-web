@@ -206,11 +206,11 @@ Prompt：`data/product-image-prompts.ts` · 安装：`npm run images:products-in
 ## 文件路径
 
 ```
-public/images/generated/rituals/{slug}/cover.png
-public/images/generated/rituals/{slug}/step-01.png … step-04.png
-public/images/generated/products/{slug}/hero.png
-public/images/generated/products/{slug}/gallery-01.png … gallery-04.png
-public/images/generated/products/{slug}/narrative.png · atmosphere.png
+public/images/generated/rituals/{slug}/cover.webp
+public/images/generated/rituals/{slug}/step-01.webp … step-04.webp
+public/images/generated/products/{slug}/hero.webp
+public/images/generated/products/{slug}/gallery-01.webp … gallery-04.webp
+public/images/generated/products/{slug}/narrative.webp · atmosphere.webp
 ```
 
 Ritual 内容：`content/rituals/{slug}.mdx` — **仅改 frontmatter 即可上新**，无需改代码。见 `content/rituals/README.md`。

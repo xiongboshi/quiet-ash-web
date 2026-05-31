@@ -10,6 +10,8 @@ import { journalArticleBedroomScentsForBetterSleep } from "@/data/journal-articl
 import { journalArticleEveningWindDownRitualsForBetterSleep } from "@/data/journal-articles/evening-wind-down-rituals-for-better-sleep";
 import { journalArticleCalmingBedroomAtmosphereForBetterSleep } from "@/data/journal-articles/calming-bedroom-atmosphere-for-better-sleep";
 import { journalArticleWhySoftScentsFeelRelaxingBeforeSleep } from "@/data/journal-articles/why-soft-scents-feel-relaxing-before-sleep";
+import { journalArticleShouldYouBurnIncenseBeforeBed } from "@/data/journal-articles/should-you-burn-incense-before-bed";
+import { journalArticleBestScentForSleep } from "@/data/journal-articles/best-scent-for-sleep";
 
 /** Full PDP overrides for hand-authored guide templates. */
 const journalHandArticleOverrides: Record<string, JournalArticleTemplate> = {
@@ -27,6 +29,9 @@ const journalHandArticleOverrides: Record<string, JournalArticleTemplate> = {
     journalArticleCalmingBedroomAtmosphereForBetterSleep,
   [journalArticleWhySoftScentsFeelRelaxingBeforeSleep.slug]:
     journalArticleWhySoftScentsFeelRelaxingBeforeSleep,
+  [journalArticleShouldYouBurnIncenseBeforeBed.slug]:
+    journalArticleShouldYouBurnIncenseBeforeBed,
+  [journalArticleBestScentForSleep.slug]: journalArticleBestScentForSleep,
 };
 
 /** Index-listed articles — auto-filled from card + `content/essays` MDX when available. */

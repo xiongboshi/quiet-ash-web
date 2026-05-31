@@ -5,6 +5,8 @@ export const JOURNAL_QA_GUIDE_ARTICLE_SLUGS = [
   "evening-wind-down-rituals-for-better-sleep",
   "calming-bedroom-atmosphere-for-better-sleep",
   "why-soft-scents-feel-relaxing-before-sleep",
+  "should-you-burn-incense-before-bed",
+  "best-scent-for-sleep",
   "is-incense-safe-for-pets",
   "best-incense-for-small-apartments",
   "incense-after-work",

@@ -25,7 +25,7 @@ title: Working label (optional if headline set)
 slug: my-essay
 date: "2026-05-01"
 excerpt: Card + SEO description fallback
-cover: /images/generated/essay-example.png
+cover: /images/generated/essay-example.webp
 series: incense-culture
 reading_time: 11
 

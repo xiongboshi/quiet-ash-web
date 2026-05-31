@@ -87,6 +87,14 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
         label: "soft scents before sleep",
         href: journalPath("why-soft-scents-feel-relaxing-before-sleep"),
       },
+      {
+        label: "burn incense before bed",
+        href: journalPath("should-you-burn-incense-before-bed"),
+      },
+      {
+        label: "best scent for sleep",
+        href: journalPath("best-scent-for-sleep"),
+      },
     ],
     featuredGuide: {
       href: guidePath("sleep-guide"),
@@ -130,6 +138,20 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
         title: "Why Soft Scents Feel More Relaxing Before Sleep",
         description:
           "Why subtle fragrance often works better at night and how softer scents support a calmer bedroom.",
+        readMinutes: 8,
+      },
+      {
+        slug: "should-you-burn-incense-before-bed",
+        title: "Should You Burn Incense Before Bed?",
+        description:
+          "Softer scents, low-smoke incense, and shorter evening sessions for a calmer transition into sleep.",
+        readMinutes: 8,
+      },
+      {
+        slug: "best-scent-for-sleep",
+        title: "What Is The Best Scent For Sleep?",
+        description:
+          "Popular bedroom fragrance choices including sandalwood, lavender, white tea, and gentle woods.",
         readMinutes: 8,
       },
     ],

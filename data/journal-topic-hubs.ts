@@ -76,6 +76,8 @@ export const journalTopicHubs: readonly JournalTopicHub[] = [
       "evening-wind-down-rituals-for-better-sleep",
       "calming-bedroom-atmosphere-for-better-sleep",
       "why-soft-scents-feel-relaxing-before-sleep",
+      "should-you-burn-incense-before-bed",
+      "best-scent-for-sleep",
     ],
   },
   {

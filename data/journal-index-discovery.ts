@@ -71,6 +71,10 @@ export const journalDiscoveryHubOrder: readonly JournalTopicHubId[] = [
 /** Explore common searches — design labels. */
 export const journalDiscoverySearchIntents = [
   { label: "best incense for sleep", href: journalPath("best-incense-for-sleep") },
+  {
+    label: "burn incense before bed",
+    href: journalPath("should-you-burn-incense-before-bed"),
+  },
   { label: "low smoke incense", href: guidePath("incense-care-guide") },
   { label: "incense for apartments", href: journalPath("best-incense-for-small-apartments") },
   {
@@ -183,6 +187,8 @@ export const journalDiscoveryFaqItems = [
 
 /** Latest articles — design order and display titles. */
 export const journalDiscoveryLatestSlugs = [
+  { slug: "should-you-burn-incense-before-bed" },
+  { slug: "best-scent-for-sleep" },
   { slug: "calming-bedroom-atmosphere-for-better-sleep" },
   { slug: "why-soft-scents-feel-relaxing-before-sleep" },
   { slug: "bedroom-scents-for-better-sleep" },

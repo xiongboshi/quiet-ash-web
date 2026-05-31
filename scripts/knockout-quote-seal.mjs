@@ -1,5 +1,5 @@
 /**
- * Makes near-white / light-mat pixels transparent on quote-seal-stamp.png
+ * Makes near-white / light-mat pixels transparent on quote-seal-stamp.webp
  * so only cinnabar ink remains on the homepage quote band.
  */
 import fs from "node:fs";
@@ -9,8 +9,11 @@ import sharp from "sharp";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, "..");
-const inputPath = path.join(root, "public/images/generated/quote-seal-stamp.png");
-const tmpPath = path.join(root, "public/images/generated/quote-seal-stamp.png.tmp.png");
+const inputPath = path.join(root, "public/images/generated/quote-seal-stamp.webp");
+const tmpPath = path.join(
+  root,
+  "public/images/generated/quote-seal-stamp.webp.tmp.webp",
+);
 
 async function main() {
   const { data, info } = await sharp(inputPath)
@@ -58,7 +61,7 @@ async function main() {
   await sharp(Buffer.from(data), {
     raw: { width, height, channels: 4 },
   })
-    .png({ compressionLevel: 9 })
+    .webp({ quality: 90, effort: 4 })
     .toFile(tmpPath);
 
   fs.rmSync(inputPath, { force: true });
