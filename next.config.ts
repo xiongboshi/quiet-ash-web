@@ -10,6 +10,8 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     optimizePackageImports: ["lucide-react", "@lucide/lab"],
+    /** Inline above-the-fold CSS to cut render-blocking stylesheet chains on mobile. */
+    optimizeCss: true,
   },
   // LAN phone testing: `192.168.*` does NOT match `192.168.10.171` — need `*.*` or explicit IP.
   allowedDevOrigins: [

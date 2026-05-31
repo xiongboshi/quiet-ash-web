@@ -1,3 +1,4 @@
+import "@/styles/scent-family-strip.css";
 import Link from "next/link";
 import { AboutMediaFrame } from "@/components/about/about-media-frame";
 

@@ -1,5 +1,4 @@
 import dynamic from "next/dynamic";
-import { Footer } from "@/components/sections/Footer";
 import { HomeHero } from "@/components/home/home-hero";
 import { HomeShopByNeed } from "@/components/home/home-shop-by-need";
 import { HomeTrustBar } from "@/components/home/home-trust-bar";
@@ -29,6 +28,13 @@ const HomeOurStory = dynamic(
   () =>
     import("@/components/home/home-our-story").then((m) => ({
       default: m.HomeOurStory,
+    })),
+);
+
+const Footer = dynamic(
+  () =>
+    import("@/components/sections/Footer").then((m) => ({
+      default: m.Footer,
     })),
 );
 
