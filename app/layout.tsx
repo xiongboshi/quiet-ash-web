@@ -48,6 +48,9 @@ export const metadata: Metadata = {
       "Incense ritual, agarwood, tea and ceramics — objects and essays for quiet evenings.",
   },
   robots: { index: true, follow: true },
+  verification: {
+    yandex: "d36e35ef115179f6",
+  },
 };
 
 export default function RootLayout({
