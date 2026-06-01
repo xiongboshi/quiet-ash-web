@@ -7,9 +7,9 @@ import { guidePath, journalPath } from "@/lib/site-paths";
 export const journalDiscoveryExploreTopics = [
   { id: "better-sleep" as const, label: "Better Sleep", href: journalPath("better-sleep") },
   {
-    id: "small-space-living" as const,
-    label: "Small Space Living",
-    href: journalPath("small-space-living"),
+    id: "small-apartment-living" as const,
+    label: "Small Apartment Living",
+    href: journalPath("small-apartment-living"),
   },
   { id: "calm-evenings" as const, label: "Calm Evenings", href: journalPath("calm-evenings") },
   { id: "quiet-routines" as const, label: "Quiet Routines", href: journalPath("quiet-routines") },
@@ -38,7 +38,7 @@ export const journalDiscoveryHubCardImages: Record<
     imageSrc: "/images/generated/essay-night-incense-ritual.webp",
     imageAlt: "Soft evening light in a calm bedroom",
   },
-  "small-space-living": {
+  "small-apartment-living": {
     imageSrc: "/images/generated/essay-incense-patience.webp",
     imageAlt: "Desk by a window in a compact home",
   },
@@ -62,7 +62,7 @@ export const journalDiscoveryHubCardImages: Record<
 
 export const journalDiscoveryHubOrder: readonly JournalTopicHubId[] = [
   "better-sleep",
-  "small-space-living",
+  "small-apartment-living",
   "calm-evenings",
   "quiet-routines",
   "guides-care",
@@ -185,20 +185,7 @@ export const journalDiscoveryFaqItems = [
   },
 ] as const;
 
-/** Latest articles — design order and display titles. */
-export const journalDiscoveryLatestSlugs = [
-  { slug: "should-you-burn-incense-before-bed" },
-  { slug: "best-scent-for-sleep" },
-  { slug: "calming-bedroom-atmosphere-for-better-sleep" },
-  { slug: "why-soft-scents-feel-relaxing-before-sleep" },
-  { slug: "bedroom-scents-for-better-sleep" },
-  { slug: "evening-wind-down-rituals-for-better-sleep" },
-  { slug: "is-incense-safe-for-pets" },
-  { slug: "best-incense-for-small-apartments" },
-  { slug: "best-incense-for-sleep", displayTitle: "Best Incense for Sleep" },
-  { slug: "good-incense-not-loud", displayTitle: "Good Incense Shouldn't Feel Loud" },
-  { slug: "why-scholars-burned-incense", displayTitle: "Incense Before Writing" },
-] as const;
+/** Latest articles rail order — `lib/journal-discovery-latest.ts` (newest first by `date`). */
 
 export const journalDiscoveryFooterLinks = {
   guides: guidePath("sleep-guide"),

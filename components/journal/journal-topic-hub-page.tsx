@@ -9,28 +9,51 @@ import type { TopicPageFeaturedArticle } from "@/data/journal-topic-page-content
 import type { JournalTopicHub } from "@/data/journal-topic-hubs";
 import { isJournalGuideArticle } from "@/data/journal-guide-slugs";
 import type { JournalIndexArticleResolved } from "@/lib/journal-index-articles";
+import { JOURNAL_INDEX } from "@/lib/site-paths";
 
 type Props = {
   hub: JournalTopicHub;
   articles: readonly JournalIndexArticleResolved[];
 };
 
-function featuredArticlesForHub(
+function topicArticlesForHub(
+  hubArticles: readonly JournalIndexArticleResolved[],
   contentArticles: readonly TopicPageFeaturedArticle[],
-  resolvedBySlug: Map<string, JournalIndexArticleResolved>,
 ): readonly TopicPageFeaturedArticle[] {
-  return contentArticles.filter(
-    (item) => resolvedBySlug.has(item.slug) && isJournalGuideArticle(item.slug),
+  const bySlug = new Map(hubArticles.map((a) => [a.slug, a]));
+  const contentBySlug = new Map(contentArticles.map((item) => [item.slug, item]));
+  const seen = new Set<string>();
+  const ordered: TopicPageFeaturedArticle[] = [];
+
+  for (const item of contentArticles) {
+    const resolved = bySlug.get(item.slug);
+    if (!resolved || !isJournalGuideArticle(item.slug)) continue;
+    seen.add(item.slug);
+    ordered.push(item);
+  }
+
+  const hubByDate = [...hubArticles].sort((a, b) =>
+    a.date > b.date ? -1 : a.date < b.date ? 1 : 0,
   );
+
+  for (const resolved of hubByDate) {
+    if (!isJournalGuideArticle(resolved.slug) || seen.has(resolved.slug)) continue;
+    const override = contentBySlug.get(resolved.slug);
+    ordered.push({
+      slug: resolved.slug,
+      title: override?.title ?? resolved.headline,
+      description: override?.description ?? resolved.description,
+      readMinutes: override?.readMinutes ?? resolved.readMinutes,
+    });
+  }
+
+  return ordered;
 }
 
 export function JournalTopicHubPage({ hub, articles }: Props) {
   const content = getJournalTopicPageContent(hub.id);
   const resolvedBySlug = new Map(articles.map((a) => [a.slug, a]));
-  const featuredArticles = featuredArticlesForHub(
-    content.featuredArticles,
-    resolvedBySlug,
-  );
+  const featuredArticles = topicArticlesForHub(articles, content.featuredArticles);
 
   return (
     <div className="journal-topic-page">
@@ -44,15 +67,17 @@ export function JournalTopicHubPage({ hub, articles }: Props) {
       />
 
       <div className="journal-topic-page__body">
-        <JournalTopicHubFeaturedGuide guide={content.featuredGuide} />
         <JournalTopicHubPopularSearches pills={content.popularSearches} />
+        <JournalTopicHubFeaturedGuide guide={content.featuredGuide} />
         <JournalTopicHubFeaturedArticles
           articles={featuredArticles}
           resolvedBySlug={resolvedBySlug}
-          viewAllHref={hub.pathname}
+          viewAllHref={JOURNAL_INDEX}
         />
         <JournalTopicHubPeopleAlsoAsk items={content.peopleAlsoAsk} />
-        <JournalTopicHubSaveShare saveSub={content.saveShareSub} />
+        {content.saveShareSub ? (
+          <JournalTopicHubSaveShare saveSub={content.saveShareSub} />
+        ) : null}
       </div>
     </div>
   );

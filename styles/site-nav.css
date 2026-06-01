@@ -95,9 +95,19 @@
 }
 
 .site-nav-chrome .nav-brand {
+  grid-column: 1;
+  grid-row: 1;
   justify-self: start;
   line-height: 1;
   text-align: left;
+}
+
+/* Leading slot hidden on desktop — keep brand / links / actions in columns 1–3 */
+@media (min-width: 769px) {
+  .site-nav-chrome .nav-inner > .nav-mobile-toggle,
+  .site-nav-chrome .nav-inner > .nav-icon-btn--back {
+    display: none;
+  }
 }
 
 .site-nav-chrome .nav-brand__text {
@@ -394,10 +404,24 @@
     cursor: pointer;
   }
 
-  .site-nav-chrome .nav-inner > .nav-mobile-toggle {
+  .site-nav-chrome .nav-inner > .nav-mobile-toggle,
+  .site-nav-chrome .nav-inner > .nav-icon-btn--back {
+    display: flex;
     grid-column: 1;
     grid-row: 1;
     justify-self: start;
+  }
+
+  .site-nav-chrome .nav-actions .nav-mobile-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--site-nav-mobile-control);
+    height: var(--site-nav-mobile-control);
+    border: 1px solid transparent;
+    background: transparent;
+    font-size: 20px;
+    cursor: pointer;
   }
 
   .site-nav-chrome .nav-brand {
@@ -439,10 +463,12 @@
     min-height: var(--site-nav-mobile-control);
   }
 
-  /* Keep trailing column width — journal + cart hide the bag but preserve balance */
-  .site-nav-chrome--mobile-nav-back .nav-icon-btn--cart-on-detail {
-    visibility: hidden;
-    pointer-events: none;
+  /* Trailing balance slot — same width as menu/cart controls (no hydration shift) */
+  .site-nav-chrome .nav-actions__balance {
+    display: block;
+    width: var(--site-nav-mobile-control);
+    height: var(--site-nav-mobile-control);
+    flex-shrink: 0;
   }
 
   .site-nav-chrome .nav-icon-btn--cart,

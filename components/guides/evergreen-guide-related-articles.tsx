@@ -15,7 +15,12 @@ export function EvergreenGuideRelatedArticles({
   resolvedBySlug,
   viewAllHref,
 }: Props) {
-  const visible = articles.filter((item) => resolvedBySlug.has(item.slug));
+  const visible = articles.filter(
+    (item): item is TopicPageFeaturedArticle & { slug: string } => {
+      const slug = item.slug;
+      return typeof slug === "string" && resolvedBySlug.has(slug);
+    },
+  );
   if (visible.length === 0) return null;
 
   return (

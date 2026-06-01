@@ -30,7 +30,7 @@ export function getJournalIndexArticleCards(): JournalIndexArticleCard[] {
 }
 
 export function getJournalIndexArticles(): JournalIndexArticleResolved[] {
-  return getJournalIndexArticleCards().map((card) => {
+  const articles = getJournalIndexArticleCards().map((card) => {
     const essay = getEssayBySlug(card.slug);
     return {
       ...card,
@@ -38,4 +38,6 @@ export function getJournalIndexArticles(): JournalIndexArticleResolved[] {
       date: essay?.date ?? card.date,
     };
   });
+
+  return articles.sort((a, b) => (a.date > b.date ? -1 : a.date < b.date ? 1 : 0));
 }

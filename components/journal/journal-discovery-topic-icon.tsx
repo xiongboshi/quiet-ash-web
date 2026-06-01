@@ -26,7 +26,7 @@ export function JournalDiscoveryTopicIcon({ topicId }: { topicId: JournalTopicHu
           <circle cx="19.1" cy="5.6" r="0.55" fill="currentColor" stroke="none" />
         </TopicGlyph>
       );
-    case "small-space-living":
+    case "small-apartment-living":
       return (
         <TopicGlyph>
           <path d="M4.5 12 12 6.5 19.5 12V20H4.5V12Z" />

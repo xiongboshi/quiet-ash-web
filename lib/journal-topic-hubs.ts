@@ -2,6 +2,7 @@ import {
   journalTopicHubById,
   journalTopicHubs,
   isJournalTopicHubId,
+  resolveJournalTopicHubSlug,
   type JournalTopicHub,
   type JournalTopicHubId,
 } from "@/data/journal-topic-hubs";
@@ -18,8 +19,9 @@ export {
 };
 
 export function getJournalTopicHub(slug: string): JournalTopicHub | undefined {
-  if (!isJournalTopicHubId(slug)) return undefined;
-  return journalTopicHubById[slug];
+  const hubId = resolveJournalTopicHubSlug(slug);
+  if (!hubId) return undefined;
+  return journalTopicHubById[hubId];
 }
 
 export function journalTopicHubSlugs(): JournalTopicHubId[] {

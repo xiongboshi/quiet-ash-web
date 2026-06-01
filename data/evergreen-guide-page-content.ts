@@ -365,7 +365,7 @@ export const evergreenGuidePageContent: Record<EvergreenGuideSlug, EvergreenGuid
         description: "",
       },
     ],
-    relatedArticlesViewAllHref: journalPath("small-space-living"),
+    relatedArticlesViewAllHref: journalPath("small-apartment-living"),
     saveShareSub: "Bookmark this guide for apartment fragrance tips anytime.",
   },
   "evening-calm-guide": {

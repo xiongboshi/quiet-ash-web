@@ -10,7 +10,7 @@ type Props = {
 /** Lightweight route shell — no framer-motion (saves ~30KB+ JS on every page). */
 export function PageTransition({ children, className }: Props) {
   const pathname = usePathname();
-  const shellClass = `min-h-dvh w-full min-w-0 max-w-full overflow-x-clip${
+  const shellClass = `min-h-dvh w-full min-w-0 max-w-full${
     className ? ` ${className}` : ""
   }`;
 

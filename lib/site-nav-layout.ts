@@ -1,6 +1,6 @@
 import { isEvergreenGuideSlug } from "@/data/evergreen-guides";
 import { isJournalQaGuideArticleSlug } from "@/data/journal-qa-guide-article-slugs";
-import { isJournalTopicHubId } from "@/data/journal-topic-hubs";
+import { isJournalTopicHubPathSegment } from "@/data/journal-topic-hubs";
 import { isShopCategorySegment } from "@/lib/shop-catalog";
 import { JOURNAL_INDEX, SHOP_INDEX } from "@/lib/site-paths";
 
@@ -33,7 +33,7 @@ export function isJournalTopicHubPath(pathname: string | null): boolean {
   const path = normalizeSitePath(pathname);
   if (!path.startsWith("/journal/")) return false;
   const segment = path.slice("/journal/".length).split("/")[0] ?? "";
-  return segment.length > 0 && isJournalTopicHubId(segment);
+  return segment.length > 0 && isJournalTopicHubPathSegment(segment);
 }
 
 /** Journal article detail — e.g. /journal/incense-patience (not topic hubs). */

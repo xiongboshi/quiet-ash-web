@@ -29,7 +29,7 @@ export function JournalTopicHubFeaturedGuide({ guide }: Props) {
           </h2>
           <p className="journal-topic-page__featured-guide-desc">{guide.description}</p>
           <Link href={guide.href} className="journal-topic-page__featured-guide-cta">
-            Read the guide →
+            Read the Guide ?
           </Link>
         </div>
       </div>

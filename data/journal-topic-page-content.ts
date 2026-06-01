@@ -35,7 +35,7 @@ export type TopicPageContent = {
   featuredGuide: TopicPageFeaturedGuide;
   featuredArticles: readonly TopicPageFeaturedArticle[];
   peopleAlsoAsk: readonly TopicPageFaqItem[];
-  saveShareSub: string;
+  saveShareSub?: string;
 };
 
 const sleepFaqAnswers = {
@@ -54,7 +54,7 @@ const sleepFaqAnswers = {
   howLongBeforeBed: [
     {
       type: "paragraph" as const,
-      text: "Many people burn incense for 15–30 minutes before bed, then let the room settle. You do not need a full stick every night in a small bedroom.",
+      text: "Many people burn incense for 15?30 minutes before bed, then let the room settle. You do not need a full stick every night in a small bedroom.",
     },
   ],
   anxiety: [
@@ -70,6 +70,14 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
     heroTagline: "Explore scents, rituals, and atmosphere tips",
     heroLede: "to help you fall asleep faster and wake up refreshed.",
     popularSearches: [
+      {
+        label: "improve sleep quality naturally",
+        href: journalPath("how-to-improve-sleep-quality-naturally"),
+      },
+      {
+        label: "sleep hygiene guide",
+        href: journalPath("sleep-hygiene-guide"),
+      },
       { label: "best incense for sleep", href: journalPath("best-incense-for-sleep") },
       {
         label: "bedroom scents for sleep",
@@ -105,6 +113,20 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
         "Everything you need for deeper, calmer nights. Scents, atmosphere, and simple rituals that work.",
     },
     featuredArticles: [
+      {
+        slug: "how-to-improve-sleep-quality-naturally",
+        title: "How to Improve Sleep Quality Naturally",
+        description:
+          "Learn how to improve sleep quality naturally through better sleep habits, bedroom atmosphere, evening routines, and sleep hygiene.",
+        readMinutes: 10,
+      },
+      {
+        slug: "sleep-hygiene-guide",
+        title: "Sleep Hygiene Guide: Simple Habits for Better Sleep",
+        description:
+          "Learn the fundamentals of sleep hygiene and practical habits for better sleep quality, bedtime routines, and bedroom atmosphere.",
+        readMinutes: 9,
+      },
       {
         slug: "best-incense-for-sleep",
         title: "Best Incense for Sleep and Relaxing Evenings",
@@ -179,33 +201,47 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
     ],
     saveShareSub: "Bookmark this topic to revisit sleep tips and evening rituals anytime.",
   },
-  "small-space-living": {
-    heroTagline:
-      "Low-smoke fragrance and softer atmosphere for apartments, studios, and quieter indoor spaces.",
+  "small-apartment-living": {
+    heroTagline: "Create a calmer home, no matter the size.",
     heroLede:
-      "Small homes often feel fragrance more intensely than larger spaces. This guide explores how to use incense comfortably in apartments, bedrooms, and modern indoor environments.",
+      "Practical ideas for fragrance, comfort, and everyday rituals that help apartments feel warmer, quieter, and more inviting.",
     popularSearches: [
       {
-        label: "best incense for apartments",
+        label: "best incense for small apartments",
+        href: journalPath("best-incense-for-small-apartments"),
+      },
+      {
+        label: "apartment fragrance ideas",
+        href: guidePath("small-apartment-fragrance-guide"),
+      },
+      {
+        label: "how to make an apartment cozy",
+        href: guidePath("small-apartment-fragrance-guide"),
+      },
+      {
+        label: "studio apartment atmosphere",
         href: journalPath("best-incense-for-small-apartments"),
       },
       { label: "low smoke incense", href: guidePath("incense-care-guide") },
-      { label: "bedroom fragrance ideas", href: journalPath("best-incense-for-sleep") },
+      {
+        label: "small bedroom ideas",
+        href: journalPath("bedroom-scents-for-better-sleep"),
+      },
     ],
     featuredGuide: {
       href: guidePath("small-apartment-fragrance-guide"),
       imageSrc: "/images/generated/essay-night-incense-ritual.webp",
       imageAlt: "Subtle incense smoke in a small bedroom",
-      title: "The Small Apartment Fragrance Guide",
+      title: "The Quiet Ash Small Apartment Guide",
       description:
-        "Simple ways to use scent comfortably in compact indoor spaces.",
+        "Everything you need to create a calmer atmosphere in apartments and compact homes ? scent, lighting, layout, and simple daily rituals.",
     },
     featuredArticles: [
       {
         slug: "best-incense-for-small-apartments",
-        title: "Best Incense for Small Apartments and Bedrooms",
+        title: "Best Incense for Small Apartments",
         description:
-          "Low-smoke incense and softer scent profiles for apartments, bedrooms, and smaller indoor spaces.",
+          "Find scents that feel comfortable without overwhelming smaller rooms.",
         readMinutes: 7,
       },
     ],
@@ -221,37 +257,38 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
         ],
       },
       {
-        id: "small-lighter",
-        question: "What incense smells feel lighter indoors?",
+        id: "small-scents",
+        question: "What scents work best in apartments?",
         answer: [
           {
             type: "paragraph",
-            text: "White tea, light citrus, soft woods, and gentle florals often feel easier in apartments. They stay present without filling the whole room.",
+            text: "White tea, soft woods, light citrus, and gentle florals often feel easier in apartments. They add atmosphere without filling the whole room.",
           },
         ],
       },
       {
-        id: "small-strong",
-        question: "Why does incense feel too strong in bedrooms?",
+        id: "small-studio-relax",
+        question: "How can I make a studio apartment feel more relaxing?",
         answer: [
           {
             type: "paragraph",
-            text: "Smaller rooms trap scent and smoke more quickly. Shorter burns, fresh airflow, and softer fragrance profiles usually feel more comfortable overnight.",
+            text: "Softer lighting, less visual clutter, short fragrance sessions, and a simple evening routine can help studio spaces feel calmer and more intentional.",
           },
         ],
       },
       {
-        id: "small-low-smoke",
-        question: "Is low-smoke incense better for indoor use?",
+        id: "small-overwhelming",
+        question: "How do I keep fragrance from becoming overwhelming?",
         answer: [
           {
             type: "paragraph",
-            text: "Low-smoke incense is often a better fit for daily indoor use because it produces less visible smoke and feels lighter in enclosed rooms.",
+            text: "Use low-smoke incense, keep sessions brief, and open a window when possible. In smaller rooms, subtle scent often feels better than strong projection.",
           },
         ],
       },
     ],
-    saveShareSub: "Bookmark this topic for apartment fragrance and ventilation tips anytime.",
+    saveShareSub:
+      "Bookmark this topic to revisit apartment scent ideas and compact-home rituals anytime.",
   },
   "calm-evenings": {
     heroTagline:
@@ -294,7 +331,7 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
         answer: [
           {
             type: "paragraph",
-            text: "Many people use incense as a signal to slow down after work — short, well-ventilated sessions with softer scents often feel most comfortable indoors.",
+            text: "Many people use incense as a signal to slow down after work ? short, well-ventilated sessions with softer scents often feel most comfortable indoors.",
           },
         ],
       },
@@ -304,7 +341,7 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
         answer: [
           {
             type: "paragraph",
-            text: "Softer light, restrained fragrance, and a few unhurried rituals — tea, incense, or quiet music — can help a room feel calmer without much effort.",
+            text: "Softer light, restrained fragrance, and a few unhurried rituals ? tea, incense, or quiet music ? can help a room feel calmer without much effort.",
           },
         ],
       },
@@ -370,7 +407,7 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
         answer: [
           {
             type: "paragraph",
-            text: "Subtle scent can signal a slower pace — especially when paired with soft light, tea, or a few minutes of quiet before reading or writing.",
+            text: "Subtle scent can signal a slower pace ? especially when paired with soft light, tea, or a few minutes of quiet before reading or writing.",
           },
         ],
       },
@@ -380,7 +417,7 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
         answer: [
           {
             type: "paragraph",
-            text: "Repeating small, unhurried actions — lighting incense, steeping tea, opening a book — gives the nervous system a predictable pause in an overstimulated day.",
+            text: "Repeating small, unhurried actions ? lighting incense, steeping tea, opening a book ? gives the nervous system a predictable pause in an overstimulated day.",
           },
         ],
       },
@@ -441,7 +478,7 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
         answer: [
           {
             type: "paragraph",
-            text: "Yes — shorter sessions and lighter scents keep compact rooms comfortable without smoke buildup.",
+            text: "Yes ? shorter sessions and lighter scents keep compact rooms comfortable without smoke buildup.",
           },
         ],
       },
@@ -512,7 +549,7 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
         answer: [
           {
             type: "paragraph",
-            text: "Use a stable holder, ventilate the room, keep sessions short, and choose restrained scents — especially in bedrooms, apartments, and homes with pets.",
+            text: "Use a stable holder, ventilate the room, keep sessions short, and choose restrained scents ? especially in bedrooms, apartments, and homes with pets.",
           },
         ],
       },

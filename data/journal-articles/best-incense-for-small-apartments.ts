@@ -1,7 +1,7 @@
 import type { JournalArticleTemplate } from "@/types/journal-article";
 import { guidePath, JOURNAL_INDEX, journalPath } from "@/lib/site-paths";
 
-const CATEGORY_HREF = `${JOURNAL_INDEX}/small-space-living`;
+const CATEGORY_HREF = `${JOURNAL_INDEX}/small-apartment-living`;
 
 /** Guide — `/journal/best-incense-for-small-apartments` */
 export const journalArticleBestIncenseForSmallApartments: JournalArticleTemplate =
@@ -15,7 +15,7 @@ export const journalArticleBestIncenseForSmallApartments: JournalArticleTemplate
       breadcrumbs: [
         { label: "Home", href: "/" },
         { label: "Journal", href: JOURNAL_INDEX },
-        { label: "Guides & Tips", href: CATEGORY_HREF },
+        { label: "Small Apartment Living", href: CATEGORY_HREF },
         {
           label: "Best Incense for Small Apartments",
           href: journalPath("best-incense-for-small-apartments"),

@@ -33,7 +33,7 @@ export const evergreenGuides: readonly EvergreenGuide[] = [
     title: "The Quiet Ash Sleep Guide",
     tagline: "Warm woods, quieter evenings, deeper rest.",
     description:
-      "A long-form guide to sleep, rest, and bedtime atmosphere — sandalwood, soft light, and slower evenings at home.",
+      "A long-form guide to sleep, rest, and bedtime atmosphere ??? sandalwood, soft light, and slower evenings at home.",
     heroImageSrc: "/images/generated/essay-night-incense-ritual.webp",
     heroImageAlt: "Soft evening light with incense and calm bedroom atmosphere",
     topicHubId: "better-sleep",
@@ -51,14 +51,14 @@ export const evergreenGuides: readonly EvergreenGuide[] = [
   {
     slug: "small-apartment-fragrance-guide",
     pathname: guidePath("small-apartment-fragrance-guide"),
-    title: "The Small Apartment Fragrance Guide",
+    title: "The Quiet Ash Small Apartment Guide",
     tagline:
       "Softer scent, lower smoke, and calmer indoor living for compact spaces.",
     description:
-      "How to use incense comfortably in apartments, bedrooms, and modern indoor environments — ventilation, low smoke, and softer scent profiles.",
+      "How to use incense comfortably in apartments, bedrooms, and modern indoor environments ??? ventilation, low smoke, and softer scent profiles.",
     heroImageSrc: "/images/generated/essay-night-incense-ritual.webp",
     heroImageAlt: "Incense with restrained smoke in a small bedroom",
-    topicHubId: "small-space-living",
+    topicHubId: "small-apartment-living",
     semanticKeywords: [
       "apartments",
       "low smoke",
@@ -118,7 +118,7 @@ export const evergreenGuides: readonly EvergreenGuide[] = [
     tagline:
       "Practical guidance for safer, softer, and more comfortable incense use indoors.",
     description:
-      "Indoor fragrance, low-smoke incense, ventilation, pets, and everyday comfort — clear guidance for home use.",
+      "Indoor fragrance, low-smoke incense, ventilation, pets, and everyday comfort ??? clear guidance for home use.",
     heroImageSrc: "/images/generated/essay-good-incense-not-loud.webp",
     heroImageAlt: "Gentle incense smoke in a well-ventilated home",
     topicHubId: "guides-care",
@@ -143,7 +143,7 @@ export function isEvergreenGuideSlug(value: string): value is EvergreenGuideSlug
   return (EVERGREEN_GUIDE_SLUGS as readonly string[]).includes(value);
 }
 
-/** Journal discovery — evergreen guide links. */
+/** Journal discovery ??? evergreen guide links. */
 export const journalDiscoveryEvergreenGuides = evergreenGuides.map((guide) => ({
   title: guide.title,
   href: guide.pathname,

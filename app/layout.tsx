@@ -60,6 +60,7 @@ export default function RootLayout({
       lang="en"
       data-scroll-behavior="smooth"
       className={`${inter.variable} ${cormorant.variable} h-full`}
+      suppressHydrationWarning
     >
       <body
         className={`${inter.className} ${inter.variable} ${cormorant.variable} min-h-dvh antialiased`}

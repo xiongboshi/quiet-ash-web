@@ -1321,7 +1321,7 @@
   --topic-icon-ink: #5e5568;
 }
 
-.journal-discovery__topic-pill-icon[data-topic="small-space-living"] {
+.journal-discovery__topic-pill-icon[data-topic="small-apartment-living"] {
   --topic-icon-tile: #e8e3d8;
   --topic-icon-ink: #5c574f;
 }
@@ -1840,6 +1840,18 @@
 
 .journal-discovery__latest-grid > li {
   scroll-snap-align: start;
+}
+
+@media (max-width: 1099px) {
+  .journal-discovery__section:has(.journal-discovery__latest-grid) {
+    margin-inline: calc(-1 * var(--qa-container-px, 16px));
+    padding-inline: var(--qa-container-px, 16px);
+  }
+
+  .journal-discovery__latest-grid {
+    overscroll-behavior-x: contain;
+    scroll-padding-inline: var(--qa-container-px, 16px);
+  }
 }
 
 .journal-discovery-latest-card__link {

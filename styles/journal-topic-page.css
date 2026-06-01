@@ -1,5 +1,5 @@
 /**
- * Journal topic hub pages — /journal/{topic}
+ * Journal topic hub pages ? /journal/{topic}
  */
 
 .journal-topic-page {
@@ -13,7 +13,7 @@
   --journal-topic-cream-light: #f9f8f6;
   --journal-topic-border: #e5e2dc;
 
-  /* Typography — shared with evergreen guide pages */
+  /* Typography ? shared with evergreen guide pages */
   --jp-font-serif: var(--font-serif), "Cormorant Garamond", ui-serif, serif;
   --jp-font-sans: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
 
@@ -47,7 +47,7 @@
   color: var(--jp-text-ink);
 }
 
-/* Card / guide media only — hero uses site-hero-overlay rules */
+/* Card / guide media only ? hero uses site-hero-overlay rules */
 .journal-topic-page :is(
     .journal-topic-page__featured-guide-media img,
     .journal-topic-page__article-card-media img
@@ -243,7 +243,7 @@
   padding-top: 0.1rem;
 }
 
-/* 1 — Featured guide */
+/* 1 ? Featured guide */
 .journal-topic-page__featured-guide {
   padding-top: clamp(0.25rem, 1vw, 0.5rem);
   border-top: 1px solid var(--journal-line);
@@ -331,7 +331,7 @@
   background: #2d2a26;
 }
 
-/* 2 — Featured articles */
+/* 2 ? Featured articles */
 .journal-topic-page__section-head {
   display: flex;
   align-items: baseline;
@@ -395,6 +395,32 @@
   scroll-snap-align: start;
 }
 
+/* Mobile — full-bleed horizontal rail (swipe to see all topic articles) */
+@media (max-width: 899px) {
+  .journal-topic-page__featured-articles {
+    margin-inline: calc(-1 * var(--qa-container-px, 16px));
+    padding-inline: var(--qa-container-px, 16px);
+  }
+
+  .journal-topic-page__featured-articles-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-padding-inline: var(--qa-container-px, 16px);
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .journal-topic-page__featured-articles-grid > li {
+    flex: 0 0 min(17.5rem, 82vw);
+    max-width: 17.5rem;
+    scroll-snap-align: start;
+  }
+}
+
 .journal-topic-page__article-card-link {
   display: flex;
   flex-direction: column;
@@ -455,7 +481,7 @@
   color: var(--jp-text-muted);
 }
 
-/* 3 — People Also Ask */
+/* 3 ? People Also Ask */
 .journal-topic-page__paa-title {
   margin: 0 0 1.2rem;
   font-family: var(--jp-font-serif);
@@ -555,7 +581,7 @@
   padding-left: 1rem;
 }
 
-/* 4 — Save & share */
+/* 4 ? Save & share */
 .journal-topic-page__save-share-card {
   position: relative;
   display: grid;

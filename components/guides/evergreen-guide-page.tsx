@@ -32,7 +32,10 @@ function relatedArticlesForGuide(
         description: resolved.description,
       };
     })
-    .filter((item): item is TopicPageFeaturedArticle => Boolean(item));
+    .filter(
+      (item): item is TopicPageFeaturedArticle & { slug: string } =>
+        item !== null,
+    );
 }
 
 export function EvergreenGuidePage({ guide, articles }: Props) {

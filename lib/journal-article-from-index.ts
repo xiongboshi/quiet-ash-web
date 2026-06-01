@@ -29,7 +29,7 @@ const CATEGORY_BREADCRUMB: Record<
   string
 > = {
   "better-sleep": "Better Sleep",
-  "small-space-living": "Small Space Living",
+  "small-apartment-living": "Small Apartment Living",
   "calm-evenings": "Calm Evenings",
   "quiet-routines": "Quiet Routines",
   "guides-care": "Guides & Care",

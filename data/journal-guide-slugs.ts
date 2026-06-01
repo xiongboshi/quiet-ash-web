@@ -17,7 +17,7 @@ export const journalQaGuideSlugByTopicHub: Partial<
   Record<JournalTopicHubId, JournalQaGuideArticleSlug>
 > = {
   "better-sleep": "best-incense-for-sleep",
-  "small-space-living": "best-incense-for-small-apartments",
+  "small-apartment-living": "best-incense-for-small-apartments",
   "calm-evenings": "incense-after-work",
   "quiet-routines": "tea-and-incense-rituals",
   "guides-care": "is-incense-safe-for-pets",

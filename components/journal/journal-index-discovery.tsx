@@ -12,37 +12,18 @@ import {
   journalDiscoveryHubCardImages,
   journalDiscoveryHubCopy,
   journalDiscoveryHubOrder,
-  journalDiscoveryLatestSlugs,
   journalDiscoverySearchIntents,
 } from "@/data/journal-index-discovery";
 import { journalTopicHubById } from "@/data/journal-topic-hubs";
 import type { JournalTopicHubId } from "@/data/journal-topic-hubs";
-import type { JournalIndexArticleResolved } from "@/lib/journal-index-articles";
-import { getJournalIndexArticles } from "@/lib/get-journal-index-articles";
+import { getJournalDiscoveryLatestArticles } from "@/lib/journal-discovery-latest";
 
 type Props = {
   hubCounts: Record<JournalTopicHubId, number>;
 };
 
-function resolveLatestArticles(): {
-  article: JournalIndexArticleResolved;
-  displayTitle?: string;
-}[] {
-  const bySlug = new Map(getJournalIndexArticles().map((a) => [a.slug, a]));
-  return journalDiscoveryLatestSlugs
-    .map((entry) => {
-      const article = bySlug.get(entry.slug);
-      if (!article) return null;
-      return {
-        article,
-        displayTitle: "displayTitle" in entry ? entry.displayTitle : undefined,
-      };
-    })
-    .filter((row): row is NonNullable<typeof row> => Boolean(row));
-}
-
 export function JournalIndexDiscovery({ hubCounts }: Props) {
-  const latestRows = resolveLatestArticles();
+  const latestRows = getJournalDiscoveryLatestArticles();
 
   return (
     <div className="journal-discovery">

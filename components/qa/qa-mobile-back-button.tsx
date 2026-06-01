@@ -29,7 +29,7 @@ export function QaMobileBackButton({
           ? `qa-mobile-panel__back${className ? ` ${className}` : ""}`
           : isTrailing
             ? `nav-icon-btn nav-icon-btn--back${className ? ` ${className}` : ""}`
-            : `nav-mobile-toggle${className ? ` ${className}` : ""}`
+            : `nav-icon-btn nav-icon-btn--back${className ? ` ${className}` : ""}`
       }
       aria-label="Go back"
       onClick={() => {

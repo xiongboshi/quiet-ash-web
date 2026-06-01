@@ -25,7 +25,7 @@ export type JournalTagId =
 /** Sidebar + filters — topic clusters, not generic blog aisles. */
 export const journalIndexCategoryDefinitions = [
   { id: "better-sleep", label: "Better Sleep" },
-  { id: "small-space-living", label: "Small Space Living" },
+  { id: "small-apartment-living", label: "Small Apartment Living" },
   { id: "calm-evenings", label: "Calm Evenings" },
   { id: "quiet-routines", label: "Quiet Routines" },
   { id: "cozy-home", label: "Cozy Home" },

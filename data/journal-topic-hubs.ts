@@ -1,10 +1,10 @@
 import type { JournalCategoryId } from "@/data/journal-index";
 import { journalPath, moodPath } from "@/lib/site-paths";
 
-/** Topic-first hub slugs — same as `JournalTopicHubId` / filter category ids. */
+/** Topic-first hub slugs ??? same as `JournalTopicHubId` / filter category ids. */
 export const JOURNAL_TOPIC_HUB_IDS = [
   "better-sleep",
-  "small-space-living",
+  "small-apartment-living",
   "calm-evenings",
   "quiet-routines",
   "cozy-home",
@@ -13,10 +13,10 @@ export const JOURNAL_TOPIC_HUB_IDS = [
 
 export type JournalTopicHubId = (typeof JOURNAL_TOPIC_HUB_IDS)[number];
 
-/** Core topic pages (spec §2) — `/journal/{id}`. */
+/** Core topic pages (spec ?2) ??? `/journal/{id}`. */
 export const JOURNAL_CORE_TOPIC_HUB_IDS = [
   "better-sleep",
-  "small-space-living",
+  "small-apartment-living",
   "calm-evenings",
   "quiet-routines",
   "cozy-home",
@@ -55,7 +55,7 @@ export const journalTopicHubs: readonly JournalTopicHub[] = [
     title: "Better Sleep",
     tagline: "Warm woods, quieter evenings, deeper rest.",
     description:
-      "Sleep, rest, nighttime atmosphere, and calming rituals — incense, soft light, and slower evenings.",
+      "Sleep, rest, nighttime atmosphere, and calming rituals ??? incense, soft light, and slower evenings.",
     semanticKeywords: [
       "sleep",
       "rest",
@@ -71,6 +71,8 @@ export const journalTopicHubs: readonly JournalTopicHub[] = [
     relatedMoodSlug: "evening-room-ritual",
     relatedMoodLabel: "Explore Calm Evenings",
     featuredSlugs: [
+      "how-to-improve-sleep-quality-naturally",
+      "sleep-hygiene-guide",
       "best-incense-for-sleep",
       "bedroom-scents-for-better-sleep",
       "evening-wind-down-rituals-for-better-sleep",
@@ -81,13 +83,12 @@ export const journalTopicHubs: readonly JournalTopicHub[] = [
     ],
   },
   {
-    id: "small-space-living",
-    pathname: journalPath("small-space-living"),
-    title: "Small Space Living",
-    tagline:
-      "Low-smoke fragrance and softer atmosphere for apartments, studios, and quieter indoor spaces.",
+    id: "small-apartment-living",
+    pathname: journalPath("small-apartment-living"),
+    title: "Small Apartment Living",
+    tagline: "Create a calmer home, no matter the size.",
     description:
-      "Apartments, bedrooms, and compact homes — ventilation, subtle scent, and low-smoke incense.",
+      "Practical ideas for fragrance, comfort, and everyday rituals that help apartments feel warmer, quieter, and more inviting.",
     semanticKeywords: [
       "apartments",
       "bedrooms",
@@ -98,7 +99,7 @@ export const journalTopicHubs: readonly JournalTopicHub[] = [
     ],
     heroImageSrc: "/images/generated/essay-night-incense-ritual.webp",
     heroImageAlt: "Incense with restrained smoke in a small bedroom",
-    categoryId: "small-space-living",
+    categoryId: "small-apartment-living",
     featuredSlugs: ["best-incense-for-small-apartments"],
   },
   {
@@ -130,7 +131,7 @@ export const journalTopicHubs: readonly JournalTopicHub[] = [
     tagline:
       "Gentle rituals for reading, writing, tea, reflection, and slower daily living.",
     description:
-      "Desk rituals, tea, reading, and creative solitude — atmosphere without noise.",
+      "Desk rituals, tea, reading, and creative solitude ??? atmosphere without noise.",
     semanticKeywords: [
       "writing rituals",
       "reading atmosphere",
@@ -152,7 +153,7 @@ export const journalTopicHubs: readonly JournalTopicHub[] = [
     title: "Cozy Home",
     tagline: "Warm rooms, soft light, and lived-in calm.",
     description:
-      "Home atmosphere, seasonal comfort, and quiet interiors — incense, textiles, and slower domestic rituals.",
+      "Home atmosphere, seasonal comfort, and quiet interiors ??? incense, textiles, and slower domestic rituals.",
     semanticKeywords: [
       "cozy home",
       "warm interiors",
@@ -173,7 +174,7 @@ export const journalTopicHubs: readonly JournalTopicHub[] = [
     tagline:
       "Practical answers and everyday guidance for cleaner, calmer incense use at home.",
     description:
-      "Pet safety, low-smoke incense, ventilation, burn times, and everyday care — clear guides for home use.",
+      "Pet safety, low-smoke incense, ventilation, burn times, and everyday care ??? clear guides for home use.",
     semanticKeywords: [
       "pet safety",
       "low smoke incense",
@@ -192,7 +193,7 @@ export const journalTopicHubs: readonly JournalTopicHub[] = [
 export const journalDiscoveryTopicPills = [
   { label: "Better Sleep", href: journalPath("better-sleep") },
   { label: "Calm Evenings", href: journalPath("calm-evenings") },
-  { label: "Small Apartments", href: journalPath("small-space-living") },
+  { label: "Small Apartment Living", href: journalPath("small-apartment-living") },
   { label: "Quiet Routines", href: journalPath("quiet-routines") },
   { label: "Cozy Home", href: journalPath("cozy-home") },
   { label: "Low-Smoke Incense", href: journalPath("guides-care") },
@@ -230,7 +231,7 @@ export const journalDiscoveryFeaturedEditorial = [
   },
 ] as const;
 
-/** Journal → Mood conversion loops. */
+/** Journal ??? Mood conversion loops. */
 export const journalDiscoveryMoodLinks = [
   {
     label: "Explore Calm Evenings",
@@ -255,17 +256,33 @@ export const journalTopicHubById: Record<JournalTopicHubId, JournalTopicHub> =
     JournalTopicHub
   >;
 
+/** Legacy `/journal/{slug}` paths that redirect to a current hub id. */
+export const journalTopicHubLegacyPathSlugs: Record<string, JournalTopicHubId> = {
+  "small-space-living": "small-apartment-living",
+};
+
+export function resolveJournalTopicHubSlug(
+  slug: string,
+): JournalTopicHubId | undefined {
+  if (isJournalTopicHubId(slug)) return slug;
+  return journalTopicHubLegacyPathSlugs[slug];
+}
+
 export function isJournalTopicHubId(
   value: string,
 ): value is JournalTopicHubId {
   return (JOURNAL_TOPIC_HUB_IDS as readonly string[]).includes(value);
 }
 
-/** Legacy blog categories → topic hubs (MDX + old URLs). */
+export function isJournalTopicHubPathSegment(value: string): boolean {
+  return resolveJournalTopicHubSlug(value) !== undefined;
+}
+
+/** Legacy blog categories ??? topic hubs (MDX + old URLs). */
 export const journalLegacyCategoryToTopicHub: Record<string, JournalTopicHubId> =
   {
     "mind-wellness": "better-sleep",
-    "scents-ingredients": "small-space-living",
+    "scents-ingredients": "small-apartment-living",
     "rituals-practices": "quiet-routines",
     "living-lifestyle": "cozy-home",
     "guides-tips": "guides-care",
@@ -286,5 +303,5 @@ export const JOURNAL_INDEX_TOPIC_CLUSTER_HEADING = "Explore by topic";
 
 export const journalIndexTopicClusterIntro = {
   title: JOURNAL_INDEX_TOPIC_CLUSTER_HEADING,
-  sub: "Topic clusters — not a chronological archive.",
+  sub: "Topic clusters ??? not a chronological archive.",
 } as const;

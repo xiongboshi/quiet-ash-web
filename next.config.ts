@@ -13,7 +13,7 @@ const nextConfig: NextConfig = {
     /** Inline above-the-fold CSS to cut render-blocking stylesheet chains on mobile. */
     optimizeCss: true,
   },
-  // LAN phone testing: `192.168.*` does NOT match `192.168.10.171` — need `*.*` or explicit IP.
+  // LAN phone testing: `192.168.*` does NOT match `192.168.10.171` �?? need `*.*` or explicit IP.
   allowedDevOrigins: [
     "192.168.10.171",
     "192.168.*.*",
@@ -59,7 +59,12 @@ const nextConfig: NextConfig = {
         destination: "/guides/slow-living-ritual-guide",
         permanent: true,
       },
-      /* /library, /archive, /series — real App Router pages (no 301); see app/(site)/ */
+      {
+        source: "/journal/small-space-living",
+        destination: "/journal/small-apartment-living",
+        permanent: true,
+      },
+      /* /library, /archive, /series �?? real App Router pages (no 301); see app/(site)/ */
     ];
   },
 };

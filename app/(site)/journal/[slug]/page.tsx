@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { JournalArticlePage } from "@/components/journal/article/journal-article-page";
 import { JournalTopicHubPage } from "@/components/journal/journal-topic-hub-page";
 import { getJournalArticle, getJournalArticleSlugs } from "@/lib/journal-articles";
@@ -66,6 +66,10 @@ export default async function JournalSlugPage({ params }: Props) {
 
   const hub = getJournalTopicHub(slug);
   if (hub) {
+    if (slug !== hub.id) {
+      redirect(journalPath(hub.id));
+    }
+
     const articles = getArticlesForTopicHub(
       getJournalIndexArticles(),
       hub.id,

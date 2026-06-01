@@ -36,7 +36,7 @@ export function JournalIndexCategoryIcon({
           <path d="M6.5 13.5h5" />
         </TopicIcon>
       );
-    case "small-space-living":
+    case "small-apartment-living":
       return (
         <TopicIcon>
           <path d="M3.5 8.5 9 4l5.5 4.5V15h-11V8.5Z" />

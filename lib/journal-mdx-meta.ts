@@ -30,7 +30,7 @@ const TAG_ID_SET = new Set<string>(JOURNAL_TAG_IDS);
 
 export const journalCategoryLabels: Record<JournalTopicHubId, string> = {
   "better-sleep": "BETTER SLEEP",
-  "small-space-living": "SMALL SPACE LIVING",
+  "small-apartment-living": "SMALL APARTMENT LIVING",
   "calm-evenings": "CALM EVENINGS",
   "quiet-routines": "QUIET ROUTINES",
   "guides-care": "GUIDES & CARE",

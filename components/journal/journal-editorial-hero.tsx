@@ -10,7 +10,7 @@ type Props = {
   headingId: string;
 };
 
-/** Journal index + topic hub — shared overlay hero band. */
+/** Journal index + topic hub ? shared overlay hero band. */
 export function JournalEditorialHero({
   title,
   tagline,
