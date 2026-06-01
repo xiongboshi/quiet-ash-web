@@ -78,6 +78,8 @@ export type JournalArticleRelated = {
 export type JournalArticleTemplate = {
   slug: string;
   seoTitle?: string;
+  /** Exact `<title>` when set — bypasses root layout `%s · Quiet Ash` template. */
+  documentTitle?: string;
   seoDescription?: string;
   /** `guide` = numbered sections + insight band; `editorial` = full essay prose */
   bodyFormat: JournalArticleBodyFormat;

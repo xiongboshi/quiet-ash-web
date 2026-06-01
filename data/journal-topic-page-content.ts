@@ -122,7 +122,7 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
       },
       {
         slug: "sleep-hygiene-guide",
-        title: "Sleep Hygiene Guide: Simple Habits for Better Sleep",
+        title: "Sleep Hygiene Guide",
         description:
           "Learn the fundamentals of sleep hygiene and practical habits for better sleep quality, bedtime routines, and bedroom atmosphere.",
         readMinutes: 9,

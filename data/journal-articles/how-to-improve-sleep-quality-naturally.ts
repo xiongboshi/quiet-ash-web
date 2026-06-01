@@ -8,8 +8,8 @@ export const journalArticleHowToImproveSleepQualityNaturally: JournalArticleTemp
   {
     slug: "how-to-improve-sleep-quality-naturally",
     bodyFormat: "guide",
-    seoTitle:
-      "How to Improve Sleep Quality Naturally: 10 Simple Habits for Better Rest",
+    documentTitle: "How to Improve Sleep Quality Naturally | Quiet Ash",
+    seoTitle: "How to Improve Sleep Quality Naturally",
     seoDescription:
       "Learn how to improve sleep quality naturally through better sleep habits, bedroom atmosphere, evening routines, and healthy sleep hygiene practices.",
     hero: {

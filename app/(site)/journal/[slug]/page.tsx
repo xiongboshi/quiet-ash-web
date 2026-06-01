@@ -45,14 +45,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const title = article.seoTitle ?? article.hero.title;
   const description = article.seoDescription ?? article.hero.subtitle;
+  const documentTitle = article.documentTitle;
 
   return {
-    title,
+    title: documentTitle ? { absolute: documentTitle } : title,
     description,
     alternates: { canonical: journalPath(slug) },
     openGraph: {
       type: "article",
-      title,
+      title: documentTitle ?? title,
       description,
       url: journalPath(slug),
     },

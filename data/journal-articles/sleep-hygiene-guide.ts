@@ -7,7 +7,8 @@ const CATEGORY_HREF = `${JOURNAL_INDEX}/better-sleep`;
 export const journalArticleSleepHygieneGuide: JournalArticleTemplate = {
   slug: "sleep-hygiene-guide",
   bodyFormat: "guide",
-  seoTitle: "Sleep Hygiene Guide: Simple Habits for Better Sleep Quality",
+  documentTitle: "Sleep Hygiene Guide | Quiet Ash",
+  seoTitle: "Sleep Hygiene Guide",
   seoDescription:
     "Learn the fundamentals of sleep hygiene and discover practical habits that can help improve sleep quality, bedtime routines, and bedroom atmosphere naturally.",
   hero: {
@@ -21,7 +22,7 @@ export const journalArticleSleepHygieneGuide: JournalArticleTemplate = {
       },
     ],
     categoryLabel: "BETTER SLEEP",
-    title: "Sleep Hygiene Guide: Simple Habits for Better Sleep",
+    title: "Sleep Hygiene Guide",
     subtitle:
       "Practical habits, bedtime routines, and bedroom atmosphere for healthier sleep.",
     readMinutes: 9,

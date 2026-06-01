@@ -25,8 +25,7 @@ export const journalGuidesTipsHandCards: readonly JournalIndexArticleCard[] = [
     categoryId: "better-sleep",
     categoryLabel: "BETTER SLEEP",
     headline: "How to Improve Sleep Quality Naturally",
-    seoTitle:
-      "How to Improve Sleep Quality Naturally: 10 Simple Habits for Better Rest",
+    seoTitle: "How to Improve Sleep Quality Naturally",
     title: "How to Improve Sleep Quality Naturally",
     description:
       "Learn how to improve sleep quality naturally through better sleep habits, bedroom atmosphere, evening routines, and healthy sleep hygiene practices.",
@@ -40,9 +39,9 @@ export const journalGuidesTipsHandCards: readonly JournalIndexArticleCard[] = [
     slug: "sleep-hygiene-guide",
     categoryId: "better-sleep",
     categoryLabel: "BETTER SLEEP",
-    headline: "Sleep Hygiene Guide: Simple Habits for Better Sleep",
-    seoTitle: "Sleep Hygiene Guide: Simple Habits for Better Sleep Quality",
-    title: "Sleep Hygiene Guide: Simple Habits for Better Sleep",
+    headline: "Sleep Hygiene Guide",
+    seoTitle: "Sleep Hygiene Guide",
+    title: "Sleep Hygiene Guide",
     description:
       "Learn the fundamentals of sleep hygiene and discover practical habits that can help improve sleep quality, bedtime routines, and bedroom atmosphere naturally.",
     readMinutes: 9,
