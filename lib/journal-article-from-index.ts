@@ -11,9 +11,9 @@ import type {
 import { isJournalGuideArticle } from "@/data/journal-guide-slugs";
 import { getProductBySlug } from "@/lib/catalog";
 import { getEssayBySlug } from "@/lib/essays";
+import { journalArticleProductRefs } from "@/lib/journal-article-products";
 import { JOURNAL_INDEX, journalPath } from "@/lib/site-paths";
 import { getJournalIndexArticleCards } from "@/lib/get-journal-index-articles";
-import { formatPriceDisplay } from "@/lib/cart/pricing";
 import { getHomeBestSellersProducts } from "@/lib/shop-best-sellers-home";
 
 /** Module 3 body — matches editorial mock section order & ids */
@@ -315,40 +315,20 @@ function buildTakeaways(
 }
 
 function defaultProducts(): JournalArticleTemplate["products"] {
-  const items = getHomeBestSellersProducts().slice(0, 4);
-  return {
-    heading: "Recommended Incense",
-    items: items.map((p: (typeof items)[number]) => ({
-      slug: p.slug,
-      title: p.title,
-      rating: 4.5,
-      reviewCount: p.reviewCount,
-      priceDisplay: p.priceDisplay,
-      imageSrc: p.imageSrc,
-      imageAlt: p.imageAlt,
-    })),
-  };
+  const slugs = getHomeBestSellersProducts()
+    .slice(0, 4)
+    .map((p) => p.slug);
+  return journalArticleProductRefs(slugs);
 }
 
 function productsFromSlugs(
   slugs: readonly string[],
 ): JournalArticleTemplate["products"] {
-  const items = slugs
-    .map((slug) => getProductBySlug(slug))
-    .filter((p): p is NonNullable<typeof p> => Boolean(p))
-    .slice(0, 4)
-    .map((p) => ({
-      slug: p.slug,
-      title: p.title,
-      rating: 4.5,
-      reviewCount: 120,
-      priceDisplay: formatPriceDisplay(p.priceDisplay ?? ""),
-      imageSrc: p.image,
-      imageAlt: p.title,
-    }));
-
-  if (!items.length) return defaultProducts();
-  return { heading: "Recommended Incense", items };
+  const valid = slugs
+    .filter((slug) => Boolean(getProductBySlug(slug)))
+    .slice(0, 4);
+  if (!valid.length) return defaultProducts();
+  return journalArticleProductRefs(valid);
 }
 
 function buildRelated(

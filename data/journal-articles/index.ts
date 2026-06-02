@@ -14,6 +14,10 @@ import { journalArticleShouldYouBurnIncenseBeforeBed } from "@/data/journal-arti
 import { journalArticleBestScentForSleep } from "@/data/journal-articles/best-scent-for-sleep";
 import { journalArticleSleepHygieneGuide } from "@/data/journal-articles/sleep-hygiene-guide";
 import { journalArticleHowToImproveSleepQualityNaturally } from "@/data/journal-articles/how-to-improve-sleep-quality-naturally";
+import { journalArticleWhyBadSleepHappens } from "@/data/journal-articles/why-bad-sleep-happens";
+import { journalArticleGreenNoiseForSleep } from "@/data/journal-articles/green-noise-for-sleep";
+import { journalArticleHowToFixBadSleep } from "@/data/journal-articles/how-to-fix-bad-sleep";
+import { journalArticleSleepMeditation } from "@/data/journal-articles/sleep-meditation";
 
 /** Full PDP overrides for hand-authored guide templates. */
 const journalHandArticleOverrides: Record<string, JournalArticleTemplate> = {
@@ -37,6 +41,10 @@ const journalHandArticleOverrides: Record<string, JournalArticleTemplate> = {
   [journalArticleSleepHygieneGuide.slug]: journalArticleSleepHygieneGuide,
   [journalArticleHowToImproveSleepQualityNaturally.slug]:
     journalArticleHowToImproveSleepQualityNaturally,
+  [journalArticleWhyBadSleepHappens.slug]: journalArticleWhyBadSleepHappens,
+  [journalArticleGreenNoiseForSleep.slug]: journalArticleGreenNoiseForSleep,
+  [journalArticleHowToFixBadSleep.slug]: journalArticleHowToFixBadSleep,
+  [journalArticleSleepMeditation.slug]: journalArticleSleepMeditation,
 };
 
 /** Index-listed articles — auto-filled from card + `content/essays` MDX when available. */

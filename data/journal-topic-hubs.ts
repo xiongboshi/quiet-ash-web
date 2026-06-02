@@ -1,4 +1,5 @@
 import type { JournalCategoryId } from "@/data/journal-index";
+import { BETTER_SLEEP_ARTICLE_SLUGS } from "@/data/journal-sleep-hub";
 import { journalPath, moodPath } from "@/lib/site-paths";
 
 /** Topic-first hub slugs ??? same as `JournalTopicHubId` / filter category ids. */
@@ -70,17 +71,7 @@ export const journalTopicHubs: readonly JournalTopicHub[] = [
     categoryId: "better-sleep",
     relatedMoodSlug: "evening-room-ritual",
     relatedMoodLabel: "Explore Calm Evenings",
-    featuredSlugs: [
-      "how-to-improve-sleep-quality-naturally",
-      "sleep-hygiene-guide",
-      "best-incense-for-sleep",
-      "bedroom-scents-for-better-sleep",
-      "evening-wind-down-rituals-for-better-sleep",
-      "calming-bedroom-atmosphere-for-better-sleep",
-      "why-soft-scents-feel-relaxing-before-sleep",
-      "should-you-burn-incense-before-bed",
-      "best-scent-for-sleep",
-    ],
+    featuredSlugs: [...BETTER_SLEEP_ARTICLE_SLUGS],
   },
   {
     id: "small-apartment-living",

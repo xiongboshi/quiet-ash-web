@@ -1,4 +1,5 @@
 import type { JournalArticleTemplate } from "@/types/journal-article";
+import { betterSleepRelatedBlock } from "@/data/journal-sleep-hub";
 import { JOURNAL_INDEX, journalPath } from "@/lib/site-paths";
 
 const CATEGORY_HREF = `${JOURNAL_INDEX}/better-sleep`;
@@ -314,77 +315,13 @@ export const journalArticleSleepHygieneGuide: JournalArticleTemplate = {
   products: {
     heading: "Recommended Incense",
     items: [
-      {
-        slug: "brass-incense-stand",
-        title: "Sandalwood Incense",
-        rating: 4.5,
-        reviewCount: 128,
-        priceDisplay: "$18.00",
-        imageSrc: "/images/generated/products/brass-incense-stand/hero.webp",
-        imageAlt: "Sandalwood incense",
-      },
-      {
-        slug: "paper-incense-sleeve",
-        title: "Lavender Incense",
-        rating: 4.5,
-        reviewCount: 96,
-        priceDisplay: "$18.00",
-        imageSrc: "/images/generated/products/paper-incense-sleeve/hero.webp",
-        imageAlt: "Lavender incense",
-      },
-      {
-        slug: "wood-tray",
-        title: "White Tea Incense",
-        rating: 4,
-        reviewCount: 74,
-        priceDisplay: "$18.00",
-        imageSrc: "/images/generated/best-sellers/quiet-cloud-v3.webp",
-        imageAlt: "White tea incense",
-      },
-      {
-        slug: "small-agarwood-box",
-        title: "Gentle Woods",
-        rating: 4,
-        reviewCount: 56,
-        priceDisplay: "$18.00",
-        imageSrc: "/images/generated/best-sellers/sandalwood-night-v2.webp",
-        imageAlt: "Gentle wood incense blend",
-      },
+      { slug: "brass-incense-stand" },
+      { slug: "paper-incense-sleeve" },
+      { slug: "wood-tray" },
+      { slug: "small-agarwood-box" },
     ],
   },
-  related: {
-    heading: "Related Reading",
-    items: [
-      {
-        slug: "bedroom-scents-for-better-sleep",
-        title: "Bedroom Scents for Better Sleep",
-        readMinutes: 8,
-        imageSrc: "/images/generated/essay-night-incense-ritual.webp",
-        imageAlt: "Soft evening light with incense and calm bedroom atmosphere",
-      },
-      {
-        slug: "best-incense-for-sleep",
-        title: "Best Incense for Sleep",
-        readMinutes: 8,
-        imageSrc: "/images/generated/essay-night-incense-ritual.webp",
-        imageAlt: "Incense stick burning in a ceramic bowl with soft evening light",
-      },
-      {
-        slug: "evening-wind-down-rituals-for-better-sleep",
-        title: "Evening Habits That Improve Sleep",
-        readMinutes: 8,
-        imageSrc: "/images/generated/essay-good-incense-not-loud.webp",
-        imageAlt: "Quiet evening incense still life",
-      },
-      {
-        slug: "calming-bedroom-atmosphere-for-better-sleep",
-        title: "How to Create a Calming Bedroom Atmosphere",
-        readMinutes: 8,
-        imageSrc: "/images/generated/essay-night-incense-ritual.webp",
-        imageAlt: "Soft evening light with incense and calm bedroom atmosphere",
-      },
-    ],
-  },
+  related: betterSleepRelatedBlock("sleep-hygiene-guide"),
   articleNote:
     "This article is intended for general informational purposes about sleep habits, bedroom atmosphere, and modern living spaces.",
 };

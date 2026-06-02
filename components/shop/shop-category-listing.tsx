@@ -8,7 +8,7 @@ import { ShopProductCard } from "@/components/shop/shop-product-card";
 import {
   shopSortChipLabel,
   sortListingProducts,
-} from "@/lib/shop-products";
+} from "@/lib/shop-listing-filters";
 
 type Props = {
   filtersOpen: boolean;

@@ -33,6 +33,11 @@ export type TopicPageContent = {
   heroLede: string;
   popularSearches: readonly TopicPageSearchPill[];
   featuredGuide: TopicPageFeaturedGuide;
+  /** Editorial intro (300–800 words) — signals topic authority above article list. */
+  topicIntroduction?: {
+    title?: string;
+    paragraphs: readonly string[];
+  };
   featuredArticles: readonly TopicPageFeaturedArticle[];
   peopleAlsoAsk: readonly TopicPageFaqItem[];
   saveShareSub?: string;
@@ -71,12 +76,28 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
     heroLede: "to help you fall asleep faster and wake up refreshed.",
     popularSearches: [
       {
+        label: "sleep hygiene guide",
+        href: journalPath("sleep-hygiene-guide"),
+      },
+      {
         label: "improve sleep quality naturally",
         href: journalPath("how-to-improve-sleep-quality-naturally"),
       },
       {
-        label: "sleep hygiene guide",
-        href: journalPath("sleep-hygiene-guide"),
+        label: "why bad sleep happens",
+        href: journalPath("why-bad-sleep-happens"),
+      },
+      {
+        label: "green noise for sleep",
+        href: journalPath("green-noise-for-sleep"),
+      },
+      {
+        label: "how to fix bad sleep",
+        href: journalPath("how-to-fix-bad-sleep"),
+      },
+      {
+        label: "sleep meditation",
+        href: journalPath("sleep-meditation"),
       },
       { label: "best incense for sleep", href: journalPath("best-incense-for-sleep") },
       {
@@ -112,7 +133,26 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
       description:
         "Everything you need for deeper, calmer nights. Scents, atmosphere, and simple rituals that work.",
     },
+    topicIntroduction: {
+      title: "About Better Sleep",
+      paragraphs: [
+      "Better sleep is not just about spending more hours in bed. Sleep quality is influenced by daily habits, bedroom atmosphere, evening routines, light exposure, stress levels, and sensory experiences. When any of these feel out of balance, nights can feel restless even after a long day.",
+      "This guide explores practical ways to improve sleep naturally through healthier habits, calming environments, and simple nighttime rituals. Whether you are struggling to fall asleep, waking during the night, or simply looking to create a more peaceful evening routine, these resources can help you build better sleep over time.",
+      "At Quiet Ash, we focus on the connection between atmosphere and rest. Small changes in scent, lighting, sound, and routine can often make a meaningful difference in how you sleep and feel the next day. We write from a lifestyle perspective — bedroom calm, slower evenings, and lived-in rituals — not from a clinical one.",
+      "Inside this topic you will find guides on sleep hygiene, natural sleep improvement, common reasons sleep feels difficult, and how background sound such as green noise can support a quieter room. You will also find articles on bedroom scent, evening wind-down rituals, and gentle incense choices for small spaces. Each piece is meant to stand alone, but together they form a practical map for Better Sleep.",
+      "Many people begin with habits: a steadier bedtime, less screen light after dinner, caffeine earlier in the day, and a short transition before bed instead of going straight from work to sheets. Others start with the room itself — dimmer lamps, cooler air, less clutter on the nightstand, and sound that masks sudden street noise. Scent is often the last layer: sandalwood, soft woods, or light florals burned briefly, then allowed to fade so the room feels calm rather than perfumed.",
+      "Poor sleep rarely has one cause. Stress, irregular schedules, and an environment that still feels like daytime can overlap. That is why this hub links habits, atmosphere, and ritual in one place. If you are new here, start with why sleep feels difficult, how to improve sleep quality naturally, or our Sleep Hygiene Guide — then explore scent and sound when you are ready to refine the room.",
+      "The articles below are updated over time as we add new guides to the cluster. Use Popular searches for quick paths, read The Quiet Ash Sleep Guide for a longer overview, and bookmark what helps. Better sleep is usually built in small steps; this topic is here to support that pace.",
+      ],
+    },
     featuredArticles: [
+      {
+        slug: "sleep-hygiene-guide",
+        title: "Sleep Hygiene Guide",
+        description:
+          "Learn the fundamentals of sleep hygiene and practical habits for better sleep quality, bedtime routines, and bedroom atmosphere.",
+        readMinutes: 9,
+      },
       {
         slug: "how-to-improve-sleep-quality-naturally",
         title: "How to Improve Sleep Quality Naturally",
@@ -121,11 +161,32 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
         readMinutes: 10,
       },
       {
-        slug: "sleep-hygiene-guide",
-        title: "Sleep Hygiene Guide",
+        slug: "why-bad-sleep-happens",
+        title: "Why Bad Sleep Happens",
         description:
-          "Learn the fundamentals of sleep hygiene and practical habits for better sleep quality, bedtime routines, and bedroom atmosphere.",
+          "Lifestyle habits, stress, screens, and bedroom atmosphere — a calm look at common reasons nights feel restless.",
+        readMinutes: 11,
+      },
+      {
+        slug: "green-noise-for-sleep",
+        title: "Green Noise for Sleep",
+        description:
+          "What green noise is, how it compares to white and brown noise, and how sound fits into a softer evening routine.",
+        readMinutes: 8,
+      },
+      {
+        slug: "how-to-fix-bad-sleep",
+        title: "How to Fix Bad Sleep",
+        description:
+          "Practical lifestyle steps to fix bad sleep through calmer evenings, bedroom atmosphere, and steady routines.",
         readMinutes: 9,
+      },
+      {
+        slug: "sleep-meditation",
+        title: "Sleep Meditation",
+        description:
+          "Quiet breath, gentle attention, and evening rituals that support relaxation before bed.",
+        readMinutes: 8,
       },
       {
         slug: "best-incense-for-sleep",
@@ -179,24 +240,44 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
     ],
     peopleAlsoAsk: [
       {
-        id: "sleep-safe",
-        question: "Is incense safe to use while sleeping?",
-        answer: sleepFaqAnswers.safeWhileSleeping,
+        id: "poor-sleep-causes",
+        question: "What causes poor sleep quality?",
+        answer: [
+          {
+            type: "paragraph",
+            text: "Poor sleep can result from stress, inconsistent sleep schedules, excessive screen exposure, noise, light, or an uncomfortable sleep environment.",
+          },
+        ],
       },
       {
-        id: "sleep-scents",
-        question: "What scents are best for deep sleep?",
-        answer: sleepFaqAnswers.deepSleepScents,
+        id: "improve-sleep-naturally",
+        question: "How can I improve sleep naturally?",
+        answer: [
+          {
+            type: "paragraph",
+            text: "Many people improve sleep through better sleep hygiene, consistent routines, reduced screen time, and a calming bedtime environment.",
+          },
+        ],
       },
       {
-        id: "sleep-timing",
-        question: "How long before bed should I use incense?",
-        answer: sleepFaqAnswers.howLongBeforeBed,
+        id: "bedroom-atmosphere",
+        question: "Does bedroom atmosphere affect sleep?",
+        answer: [
+          {
+            type: "paragraph",
+            text: "Yes. Factors such as lighting, temperature, scent, and sound can influence how easily you fall asleep and how restful your sleep feels.",
+          },
+        ],
       },
       {
-        id: "sleep-anxiety",
-        question: "Can incense help with anxiety or overthinking?",
-        answer: sleepFaqAnswers.anxiety,
+        id: "incense-bedtime-routine",
+        question: "Can incense help create a relaxing bedtime routine?",
+        answer: [
+          {
+            type: "paragraph",
+            text: "Many people use calming scents such as sandalwood or lavender as part of a nighttime ritual designed to support relaxation.",
+          },
+        ],
       },
     ],
     saveShareSub: "Bookmark this topic to revisit sleep tips and evening rituals anytime.",

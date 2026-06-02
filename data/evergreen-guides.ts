@@ -1,3 +1,4 @@
+import { BETTER_SLEEP_CORE_SLUGS } from "@/data/journal-sleep-hub";
 import type { JournalTopicHubId } from "@/data/journal-topic-hubs";
 import { guidePath } from "@/lib/site-paths";
 
@@ -46,7 +47,7 @@ export const evergreenGuides: readonly EvergreenGuide[] = [
       "sandalwood",
       "deeper rest",
     ],
-    featuredSlugs: ["best-incense-for-sleep"],
+    featuredSlugs: [...BETTER_SLEEP_CORE_SLUGS],
   },
   {
     slug: "small-apartment-fragrance-guide",

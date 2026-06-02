@@ -3,6 +3,7 @@ import { JournalTopicHubFeaturedArticles } from "@/components/journal/journal-to
 import { JournalTopicHubFeaturedGuide } from "@/components/journal/journal-topic-hub-featured-guide";
 import { JournalTopicHubPeopleAlsoAsk } from "@/components/journal/journal-topic-hub-people-also-ask";
 import { JournalTopicHubPopularSearches } from "@/components/journal/journal-topic-hub-popular-searches";
+import { JournalTopicHubTopicIntro } from "@/components/journal/journal-topic-hub-topic-intro";
 import { JournalTopicHubSaveShare } from "@/components/journal/journal-topic-hub-save-share";
 import { getJournalTopicPageContent } from "@/data/journal-topic-page-content";
 import type { TopicPageFeaturedArticle } from "@/data/journal-topic-page-content";
@@ -69,6 +70,12 @@ export function JournalTopicHubPage({ hub, articles }: Props) {
       <div className="journal-topic-page__body">
         <JournalTopicHubPopularSearches pills={content.popularSearches} />
         <JournalTopicHubFeaturedGuide guide={content.featuredGuide} />
+        {content.topicIntroduction?.paragraphs.length ? (
+          <JournalTopicHubTopicIntro
+            title={content.topicIntroduction.title}
+            paragraphs={content.topicIntroduction.paragraphs}
+          />
+        ) : null}
         <JournalTopicHubFeaturedArticles
           articles={featuredArticles}
           resolvedBySlug={resolvedBySlug}

@@ -5,7 +5,9 @@ import { JournalArticleHero } from "@/components/journal/article/journal-article
 import { JournalArticleInsight } from "@/components/journal/article/journal-article-insight";
 import { JournalArticleIntro } from "@/components/journal/article/journal-article-intro";
 import { JournalArticleProducts } from "@/components/journal/article/journal-article-products";
+import { JournalArticleHubBack } from "@/components/journal/article/journal-article-hub-back";
 import { JournalArticleRelated } from "@/components/journal/article/journal-article-related";
+import { isBetterSleepArticleSlug } from "@/data/journal-sleep-hub";
 import type { JournalArticleTemplate } from "@/types/journal-article";
 
 type Props = {
@@ -54,6 +56,7 @@ export function JournalArticlePage({ article }: Props) {
           {finalSection ? <JournalArticleBody sections={[finalSection]} /> : null}
           <JournalArticleProducts block={article.products} />
           <JournalArticleRelated block={article.related} />
+          {isBetterSleepArticleSlug(article.slug) ? <JournalArticleHubBack /> : null}
           {article.articleNote ? (
             <p className="journal-article__note">{article.articleNote}</p>
           ) : null}

@@ -18,6 +18,10 @@ export function QaImage({
   alt = "",
   ...rest
 }: QaImageProps) {
+  if (!src?.trim()) {
+    return null;
+  }
+
   const resolvedSrc = toWebpSrc(src);
   const svg = isSvgImageSrc(src);
 

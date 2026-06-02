@@ -57,17 +57,28 @@ export type JournalArticleSection = {
 
 export type JournalArticleProduct = {
   slug: string;
-  title: string;
-  rating: number;
-  reviewCount: number;
-  priceDisplay: string;
-  imageSrc: string;
-  imageAlt: string;
+  /** @deprecated Use shop catalog via slug — optional legacy fallback only */
+  title?: string;
+  rating?: number;
+  reviewCount?: number;
+  priceDisplay?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+};
+
+/** Related reading entry in article data — slug required; rest resolved at render. */
+export type JournalArticleRelatedRef = {
+  slug: string;
+  /** When set, used instead of `/journal/{slug}` (e.g. evergreen guides). */
+  href?: string;
+  title?: string;
+  readMinutes?: number;
+  imageSrc?: string;
+  imageAlt?: string;
 };
 
 export type JournalArticleRelated = {
   slug: string;
-  /** When set, used instead of `/journal/{slug}` (e.g. evergreen guides). */
   href?: string;
   title: string;
   readMinutes: number;
@@ -104,7 +115,7 @@ export type JournalArticleTemplate = {
   };
   related: {
     heading: string;
-    items: readonly JournalArticleRelated[];
+    items: readonly JournalArticleRelatedRef[];
   };
   /** Optional disclaimer shown after related reading. */
   articleNote?: string;

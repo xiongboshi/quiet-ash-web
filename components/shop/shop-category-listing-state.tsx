@@ -17,7 +17,7 @@ import {
   applyComputedFilterCounts,
   filterListingProducts,
   searchListingProducts,
-} from "@/lib/shop-products";
+} from "@/lib/shop-listing-filters";
 import type { ShopListingProduct } from "@/lib/shop-types";
 import type { ShopCatalogSlug } from "@/data/shop-catalog";
 import type { ShopCategoryFilters } from "@/data/shop-catalog-types";

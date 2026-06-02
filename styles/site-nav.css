@@ -341,7 +341,8 @@
   color: var(--site-nav-ink);
 }
 
-.site-nav-chrome.site-nav-chrome--ink .nav-mobile-toggle {
+.site-nav-chrome.site-nav-chrome--ink .nav-mobile-toggle,
+.site-nav-chrome.site-nav-chrome--ink .nav-icon-btn--back {
   color: var(--site-nav-ink);
   border-color: color-mix(in srgb, var(--site-nav-ink) 32%, transparent);
 }
@@ -358,7 +359,8 @@
   color: var(--site-nav-ink-strong);
 }
 
-.site-nav-chrome.site-nav-chrome--overlay .nav-mobile-toggle {
+.site-nav-chrome.site-nav-chrome--overlay .nav-mobile-toggle,
+.site-nav-chrome.site-nav-chrome--overlay .nav-icon-btn--back {
   color: var(--site-nav-ink-strong);
   border-color: color-mix(in srgb, var(--site-nav-ink-strong) 32%, transparent);
 }
@@ -392,13 +394,18 @@
     display: none;
   }
 
+  .site-nav-chrome .nav-mobile-toggle,
+  .site-nav-chrome .nav-icon-btn--back {
+    box-sizing: border-box;
+    border: 1px solid transparent;
+  }
+
   .site-nav-chrome .nav-mobile-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
     width: var(--site-nav-mobile-control);
     height: var(--site-nav-mobile-control);
-    border: 1px solid transparent;
     background: transparent;
     font-size: 20px;
     cursor: pointer;
@@ -418,7 +425,6 @@
     justify-content: center;
     width: var(--site-nav-mobile-control);
     height: var(--site-nav-mobile-control);
-    border: 1px solid transparent;
     background: transparent;
     font-size: 20px;
     cursor: pointer;
@@ -477,8 +483,10 @@
     height: var(--site-nav-mobile-control);
   }
 
-  .site-nav-chrome--overlay .nav-icon-btn--back {
-    color: var(--site-nav-ink-strong, #0d0d0d);
+  .site-nav-chrome .nav-icon-btn--back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .site-nav-chrome .nav-icon-btn--cart .nav-cart-icon {
@@ -501,16 +509,6 @@
     height: 1.125rem;
     font-size: 10px;
     line-height: 1.125rem;
-  }
-
-  .site-nav-chrome.site-nav-chrome--ink .nav-mobile-toggle {
-    color: var(--site-nav-ink);
-    border-color: color-mix(in srgb, var(--site-nav-ink) 32%, transparent);
-  }
-
-  .site-nav-chrome.site-nav-chrome--overlay .nav-mobile-toggle {
-    color: var(--site-nav-ink-strong);
-    border-color: color-mix(in srgb, var(--site-nav-ink-strong) 32%, transparent);
   }
 
   /* Keep hamburger above the dimmed drawer; cart hides while menu is open */

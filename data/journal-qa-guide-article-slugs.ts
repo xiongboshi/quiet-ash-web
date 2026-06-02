@@ -1,7 +1,11 @@
 /** Hand-authored Q&A guide articles (`data/journal-articles/*.ts`) — client-safe slug list. */
 export const JOURNAL_QA_GUIDE_ARTICLE_SLUGS = [
-  "how-to-improve-sleep-quality-naturally",
   "sleep-hygiene-guide",
+  "how-to-improve-sleep-quality-naturally",
+  "why-bad-sleep-happens",
+  "green-noise-for-sleep",
+  "how-to-fix-bad-sleep",
+  "sleep-meditation",
   "best-incense-for-sleep",
   "bedroom-scents-for-better-sleep",
   "evening-wind-down-rituals-for-better-sleep",

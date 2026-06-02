@@ -197,28 +197,19 @@ export const evergreenGuidePageContent: Record<EvergreenGuideSlug, EvergreenGuid
     ],
     faq: sleepFaq,
     relatedArticles: [
+      { slug: "sleep-hygiene-guide", title: "Sleep Hygiene Guide", description: "" },
       {
-        slug: "best-incense-for-sleep",
-        title: "Best Incense for Sleep and Relaxation",
+        slug: "how-to-improve-sleep-quality-naturally",
+        title: "How to Improve Sleep Quality Naturally",
         description: "",
       },
-      {
-        slug: "night-incense-ritual",
-        title: "Creating a Calming Bedroom Atmosphere",
-        description: "",
-      },
-      {
-        slug: "what-is-agarwood",
-        title: "Evening Wind-Down Rituals That Actually Work",
-        description: "",
-      },
-      {
-        slug: "best-incense-for-small-apartments",
-        title: "Low Smoke Incense for Small Spaces",
-        description: "",
-      },
+      { slug: "why-bad-sleep-happens", title: "Why Bad Sleep Happens", description: "" },
+      { slug: "green-noise-for-sleep", title: "Green Noise for Sleep", description: "" },
+      { slug: "how-to-fix-bad-sleep", title: "How to Fix Bad Sleep", description: "" },
+      { slug: "sleep-meditation", title: "Sleep Meditation", description: "" },
+      { slug: "best-incense-for-sleep", title: "Best Incense for Sleep", description: "" },
     ],
-    relatedArticlesViewAllHref: JOURNAL_INDEX,
+    relatedArticlesViewAllHref: journalPath("better-sleep"),
     saveShareSub: "Bookmark this guide to revisit your sleep rituals anytime.",
   },
   "small-apartment-fragrance-guide": {

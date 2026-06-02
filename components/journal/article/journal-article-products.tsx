@@ -1,8 +1,6 @@
 import { ShopProductCard } from "@/components/shop/shop-product-card";
-import { DEFAULT_SHOP_CATEGORY_SLUG } from "@/data/shop-catalog";
-import { getProductBySlug } from "@/lib/catalog";
+import { journalArticleProductToListing } from "@/lib/journal-article-products";
 import { parsePriceDisplay } from "@/lib/cart/pricing";
-import { catalogProductToListing } from "@/lib/shop-products";
 import type { ShopListingProduct } from "@/lib/shop-types";
 import type { JournalArticleTemplate } from "@/types/journal-article";
 
@@ -12,29 +10,37 @@ type Props = {
 
 function toListingProduct(
   item: JournalArticleTemplate["products"]["items"][number],
-): ShopListingProduct {
-  const product = getProductBySlug(item.slug);
-  const fromCatalog = product
-    ? catalogProductToListing(product, DEFAULT_SHOP_CATEGORY_SLUG)
-    : null;
+): ShopListingProduct | null {
+  const fromCatalog = journalArticleProductToListing(item.slug);
+  if (fromCatalog) return fromCatalog;
+
+  if (process.env.NODE_ENV === "development") {
+    console.warn(
+      `[journal-article-products] No shop listing for slug "${item.slug}" — add shop.categorySlugs in data/products.`,
+    );
+  }
+
+  if (!item.title && !item.priceDisplay && !item.imageSrc) return null;
 
   return {
     slug: item.slug,
-    title: item.title,
-    scentNotes: fromCatalog?.scentNotes ?? product?.line ?? "",
-    priceDisplay: item.priceDisplay,
-    priceCents:
-      fromCatalog?.priceCents ??
-      (parsePriceDisplay(item.priceDisplay) || 0),
-    reviewCount: item.reviewCount,
-    imageSrc: item.imageSrc,
-    imageAlt: item.imageAlt,
-    filterTags: fromCatalog?.filterTags ?? {},
+    title: item.title ?? item.slug,
+    scentNotes: "",
+    priceDisplay: item.priceDisplay ?? "",
+    priceCents: parsePriceDisplay(item.priceDisplay ?? "") || 0,
+    reviewCount: item.reviewCount ?? 0,
+    imageSrc: item.imageSrc ?? "",
+    imageAlt: item.imageAlt ?? item.title ?? item.slug,
+    filterTags: {},
   };
 }
 
 export function JournalArticleProducts({ block }: Props) {
-  if (!block.items.length) return null;
+  const items = block.items
+    .map((item) => toListingProduct(item))
+    .filter((row): row is ShopListingProduct => row !== null);
+
+  if (!items.length) return null;
 
   return (
     <section
@@ -42,13 +48,16 @@ export function JournalArticleProducts({ block }: Props) {
       className="journal-article-products"
       aria-labelledby="journal-article-products-heading"
     >
-      <h2 id="journal-article-products-heading" className="journal-article-products__heading">
+      <h2
+        id="journal-article-products-heading"
+        className="journal-article-products__heading"
+      >
         {block.heading}
       </h2>
       <ul className="journal-article-products__grid shop-category-listing__grid">
-        {block.items.map((item) => (
+        {items.map((item) => (
           <li key={item.slug} className="shop-category-listing__cell">
-            <ShopProductCard item={toListingProduct(item)} />
+            <ShopProductCard item={item} />
           </li>
         ))}
       </ul>
