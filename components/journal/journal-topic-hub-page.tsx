@@ -10,6 +10,7 @@ import type { TopicPageFeaturedArticle } from "@/data/journal-topic-page-content
 import type { JournalTopicHub } from "@/data/journal-topic-hubs";
 import { isJournalGuideArticle } from "@/data/journal-guide-slugs";
 import type { JournalIndexArticleResolved } from "@/lib/journal-index-articles";
+import { getJournalIndexArticles } from "@/lib/get-journal-index-articles";
 import { JOURNAL_INDEX } from "@/lib/site-paths";
 
 type Props = {
@@ -20,17 +21,28 @@ type Props = {
 function topicArticlesForHub(
   hubArticles: readonly JournalIndexArticleResolved[],
   contentArticles: readonly TopicPageFeaturedArticle[],
+  featuredSlugs?: readonly string[],
 ): readonly TopicPageFeaturedArticle[] {
   const bySlug = new Map(hubArticles.map((a) => [a.slug, a]));
   const contentBySlug = new Map(contentArticles.map((item) => [item.slug, item]));
   const seen = new Set<string>();
   const ordered: TopicPageFeaturedArticle[] = [];
 
-  for (const item of contentArticles) {
-    const resolved = bySlug.get(item.slug);
-    if (!resolved || !isJournalGuideArticle(item.slug)) continue;
-    seen.add(item.slug);
-    ordered.push(item);
+  const slugOrder = featuredSlugs?.length
+    ? featuredSlugs
+    : contentArticles.map((item) => item.slug);
+
+  for (const slug of slugOrder) {
+    const resolved = bySlug.get(slug);
+    if (!resolved || !isJournalGuideArticle(slug) || seen.has(slug)) continue;
+    seen.add(slug);
+    const override = contentBySlug.get(slug);
+    ordered.push({
+      slug,
+      title: override?.title ?? resolved.headline,
+      description: override?.description ?? resolved.description,
+      readMinutes: override?.readMinutes ?? resolved.readMinutes,
+    });
   }
 
   const hubByDate = [...hubArticles].sort((a, b) =>
@@ -53,8 +65,16 @@ function topicArticlesForHub(
 
 export function JournalTopicHubPage({ hub, articles }: Props) {
   const content = getJournalTopicPageContent(hub.id);
-  const resolvedBySlug = new Map(articles.map((a) => [a.slug, a]));
-  const featuredArticles = topicArticlesForHub(articles, content.featuredArticles);
+  const resolvedBySlug = new Map(
+    getJournalIndexArticles()
+      .filter((a) => a.categoryId === hub.categoryId)
+      .map((a) => [a.slug, a]),
+  );
+  const featuredArticles = topicArticlesForHub(
+    articles,
+    content.featuredArticles,
+    hub.featuredSlugs,
+  );
 
   return (
     <div className="journal-topic-page">

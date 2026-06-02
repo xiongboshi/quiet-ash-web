@@ -1,5 +1,9 @@
 import type { JournalFaqBlock } from "@/types/journal-faq";
 import type { JournalTopicHubId } from "@/data/journal-topic-hubs";
+import {
+  betterSleepPopularSearches,
+  betterSleepTopicFeaturedArticles,
+} from "@/data/journal-sleep-hub";
 import { guidePath, journalPath, moodPath } from "@/lib/site-paths";
 
 export type TopicPageSearchPill = {
@@ -74,57 +78,7 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
   "better-sleep": {
     heroTagline: "Explore scents, rituals, and atmosphere tips",
     heroLede: "to help you fall asleep faster and wake up refreshed.",
-    popularSearches: [
-      {
-        label: "sleep hygiene guide",
-        href: journalPath("sleep-hygiene-guide"),
-      },
-      {
-        label: "improve sleep quality naturally",
-        href: journalPath("how-to-improve-sleep-quality-naturally"),
-      },
-      {
-        label: "why bad sleep happens",
-        href: journalPath("why-bad-sleep-happens"),
-      },
-      {
-        label: "green noise for sleep",
-        href: journalPath("green-noise-for-sleep"),
-      },
-      {
-        label: "how to fix bad sleep",
-        href: journalPath("how-to-fix-bad-sleep"),
-      },
-      {
-        label: "sleep meditation",
-        href: journalPath("sleep-meditation"),
-      },
-      { label: "best incense for sleep", href: journalPath("best-incense-for-sleep") },
-      {
-        label: "bedroom scents for sleep",
-        href: journalPath("bedroom-scents-for-better-sleep"),
-      },
-      {
-        label: "evening wind-down rituals",
-        href: journalPath("evening-wind-down-rituals-for-better-sleep"),
-      },
-      {
-        label: "calming bedroom atmosphere",
-        href: journalPath("calming-bedroom-atmosphere-for-better-sleep"),
-      },
-      {
-        label: "soft scents before sleep",
-        href: journalPath("why-soft-scents-feel-relaxing-before-sleep"),
-      },
-      {
-        label: "burn incense before bed",
-        href: journalPath("should-you-burn-incense-before-bed"),
-      },
-      {
-        label: "best scent for sleep",
-        href: journalPath("best-scent-for-sleep"),
-      },
-    ],
+    popularSearches: betterSleepPopularSearches(),
     featuredGuide: {
       href: guidePath("sleep-guide"),
       imageSrc: "/images/generated/essay-night-incense-ritual.webp",
@@ -145,99 +99,7 @@ export const journalTopicPageContent: Record<JournalTopicHubId, TopicPageContent
       "The articles below are updated over time as we add new guides to the cluster. Use Popular searches for quick paths, read The Quiet Ash Sleep Guide for a longer overview, and bookmark what helps. Better sleep is usually built in small steps; this topic is here to support that pace.",
       ],
     },
-    featuredArticles: [
-      {
-        slug: "sleep-hygiene-guide",
-        title: "Sleep Hygiene Guide",
-        description:
-          "Learn the fundamentals of sleep hygiene and practical habits for better sleep quality, bedtime routines, and bedroom atmosphere.",
-        readMinutes: 9,
-      },
-      {
-        slug: "how-to-improve-sleep-quality-naturally",
-        title: "How to Improve Sleep Quality Naturally",
-        description:
-          "Learn how to improve sleep quality naturally through better sleep habits, bedroom atmosphere, evening routines, and sleep hygiene.",
-        readMinutes: 10,
-      },
-      {
-        slug: "why-bad-sleep-happens",
-        title: "Why Bad Sleep Happens",
-        description:
-          "Lifestyle habits, stress, screens, and bedroom atmosphere — a calm look at common reasons nights feel restless.",
-        readMinutes: 11,
-      },
-      {
-        slug: "green-noise-for-sleep",
-        title: "Green Noise for Sleep",
-        description:
-          "What green noise is, how it compares to white and brown noise, and how sound fits into a softer evening routine.",
-        readMinutes: 8,
-      },
-      {
-        slug: "how-to-fix-bad-sleep",
-        title: "How to Fix Bad Sleep",
-        description:
-          "Practical lifestyle steps to fix bad sleep through calmer evenings, bedroom atmosphere, and steady routines.",
-        readMinutes: 9,
-      },
-      {
-        slug: "sleep-meditation",
-        title: "Sleep Meditation",
-        description:
-          "Quiet breath, gentle attention, and evening rituals that support relaxation before bed.",
-        readMinutes: 8,
-      },
-      {
-        slug: "best-incense-for-sleep",
-        title: "Best Incense for Sleep and Relaxing Evenings",
-        description:
-          "Discover the best incense scents for sleep, calming evenings, and nighttime relaxation with softer fragrances and low-smoke incense.",
-        readMinutes: 8,
-      },
-      {
-        slug: "bedroom-scents-for-better-sleep",
-        title: "Bedroom Scents for Better Sleep",
-        description:
-          "Softer bedroom scents for calmer evenings and a more relaxing nighttime atmosphere with low-smoke incense and subtle fragrance.",
-        readMinutes: 8,
-      },
-      {
-        slug: "evening-wind-down-rituals-for-better-sleep",
-        title: "Evening Wind-Down Rituals for Better Sleep",
-        description:
-          "Simple evening rituals for calmer nights through softer lighting, quiet routines, and gentle fragrance.",
-        readMinutes: 8,
-      },
-      {
-        slug: "calming-bedroom-atmosphere-for-better-sleep",
-        title: "How to Create a Calming Bedroom Atmosphere",
-        description:
-          "Lighting, scent, airflow, and simple evening habits for a calmer bedroom and more relaxing nights.",
-        readMinutes: 8,
-      },
-      {
-        slug: "why-soft-scents-feel-relaxing-before-sleep",
-        title: "Why Soft Scents Feel More Relaxing Before Sleep",
-        description:
-          "Why subtle fragrance often works better at night and how softer scents support a calmer bedroom.",
-        readMinutes: 8,
-      },
-      {
-        slug: "should-you-burn-incense-before-bed",
-        title: "Should You Burn Incense Before Bed?",
-        description:
-          "Softer scents, low-smoke incense, and shorter evening sessions for a calmer transition into sleep.",
-        readMinutes: 8,
-      },
-      {
-        slug: "best-scent-for-sleep",
-        title: "What Is The Best Scent For Sleep?",
-        description:
-          "Popular bedroom fragrance choices including sandalwood, lavender, white tea, and gentle woods.",
-        readMinutes: 8,
-      },
-    ],
+    featuredArticles: betterSleepTopicFeaturedArticles(),
     peopleAlsoAsk: [
       {
         id: "poor-sleep-causes",

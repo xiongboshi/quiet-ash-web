@@ -1,22 +1,17 @@
-/** Hand-authored Q&A guide articles (`data/journal-articles/*.ts`) — client-safe slug list. */
-export const JOURNAL_QA_GUIDE_ARTICLE_SLUGS = [
-  "sleep-hygiene-guide",
-  "how-to-improve-sleep-quality-naturally",
-  "why-bad-sleep-happens",
-  "green-noise-for-sleep",
-  "how-to-fix-bad-sleep",
-  "sleep-meditation",
-  "best-incense-for-sleep",
-  "bedroom-scents-for-better-sleep",
-  "evening-wind-down-rituals-for-better-sleep",
-  "calming-bedroom-atmosphere-for-better-sleep",
-  "why-soft-scents-feel-relaxing-before-sleep",
-  "should-you-burn-incense-before-bed",
-  "best-scent-for-sleep",
+import { BETTER_SLEEP_ARTICLE_SLUGS } from "@/data/journal-sleep-hub";
+
+/** Non–Better-Sleep hand-authored Q&A guides. */
+const OTHER_JOURNAL_QA_GUIDE_SLUGS = [
   "is-incense-safe-for-pets",
   "best-incense-for-small-apartments",
   "incense-after-work",
   "tea-and-incense-rituals",
+] as const;
+
+/** Hand-authored Q&A guide articles (`data/journal-articles/*.ts`) — client-safe slug list. */
+export const JOURNAL_QA_GUIDE_ARTICLE_SLUGS = [
+  ...BETTER_SLEEP_ARTICLE_SLUGS,
+  ...OTHER_JOURNAL_QA_GUIDE_SLUGS,
 ] as const;
 
 export type JournalQaGuideArticleSlug = (typeof JOURNAL_QA_GUIDE_ARTICLE_SLUGS)[number];

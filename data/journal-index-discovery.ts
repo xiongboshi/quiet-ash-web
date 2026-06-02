@@ -70,6 +70,9 @@ export const journalDiscoveryHubOrder: readonly JournalTopicHubId[] = [
 
 /** Explore common searches — design labels. */
 export const journalDiscoverySearchIntents = [
+  { label: "why bad sleep happens", href: journalPath("why-bad-sleep-happens") },
+  { label: "green noise for sleep", href: journalPath("green-noise-for-sleep") },
+  { label: "sleep hygiene guide", href: journalPath("sleep-hygiene-guide") },
   { label: "best incense for sleep", href: journalPath("best-incense-for-sleep") },
   {
     label: "burn incense before bed",
