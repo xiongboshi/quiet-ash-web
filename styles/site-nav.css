@@ -9,7 +9,10 @@
   --site-nav-ink-strong: #0d0d0d;
   /* Inner nav — warm off-white (homepage stays transparent overlay) */
   --site-nav-bar-bg: var(--qa-bg);
+  --site-nav-search-bg: #f1efe7;
   --site-nav-bar-line: #e8e4dc;
+  --site-nav-rail-height: 2.75rem;
+  --site-nav-menu-icon-height: 28px;
 }
 
 .site-page-shell {
@@ -96,11 +99,20 @@
 }
 
 .site-nav-chrome .nav-brand {
+  display: inline-flex;
+  align-items: center;
+  align-self: center;
   grid-column: 1;
   grid-row: 1;
   justify-self: start;
+  box-sizing: border-box;
+  height: var(--site-nav-rail-height);
+  min-height: var(--site-nav-rail-height);
+  padding: 0;
   line-height: 1;
   text-align: left;
+  text-decoration: none;
+  color: inherit;
 }
 
 /* Leading slot hidden on desktop — keep brand / links / actions in columns 1–3 */
@@ -112,17 +124,22 @@
 }
 
 .site-nav-chrome .nav-brand__text {
+  display: block;
+  margin: 0;
   font-family: var(--font-serif), "Cormorant Garamond", ui-serif, serif;
   font-size: clamp(2.25rem, 1.7rem + 1vw, 2.75rem);
   font-weight: 700;
+  line-height: 1;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   white-space: nowrap;
+  transform: translateY(0.04em);
 }
 
 .site-nav-chrome .nav-center {
   display: flex;
   align-items: center;
+  align-self: center;
   justify-content: center;
   gap: clamp(2rem, 2vw + 1rem, 3rem);
   justify-self: center;
@@ -156,8 +173,12 @@
 .site-nav-chrome .nav-actions {
   display: flex;
   align-items: center;
+  align-self: center;
   justify-content: flex-end;
   gap: 0.35rem;
+  box-sizing: border-box;
+  height: var(--site-nav-rail-height);
+  min-height: var(--site-nav-rail-height);
   justify-self: end;
   grid-column: 3;
 }
@@ -167,8 +188,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.75rem;
-  height: 2.75rem;
+  width: var(--site-nav-rail-height);
+  height: var(--site-nav-rail-height);
   padding: 0;
   border: none;
   background: transparent;
@@ -220,8 +241,19 @@
 .site-nav-chrome .nav-actions svg {
   display: block;
   flex-shrink: 0;
-  width: 24px;
-  height: 24px;
+  width: 23px;
+  height: 23px;
+}
+
+.site-nav-chrome .nav-mobile-toggle svg {
+  width: 26px;
+  height: 28px;
+}
+
+.site-nav-chrome .nav-icon-btn--cart svg,
+.site-nav-chrome .nav-cart-icon {
+  width: 20px;
+  height: 20px;
 }
 
 .site-nav-chrome .nav-cart-icon {
@@ -385,12 +417,12 @@
   position: relative;
   z-index: 90;
   width: 100%;
-  background: var(--qa-bg);
+  background: var(--site-nav-search-bg);
   border-bottom: 1px solid var(--site-nav-bar-line);
 }
 
 .site-nav-chrome--overlay .site-nav-search {
-  background: var(--qa-bg);
+  background: var(--site-nav-search-bg);
 }
 
 .site-nav-search__inner {
@@ -546,6 +578,7 @@
 @media (max-width: 768px) {
   .site-nav-chrome {
     --site-nav-mobile-control: 2.75rem;
+    --site-nav-rail-height: var(--site-nav-mobile-control);
   }
 
   .site-nav-chrome .navbar {
@@ -556,10 +589,13 @@
     min-height: 0;
   }
 
-  /* Mobile — logo left, search + cart + menu right (Atmosphere) */
+  /* Mobile — brand + icons on one horizontal centerline */
   .site-nav-chrome .nav-inner {
-    grid-template-columns: minmax(0, 1fr) auto;
-    column-gap: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
     padding-inline: 18px;
   }
 
@@ -568,16 +604,16 @@
   }
 
   .site-nav-chrome .nav-brand {
-    grid-column: 1;
-    grid-row: 1;
-    justify-self: start;
+    flex: 1 1 auto;
+    align-self: center;
     min-width: 0;
     max-width: 100%;
+    height: var(--site-nav-rail-height);
+    min-height: 0;
     text-align: left;
   }
 
   .site-nav-chrome .nav-brand__text {
-    display: inline-block;
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -585,6 +621,7 @@
     font-weight: 700;
     letter-spacing: 0.05em;
     white-space: nowrap;
+    transform: translateY(0.06em);
   }
 
   .site-nav-chrome--overlay .nav-brand__text {
@@ -592,12 +629,12 @@
   }
 
   .site-nav-chrome .nav-actions {
-    grid-column: 2;
-    grid-row: 1;
-    justify-self: end;
+    flex: 0 0 auto;
     align-self: center;
     display: flex;
     align-items: center;
+    height: var(--site-nav-rail-height);
+    min-height: 0;
     gap: 0;
   }
 
@@ -623,6 +660,7 @@
     color: inherit;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
+    vertical-align: middle;
   }
 
   .site-nav-chrome .nav-mobile-toggle:focus {
@@ -638,21 +676,25 @@
     opacity: 0.72;
   }
 
-  .site-nav-chrome .nav-actions__balance--cart {
-    display: inline-flex;
-    width: var(--site-nav-mobile-control);
-    height: var(--site-nav-mobile-control);
-    flex-shrink: 0;
-  }
-
   .site-nav-chrome .nav-icon-btn--cart {
     width: var(--site-nav-mobile-control);
     height: var(--site-nav-mobile-control);
   }
 
   .site-nav-chrome .nav-actions svg {
-    width: 24px;
-    height: 24px;
+    width: 23px;
+    height: 23px;
+  }
+
+  .site-nav-chrome .nav-mobile-toggle svg {
+    width: 26px;
+    height: 28px;
+  }
+
+  .site-nav-chrome .nav-icon-btn--cart svg,
+  .site-nav-chrome .nav-cart-icon {
+    width: 20px;
+    height: 20px;
   }
 
   .site-nav-chrome--overlay .nav-icon-btn--cart {
@@ -676,8 +718,7 @@
     z-index: 65;
   }
 
-  .site-nav-chrome--menu-open .nav-icon-btn--cart,
-  .site-nav-chrome--menu-open .nav-actions__balance--cart {
+  .site-nav-chrome--menu-open .nav-icon-btn--cart {
     visibility: hidden;
     pointer-events: none;
   }

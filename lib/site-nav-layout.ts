@@ -64,10 +64,7 @@ export function isCartPath(pathname: string | null): boolean {
   return normalizeSitePath(pathname) === "/cart";
 }
 
-/**
- * Mobile nav: back on the leading edge instead of menu.
- * Journal + cart hide the cart icon but keep a balanced trailing slot (see site-nav.css).
- */
+/** Mobile nav: back in drawer on detail routes (see qa-home-header mobile panel). */
 export function isMobileNavBackLeadingPath(pathname: string | null): boolean {
   return (
     isJournalTopicHubPath(pathname) ||
@@ -87,15 +84,6 @@ export function isMobileNavLeadingBackOnlyPath(pathname: string | null): boolean
     isJournalTopicHubPath(pathname) ||
     isEvergreenGuidePath(pathname) ||
     isJournalGuideArticlePath(pathname)
-  );
-}
-
-/** Mobile detail nav: hide cart icon in the bar (journal + cart page; shop PDP keeps cart). */
-export function isMobileNavCartHiddenPath(pathname: string | null): boolean {
-  return (
-    isJournalArticlePath(pathname) ||
-    isCartPath(pathname) ||
-    isMobileNavLeadingBackOnlyPath(pathname)
   );
 }
 

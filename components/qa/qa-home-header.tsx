@@ -11,7 +11,6 @@ import { brandHome } from "@/data/brand-home";
 import { PRIMARY_NAV } from "@/lib/site-nav";
 import {
   isMobileNavBackLeadingPath,
-  isMobileNavCartHiddenPath,
   mobileNavBackFallbackHref,
 } from "@/lib/site-nav-layout";
 
@@ -45,7 +44,6 @@ export function QaHomeHeader() {
   const path = normalizePath(pathname);
   const mobileNavBack = isMobileNavBackLeadingPath(pathname);
   const mobileNavBackFallback = mobileNavBackFallbackHref(pathname);
-  const hideMobileNavCart = isMobileNavCartHiddenPath(pathname);
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const panelId = useId();
@@ -157,11 +155,7 @@ export function QaHomeHeader() {
 
           <div className="nav-actions">
             {searchToggle}
-            {hideMobileNavCart ? (
-              <span className="nav-actions__balance nav-actions__balance--cart" aria-hidden />
-            ) : (
-              <QaHomeCartLink />
-            )}
+            <QaHomeCartLink />
             {menuToggle}
           </div>
         </div>

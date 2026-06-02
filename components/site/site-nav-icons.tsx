@@ -1,7 +1,12 @@
 type IconProps = { size?: number; className?: string };
 
-/** Nav chrome — search, cart, menu (keep in sync). */
-export const NAV_ICON_SIZE = 24;
+/** Nav chrome — search */
+export const NAV_ICON_SIZE = 23;
+/** Nav chrome — menu (hamburger) */
+export const NAV_MENU_ICON_WIDTH = 26;
+export const NAV_MENU_ICON_HEIGHT = 28;
+/** Nav chrome — cart */
+export const NAV_CART_ICON_SIZE = 20;
 
 const stroke = {
   strokeWidth: 1.35,
@@ -46,15 +51,18 @@ export function NavUserIcon({ size = 22, className }: IconProps) {
 }
 
 export function NavMenuIcon({
-  size = NAV_ICON_SIZE,
+  size,
   className,
   open = false,
 }: IconProps & { open?: boolean }) {
+  const width = size ?? NAV_MENU_ICON_WIDTH;
+  const height = size ?? NAV_MENU_ICON_HEIGHT;
+
   if (open) {
     return (
       <svg
-        width={size}
-        height={size}
+        width={width}
+        height={height}
         viewBox="0 0 24 24"
         fill="none"
         aria-hidden
@@ -67,8 +75,8 @@ export function NavMenuIcon({
 
   return (
     <svg
-      width={size}
-      height={size}
+      width={width}
+      height={height}
       viewBox="0 0 24 24"
       fill="none"
       aria-hidden
@@ -79,7 +87,7 @@ export function NavMenuIcon({
   );
 }
 
-export function NavCartIcon({ size = NAV_ICON_SIZE, className }: IconProps) {
+export function NavCartIcon({ size = NAV_CART_ICON_SIZE, className }: IconProps) {
   return (
     <svg
       width={size}
