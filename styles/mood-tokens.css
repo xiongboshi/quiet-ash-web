@@ -3,7 +3,7 @@
  * See docs/QUIET-ASH-BRAND-DIRECTION.md
  */
 :root {
-  --mood-bg: #faf8f4;
+  --mood-bg: var(--qa-bg);
   --mood-cream: #f5f1ea;
   --mood-beige: #ede8df;
   --mood-ink: #1c1c1c;
@@ -15,7 +15,7 @@
   --mood-sleep: #d8d0e8;
   --mood-focus: #ead4ce;
   --mood-rain: #c5d4e3;
-  --mood-reset: #e8e4dc;
+  --mood-reset: var(--qa-border);
 
   --mood-radius-sm: 12px;
   --mood-radius-md: 20px;

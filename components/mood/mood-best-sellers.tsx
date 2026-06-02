@@ -13,7 +13,7 @@ export function MoodBestSellers() {
   if (!homeBestSellers.length) return null;
 
   return (
-    <section className="qa-mood-best-sellers bg-white px-[var(--mood-px)] py-[28px]">
+    <section className="qa-mood-best-sellers bg-[var(--mood-bg)] px-[var(--mood-px)] py-[28px]">
       <div className="mx-auto max-w-[min(100%,1680px)]">
         <header className="relative mb-10 flex items-center justify-center sm:mb-12">
           <h2 className="qa-mood-section-heading">

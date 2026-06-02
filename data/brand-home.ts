@@ -39,6 +39,8 @@ export const bestSellerEditorial: Record<
 export const brandHome = {
   promo: freeShippingOnOrdersOverCopy(),
   siteTitle: "QUIET ASH",
+  /** Global site nav wordmark — single word lockup */
+  navBrandTitle: "QUIETASH",
   siteSubtitle: "INCENSE",
   hero: {
     backgroundSrc: "/images/generated/mood-hero-ins-mockup-lock.webp",

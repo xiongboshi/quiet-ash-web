@@ -3,13 +3,16 @@
  * Imported from app/globals.css
  */
 :root {
-  --qa-bg: #e2ddd6;
+  /* Sitewide field — Atmosphere / journal editorial cream */
+  --qa-bg: #faf9f7;
+  /* Product / editorial cards (shop grid, home best sellers, journal pills) */
+  --qa-card-bg: #fdfcfa;
   --qa-void: #0b0b0b;
   --qa-footer-void: #050505;
-  --qa-bg-soft: #e8e4dc;
+  --qa-bg-soft: #f3f0ea;
   --qa-text: #1a1a1a;
   --qa-muted: #6f6a63;
-  --qa-border: #ddd7cf;
+  --qa-border: #e5e2dc;
   --qa-quote-ink: #342e29;
 
   /* Container — max 1440; padding 48 / 24 / 16 */

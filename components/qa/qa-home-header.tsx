@@ -5,12 +5,13 @@ import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
 import { QaHomeCartLink } from "@/components/qa/qa-home-cart-link";
 import { QaMobileBackButton } from "@/components/qa/qa-mobile-back-button";
+import { SiteNavSearchPanel } from "@/components/site/site-nav-search-panel";
+import { NavMenuIcon, NavSearchIcon } from "@/components/site/site-nav-icons";
 import { brandHome } from "@/data/brand-home";
 import { PRIMARY_NAV } from "@/lib/site-nav";
 import {
   isMobileNavBackLeadingPath,
   isMobileNavCartHiddenPath,
-  isMobileNavLeadingBackOnlyPath,
   mobileNavBackFallbackHref,
 } from "@/lib/site-nav-layout";
 
@@ -43,18 +44,16 @@ export function QaHomeHeader() {
   const pathname = usePathname();
   const path = normalizePath(pathname);
   const mobileNavBack = isMobileNavBackLeadingPath(pathname);
-  const mobileNavLeadingBackOnly = isMobileNavLeadingBackOnlyPath(pathname);
   const mobileNavBackFallback = mobileNavBackFallbackHref(pathname);
   const hideMobileNavCart = isMobileNavCartHiddenPath(pathname);
-  /** Detail pages: back leading + menu trailing (cart hidden). */
-  const showMobileMenuInTrailing = mobileNavLeadingBackOnly && hideMobileNavCart;
-  const showMobileMenuInLeading = !showMobileMenuInTrailing;
   const [menuOpen, setMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const panelId = useId();
-  const { siteTitle } = brandHome;
+  const { navBrandTitle } = brandHome;
 
   useEffect(() => {
     setMenuOpen(false);
+    setSearchOpen(false);
   }, [pathname]);
 
   useEffect(() => {
@@ -71,11 +70,53 @@ export function QaHomeHeader() {
   }, [menuOpen]);
 
   useEffect(() => {
+    if (!searchOpen) return;
+    document.documentElement.style.overflow = "hidden";
+    return () => {
+      document.documentElement.style.overflow = "";
+    };
+  }, [searchOpen]);
+
+  useEffect(() => {
     const chrome = document.querySelector(".site-nav-chrome");
     if (!chrome) return;
     chrome.classList.toggle("site-nav-chrome--menu-open", menuOpen);
-    return () => chrome.classList.remove("site-nav-chrome--menu-open");
-  }, [menuOpen]);
+    chrome.classList.toggle("site-nav-chrome--search-open", searchOpen);
+    return () => {
+      chrome.classList.remove("site-nav-chrome--menu-open");
+      chrome.classList.remove("site-nav-chrome--search-open");
+    };
+  }, [menuOpen, searchOpen]);
+
+  const closeSearch = () => {
+    setSearchOpen(false);
+    setMenuOpen(false);
+  };
+
+  const openSearch = () => {
+    setMenuOpen(false);
+    setSearchOpen(true);
+  };
+
+  const openMenu = () => {
+    if (searchOpen) {
+      closeSearch();
+      return;
+    }
+    setMenuOpen((o) => !o);
+  };
+
+  const searchToggle = (
+    <button
+      type="button"
+      className="nav-icon-btn nav-icon-btn--search"
+      aria-expanded={searchOpen}
+      aria-label={searchOpen ? "Close search" : "Open search"}
+      onClick={() => (searchOpen ? closeSearch() : openSearch())}
+    >
+      <NavSearchIcon />
+    </button>
+  );
 
   const menuToggle = (
     <button
@@ -84,10 +125,9 @@ export function QaHomeHeader() {
       aria-expanded={menuOpen}
       aria-controls={panelId}
       aria-label={menuOpen ? "Close menu" : "Open menu"}
-      onClick={() => setMenuOpen((o) => !o)}
+      onClick={openMenu}
     >
-      <span className="sr-only">Menu</span>
-      <span aria-hidden>{menuOpen ? "×" : "☰"}</span>
+      <NavMenuIcon open={menuOpen} />
     </button>
   );
 
@@ -95,17 +135,8 @@ export function QaHomeHeader() {
     <>
       <nav className="navbar" aria-label="Site">
         <div className="container nav-inner">
-          {mobileNavLeadingBackOnly ? (
-            <QaMobileBackButton
-              variant="bar"
-              fallbackHref={mobileNavBackFallback}
-            />
-          ) : showMobileMenuInLeading ? (
-            menuToggle
-          ) : null}
-
           <Link href="/" className="nav-brand logo">
-            <span className="nav-brand__text">{siteTitle}</span>
+            <span className="nav-brand__text">{navBrandTitle}</span>
           </Link>
 
           <div className="nav-center" aria-label="Primary">
@@ -125,16 +156,20 @@ export function QaHomeHeader() {
           </div>
 
           <div className="nav-actions">
-            {showMobileMenuInTrailing ? (
-              menuToggle
-            ) : hideMobileNavCart ? (
-              <span className="nav-actions__balance" aria-hidden />
+            {searchToggle}
+            {hideMobileNavCart ? (
+              <span className="nav-actions__balance nav-actions__balance--cart" aria-hidden />
             ) : (
               <QaHomeCartLink />
             )}
+            {menuToggle}
           </div>
         </div>
       </nav>
+
+      {searchOpen ? (
+        <SiteNavSearchPanel onClose={closeSearch} />
+      ) : null}
 
       {menuOpen ? (
         <div
@@ -150,7 +185,7 @@ export function QaHomeHeader() {
             onClick={() => setMenuOpen(false)}
           />
           <div id={panelId} className="qa-mobile-panel-inner">
-            {mobileNavBack && !mobileNavLeadingBackOnly ? (
+            {mobileNavBack ? (
               <QaMobileBackButton
                 variant="drawer"
                 fallbackHref={mobileNavBackFallback}

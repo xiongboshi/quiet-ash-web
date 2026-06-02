@@ -6,7 +6,7 @@ export function MoodMomentsGrid() {
   const { moments } = brandHome;
 
   return (
-    <section className="qa-mood-moments bg-white px-[var(--mood-px)] py-[28px]">
+    <section className="qa-mood-moments bg-[var(--mood-bg)] px-[var(--mood-px)] py-[28px]">
       <div className="mx-auto max-w-[min(100%,1680px)]">
         <h2 className="qa-mood-section-heading">
           {moments.heading}

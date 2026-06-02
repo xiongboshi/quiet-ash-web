@@ -8,13 +8,13 @@
   --ja-rail-px: var(--qa-container-px, 16px);
   /** ~65–75 Latin characters — comfortable long-form measure */
   --ja-prose-width: 42rem;
-  --ja-bg: #ffffff;
+  --ja-bg: var(--qa-bg);
   --ja-ink: #000000;
   --ja-body: #333333;
   --ja-muted: #888888;
   --ja-crumb: #999999;
   --ja-line: #e8e4dc;
-  --ja-band: #faf9f7;
+  --ja-band: var(--qa-bg-soft);
   --ja-main-bg: #f9f7f2;
   --ja-insight-label: #1a1a1a;
   --ja-insight-body: #333333;
@@ -510,7 +510,7 @@
 
 /* —— Module 4: Products —— */
 .journal-article-products {
-  --ja-product-card: #ffffff;
+  --ja-product-card: var(--qa-card-bg);
   --ja-product-line: #ebe7e0;
   --ja-product-title: #141210;
   --ja-product-muted: #8a847c;

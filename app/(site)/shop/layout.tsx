@@ -1,4 +1,6 @@
 import "@/styles/shop-category.css";
+import "@/styles/shop-category-listing-bar.css";
+import "@/styles/shop-product-card.css";
 import "@/styles/shop-product.css";
 
 export default function ShopLayout({

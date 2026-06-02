@@ -31,6 +31,7 @@ export const shopCatalog = {
     },
     breadcrumbs: [
       { label: "Home", href: "/" },
+      { label: "Shop", href: SHOP_INDEX },
       { label: "Incense", href: SHOP_INDEX },
     ],
     moodHome: {

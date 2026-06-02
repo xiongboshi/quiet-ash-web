@@ -1,7 +1,7 @@
 /* /moods — INS mood index mockup (scoped) */
 
 .moods-index {
-  --mood-idx-bg: #f6f1eb;
+  --mood-idx-bg: var(--qa-bg);
   --mood-idx-card: #f9f5f0;
   --mood-idx-text: #1e1b18;
   --mood-idx-muted: #7a7268;

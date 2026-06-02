@@ -3,8 +3,8 @@
  */
 
 .journal-topic-page {
-  --journal-bg: #faf7f2;
-  --journal-body-bg: #faf9f7;
+  --journal-bg: var(--qa-bg);
+  --journal-body-bg: var(--qa-bg);
   --journal-ink: #1a1816;
   --journal-muted: #6f6a63;
   --journal-line: #e8e4dc;

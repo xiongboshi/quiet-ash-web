@@ -3,6 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import { ShopCategoryPage } from "@/components/shop/shop-category-page";
 import { ShopProductDetailPage } from "@/components/shop/product/shop-product-detail-page";
 import { getAllProducts, getProductBySlug } from "@/lib/catalog";
+import { resolveShopCategory } from "@/lib/shop-catalog-resolved";
 import {
   DEFAULT_SHOP_CATEGORY_SLUG,
   getShopCategoryBySegment,
@@ -57,6 +58,7 @@ export default async function ShopSlugPage({ params, searchParams }: ShopSlugPag
     }
     return (
       <ShopCategoryPage
+        category={resolveShopCategory(slug as ShopCatalogSlug)}
         categorySlug={slug as ShopCatalogSlug}
         initialMood={mood ?? null}
       />

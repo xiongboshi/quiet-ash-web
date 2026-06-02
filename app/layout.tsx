@@ -14,7 +14,7 @@ const inter = Inter({
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
+  weight: ["300", "400", "500", "600", "700"],
   variable: "--font-serif",
   display: "swap",
   preload: false,
@@ -51,6 +51,9 @@ export const metadata: Metadata = {
   verification: {
     yandex: "d36e35ef115179f6",
   },
+  other: {
+    google: "notranslate",
+  },
 };
 
 export default function RootLayout({
@@ -61,12 +64,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      translate="no"
       data-scroll-behavior="smooth"
-      className={`${inter.variable} ${cormorant.variable} h-full`}
+      className={`${inter.variable} ${cormorant.variable} notranslate h-full`}
       suppressHydrationWarning
     >
       <body
-        className={`${inter.className} ${inter.variable} ${cormorant.variable} min-h-dvh antialiased`}
+        className={`${inter.className} ${inter.variable} ${cormorant.variable} notranslate min-h-dvh antialiased`}
       >
         <div className="site-page-shell flex min-h-dvh flex-col">
           <SiteNavHeader />

@@ -203,7 +203,9 @@ export function ProductCard({
   const specFrameLayout =
     specHome || specRail || objectsGrid ? "shrink-0 self-start" : "";
 
-  const frameSurfaceClass = objectsGrid ? "bg-[#ece7e1]" : "bg-[#e8e4dc]";
+  const frameSurfaceClass = objectsGrid
+    ? "bg-[color-mix(in_srgb,var(--qa-bg-soft)_88%,#fff)]"
+    : "bg-[var(--qa-bg-soft)]";
 
   return (
     <Link

@@ -25,9 +25,13 @@ export function ShopProductCard({ item }: Props) {
     });
 
   return (
-    <article className="shop-product-card">
+    <article className="shop-product-card notranslate" translate="no">
       <div className="shop-product-card__media">
-        <Link href={href} className="shop-product-card__image-link">
+        <Link
+          href={href}
+          className="shop-product-card__image-link"
+          suppressHydrationWarning
+        >
           <Image
             src={item.imageSrc}
             alt={item.imageAlt}
@@ -39,7 +43,9 @@ export function ShopProductCard({ item }: Props) {
       </div>
       <div className="shop-product-card__body">
         <Link href={href} className="shop-product-card__text-link">
-          <h3 className="shop-product-card__title">{item.title}</h3>
+          <h3 className="shop-product-card__title" suppressHydrationWarning>
+            {item.title}
+          </h3>
           <p className="shop-product-card__notes">{item.scentNotes}</p>
           <div className="shop-product-card__rating">
             <HomeStarRating />

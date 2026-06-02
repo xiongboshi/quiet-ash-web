@@ -5,6 +5,8 @@
 @import "../styles/home-stars.css";
 @import "../styles/site-rail.css";
 @import "../styles/site-footer.css";
+@import "../styles/customer-care.css";
+@import "../styles/shop-product-card.css";
 
 /* Quiet Ash — legacy aliases map to reference tokens */
 :root {
@@ -73,6 +75,11 @@ html {
   scroll-behavior: smooth;
   width: 100%;
   overflow-x: clip;
+}
+
+.site-layout-main,
+.site-page-shell {
+  background: var(--qa-bg);
 }
 
 body {
@@ -384,8 +391,8 @@ a.qa-hero-lockup-cta:focus-visible {
 
 /* Homepage journal — shell + desktop rail only (mobile layout lives in `EssayGrid.tsx`) */
 .qa-home-journal {
-  border-top: 1px solid #ddd7cf;
-  background-color: #e8e4dc;
+  border-top: 1px solid var(--qa-border);
+  background-color: var(--qa-bg);
   padding-top: 40px;
   padding-bottom: 40px;
 }
@@ -721,6 +728,7 @@ a.qa-hero-lockup-cta:focus-visible {
 /* Page shell — symmetric courtyard frame */
 .qa-page-shell {
   padding-block: var(--space-section);
+  background: var(--qa-bg);
 }
 
 /* Fixed inset (cart) — not section rhythm */

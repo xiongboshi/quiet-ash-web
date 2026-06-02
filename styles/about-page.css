@@ -11,15 +11,15 @@
   --about-ink: #1a1a1a;
   --about-muted: #6f6a63;
   --about-tan: #9a8468;
-  --about-cream: #f9f6f2;
-  --about-section-bg: #faf9f7;
-  --about-card: #f7f5f2;
+  --about-cream: var(--qa-card-bg);
+  --about-section-bg: var(--qa-bg);
+  --about-card: var(--qa-card-bg);
   --about-highlight: #f3ede4;
   --about-btn: #967249;
   --about-btn-hover: #856841;
   --about-border: #e8e4dc;
   --about-icon-ring: #e5e2dc;
-  background: #ffffff;
+  background: var(--qa-bg);
   color: var(--about-ink);
 }
 

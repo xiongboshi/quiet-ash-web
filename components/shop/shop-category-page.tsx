@@ -1,36 +1,32 @@
-import { ShopCategoryBody } from "@/components/shop/shop-category-body";
-import { ShopCategoryHero } from "@/components/shop/shop-category-hero";
-import { ShopCategoryProvider } from "@/components/shop/shop-category-context";
-import { ShopCategoryValueBar } from "@/components/shop/shop-category-value-bar";
-import {
-  DEFAULT_SHOP_CATEGORY_SLUG,
-} from "@/lib/shop-catalog";
-import { resolveShopCategory } from "@/lib/shop-catalog-resolved";
+import { ShopCategoryPageClient } from "@/components/shop/shop-category-page-client";
 import type { ShopCatalogSlug } from "@/data/shop-catalog";
-import { ShopCategoryListingState } from "@/components/shop/shop-category-listing-state";
+import { resolveShopCategory } from "@/lib/shop-catalog-resolved";
+import type { ResolvedShopCategory } from "@/lib/shop-catalog-resolved";
 
 type Props = {
-  categorySlug?: ShopCatalogSlug;
+  categorySlug: ShopCatalogSlug;
   initialMood?: string | null;
+  initialSearchQuery?: string | null;
+  /** When set, skips catalog resolution (use from RSC page). */
+  category?: ResolvedShopCategory;
 };
 
+/**
+ * Server entry — resolves catalog on the server only, then hands off to the client shell.
+ */
 export function ShopCategoryPage({
-  categorySlug = DEFAULT_SHOP_CATEGORY_SLUG,
+  categorySlug,
   initialMood = null,
+  initialSearchQuery = null,
+  category: categoryProp,
 }: Props) {
-  const category = resolveShopCategory(categorySlug);
+  const category = categoryProp ?? resolveShopCategory(categorySlug);
 
   return (
-    <ShopCategoryProvider category={category}>
-      <ShopCategoryListingState category={category} initialMood={initialMood}>
-        <div className="shop-category-page">
-          <ShopCategoryHero />
-          <div className="shop-category-page__body">
-            <ShopCategoryBody />
-          </div>
-          <ShopCategoryValueBar />
-        </div>
-      </ShopCategoryListingState>
-    </ShopCategoryProvider>
+    <ShopCategoryPageClient
+      category={category}
+      initialMood={initialMood}
+      initialSearchQuery={initialSearchQuery}
+    />
   );
 }

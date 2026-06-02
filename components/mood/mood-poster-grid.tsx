@@ -62,7 +62,7 @@ export function MoodPosterGrid() {
   return (
     <section
       id="moods"
-      className="scroll-mt-28 bg-white px-[var(--mood-px)] py-[28px]"
+      className="scroll-mt-28 bg-[var(--mood-bg)] px-[var(--mood-px)] py-[28px]"
     >
       <div className="mx-auto max-w-[min(100%,1680px)]">
         <h2 className="qa-mood-section-heading">{moods.eyebrow}</h2>

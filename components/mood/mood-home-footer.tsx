@@ -59,7 +59,7 @@ export function MoodHomeFooter() {
 
           <a
             href={siteContact.instagram}
-            className="qa-mood-footer-instagram-btn mt-8 inline-flex rounded-[var(--mood-radius-btn)] bg-[#e8e4dc] px-10 py-3.5 text-[10px] font-normal uppercase tracking-[0.18em] text-[var(--mood-ink)] no-underline transition-colors duration-500 hover:bg-[#ddd8cf]"
+            className="qa-mood-footer-instagram-btn mt-8 inline-flex rounded-[var(--mood-radius-btn)] bg-[var(--qa-bg-soft)] px-10 py-3.5 text-[10px] font-normal uppercase tracking-[0.18em] text-[var(--mood-ink)] no-underline transition-colors duration-500 hover:bg-[color-mix(in_srgb,var(--qa-border)_65%,var(--qa-bg-soft))]"
             target="_blank"
             rel="noopener noreferrer"
           >

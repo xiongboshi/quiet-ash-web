@@ -1,14 +1,11 @@
 "use client";
 
-import { useId, useMemo, useState } from "react";
-import { Search } from "lucide-react";
+import { useMemo } from "react";
+import { ShopCategoryListingBar } from "@/components/shop/shop-category-listing-bar";
 import { useShopCategory } from "@/components/shop/shop-category-context";
 import { useShopListingState } from "@/components/shop/shop-category-listing-state";
 import { ShopProductCard } from "@/components/shop/shop-product-card";
-import {
-  shopSortChipLabel,
-  sortListingProducts,
-} from "@/lib/shop-listing-filters";
+import { sortListingProducts } from "@/lib/shop-listing-filters";
 
 type Props = {
   filtersOpen: boolean;
@@ -47,16 +44,15 @@ function listingEmptyState(
   }
   return {
     title: "No products to show",
-    message: "Adjust your filters or search to discover incense in this aisle.",
+    message: "Adjust your filters to discover incense in this aisle.",
   };
 }
 
 export function ShopCategoryListing({ filtersOpen, onToggleFilters }: Props) {
-  const { listing } = useShopCategory();
+  const { listing, breadcrumbs } = useShopCategory();
   const {
     products,
     allProducts,
-    productCount,
     searchQuery,
     setSearchQuery,
     checked,
@@ -65,13 +61,11 @@ export function ShopCategoryListing({ filtersOpen, onToggleFilters }: Props) {
   const filterSelectionCount = Object.values(checked).filter(Boolean).length;
   const hasSearch = searchQuery.trim().length > 0;
   const hasFilters = filterSelectionCount > 0;
-  const [sort, setSort] = useState(listing.sortOptions[0]);
-  const searchId = useId();
-  const sortGroupId = useId();
+  const defaultSort = listing.sortOptions[0];
 
   const sortedProducts = useMemo(
-    () => sortListingProducts(products, sort),
-    [products, sort],
+    () => sortListingProducts(products, defaultSort),
+    [products, defaultSort],
   );
 
   const isEmpty = sortedProducts.length === 0;
@@ -81,12 +75,6 @@ export function ShopCategoryListing({ filtersOpen, onToggleFilters }: Props) {
     allProducts.length > 0,
   );
 
-  const resultLabel = isEmpty
-    ? "No matches"
-    : productCount === 1
-      ? "1 product"
-      : `${productCount} products`;
-
   const resetAll = () => {
     setSearchQuery("");
     clearAll();
@@ -94,88 +82,12 @@ export function ShopCategoryListing({ filtersOpen, onToggleFilters }: Props) {
 
   return (
     <div className="shop-category-listing">
-      <header className="shop-category-listing__head">
-        <div className="shop-category-listing__head-row">
-          <div className="shop-category-listing__search-wrap">
-            <label className="shop-category-listing__search-label" htmlFor={searchId}>
-              Search
-            </label>
-            <div className="shop-category-listing__search-field">
-              <Search
-                size={14}
-                strokeWidth={1.25}
-                className="shop-category-listing__search-icon"
-                aria-hidden
-              />
-              <input
-                id={searchId}
-                type="search"
-                inputMode="search"
-                className="shop-category-listing__search"
-                placeholder="Search by name or scent"
-                value={searchQuery}
-                onChange={(event) => setSearchQuery(event.target.value)}
-                autoComplete="off"
-                enterKeyHint="search"
-                spellCheck={false}
-              />
-            </div>
-          </div>
-
-          <button
-            type="button"
-            className={`shop-category-listing__filter-trigger${
-              filtersOpen ? " shop-category-listing__filter-trigger--open" : ""
-            }`}
-            aria-expanded={filtersOpen}
-            aria-controls="shop-category-filters"
-            aria-label={
-              filtersOpen
-                ? "Close filters"
-                : filterSelectionCount > 0
-                  ? `Filters, ${filterSelectionCount} selected`
-                  : "Filter products"
-            }
-            onClick={onToggleFilters}
-          >
-            {filtersOpen ? "Done" : "Filters"}
-            {!filtersOpen && filterSelectionCount > 0 ? (
-              <span className="shop-category-listing__filter-badge" aria-hidden>
-                {filterSelectionCount}
-              </span>
-            ) : null}
-          </button>
-        </div>
-
-        <div className="shop-category-listing__toolbar">
-          <p className="shop-category-listing__result-count" aria-live="polite">
-            {resultLabel}
-          </p>
-
-          {listing.sortOptions.length > 0 && !isEmpty ? (
-            <div
-              id={sortGroupId}
-              className="shop-category-listing__sort-segment"
-              role="group"
-              aria-label="Sort by price"
-            >
-              {listing.sortOptions.map((option) => (
-                <button
-                  key={option}
-                  type="button"
-                  className={`shop-category-listing__sort-chip${
-                    sort === option ? " shop-category-listing__sort-chip--active" : ""
-                  }`}
-                  aria-pressed={sort === option}
-                  onClick={() => setSort(option)}
-                >
-                  {shopSortChipLabel(option)}
-                </button>
-              ))}
-            </div>
-          ) : null}
-        </div>
-      </header>
+      <ShopCategoryListingBar
+        breadcrumbs={breadcrumbs}
+        filtersOpen={filtersOpen}
+        filterCount={filterSelectionCount}
+        onToggleFilters={onToggleFilters}
+      />
 
       {isEmpty ? (
         <div className="shop-category-listing__empty" role="status">

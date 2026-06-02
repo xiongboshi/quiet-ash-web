@@ -16,7 +16,7 @@
   --cart-table-gap: 1.25rem;
   --cart-panel-px: 24px;
   width: 100%;
-  background: #ffffff;
+  background: var(--qa-bg);
   color: var(--cart-ink);
 }
 
@@ -679,11 +679,10 @@
 /* —— Module 4: Complete your order (cart mock crop) —— */
 .cart-rec {
   --cart-rec-gap: 20px;
-  /* Shop PLP card tokens (cart is outside `.shop-category-page`) */
+  /* Cart rec uses ShopProductCard — surface override in shop-product-card.css */
   --shop-line: #e4dcd3;
   --shop-ink: #1a1a1a;
   --shop-muted: #6f6a63;
-  --shop-card-bg: #ffffff;
   width: 100%;
   padding: 0 0 56px;
   background: var(--cart-rec-bg);

@@ -2,13 +2,13 @@ import Link from "next/link";
 import { SHOP_INDEX, shopPath } from "@/lib/site-paths";
 
 const ritualClass =
-  "qa-cta qa-cta--still inline-flex items-center justify-center gap-2 border border-[color-mix(in_srgb,#1a1816_12%,transparent)] bg-[#e8e4dc] px-4 py-3.5 font-[family-name:var(--font-sans)] text-[11px] font-medium uppercase tracking-[0.2em] text-[#1a1816] no-underline transition-opacity duration-[500ms] ease-out hover:opacity-85";
+  "qa-cta qa-cta--still inline-flex items-center justify-center gap-2 border border-[color-mix(in_srgb,#1a1816_12%,transparent)] bg-[var(--qa-bg-soft)] px-4 py-3.5 font-[family-name:var(--font-sans)] text-[11px] font-medium uppercase tracking-[0.2em] text-[#1a1816] no-underline transition-opacity duration-[500ms] ease-out hover:opacity-85";
 
 const buyClass =
   "qa-cta qa-cta--still inline-flex items-center justify-center border border-[color-mix(in_srgb,#1a1816_45%,transparent)] bg-transparent px-4 py-3.5 font-[family-name:var(--font-sans)] text-[11px] font-medium uppercase tracking-[0.2em] text-[#1a1816] no-underline transition-opacity duration-[500ms] ease-out hover:opacity-70";
 
 const buyPrimaryClass =
-  "qa-cta qa-cta--still inline-flex flex-1 items-center justify-center border border-[#1a1816] bg-[#1a1816] px-4 py-3.5 font-[family-name:var(--font-sans)] text-[11px] font-medium uppercase tracking-[0.2em] text-[#e8e4dc] no-underline transition-opacity duration-[500ms] ease-out hover:opacity-90";
+  "qa-cta qa-cta--still inline-flex flex-1 items-center justify-center border border-[#1a1816] bg-[#1a1816] px-4 py-3.5 font-[family-name:var(--font-sans)] text-[11px] font-medium uppercase tracking-[0.2em] text-[var(--qa-bg)] no-underline transition-opacity duration-[500ms] ease-out hover:opacity-90";
 
 function IconBag({ className }: { className?: string }) {
   return (

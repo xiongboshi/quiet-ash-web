@@ -1,0 +1,529 @@
+/**
+ * Customer care / help centre — aligned with journal topic hub + Atmosphere-style policy pages.
+ * Light cream field, sans body, serif display headings, single-column FAQ.
+ */
+
+.customer-care-page.qa-page-shell {
+  padding-block: clamp(2.5rem, 6vw, 4.5rem);
+  background: var(--cc-body-bg, var(--qa-bg));
+}
+
+.customer-care.quiet-container {
+  max-width: 54rem;
+}
+
+.customer-care {
+  --cc-body-bg: var(--qa-bg);
+  --cc-panel: #ffffff;
+  --cc-cream: #f3f0ea;
+  --cc-ink: #1a1816;
+  --cc-muted: #6f6a63;
+  --cc-line: #e8e4dc;
+  --cc-border: #e5e2dc;
+
+  --cc-font-serif: var(--font-serif), "Cormorant Garamond", ui-serif, serif;
+  --cc-font-sans: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --cc-title: clamp(2rem, 4.5vw, 2.75rem);
+  --cc-section: clamp(1.25rem, 2.2vw, 1.5rem);
+  --cc-body: 0.875rem;
+  --cc-body-lg: 0.9375rem;
+  --cc-small: 0.8125rem;
+  --cc-eyebrow: 0.625rem;
+
+  width: 100%;
+  max-width: 54rem;
+  margin-inline: auto;
+  padding-bottom: clamp(2.5rem, 5vw, 3.5rem);
+  color: var(--cc-ink);
+}
+
+.customer-care a {
+  transition: opacity 0.22s ease, color 0.22s ease;
+}
+
+.customer-care a:hover,
+.customer-care a:focus-visible {
+  opacity: 0.72;
+}
+
+.customer-care-hub__card:hover,
+.customer-care-hub__card:focus-visible,
+.customer-care__related-link:hover,
+.customer-care__back-link:hover,
+.customer-care-form__submit:hover {
+  opacity: 1;
+}
+
+.customer-care__header {
+  margin-bottom: clamp(2rem, 4vw, 2.75rem);
+}
+
+.customer-care__header .qa-eyebrow {
+  margin: 0 0 0.85rem;
+  font-family: var(--cc-font-sans);
+  font-size: var(--cc-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cc-muted);
+}
+
+.customer-care__title {
+  margin: 0;
+  font-family: var(--cc-font-serif);
+  font-size: var(--cc-title);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--cc-ink);
+}
+
+.customer-care__intro,
+.customer-care__prose {
+  margin-top: clamp(1rem, 2vw, 1.35rem);
+  font-family: var(--cc-font-sans);
+  font-size: var(--cc-body-lg);
+  font-weight: 400;
+  line-height: 1.65;
+  letter-spacing: -0.01em;
+  color: color-mix(in srgb, var(--cc-ink) 82%, var(--cc-muted));
+}
+
+.customer-care__intro p,
+.customer-care__prose p {
+  margin: 0 0 1rem;
+}
+
+.customer-care__intro p:last-child,
+.customer-care__prose p:last-child {
+  margin-bottom: 0;
+}
+
+.customer-care__body {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4vw, 2.75rem);
+}
+
+.customer-care__heading {
+  margin: 0 0 0.85rem;
+  font-family: var(--cc-font-serif);
+  font-size: var(--cc-section);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: var(--cc-ink);
+}
+
+.customer-care__list {
+  margin: 0;
+  padding-left: 1.2rem;
+  font-family: var(--cc-font-sans);
+  font-size: var(--cc-body);
+  line-height: 1.65;
+  color: color-mix(in srgb, var(--cc-ink) 88%, var(--cc-muted));
+}
+
+.customer-care__list li + li {
+  margin-top: 0.5rem;
+}
+
+/* FAQ — single column (reference site), not journal 3-col grid */
+.customer-care-faq.journal-index-faq {
+  --journal-line: var(--cc-line);
+  --journal-ink: var(--cc-ink);
+  --journal-muted: var(--cc-muted);
+  --faq-card-radius: 8px;
+  --faq-card-bg: #f0eeea;
+  --faq-card-bg-hover: #e8e6e2;
+  --faq-card-bg-open: #eceae6;
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+/* Help hub — FAQ block separated like Atmosphere “Frequently asked questions” */
+.customer-care--hub .customer-care-faq.journal-index-faq {
+  margin-top: clamp(2rem, 4vw, 2.75rem);
+  padding-top: clamp(1.5rem, 3vw, 2rem);
+  border-top: 1px solid var(--cc-line);
+}
+
+.customer-care-faq .journal-index-faq__title {
+  margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-family: var(--cc-font-serif);
+  font-size: var(--cc-section);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--cc-ink);
+}
+
+.customer-care-faq .journal-index-faq__grid {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.75rem;
+}
+
+.customer-care-faq .journal-index-faq__question {
+  font-family: var(--cc-font-sans);
+  font-size: var(--cc-body);
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--cc-ink);
+}
+
+.customer-care-faq .journal-index-faq__paragraph {
+  font-family: var(--cc-font-sans);
+  font-size: var(--cc-body);
+  line-height: 1.65;
+  color: color-mix(in srgb, var(--cc-ink) 85%, var(--cc-muted));
+}
+
+.customer-care__related {
+  margin-top: clamp(2rem, 4vw, 2.75rem);
+  padding-top: clamp(1.5rem, 3vw, 2rem);
+  border-top: 1px solid var(--cc-line);
+}
+
+.customer-care__related-label {
+  margin: 0 0 0.75rem;
+  font-family: var(--cc-font-sans);
+  font-size: var(--cc-small);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cc-muted);
+}
+
+.customer-care__related-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+
+.customer-care__related-link {
+  font-family: var(--cc-font-sans);
+  font-size: var(--cc-body);
+  font-weight: 400;
+  color: var(--cc-ink);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  text-decoration-color: color-mix(in srgb, var(--cc-ink) 35%, transparent);
+}
+
+.customer-care__back {
+  margin-top: clamp(1.75rem, 3vw, 2.25rem);
+}
+
+.customer-care__back-link {
+  font-family: var(--cc-font-sans);
+  font-size: var(--cc-small);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--cc-ink);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+/* Help hub — topic cards (Atmosphere: stacked rows, title + meta + arrow) */
+.customer-care-hub__cards {
+  margin: 0 0 clamp(1.75rem, 3vw, 2.25rem);
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--cc-border);
+  background: var(--cc-panel);
+}
+
+.customer-care-hub__card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto auto;
+  gap: 0.2rem 1rem;
+  align-items: center;
+  padding: 1.15rem 1.25rem;
+  border-bottom: 1px solid var(--cc-border);
+  background: var(--cc-panel);
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s ease;
+}
+
+.customer-care-hub__card:last-child {
+  border-bottom: none;
+}
+
+.customer-care-hub__card:hover,
+.customer-care-hub__card:focus-visible {
+  background: var(--cc-cream);
+}
+
+.customer-care-hub__card-title {
+  grid-column: 1;
+  grid-row: 1;
+  font-family: var(--cc-font-serif);
+  font-size: clamp(1.125rem, 2vw, 1.3125rem);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--cc-ink);
+}
+
+.customer-care-hub__card-desc {
+  grid-column: 1;
+  grid-row: 2;
+  font-family: var(--cc-font-sans);
+  font-size: var(--cc-small);
+  line-height: 1.5;
+  color: var(--cc-muted);
+}
+
+.customer-care-hub__card-arrow {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  font-family: var(--cc-font-sans);
+  font-size: 1.125rem;
+  font-weight: 300;
+  color: var(--cc-muted);
+}
+
+.customer-care-hub__quick {
+  margin: 0 0 clamp(2rem, 4vw, 2.75rem);
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.5rem;
+  font-family: var(--cc-font-sans);
+  font-size: var(--cc-body);
+}
+
+.customer-care-hub__quick a {
+  color: var(--cc-ink);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* Contact form */
+.customer-care-form {
+  margin-top: clamp(1.5rem, 3vw, 2rem);
+  padding: clamp(1.35rem, 3vw, 1.75rem);
+  border: 1px solid var(--cc-border);
+  background: var(--cc-panel);
+}
+
+.customer-care-form__note {
+  margin: 0 0 1.25rem;
+  font-family: var(--cc-font-sans);
+  font-size: var(--cc-small);
+  line-height: 1.55;
+  color: var(--cc-muted);
+}
+
+.customer-care-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.customer-care-form__field label {
+  font-family: var(--cc-font-sans);
+  font-size: var(--cc-small);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cc-muted);
+}
+
+.customer-care-form__field input,
+.customer-care-form__field select,
+.customer-care-form__field textarea {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--cc-border);
+  border-radius: 0;
+  background: var(--cc-panel);
+  font-family: var(--cc-font-sans);
+  font-size: var(--cc-body);
+  line-height: 1.4;
+  color: var(--cc-ink);
+}
+
+.customer-care-form__field input:focus-visible,
+.customer-care-form__field select:focus-visible,
+.customer-care-form__field textarea:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--cc-ink) 25%, transparent);
+  outline-offset: 2px;
+}
+
+.customer-care-form__field textarea {
+  resize: vertical;
+  min-height: 9rem;
+}
+
+.customer-care-form__submit {
+  margin-top: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  border: 1px solid var(--cc-ink);
+  border-radius: 0;
+  background: var(--cc-ink);
+  font-family: var(--cc-font-sans);
+  font-size: var(--cc-small);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #faf9f7;
+  cursor: pointer;
+}
+
+.customer-care-form__submit:hover {
+  background: color-mix(in srgb, var(--cc-ink) 88%, #000);
+}
+
+/* Track order — carrier lookup (Atmosphere-style) */
+.track-order-lookup {
+  margin-bottom: clamp(2rem, 4vw, 2.75rem);
+}
+
+.track-order-lookup__form {
+  padding: clamp(1.35rem, 3vw, 1.75rem);
+  border: 1px solid var(--cc-border);
+  background: var(--cc-panel);
+}
+
+.track-order-lookup__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+}
+
+.track-order-lookup__field label {
+  font-family: var(--cc-font-sans);
+  font-size: var(--cc-body);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--cc-ink);
+}
+
+.track-order-lookup__field label span {
+  color: color-mix(in srgb, var(--cc-muted) 80%, var(--cc-ink));
+}
+
+.track-order-lookup__field input {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--cc-border);
+  border-radius: 0;
+  background: var(--cc-panel);
+  font-family: var(--cc-font-sans);
+  font-size: var(--cc-body-lg);
+  line-height: 1.4;
+  color: var(--cc-ink);
+}
+
+.track-order-lookup__field input::placeholder {
+  color: color-mix(in srgb, var(--cc-muted) 70%, transparent);
+}
+
+.track-order-lookup__field input:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--cc-ink) 25%, transparent);
+  outline-offset: 2px;
+}
+
+.track-order-lookup__error {
+  margin: -0.35rem 0 0.85rem;
+  font-family: var(--cc-font-sans);
+  font-size: var(--cc-small);
+  line-height: 1.45;
+  color: #8b3a32;
+}
+
+.track-order-lookup__submit {
+  display: block;
+  width: 100%;
+  margin-bottom: 1.25rem;
+  padding: 0.85rem 1.5rem;
+  border: 1px solid var(--cc-ink);
+  border-radius: 0;
+  background: var(--cc-ink);
+  font-family: var(--cc-font-sans);
+  font-size: var(--cc-small);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #faf9f7;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.track-order-lookup__submit:hover {
+  background: color-mix(in srgb, var(--cc-ink) 88%, #000);
+}
+
+.track-order-lookup__carriers {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.track-order-lookup__carriers legend {
+  margin-bottom: 0.65rem;
+  font-family: var(--cc-font-sans);
+  font-size: var(--cc-small);
+  font-weight: 400;
+  color: var(--cc-muted);
+}
+
+.track-order-lookup__carrier-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+
+.track-order-lookup__carrier-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--cc-font-sans);
+  font-size: var(--cc-body);
+  color: var(--cc-ink);
+  cursor: pointer;
+}
+
+.track-order-lookup__carrier-option input {
+  margin: 0;
+  accent-color: var(--cc-ink);
+}
+
+.track-order-lookup__footnote {
+  margin: 1rem 0 0;
+  font-family: var(--cc-font-sans);
+  font-size: var(--cc-small);
+  line-height: 1.55;
+  color: var(--cc-muted);
+}
+
+.track-order-lookup__footnote a {
+  color: var(--cc-ink);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+@media (max-width: 639px) {
+  .customer-care-faq .journal-index-faq__trigger {
+    padding: 0.95rem 1rem;
+  }
+}

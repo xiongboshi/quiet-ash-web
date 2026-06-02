@@ -3,8 +3,8 @@
  */
 
 .evergreen-guide {
-  --journal-bg: #faf7f2;
-  --journal-body-bg: #faf9f7;
+  --journal-bg: var(--qa-bg);
+  --journal-body-bg: var(--qa-bg);
   --journal-ink: #1a1816;
   --journal-muted: #6f6a63;
   --journal-pill-bg: #f5f2ed;
@@ -44,7 +44,7 @@
   --eg-text-secondary: color-mix(in srgb, var(--journal-ink, #1a1816) 68%, transparent);
   --eg-text-muted: var(--journal-muted, #6f6a63);
 
-  background: var(--journal-body-bg, #faf9f7);
+  background: var(--journal-body-bg, var(--qa-bg));
   color: var(--eg-text-ink);
 }
 

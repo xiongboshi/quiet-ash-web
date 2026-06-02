@@ -31,7 +31,7 @@ function CartLinkFallback({ className, onNavigate, variant = "icon" }: Props) {
       aria-label="Cart"
       onClick={onNavigate}
     >
-      <NavCartIcon size={22} className="nav-cart-icon" />
+      <NavCartIcon className="nav-cart-icon" />
     </Link>
   );
 }

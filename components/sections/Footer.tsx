@@ -57,6 +57,14 @@ export function Footer({ className }: FooterProps) {
                 </li>
               ))}
             </ul>
+            <p className="site-footer__nav-group-label">Customer care</p>
+            <ul className="site-footer__nav-list site-footer__nav-list--care">
+              {siteFooter.customerCare.map((item) => (
+                <li key={item.href + item.label}>
+                  <FooterNavLink href={item.href} label={item.label} />
+                </li>
+              ))}
+            </ul>
           </nav>
 
           <p className="site-footer__tagline site-footer__cell--tagline">

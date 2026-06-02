@@ -56,7 +56,7 @@ function RitualCardLink({
 
   const frameClass =
     visualMode === "daylight"
-      ? "aspect-[5/4] bg-[#e8e4dc]"
+      ? "aspect-[5/4] bg-[var(--qa-bg-soft)]"
       : "aspect-[5/4] bg-[#141110]";
 
   return (

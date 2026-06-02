@@ -46,6 +46,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
     },
     {
+      url: `${base}/help`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.45,
+    },
+    {
+      url: `${base}/help/general`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.4,
+    },
+    {
+      url: `${base}/help/products`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.4,
+    },
+    {
       url: `${base}/delivery`,
       lastModified: now,
       changeFrequency: "yearly",
@@ -64,10 +82,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.4,
     },
     {
-      url: `${base}/faq`,
+      url: `${base}/track-order`,
       lastModified: now,
       changeFrequency: "yearly",
       priority: 0.4,
+    },
+    {
+      url: `${base}/contact`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.4,
+    },
+    {
+      url: `${base}/faq`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.35,
     },
   ];
 

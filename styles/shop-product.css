@@ -3,7 +3,7 @@
  */
 
 .shop-product-page {
-  --shop-pdp-bg: #ffffff;
+  --shop-pdp-bg: var(--qa-bg);
   --shop-pdp-cream: #f5f2ed;
   --shop-pdp-ink: #1a1a1a;
   --shop-pdp-muted: #6f6a63;
@@ -1314,7 +1314,7 @@
   height: 1.75rem;
   overflow: hidden;
   border-radius: 50%;
-  background: #e8e4dc;
+  background: var(--qa-bg-soft);
 }
 
 .shop-product-reviews__name {

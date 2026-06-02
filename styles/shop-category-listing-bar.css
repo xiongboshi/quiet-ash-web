@@ -1,0 +1,130 @@
+/**
+ * PLP listing top bar only — breadcrumbs (left) + filter icon (right).
+ * No search, sort, or toolbar chrome (removed from listing).
+ */
+
+.shop-category-listing-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+  margin: 0 0 1rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.shop-category-listing-bar__crumbs {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  color: var(--shop-ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shop-category-listing-bar__crumb {
+  display: inline;
+}
+
+.shop-category-listing-bar__sep {
+  margin: 0;
+  color: inherit;
+}
+
+.shop-category-listing-bar__link,
+.shop-category-listing-bar__current {
+  color: inherit;
+  text-decoration: none;
+}
+
+.shop-category-listing-bar__link:hover {
+  opacity: 0.72;
+}
+
+.shop-category-listing-bar__filter {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  color: var(--shop-ink);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity 0.2s ease;
+}
+
+.shop-category-listing-bar__filter:hover {
+  opacity: 0.72;
+}
+
+.shop-category-listing-bar__filter:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--shop-ink) 35%, transparent);
+  outline-offset: 3px;
+}
+
+.shop-category-listing-bar__filter--open {
+  opacity: 0.72;
+}
+
+.shop-category-listing-bar__filter-svg {
+  display: block;
+  width: 23px;
+  height: 23px;
+}
+
+.shop-category-listing-bar__filter-count {
+  position: absolute;
+  top: -0.15rem;
+  right: -0.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0.875rem;
+  height: 0.875rem;
+  padding: 0 0.18rem;
+  border-radius: 999px;
+  background: var(--shop-ink);
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+  line-height: 1;
+  color: #ffffff;
+}
+
+/* Desktop — filters in sidebar; bar shows path only */
+@media (min-width: 1024px) {
+  .shop-category-listing-bar {
+    margin-bottom: 1.25rem;
+  }
+
+  .shop-category-listing-bar__filter {
+    display: none;
+  }
+
+  .shop-category-sidebar__breadcrumbs--desktop {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .shop-category-listing-bar {
+    margin-bottom: 0.875rem;
+  }
+
+  .shop-category-listing-bar__crumbs {
+    font-size: 12px;
+  }
+}

@@ -12,12 +12,18 @@ export const siteFooter = {
     { label: "Shop", href: SHOP_INDEX },
     { label: "Journal", href: JOURNAL_INDEX },
     { label: "ABOUT", href: "/about" },
-    { label: "FAQ", href: "/faq" },
-    { label: "Contact", href: `mailto:${siteContact.email}` },
+  ],
+  /** Customer care — mirrors help centre structure. */
+  customerCare: [
+    { label: "Help Centre", href: "/help" },
+    { label: "Shipping & Delivery", href: "/delivery" },
+    { label: "Exchange & Returns", href: "/returns" },
+    { label: "Track My Order", href: "/track-order" },
+    { label: "Contact Us", href: "/contact" },
   ],
   legal: [
     { label: "Privacy", href: "/about" },
     { label: "Terms", href: "/about" },
-    { label: "Shipping & Returns", href: "/returns" },
+    { label: "Care", href: "/care" },
   ],
 } as const;

@@ -42,6 +42,8 @@ type Props = {
   category: ResolvedShopCategory;
   /** From server `searchParams` — avoids suspending the whole PLP. */
   initialMood?: string | null;
+  /** Header site search — `?q=` on `/shop`. */
+  initialSearchQuery?: string | null;
   children: ReactNode;
 };
 
@@ -74,6 +76,7 @@ function ShopMoodParamSync({
 export function ShopCategoryListingState({
   category,
   initialMood = null,
+  initialSearchQuery = null,
   children,
 }: Props) {
   const moodIds = useMemo(
@@ -84,7 +87,9 @@ export function ShopCategoryListingState({
   const [checked, setChecked] = useState<Record<string, boolean>>(() =>
     checkedFromMood(initialMood, moodIds),
   );
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState(
+    () => initialSearchQuery?.trim() ?? "",
+  );
 
   const active = useMemo(
     () => activeFiltersFromChecked(checked, category.filters.groups),
