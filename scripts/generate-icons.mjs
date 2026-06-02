@@ -26,7 +26,10 @@ if (!masterPath && !fs.existsSync(svgPath)) {
   process.exit(1);
 }
 
-const BG = "#F4EFE8";
+/* Match sitewide field (styles/tokens.css --qa-bg) */
+const BG = "#faf9f7";
+/** Zoom trimmed art so the mark fills the square (crop outer breathing room). */
+const ICON_FILL_ZOOM = 1.38;
 
 async function writeFaviconFromSvg(size, outName) {
   const out = path.join(root, "app", outName);
@@ -39,33 +42,30 @@ async function writeFaviconFromSvg(size, outName) {
 
 async function writeRasterFromMaster(size, outName) {
   const out = path.join(root, "app", outName);
-  const pad = Math.round(size * 0.06);
-  await sharp(masterPath)
-    .resize(size - pad * 2, size - pad * 2, {
-      fit: "contain",
-      background: BG,
-      position: "center",
+  const zoomed = Math.round(size * ICON_FILL_ZOOM);
+  let pipeline = sharp(masterPath).trim({ threshold: 16 });
+  await pipeline
+    .resize(zoomed, zoomed, {
+      fit: "cover",
+      position: "centre",
     })
-    .extend({
-      top: pad,
-      bottom: pad,
-      left: pad,
-      right: pad,
-      background: BG,
+    .extract({
+      left: Math.floor((zoomed - size) / 2),
+      top: Math.floor((zoomed - size) / 2),
+      width: size,
+      height: size,
     })
+    .flatten({ background: BG })
     .png({ compressionLevel: 9 })
     .toFile(out);
-  console.log(`wrote ${outName} (${size}px) from icon-source.png`);
+  console.log(`wrote ${outName} (${size}px, zoom ${ICON_FILL_ZOOM}) from icon-source.png`);
 }
 
-if (fs.existsSync(svgPath)) {
-  await writeFaviconFromSvg(32, "icon.png");
-} else if (masterPath) {
-  await writeRasterFromMaster(32, "icon.png");
-}
-
+/* Prefer brand master (QA monogram) over legacy letter-only icon.svg */
 if (masterPath) {
+  await writeRasterFromMaster(32, "icon.png");
   await writeRasterFromMaster(180, "apple-icon.png");
 } else if (fs.existsSync(svgPath)) {
+  await writeFaviconFromSvg(32, "icon.png");
   await writeFaviconFromSvg(180, "apple-icon.png");
 }
