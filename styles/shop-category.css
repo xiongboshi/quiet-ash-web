@@ -17,8 +17,9 @@
 
 .shop-category-page {
   --shop-listing-px: var(--qa-container-px);
-  --shop-bg: var(--qa-bg);
-  --shop-body-bg: var(--qa-bg);
+  /* Match help / customer care field — site-nav search panel cream */
+  --shop-bg: var(--site-nav-search-bg, #f1efe7);
+  --shop-body-bg: var(--site-nav-search-bg, #f1efe7);
   --shop-ink: #1a1a1a;
   --shop-muted: #6f6a63;
   --shop-line: var(--qa-border);

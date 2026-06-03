@@ -1,5 +1,7 @@
 "use client";
 
+import "@/styles/shop-category.css";
+import "@/styles/shop-category-listing-bar.css";
 import { ShopCategoryBody } from "@/components/shop/shop-category-body";
 import { ShopCategoryProvider } from "@/components/shop/shop-category-context";
 import { ShopCategoryValueBar } from "@/components/shop/shop-category-value-bar";

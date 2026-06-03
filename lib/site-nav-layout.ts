@@ -100,7 +100,7 @@ export function isOverlayHeroPath(pathname: string | null): boolean {
   return false;
 }
 
-/** Homepage + overlay-hero pages: nav over content. Cart, PDP, text pages: stacked bar. */
+/** Homepage + overlay-hero pages: nav over content. Shop PLP/PDP and cart use stacked bar. */
 export function siteNavLayout(pathname: string | null): "overlay" | "stacked" {
   const path = normalizeSitePath(pathname);
   if (path === "/" || isOverlayHeroPath(pathname)) return "overlay";

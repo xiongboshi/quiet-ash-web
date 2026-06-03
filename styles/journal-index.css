@@ -16,8 +16,9 @@
 }
 
 .journal-index {
-  --journal-bg: var(--qa-bg);
-  --journal-body-bg: var(--qa-bg);
+  /* Match help / customer care field — site-nav search panel cream */
+  --journal-bg: var(--site-nav-search-bg, #f1efe7);
+  --journal-body-bg: var(--site-nav-search-bg, #f1efe7);
   --journal-ink: #1a1816;
   --journal-muted: #6f6a63;
   --journal-line: #e8e4dc;

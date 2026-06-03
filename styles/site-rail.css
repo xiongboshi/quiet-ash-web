@@ -68,11 +68,18 @@
   padding-inline: var(--qa-container-px);
 }
 
-/* Mobile / tablet — hide sidebar breadcrumb trails (keep back buttons, etc.) */
+/* Mobile / tablet — hide sidebar breadcrumb trails (keep PLP bar + PDP crumbs) */
 @media (max-width: 1279px) {
   .qa-inner-rail-scope
-    nav[aria-label="Breadcrumb"]:not(.shop-category-listing-bar__crumbs),
-  .qa-inner-rail-scope [class*="__breadcrumbs"] {
+    nav[aria-label="Breadcrumb"]:not(
+      .shop-category-listing-bar__crumbs,
+      .shop-product-hero__breadcrumbs
+    ),
+  .qa-inner-rail-scope
+    [class*="__breadcrumbs"]:not(
+      .shop-category-listing-bar__crumbs,
+      .shop-product-hero__breadcrumbs
+    ) {
     display: none !important;
   }
 
