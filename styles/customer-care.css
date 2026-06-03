@@ -164,7 +164,9 @@
 }
 
 .customer-care-faq .journal-index-faq__grid {
+  display: grid;
   grid-template-columns: minmax(0, 1fr);
+  align-items: start;
   gap: clamp(0.85rem, 2vw, 1.125rem);
   margin: 0;
   padding: 0;
