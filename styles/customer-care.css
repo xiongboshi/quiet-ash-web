@@ -51,7 +51,9 @@
 .customer-care-hub__card:focus-visible,
 .customer-care__related-link:hover,
 .customer-care__back-link:hover,
-.customer-care-form__submit:hover {
+.customer-care-form__submit:hover,
+.customer-care-faq .journal-index-faq__trigger:hover,
+.customer-care-faq .journal-index-faq__trigger:focus-visible {
   opacity: 1;
 }
 
@@ -163,7 +165,10 @@
 
 .customer-care-faq .journal-index-faq__grid {
   grid-template-columns: minmax(0, 1fr);
-  gap: 0.75rem;
+  gap: clamp(0.85rem, 2vw, 1.125rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .customer-care-faq .journal-index-faq__question {
@@ -174,11 +179,175 @@
   color: var(--cc-ink);
 }
 
+/*
+ * Collapsible FAQ — journal-index.css is not loaded on /help, /delivery, etc.
+ * Mirror accordion mechanics here so answers stay collapsed until opened.
+ */
+.customer-care-faq .journal-index-faq__card-inner {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--faq-card-radius);
+  background: var(--faq-card-bg);
+  transition: background 0.25s ease;
+}
+
+.customer-care-faq .journal-index-faq__card:not(.journal-index-faq__card--open):hover .journal-index-faq__card-inner {
+  background: var(--faq-card-bg-hover);
+}
+
+.customer-care-faq .journal-index-faq__card--open .journal-index-faq__card-inner {
+  background: var(--faq-card-bg-open);
+}
+
+.customer-care-faq .journal-index-faq__question-wrap {
+  margin: 0;
+}
+
+.customer-care-faq .journal-index-faq__trigger {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 1.75rem;
+  column-gap: 0.75rem;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 1.1rem;
+  border: none;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.customer-care-faq .journal-index-faq__card--open .journal-index-faq__trigger {
+  padding-bottom: 0.85rem;
+}
+
+.customer-care-faq .journal-index-faq__trigger:focus-visible {
+  outline: none;
+}
+
+.customer-care-faq .journal-index-faq__trigger:focus-visible .journal-index-faq__question {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--journal-line) 70%, var(--journal-ink));
+  text-underline-offset: 0.18em;
+}
+
+.customer-care-faq .journal-index-faq__arrow {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  align-self: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid color-mix(in srgb, var(--journal-line) 65%, transparent);
+  border-radius: 50%;
+  background: color-mix(in srgb, #ffffff 45%, var(--faq-card-bg));
+  color: var(--journal-ink);
+  opacity: 0.85;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
+}
+
+.customer-care-faq .journal-index-faq__arrow svg {
+  display: block;
+}
+
+.customer-care-faq .journal-index-faq__card:not(.journal-index-faq__card--open):hover .journal-index-faq__arrow {
+  opacity: 1;
+}
+
+.customer-care-faq .journal-index-faq__card--open .journal-index-faq__arrow {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+.customer-care-faq .journal-index-faq__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.customer-care-faq .journal-index-faq__card--open .journal-index-faq__panel {
+  grid-template-rows: 1fr;
+}
+
+.customer-care-faq .journal-index-faq__panel-inner {
+  overflow: hidden;
+  padding: 0 1.1rem 1.1rem;
+  border-top: 1px solid transparent;
+  transition: border-color 0.35s ease;
+}
+
+.customer-care-faq .journal-index-faq__card--open .journal-index-faq__panel-inner {
+  border-top-color: var(--journal-line);
+}
+
+.customer-care-faq .journal-index-faq__answer {
+  padding-top: 0.85rem;
+}
+
 .customer-care-faq .journal-index-faq__paragraph {
+  margin: 0 0 0.8rem;
   font-family: var(--cc-font-sans);
   font-size: var(--cc-body);
   line-height: 1.65;
   color: color-mix(in srgb, var(--cc-ink) 85%, var(--cc-muted));
+}
+
+.customer-care-faq .journal-index-faq__paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.customer-care-faq .journal-index-faq__subheading {
+  margin: 1rem 0 0.4rem;
+  font-family: var(--cc-font-sans);
+  font-size: var(--cc-eyebrow);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--cc-muted) 65%, var(--cc-ink));
+}
+
+.customer-care-faq .journal-index-faq__subheading:first-child {
+  margin-top: 0;
+}
+
+.customer-care-faq .journal-index-faq__bullets {
+  margin: 0 0 0.8rem;
+  padding: 0;
+  list-style: none;
+  font-family: var(--cc-font-sans);
+  font-size: var(--cc-body);
+  line-height: 1.62;
+  color: color-mix(in srgb, var(--cc-ink) 85%, var(--cc-muted));
+}
+
+.customer-care-faq .journal-index-faq__bullets li {
+  position: relative;
+  padding-left: 0.9rem;
+}
+
+.customer-care-faq .journal-index-faq__bullets li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 0.65em;
+  line-height: 2.4;
+  color: color-mix(in srgb, var(--cc-muted) 50%, var(--cc-line));
+}
+
+.customer-care-faq .journal-index-faq__bullets li + li {
+  margin-top: 0.35rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .customer-care-faq .journal-index-faq__card-inner,
+  .customer-care-faq .journal-index-faq__panel,
+  .customer-care-faq .journal-index-faq__arrow {
+    transition: none;
+  }
 }
 
 .customer-care__related {

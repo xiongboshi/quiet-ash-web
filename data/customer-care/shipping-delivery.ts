@@ -9,12 +9,6 @@ import {
   customerCareShippingRestrictions,
 } from "@/data/customer-care/shipping-regions";
 
-const regionBlocks = customerCareShippingRegions.map((region) => ({
-  type: "list" as const,
-  heading: region.name,
-  items: region.bullets,
-}));
-
 export const shippingDeliveryPage: CustomerCarePageContent = {
   slug: "delivery",
   title: "Shipping & Delivery",
@@ -34,7 +28,15 @@ export const shippingDeliveryPage: CustomerCarePageContent = {
         "For complete details on delivery times, fees, complimentary delivery, and customs, refer to your region below.",
       ],
     },
-    ...regionBlocks,
+    {
+      type: "faq",
+      heading: "Shipping by region",
+      items: customerCareShippingRegions.map((region) => ({
+        id: region.id,
+        question: region.name,
+        answer: region.bullets,
+      })),
+    },
     {
       type: "list",
       heading: "Shipping restrictions",
