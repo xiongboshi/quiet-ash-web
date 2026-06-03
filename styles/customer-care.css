@@ -5,7 +5,7 @@
 
 .customer-care-page.qa-page-shell {
   padding-block: clamp(2.5rem, 6vw, 4.5rem);
-  background: var(--cc-body-bg, var(--qa-bg));
+  background: var(--cc-body-bg, var(--site-nav-search-bg, #f1efe7));
 }
 
 .customer-care.quiet-container {
@@ -13,7 +13,8 @@
 }
 
 .customer-care {
-  --cc-body-bg: var(--qa-bg);
+  /* Match site nav search panel — all help / customer care routes */
+  --cc-body-bg: var(--site-nav-search-bg, #f1efe7);
   --cc-panel: #ffffff;
   --cc-cream: #f3f0ea;
   --cc-ink: #1a1816;
@@ -138,9 +139,9 @@
   --journal-ink: var(--cc-ink);
   --journal-muted: var(--cc-muted);
   --faq-card-radius: 8px;
-  --faq-card-bg: #f0eeea;
-  --faq-card-bg-hover: #e8e6e2;
-  --faq-card-bg-open: #eceae6;
+  --faq-card-bg: var(--qa-card-bg);
+  --faq-card-bg-hover: color-mix(in srgb, var(--qa-card-bg) 94%, var(--cc-ink));
+  --faq-card-bg-open: var(--qa-card-bg);
   margin-top: 0;
   padding-top: 0;
   border-top: none;
