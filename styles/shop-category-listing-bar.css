@@ -51,6 +51,13 @@
 }
 
 .shop-category-listing-bar__current {
+  display: inline;
+  margin: 0;
+  font: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
   color: var(--shop-ink);
   text-decoration: none;
 }

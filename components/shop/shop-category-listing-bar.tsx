@@ -55,7 +55,7 @@ export function ShopCategoryListingBar({
                 {crumb.label}
               </Link>
             ) : (
-              <span className="shop-category-listing-bar__current">{crumb.label}</span>
+              <h1 className="shop-category-listing-bar__current">{crumb.label}</h1>
             )}
           </span>
         ))}

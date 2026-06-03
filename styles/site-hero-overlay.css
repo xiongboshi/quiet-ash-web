@@ -1,6 +1,6 @@
 /**
  * Full-bleed heroes under overlay site nav.
- * Shop + Journal: fixed height (--qa-hero-overlay-min-h), identical to /shop.
+ * Journal: fixed height (--qa-hero-overlay-min-h).
  * About: taller band (--about-hero-min-h), unchanged.
  */
 
@@ -28,7 +28,6 @@
 
 /* Shared shell */
 :is(
-    .shop-category-hero,
     .about-hero,
     .journal-index-hero,
     .journal-article-hero,
@@ -40,9 +39,8 @@
   overflow-x: clip;
 }
 
-/* Shop + Journal — exact band height (matches /shop PLP) */
+/* Journal — exact band height */
 :is(
-    .shop-category-hero__inner,
     .journal-index-hero__inner,
     .journal-article-hero__inner
   ) {
@@ -55,8 +53,6 @@
 }
 
 :is(
-    .shop-category-page .shop-category-hero__media img,
-    .shop-category-page figure.shop-category-hero__media img,
     .journal-index .journal-index-hero__media img,
     .journal-index figure.journal-index-hero__media img,
     .journal-topic-page .journal-index-hero__media img,
@@ -75,7 +71,6 @@
 }
 
 :is(
-    .shop-category-hero__copy,
     .journal-index-hero__copy,
     .journal-article-hero__copy
   ) {

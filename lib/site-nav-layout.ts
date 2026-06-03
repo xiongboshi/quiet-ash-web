@@ -11,15 +11,6 @@ export function normalizeSitePath(pathname: string | null): string {
   return path;
 }
 
-/** Shop PLP/category heroes — full-bleed image with nav over the photo (not product PDP). */
-export function isShopCategoryHeroPath(pathname: string | null): boolean {
-  const path = normalizeSitePath(pathname);
-  if (path === "/shop") return true;
-  if (!path.startsWith("/shop/")) return false;
-  const segment = path.slice("/shop/".length).split("/")[0] ?? "";
-  return segment.length > 0 && isShopCategorySegment(segment);
-}
-
 /** Evergreen guide — e.g. /guides/sleep-guide */
 export function isEvergreenGuidePath(pathname: string | null): boolean {
   const path = normalizeSitePath(pathname);
@@ -105,7 +96,6 @@ export function isOverlayHeroPath(pathname: string | null): boolean {
   if (path === "/about" || path === "/journal") return true;
   if (path.startsWith("/journal/")) return true;
   if (isEvergreenGuidePath(pathname)) return true;
-  if (isShopCategoryHeroPath(pathname)) return true;
   if (path.startsWith("/moods/")) return true;
   return false;
 }
