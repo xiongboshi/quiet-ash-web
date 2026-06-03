@@ -19,8 +19,20 @@ type Props = {
   pills: readonly TopicPageSearchPill[];
 };
 
+const POPULAR_SEARCHES_ROWS = 3;
+
+function popularSearchColumns(pills: readonly TopicPageSearchPill[]) {
+  const columns: TopicPageSearchPill[][] = [];
+  for (let i = 0; i < pills.length; i += POPULAR_SEARCHES_ROWS) {
+    columns.push(pills.slice(i, i + POPULAR_SEARCHES_ROWS));
+  }
+  return columns;
+}
+
 export function JournalTopicHubPopularSearches({ pills }: Props) {
   if (pills.length === 0) return null;
+
+  const columns = popularSearchColumns(pills);
 
   return (
     <section
@@ -36,16 +48,24 @@ export function JournalTopicHubPopularSearches({ pills }: Props) {
         </h2>
       </header>
       <div className="journal-topic-page__popular-searches-track" role="list">
-        {pills.map((pill) => (
-          <Link
-            key={pill.label}
-            href={pill.href}
-            className="journal-topic-page__search-pill"
-            role="listitem"
+        {columns.map((column, columnIndex) => (
+          <div
+            key={`popular-search-col-${columnIndex}`}
+            className="journal-topic-page__popular-searches-col"
+            role="presentation"
           >
-            <SearchIcon />
-            <span>{pill.label}</span>
-          </Link>
+            {column.map((pill) => (
+              <Link
+                key={pill.label}
+                href={pill.href}
+                className="journal-topic-page__search-pill"
+                role="listitem"
+              >
+                <SearchIcon />
+                <span>{pill.label}</span>
+              </Link>
+            ))}
+          </div>
         ))}
       </div>
     </section>

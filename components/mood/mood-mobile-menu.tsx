@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
 import { CartLink } from "@/components/cart/cart-link";
-import { PRIMARY_NAV } from "@/lib/site-nav";
+import { HELP_NAV_ITEM, PRIMARY_NAV } from "@/lib/site-nav";
 
 const menuLinkClass =
   "block py-1 text-[12px] font-semibold uppercase tracking-[0.16em] text-[var(--mood-ink)] no-underline transition-opacity duration-300 hover:opacity-55";
@@ -76,6 +76,14 @@ export function MoodMobileMenu({ className }: Props) {
                 {label}
               </Link>
             ))}
+            <Link
+              href={HELP_NAV_ITEM.href}
+              className={menuLinkClass}
+              role="menuitem"
+              onClick={close}
+            >
+              {HELP_NAV_ITEM.label}
+            </Link>
             <CartLink className={menuLinkClass} onNavigate={close} />
           </nav>
         </div>

@@ -8,7 +8,7 @@ import { QaMobileBackButton } from "@/components/qa/qa-mobile-back-button";
 import { SiteNavSearchPanel } from "@/components/site/site-nav-search-panel";
 import { NavMenuIcon, NavSearchIcon } from "@/components/site/site-nav-icons";
 import { brandHome } from "@/data/brand-home";
-import { PRIMARY_NAV } from "@/lib/site-nav";
+import { HELP_NAV_ITEM, PRIMARY_NAV } from "@/lib/site-nav";
 import {
   isMobileNavBackLeadingPath,
   mobileNavBackFallbackHref,
@@ -155,6 +155,13 @@ export function QaHomeHeader() {
 
           <div className="nav-actions">
             {searchToggle}
+            <Link
+              href={HELP_NAV_ITEM.href}
+              aria-current={isNavActive(path, HELP_NAV_ITEM.href) ? "page" : undefined}
+              className={`nav-help-link${isNavActive(path, HELP_NAV_ITEM.href) ? " is-active" : ""}`}
+            >
+              {HELP_NAV_ITEM.label}
+            </Link>
             <QaHomeCartLink />
             {menuToggle}
           </div>
@@ -200,6 +207,14 @@ export function QaHomeHeader() {
                 </Link>
               );
             })}
+            <Link
+              href={HELP_NAV_ITEM.href}
+              aria-current={isNavActive(path, HELP_NAV_ITEM.href) ? "page" : undefined}
+              className={isNavActive(path, HELP_NAV_ITEM.href) ? "is-active" : undefined}
+              onClick={() => setMenuOpen(false)}
+            >
+              {HELP_NAV_ITEM.label}
+            </Link>
             <QaHomeCartLink variant="menu" onNavigate={() => setMenuOpen(false)} />
           </div>
         </div>

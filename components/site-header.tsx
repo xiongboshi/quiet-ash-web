@@ -6,7 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useId, useState } from "react";
 import { CartLink } from "@/components/cart/cart-link";
 import { Container } from "@/components/ui/Container";
-import { HOME_NAV_ITEM, PRIMARY_NAV } from "@/lib/site-nav";
+import { HELP_NAV_ITEM, HOME_NAV_ITEM, PRIMARY_NAV } from "@/lib/site-nav";
 import { JOURNAL_INDEX, MOODS_INDEX, SHOP_INDEX } from "@/lib/site-paths";
 
 function NavLink({
@@ -251,7 +251,8 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden items-center gap-8 lg:flex">
+          <NavLink href={HELP_NAV_ITEM.href}>{HELP_NAV_ITEM.label}</NavLink>
           <CartLink className="font-[family-name:var(--font-sans)] text-[12px] font-medium uppercase tracking-[0.18em] text-[var(--qa-muted)] no-underline transition-opacity duration-[600ms] ease-out hover:opacity-70" />
         </div>
 
@@ -287,7 +288,7 @@ export function SiteHeader() {
           >
             <Container variant="wide" className="py-6">
               <nav className="flex flex-col gap-4" aria-label="Primary">
-                {[HOME_NAV_ITEM, ...PRIMARY_NAV].map(({ href, label }) => {
+                {[HOME_NAV_ITEM, ...PRIMARY_NAV, HELP_NAV_ITEM].map(({ href, label }) => {
                   const active =
                     href === "/"
                       ? path === "/"

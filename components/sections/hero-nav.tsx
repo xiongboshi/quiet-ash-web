@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
 import { CartLink } from "@/components/cart/cart-link";
 import { CONTAINER_PAD } from "@/components/ui/Container";
-import { PRIMARY_NAV } from "@/lib/site-nav";
+import { HELP_NAV_ITEM, PRIMARY_NAV } from "@/lib/site-nav";
 
 function NavItem({ href, label }: { href: string; label: string }) {
   const pathname = usePathname();
@@ -100,7 +100,10 @@ export function HeroNav() {
           ))}
         </nav>
 
-        <div className="relative z-10 flex shrink-0 items-center justify-end lg:ml-3">
+        <div className="relative z-10 flex shrink-0 items-center justify-end gap-6 lg:ml-3">
+          <span className="hidden lg:inline-flex">
+            <NavItem href={HELP_NAV_ITEM.href} label={HELP_NAV_ITEM.label} />
+          </span>
           <CartLink className="hidden font-[family-name:var(--font-sans)] text-[12px] font-normal uppercase tracking-[0.18em] text-[rgba(255,255,255,0.8)] no-underline transition-opacity duration-[600ms] ease-out hover:opacity-70 lg:inline" />
           <button
             type="button"
@@ -134,6 +137,7 @@ export function HeroNav() {
               {PRIMARY_NAV.map(({ href, label }) => (
                 <NavItem key={label} href={href} label={label} />
               ))}
+              <NavItem href={HELP_NAV_ITEM.href} label={HELP_NAV_ITEM.label} />
               <CartLink
                 className="pt-2 font-[family-name:var(--font-sans)] text-[12px] font-normal uppercase tracking-[0.18em] text-[rgba(255,255,255,0.8)] no-underline transition-opacity duration-[600ms] ease-out hover:opacity-70"
                 onNavigate={() => setOpen(false)}

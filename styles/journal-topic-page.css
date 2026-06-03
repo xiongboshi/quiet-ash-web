@@ -217,7 +217,12 @@
   color: var(--jp-text-muted);
 }
 
-/* Tablet / mobile — horizontal rail (scales as popular searches grow) */
+/* Desktop — column wrappers use display:contents so pills still wrap in the track */
+.journal-topic-page__popular-searches-col {
+  display: contents;
+}
+
+/* Tablet / mobile — 3-row columns, horizontal scroll (no grid overlap) */
 @media (max-width: 899px) {
   .journal-topic-page__popular-searches {
     margin-inline: calc(-1 * var(--qa-container-px, 16px));
@@ -225,12 +230,11 @@
   }
 
   .journal-topic-page__popular-searches-track {
-    display: grid;
-    grid-template-rows: repeat(3, auto);
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(9.25rem, max-content);
-    align-content: start;
-    gap: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 0.65rem;
     margin: 0;
     padding: 0 0 0.15rem;
     overflow-x: auto;
@@ -245,15 +249,19 @@
     display: none;
   }
 
-  .journal-topic-page__search-pill {
-    width: max-content;
-    max-width: min(17.5rem, 72vw);
-    scroll-snap-align: none;
+  .journal-topic-page__popular-searches-col {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 0;
+    scroll-snap-align: start;
   }
 
-  /* Snap by column (3 pills per column) */
-  .journal-topic-page__search-pill:nth-child(3n + 1) {
-    scroll-snap-align: start;
+  .journal-topic-page__search-pill {
+    box-sizing: border-box;
+    width: max-content;
+    max-width: min(18rem, 78vw);
   }
 
   .journal-topic-page__search-pill span {
