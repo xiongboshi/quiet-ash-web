@@ -21,6 +21,36 @@ export type JournalIndexArticleCard = {
 /** Hand-authored guide templates — topic-clustered for discovery hubs. */
 export const journalGuidesTipsHandCards: readonly JournalIndexArticleCard[] = [
   {
+    slug: "sleep-cycle-explained",
+    categoryId: "better-sleep",
+    categoryLabel: "BETTER SLEEP",
+    headline: "Sleep Cycle Explained",
+    seoTitle: "Sleep Cycle Explained",
+    title: "Sleep Cycle Explained",
+    description:
+      "Learn how sleep cycles work — light sleep, deep sleep, and REM — and why some mornings feel refreshed while others do not.",
+    readMinutes: 12,
+    date: "2026-06-03",
+    imageSrc: "/images/generated/essay-night-incense-ritual.webp",
+    imageAlt: "Calm bedroom with soft evening light and a restful atmosphere",
+    tags: ["sleep", "relaxation"],
+  },
+  {
+    slug: "how-to-get-more-deep-sleep",
+    categoryId: "better-sleep",
+    categoryLabel: "BETTER SLEEP",
+    headline: "How to Get More Deep Sleep",
+    seoTitle: "How to Get More Deep Sleep",
+    title: "How to Get More Deep Sleep",
+    description:
+      "What deep sleep is, why it matters, and practical habits that may support deeper, more restorative rest at night.",
+    readMinutes: 11,
+    date: "2026-06-03",
+    imageSrc: "/images/generated/essay-night-incense-ritual.webp",
+    imageAlt: "Calm bedroom with soft evening light and a restful atmosphere",
+    tags: ["sleep", "relaxation"],
+  },
+  {
     slug: "why-bad-sleep-happens",
     categoryId: "better-sleep",
     categoryLabel: "BETTER SLEEP",

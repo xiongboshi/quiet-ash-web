@@ -18,6 +18,8 @@ import { journalArticleWhyBadSleepHappens } from "@/data/journal-articles/why-ba
 import { journalArticleGreenNoiseForSleep } from "@/data/journal-articles/green-noise-for-sleep";
 import { journalArticleHowToFixBadSleep } from "@/data/journal-articles/how-to-fix-bad-sleep";
 import { journalArticleSleepMeditation } from "@/data/journal-articles/sleep-meditation";
+import { journalArticleSleepCycleExplained } from "@/data/journal-articles/sleep-cycle-explained";
+import { journalArticleHowToGetMoreDeepSleep } from "@/data/journal-articles/how-to-get-more-deep-sleep";
 
 /** Full PDP overrides for hand-authored guide templates. */
 const journalHandArticleOverrides: Record<string, JournalArticleTemplate> = {
@@ -45,6 +47,8 @@ const journalHandArticleOverrides: Record<string, JournalArticleTemplate> = {
   [journalArticleGreenNoiseForSleep.slug]: journalArticleGreenNoiseForSleep,
   [journalArticleHowToFixBadSleep.slug]: journalArticleHowToFixBadSleep,
   [journalArticleSleepMeditation.slug]: journalArticleSleepMeditation,
+  [journalArticleSleepCycleExplained.slug]: journalArticleSleepCycleExplained,
+  [journalArticleHowToGetMoreDeepSleep.slug]: journalArticleHowToGetMoreDeepSleep,
 };
 
 /** Index-listed articles — auto-filled from card + `content/essays` MDX when available. */

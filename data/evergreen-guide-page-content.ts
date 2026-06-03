@@ -197,6 +197,16 @@ export const evergreenGuidePageContent: Record<EvergreenGuideSlug, EvergreenGuid
     ],
     faq: sleepFaq,
     relatedArticles: [
+      {
+        slug: "sleep-cycle-explained",
+        title: "Sleep Cycle Explained",
+        description: "",
+      },
+      {
+        slug: "how-to-get-more-deep-sleep",
+        title: "How to Get More Deep Sleep",
+        description: "",
+      },
       { slug: "sleep-hygiene-guide", title: "Sleep Hygiene Guide", description: "" },
       {
         slug: "how-to-improve-sleep-quality-naturally",

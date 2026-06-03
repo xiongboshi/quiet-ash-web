@@ -19,6 +19,8 @@ import { journalPath } from "@/lib/site-paths";
 
 /** Primary Sleep Hub cluster — hub order and default related-reading pool. */
 export const BETTER_SLEEP_CORE_SLUGS = [
+  "sleep-cycle-explained",
+  "how-to-get-more-deep-sleep",
   "sleep-hygiene-guide",
   "how-to-improve-sleep-quality-naturally",
   "why-bad-sleep-happens",
@@ -92,6 +94,18 @@ const BETTER_SLEEP_TOPIC_CARD_OVERRIDES: Partial<
     Pick<TopicPageFeaturedArticle, "title" | "description" | "readMinutes">
   >
 > = {
+  "sleep-cycle-explained": {
+    title: "Sleep Cycle Explained",
+    description:
+      "How light sleep, deep sleep, and REM fit together — and why some mornings feel clearer than others.",
+    readMinutes: 12,
+  },
+  "how-to-get-more-deep-sleep": {
+    title: "How to Get More Deep Sleep",
+    description:
+      "What deep sleep does for recovery and practical habits that may support deeper rest at night.",
+    readMinutes: 11,
+  },
   "why-bad-sleep-happens": {
     title: "Why Bad Sleep Happens",
     description:
@@ -121,6 +135,8 @@ const BETTER_SLEEP_TOPIC_CARD_OVERRIDES: Partial<
 const BETTER_SLEEP_POPULAR_SEARCH_LABELS: Partial<
   Record<BetterSleepArticleSlug, string>
 > = {
+  "sleep-cycle-explained": "sleep cycle explained",
+  "how-to-get-more-deep-sleep": "how to get more deep sleep",
   "sleep-hygiene-guide": "sleep hygiene guide",
   "how-to-improve-sleep-quality-naturally": "improve sleep quality naturally",
   "why-bad-sleep-happens": "why bad sleep happens",
