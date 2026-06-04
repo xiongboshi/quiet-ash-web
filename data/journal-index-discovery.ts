@@ -70,6 +70,8 @@ export const journalDiscoveryHubOrder: readonly JournalTopicHubId[] = [
 
 /** Explore common searches — design labels. */
 export const journalDiscoverySearchIntents = [
+  { label: "sleep stages explained", href: journalPath("sleep-stages-explained") },
+  { label: "why is sleep important", href: journalPath("why-is-sleep-important") },
   { label: "sleep cycle explained", href: journalPath("sleep-cycle-explained") },
   { label: "how to get more deep sleep", href: journalPath("how-to-get-more-deep-sleep") },
   { label: "why bad sleep happens", href: journalPath("why-bad-sleep-happens") },

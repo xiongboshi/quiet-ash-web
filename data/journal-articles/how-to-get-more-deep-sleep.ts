@@ -76,7 +76,7 @@ export const journalArticleHowToGetMoreDeepSleep: JournalArticleTemplate = {
       number: 1,
       heading: "What Is Deep Sleep?",
       paragraphs: [
-        "Deep sleep is one of the stages of the sleep cycle, often called Stage 3 sleep.",
+        "Deep sleep is one of the stages of the sleep cycle, often called Stage 3 sleep. Our sleep stages explained guide walks through all four phases in order.",
         "During this stage the body repairs tissues, muscles recover, energy stores are restored, and the immune system performs maintenance activities.",
         "If you are new to how cycles fit together, start with our sleep cycle explained guide for the full picture of light, deep, and REM sleep.",
       ],
@@ -239,9 +239,9 @@ export const journalArticleHowToGetMoreDeepSleep: JournalArticleTemplate = {
   related: {
     heading: "Related Reading",
     items: [
+      { slug: "sleep-stages-explained" },
       { slug: "sleep-cycle-explained" },
-      { slug: "sleep-meditation" },
-      { slug: "green-noise-for-sleep" },
+      { slug: "why-is-sleep-important" },
       { slug: "sleep-hygiene-guide" },
     ],
   },

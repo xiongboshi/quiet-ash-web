@@ -18,6 +18,8 @@ import { journalArticleWhyBadSleepHappens } from "@/data/journal-articles/why-ba
 import { journalArticleGreenNoiseForSleep } from "@/data/journal-articles/green-noise-for-sleep";
 import { journalArticleHowToFixBadSleep } from "@/data/journal-articles/how-to-fix-bad-sleep";
 import { journalArticleSleepMeditation } from "@/data/journal-articles/sleep-meditation";
+import { journalArticleSleepStagesExplained } from "@/data/journal-articles/sleep-stages-explained";
+import { journalArticleWhyIsSleepImportant } from "@/data/journal-articles/why-is-sleep-important";
 import { journalArticleSleepCycleExplained } from "@/data/journal-articles/sleep-cycle-explained";
 import { journalArticleHowToGetMoreDeepSleep } from "@/data/journal-articles/how-to-get-more-deep-sleep";
 
@@ -47,6 +49,8 @@ const journalHandArticleOverrides: Record<string, JournalArticleTemplate> = {
   [journalArticleGreenNoiseForSleep.slug]: journalArticleGreenNoiseForSleep,
   [journalArticleHowToFixBadSleep.slug]: journalArticleHowToFixBadSleep,
   [journalArticleSleepMeditation.slug]: journalArticleSleepMeditation,
+  [journalArticleSleepStagesExplained.slug]: journalArticleSleepStagesExplained,
+  [journalArticleWhyIsSleepImportant.slug]: journalArticleWhyIsSleepImportant,
   [journalArticleSleepCycleExplained.slug]: journalArticleSleepCycleExplained,
   [journalArticleHowToGetMoreDeepSleep.slug]: journalArticleHowToGetMoreDeepSleep,
 };

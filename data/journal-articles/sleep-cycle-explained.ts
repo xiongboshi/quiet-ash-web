@@ -106,7 +106,7 @@ export const journalArticleSleepCycleExplained: JournalArticleTemplate = {
           heading: "Stage 3: Deep Sleep",
           paragraphs: [
             "Deep sleep is often considered the most physically restorative stage. The body repairs tissues, muscles recover, and energy stores are replenished.",
-            "Waking up during deep sleep often causes grogginess and confusion. If you want more of this stage, see our guide on how to get more deep sleep.",
+            "Waking up during deep sleep often causes grogginess and confusion. For a stage-by-stage overview, see sleep stages explained; for habits that may support more deep sleep, see how to get more deep sleep.",
           ],
         },
         {
@@ -229,10 +229,10 @@ export const journalArticleSleepCycleExplained: JournalArticleTemplate = {
   related: {
     heading: "Related Reading",
     items: [
+      { slug: "sleep-stages-explained" },
+      { slug: "why-is-sleep-important" },
       { slug: "how-to-get-more-deep-sleep" },
       { slug: "sleep-hygiene-guide" },
-      { slug: "why-bad-sleep-happens" },
-      { slug: "how-to-fix-bad-sleep" },
     ],
   },
   articleNote:

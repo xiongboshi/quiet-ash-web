@@ -21,6 +21,36 @@ export type JournalIndexArticleCard = {
 /** Hand-authored guide templates — topic-clustered for discovery hubs. */
 export const journalGuidesTipsHandCards: readonly JournalIndexArticleCard[] = [
   {
+    slug: "sleep-stages-explained",
+    categoryId: "better-sleep",
+    categoryLabel: "BETTER SLEEP",
+    headline: "Sleep Stages Explained",
+    seoTitle: "Sleep Stages Explained",
+    title: "Sleep Stages Explained",
+    description:
+      "Learn what sleep stages are — light sleep, deep sleep, and REM — and why each phase matters for recovery and how you feel in the morning.",
+    readMinutes: 11,
+    date: "2026-06-04",
+    imageSrc: "/images/generated/essay-night-incense-ritual.webp",
+    imageAlt: "Calm bedroom with soft evening light and a restful atmosphere",
+    tags: ["sleep", "relaxation"],
+  },
+  {
+    slug: "why-is-sleep-important",
+    categoryId: "better-sleep",
+    categoryLabel: "BETTER SLEEP",
+    headline: "Why Is Sleep Important?",
+    seoTitle: "Why Is Sleep Important?",
+    title: "Why Is Sleep Important?",
+    description:
+      "Why sleep matters for physical recovery, brain function, immune health, and daily energy — and how healthy habits support better rest.",
+    readMinutes: 10,
+    date: "2026-06-04",
+    imageSrc: "/images/generated/essay-night-incense-ritual.webp",
+    imageAlt: "Calm bedroom with soft evening light and a restful atmosphere",
+    tags: ["sleep", "relaxation"],
+  },
+  {
     slug: "sleep-cycle-explained",
     categoryId: "better-sleep",
     categoryLabel: "BETTER SLEEP",

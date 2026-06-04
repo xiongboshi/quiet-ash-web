@@ -25,7 +25,7 @@ export function ShopProductCard({ item }: Props) {
     });
 
   return (
-    <article className="shop-product-card notranslate" translate="no">
+    <article className="shop-product-card">
       <div className="shop-product-card__media">
         <Link
           href={href}

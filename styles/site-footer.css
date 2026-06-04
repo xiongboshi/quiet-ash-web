@@ -222,6 +222,13 @@
   outline-offset: 2px;
 }
 
+/* iOS Safari auto-zooms focused inputs when font-size < 16px */
+@media (max-width: 767px) {
+  .site-footer__email-input {
+    font-size: 16px;
+  }
+}
+
 .site-footer__join-btn {
   flex-shrink: 0;
   min-width: 5.25rem;

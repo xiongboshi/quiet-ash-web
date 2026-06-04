@@ -19,6 +19,8 @@ import { journalPath } from "@/lib/site-paths";
 
 /** Primary Sleep Hub cluster — hub order and default related-reading pool. */
 export const BETTER_SLEEP_CORE_SLUGS = [
+  "sleep-stages-explained",
+  "why-is-sleep-important",
   "sleep-cycle-explained",
   "how-to-get-more-deep-sleep",
   "sleep-hygiene-guide",
@@ -135,6 +137,8 @@ const BETTER_SLEEP_TOPIC_CARD_OVERRIDES: Partial<
 const BETTER_SLEEP_POPULAR_SEARCH_LABELS: Partial<
   Record<BetterSleepArticleSlug, string>
 > = {
+  "sleep-stages-explained": "sleep stages explained",
+  "why-is-sleep-important": "why is sleep important",
   "sleep-cycle-explained": "sleep cycle explained",
   "how-to-get-more-deep-sleep": "how to get more deep sleep",
   "sleep-hygiene-guide": "sleep hygiene guide",

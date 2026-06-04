@@ -10,7 +10,11 @@ import {
   getJournalTopicHub,
   journalTopicHubSlugs,
 } from "@/lib/journal-topic-hubs";
+import { buildJournalFaqPageJsonLd } from "@/lib/journal-faq-json-ld";
 import { journalPath } from "@/lib/site-paths";
+
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -97,13 +101,19 @@ export default async function JournalSlugPage({ params }: Props) {
   const article = getJournalArticle(slug);
   if (!article) notFound();
 
+  const pageUrl = new URL(journalPath(slug), siteUrl).toString();
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: article.hero.title,
     description: article.seoDescription ?? article.hero.subtitle,
     author: { "@type": "Organization", name: "Quiet Ash" },
+    mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
   };
+  const faqJsonLd =
+    article.faq?.items.length ?
+      buildJournalFaqPageJsonLd(article.faq, pageUrl)
+    : null;
 
   return (
     <>
@@ -111,6 +121,12 @@ export default async function JournalSlugPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {faqJsonLd ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      ) : null}
       <JournalArticlePage article={article} />
     </>
   );
