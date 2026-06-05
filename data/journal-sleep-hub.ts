@@ -19,10 +19,12 @@ import { journalPath } from "@/lib/site-paths";
 
 /** Primary Sleep Hub cluster — hub order and default related-reading pool. */
 export const BETTER_SLEEP_CORE_SLUGS = [
-  "sleep-stages-explained",
+  "what-is-sleep",
   "why-is-sleep-important",
   "sleep-cycle-explained",
+  "sleep-stages-explained",
   "how-to-get-more-deep-sleep",
+  "how-to-sleep-well-naturally",
   "sleep-hygiene-guide",
   "how-to-improve-sleep-quality-naturally",
   "why-bad-sleep-happens",
@@ -96,6 +98,18 @@ const BETTER_SLEEP_TOPIC_CARD_OVERRIDES: Partial<
     Pick<TopicPageFeaturedArticle, "title" | "description" | "readMinutes">
   >
 > = {
+  "what-is-sleep": {
+    title: "What Is Sleep?",
+    description:
+      "What sleep is in simple terms — recovery, stages, and why the body needs rest each night.",
+    readMinutes: 9,
+  },
+  "how-to-sleep-well-naturally": {
+    title: "How to Sleep Well Naturally",
+    description:
+      "Steady schedules, calmer evenings, and a supportive bedroom — habits for better sleep without quick fixes.",
+    readMinutes: 10,
+  },
   "sleep-cycle-explained": {
     title: "Sleep Cycle Explained",
     description:
@@ -137,6 +151,8 @@ const BETTER_SLEEP_TOPIC_CARD_OVERRIDES: Partial<
 const BETTER_SLEEP_POPULAR_SEARCH_LABELS: Partial<
   Record<BetterSleepArticleSlug, string>
 > = {
+  "what-is-sleep": "what is sleep",
+  "how-to-sleep-well-naturally": "sleep well naturally",
   "sleep-stages-explained": "sleep stages explained",
   "why-is-sleep-important": "why is sleep important",
   "sleep-cycle-explained": "sleep cycle explained",

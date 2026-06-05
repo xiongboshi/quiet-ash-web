@@ -198,13 +198,23 @@ export const evergreenGuidePageContent: Record<EvergreenGuideSlug, EvergreenGuid
     faq: sleepFaq,
     relatedArticles: [
       {
-        slug: "sleep-stages-explained",
-        title: "Sleep Stages Explained",
+        slug: "what-is-sleep",
+        title: "What Is Sleep?",
         description: "",
       },
       {
         slug: "why-is-sleep-important",
         title: "Why Is Sleep Important?",
+        description: "",
+      },
+      {
+        slug: "how-to-sleep-well-naturally",
+        title: "How to Sleep Well Naturally",
+        description: "",
+      },
+      {
+        slug: "sleep-stages-explained",
+        title: "Sleep Stages Explained",
         description: "",
       },
       {

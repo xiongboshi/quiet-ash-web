@@ -68,7 +68,7 @@ export const journalArticleWhyIsSleepImportant: JournalArticleTemplate = {
       heading: "Why Sleep Matters",
       paragraphs: [
         "While many people focus on nutrition and exercise, sleep plays an equally important role in physical and mental well-being.",
-        "Consistently getting enough quality sleep helps the body recover, supports brain function, and contributes to overall quality of life.",
+        "Consistently getting enough quality sleep helps the body recover, supports brain function, and contributes to overall quality of life. If you want the foundations first, start with what is sleep.",
       ],
     },
     {
@@ -200,10 +200,10 @@ export const journalArticleWhyIsSleepImportant: JournalArticleTemplate = {
   related: {
     heading: "Related Reading",
     items: [
+      { slug: "what-is-sleep" },
       { slug: "sleep-cycle-explained" },
       { slug: "sleep-stages-explained" },
-      { slug: "how-to-get-more-deep-sleep" },
-      { slug: "sleep-hygiene-guide" },
+      { slug: "how-to-sleep-well-naturally" },
     ],
   },
   articleNote:

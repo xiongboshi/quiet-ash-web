@@ -21,6 +21,36 @@ export type JournalIndexArticleCard = {
 /** Hand-authored guide templates — topic-clustered for discovery hubs. */
 export const journalGuidesTipsHandCards: readonly JournalIndexArticleCard[] = [
   {
+    slug: "what-is-sleep",
+    categoryId: "better-sleep",
+    categoryLabel: "BETTER SLEEP",
+    headline: "What Is Sleep?",
+    seoTitle: "What Is Sleep?",
+    title: "What Is Sleep?",
+    description:
+      "What sleep is in simple terms — how the body and brain recover at night, sleep stages, and why rest matters for health.",
+    readMinutes: 9,
+    date: "2026-06-05",
+    imageSrc: "/images/generated/essay-night-incense-ritual.webp",
+    imageAlt: "Calm bedroom with soft evening light and a restful atmosphere",
+    tags: ["sleep", "relaxation"],
+  },
+  {
+    slug: "how-to-sleep-well-naturally",
+    categoryId: "better-sleep",
+    categoryLabel: "BETTER SLEEP",
+    headline: "How to Sleep Well Naturally",
+    seoTitle: "How to Sleep Well Naturally",
+    title: "How to Sleep Well Naturally",
+    description:
+      "Natural sleep habits — consistent schedules, calmer evenings, and a supportive bedroom — to improve sleep quality over time.",
+    readMinutes: 10,
+    date: "2026-06-05",
+    imageSrc: "/images/generated/essay-night-incense-ritual.webp",
+    imageAlt: "Calm bedroom with soft evening light and a restful atmosphere",
+    tags: ["sleep", "relaxation"],
+  },
+  {
     slug: "sleep-stages-explained",
     categoryId: "better-sleep",
     categoryLabel: "BETTER SLEEP",

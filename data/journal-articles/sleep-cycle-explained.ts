@@ -229,10 +229,10 @@ export const journalArticleSleepCycleExplained: JournalArticleTemplate = {
   related: {
     heading: "Related Reading",
     items: [
+      { slug: "what-is-sleep" },
       { slug: "sleep-stages-explained" },
       { slug: "why-is-sleep-important" },
-      { slug: "how-to-get-more-deep-sleep" },
-      { slug: "sleep-hygiene-guide" },
+      { slug: "how-to-sleep-well-naturally" },
     ],
   },
   articleNote:
