@@ -25,6 +25,8 @@ export const BETTER_SLEEP_CORE_SLUGS = [
   "sleep-stages-explained",
   "how-to-get-more-deep-sleep",
   "how-to-sleep-well-naturally",
+  "tips-for-better-sleep-quality",
+  "sleep-hygiene-tips",
   "sleep-hygiene-guide",
   "how-to-improve-sleep-quality-naturally",
   "why-bad-sleep-happens",
@@ -110,6 +112,18 @@ const BETTER_SLEEP_TOPIC_CARD_OVERRIDES: Partial<
       "Steady schedules, calmer evenings, and a supportive bedroom — habits for better sleep without quick fixes.",
     readMinutes: 10,
   },
+  "tips-for-better-sleep-quality": {
+    title: "Tips for Better Sleep Quality",
+    description:
+      "Practical habits — schedule, screens, stress, and bedroom comfort — for more restorative sleep over time.",
+    readMinutes: 10,
+  },
+  "sleep-hygiene-tips": {
+    title: "Sleep Hygiene Tips",
+    description:
+      "Consistent bedtimes, calmer evenings, and a supportive room — hygiene habits that support healthy rest.",
+    readMinutes: 10,
+  },
   "sleep-cycle-explained": {
     title: "Sleep Cycle Explained",
     description:
@@ -153,6 +167,8 @@ const BETTER_SLEEP_POPULAR_SEARCH_LABELS: Partial<
 > = {
   "what-is-sleep": "what is sleep",
   "how-to-sleep-well-naturally": "sleep well naturally",
+  "tips-for-better-sleep-quality": "tips for better sleep quality",
+  "sleep-hygiene-tips": "sleep hygiene tips",
   "sleep-stages-explained": "sleep stages explained",
   "why-is-sleep-important": "why is sleep important",
   "sleep-cycle-explained": "sleep cycle explained",

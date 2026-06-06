@@ -178,97 +178,16 @@
   color: var(--jp-text-muted);
 }
 
-/* Popular searches */
+/* Popular searches — pill row styles in journal-scroll-search-pills.css */
 .journal-topic-page__popular-searches {
   padding-top: 0;
   padding-bottom: 0.15rem;
 }
 
-.journal-topic-page__popular-searches-track {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.journal-topic-page__search-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.55rem 0.85rem;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--journal-pill-bg) 88%, #ffffff);
-  font-family: var(--jp-font-sans);
-  font-size: var(--jp-sans-small);
-  font-weight: 400;
-  line-height: 1.35;
-  color: var(--jp-text-ink);
-  text-decoration: none;
-  transition: background 0.2s ease;
-}
-
-.journal-topic-page__search-pill:hover {
-  background: #ffffff;
-}
-
-.journal-topic-page__search-pill svg {
-  flex-shrink: 0;
-  width: 14px !important;
-  height: 14px !important;
-  color: var(--jp-text-muted);
-}
-
-/* Desktop — column wrappers use display:contents so pills still wrap in the track */
-.journal-topic-page__popular-searches-col {
-  display: contents;
-}
-
-/* Tablet / mobile — 3-row columns, horizontal scroll (no grid overlap) */
 @media (max-width: 899px) {
   .journal-topic-page__popular-searches {
     margin-inline: calc(-1 * var(--qa-container-px, 16px));
     padding-inline: var(--qa-container-px, 16px);
-  }
-
-  .journal-topic-page__popular-searches-track {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: flex-start;
-    gap: 0.65rem;
-    margin: 0;
-    padding: 0 0 0.15rem;
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x proximity;
-    scroll-padding-inline: var(--qa-container-px, 16px);
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-
-  .journal-topic-page__popular-searches-track::-webkit-scrollbar {
-    display: none;
-  }
-
-  .journal-topic-page__popular-searches-col {
-    display: flex;
-    flex: 0 0 auto;
-    flex-direction: column;
-    gap: 0.5rem;
-    min-width: 0;
-    scroll-snap-align: start;
-  }
-
-  .journal-topic-page__search-pill {
-    box-sizing: border-box;
-    width: max-content;
-    max-width: min(18rem, 78vw);
-  }
-
-  .journal-topic-page__search-pill span {
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
   }
 }
 

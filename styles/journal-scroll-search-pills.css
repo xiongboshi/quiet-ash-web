@@ -1,0 +1,158 @@
+/**
+ * Shared scrollable search pill rows — topic hub popular searches + journal discovery.
+ */
+
+.journal-scroll-pills__wrap {
+  position: relative;
+}
+
+.journal-scroll-pills__nav {
+  display: none;
+}
+
+.journal-scroll-pills__track {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.journal-scroll-pills__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--journal-pill-bg, #f5f2ed) 88%, #ffffff);
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--journal-ink, #1a1816);
+  text-decoration: none;
+  transition: background 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.journal-scroll-pills__pill:hover {
+  background: #ffffff;
+}
+
+.journal-scroll-pills__pill svg {
+  flex-shrink: 0;
+  width: 14px !important;
+  height: 14px !important;
+  color: var(--journal-muted, #6f6a63);
+}
+
+/* Desktop — column wrappers use display:contents so pills still wrap in the track */
+.journal-scroll-pills__col {
+  display: contents;
+}
+
+/* Tablet / mobile — 3-row columns, horizontal scroll */
+@media (max-width: 899px) {
+  .journal-scroll-pills--bleed {
+    margin-inline: calc(-1 * var(--qa-container-px, 16px));
+    padding-inline: var(--qa-container-px, 16px);
+  }
+
+  .journal-scroll-pills__nav {
+    display: inline-flex;
+    position: absolute;
+    top: 50%;
+    z-index: 3;
+    align-items: center;
+    justify-content: center;
+    width: 2.125rem;
+    height: 2.125rem;
+    padding: 0;
+    border: 1px solid color-mix(in srgb, #0d0d0d 4%, transparent);
+    border-radius: 50%;
+    background: color-mix(in srgb, #0d0d0d 2.5%, transparent);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    color: color-mix(in srgb, var(--journal-ink, #1a1816) 42%, transparent);
+    box-shadow: 0 1px 4px color-mix(in srgb, #0d0d0d 2%, transparent);
+    cursor: pointer;
+    transform: translateY(-50%);
+    pointer-events: auto;
+    transition:
+      opacity 0.24s ease,
+      border-color 0.24s ease,
+      background 0.24s ease,
+      color 0.24s ease,
+      box-shadow 0.24s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .journal-scroll-pills__nav--prev {
+    left: 0.35rem;
+  }
+
+  .journal-scroll-pills__nav--next {
+    right: 0.35rem;
+  }
+
+  .journal-scroll-pills__nav:hover:not(:disabled) {
+    border-color: color-mix(in srgb, #0d0d0d 6%, transparent);
+    background: color-mix(in srgb, #0d0d0d 4%, transparent);
+    color: color-mix(in srgb, var(--journal-ink, #1a1816) 62%, transparent);
+    box-shadow: 0 1px 6px color-mix(in srgb, #0d0d0d 3%, transparent);
+  }
+
+  .journal-scroll-pills__nav:focus {
+    outline: none;
+  }
+
+  .journal-scroll-pills__nav:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--journal-ink, #1a1816) 28%, transparent);
+    outline-offset: 2px;
+  }
+
+  .journal-scroll-pills__nav:disabled {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .journal-scroll-pills__track {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 0.65rem;
+    margin: 0;
+    padding: 0 0 0.15rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: var(--qa-container-px, 16px);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .journal-scroll-pills__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .journal-scroll-pills__col {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 0;
+    scroll-snap-align: start;
+  }
+
+  .journal-scroll-pills__pill {
+    box-sizing: border-box;
+    width: max-content;
+    max-width: min(18rem, 78vw);
+  }
+
+  .journal-scroll-pills__pill span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

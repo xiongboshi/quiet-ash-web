@@ -1,7 +1,7 @@
 import { QaImage as Image } from "@/components/ui/qa-image";
 import Link from "next/link";
-import { Search } from "lucide-react";
 import { JournalDiscoveryFaqColumn } from "@/components/journal/journal-discovery-faq-column";
+import { JournalScrollSearchPills } from "@/components/journal/journal-scroll-search-pills";
 import { JournalDiscoveryTopicIcon } from "@/components/journal/journal-discovery-topic-icon";
 import { JournalIndexLatestCard } from "@/components/journal/journal-index-latest-card";
 import {
@@ -53,16 +53,12 @@ export function JournalIndexDiscovery({ hubCounts }: Props) {
         <h2 id="journal-common-searches" className="journal-discovery__eyebrow">
           Explore common searches
         </h2>
-        <div className="journal-discovery__search-row">
-          {journalDiscoverySearchIntents.map((item) => (
-            <Link key={item.label} href={item.href} className="journal-discovery__search-pill">
-              <span className="journal-discovery__search-pill-icon" aria-hidden>
-                <Search size={14} strokeWidth={1.5} />
-              </span>
-              <span className="journal-discovery__search-pill-label">{item.label}</span>
-            </Link>
-          ))}
-        </div>
+        <JournalScrollSearchPills
+          pills={journalDiscoverySearchIntents}
+          bleed
+          scrollLeftLabel="Scroll common searches left"
+          scrollRightLabel="Scroll common searches right"
+        />
       </section>
 
       {/* 3. Browse topic hubs */}

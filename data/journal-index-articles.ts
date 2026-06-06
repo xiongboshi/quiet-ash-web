@@ -21,6 +21,36 @@ export type JournalIndexArticleCard = {
 /** Hand-authored guide templates — topic-clustered for discovery hubs. */
 export const journalGuidesTipsHandCards: readonly JournalIndexArticleCard[] = [
   {
+    slug: "tips-for-better-sleep-quality",
+    categoryId: "better-sleep",
+    categoryLabel: "BETTER SLEEP",
+    headline: "Tips for Better Sleep Quality",
+    seoTitle: "Tips for Better Sleep Quality",
+    title: "Tips for Better Sleep Quality",
+    description:
+      "Practical tips for better sleep quality — consistent schedules, calmer evenings, bedroom comfort, and habits that support restorative rest.",
+    readMinutes: 10,
+    date: "2026-06-06",
+    imageSrc: "/images/generated/essay-night-incense-ritual.webp",
+    imageAlt: "Calm bedroom with soft evening light and a restful atmosphere",
+    tags: ["sleep", "relaxation"],
+  },
+  {
+    slug: "sleep-hygiene-tips",
+    categoryId: "better-sleep",
+    categoryLabel: "BETTER SLEEP",
+    headline: "Sleep Hygiene Tips",
+    seoTitle: "Sleep Hygiene Tips",
+    title: "Sleep Hygiene Tips",
+    description:
+      "Sleep hygiene tips for healthier rest — consistent bedtimes, calmer evenings, bedroom comfort, and habits that support sleep quality.",
+    readMinutes: 10,
+    date: "2026-06-06",
+    imageSrc: "/images/generated/essay-night-incense-ritual.webp",
+    imageAlt: "Calm bedroom with soft evening light and a restful atmosphere",
+    tags: ["sleep", "relaxation"],
+  },
+  {
     slug: "what-is-sleep",
     categoryId: "better-sleep",
     categoryLabel: "BETTER SLEEP",

@@ -189,10 +189,10 @@ export const journalArticleHowToSleepWellNaturally: JournalArticleTemplate = {
   related: {
     heading: "Related Reading",
     items: [
-      { slug: "what-is-sleep" },
-      { slug: "why-is-sleep-important" },
+      { slug: "tips-for-better-sleep-quality" },
+      { slug: "sleep-hygiene-tips" },
       { slug: "sleep-cycle-explained" },
-      { slug: "sleep-hygiene-guide" },
+      { slug: "how-to-get-more-deep-sleep" },
     ],
   },
   articleNote:

@@ -18,6 +18,8 @@ import { journalArticleWhyBadSleepHappens } from "@/data/journal-articles/why-ba
 import { journalArticleGreenNoiseForSleep } from "@/data/journal-articles/green-noise-for-sleep";
 import { journalArticleHowToFixBadSleep } from "@/data/journal-articles/how-to-fix-bad-sleep";
 import { journalArticleSleepMeditation } from "@/data/journal-articles/sleep-meditation";
+import { journalArticleTipsForBetterSleepQuality } from "@/data/journal-articles/tips-for-better-sleep-quality";
+import { journalArticleSleepHygieneTips } from "@/data/journal-articles/sleep-hygiene-tips";
 import { journalArticleWhatIsSleep } from "@/data/journal-articles/what-is-sleep";
 import { journalArticleHowToSleepWellNaturally } from "@/data/journal-articles/how-to-sleep-well-naturally";
 import { journalArticleSleepStagesExplained } from "@/data/journal-articles/sleep-stages-explained";
@@ -51,6 +53,9 @@ const journalHandArticleOverrides: Record<string, JournalArticleTemplate> = {
   [journalArticleGreenNoiseForSleep.slug]: journalArticleGreenNoiseForSleep,
   [journalArticleHowToFixBadSleep.slug]: journalArticleHowToFixBadSleep,
   [journalArticleSleepMeditation.slug]: journalArticleSleepMeditation,
+  [journalArticleTipsForBetterSleepQuality.slug]:
+    journalArticleTipsForBetterSleepQuality,
+  [journalArticleSleepHygieneTips.slug]: journalArticleSleepHygieneTips,
   [journalArticleWhatIsSleep.slug]: journalArticleWhatIsSleep,
   [journalArticleHowToSleepWellNaturally.slug]: journalArticleHowToSleepWellNaturally,
   [journalArticleSleepStagesExplained.slug]: journalArticleSleepStagesExplained,
