@@ -868,6 +868,11 @@
     gap: 1.25rem;
   }
 
+  .journal-article-products .shop-category-listing__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
   .journal-article-products__body {
     padding: 1.0625rem 1.25rem 1.25rem;
   }

@@ -127,7 +127,7 @@
   display: block;
   margin: 0;
   font-family: var(--font-serif), "Cormorant Garamond", ui-serif, serif;
-  font-size: clamp(2.25rem, 1.7rem + 1vw, 2.75rem);
+  font-size: clamp(1.5rem, calc(0.95rem + 1vw), 2rem);
   font-weight: 700;
   line-height: 1;
   letter-spacing: 0.08em;
