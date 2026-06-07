@@ -23,6 +23,8 @@ export const BETTER_SLEEP_CORE_SLUGS = [
   "why-is-sleep-important",
   "sleep-cycle-explained",
   "sleep-stages-explained",
+  "what-is-rem-sleep",
+  "deep-sleep-vs-rem-sleep",
   "how-to-get-more-deep-sleep",
   "how-to-sleep-well-naturally",
   "tips-for-better-sleep-quality",
@@ -130,6 +132,18 @@ const BETTER_SLEEP_TOPIC_CARD_OVERRIDES: Partial<
       "How light sleep, deep sleep, and REM fit together — and why some mornings feel clearer than others.",
     readMinutes: 12,
   },
+  "what-is-rem-sleep": {
+    title: "What Is REM Sleep?",
+    description:
+      "Dreams, memory, and emotional processing — the active brain stage that closes each sleep cycle.",
+    readMinutes: 10,
+  },
+  "deep-sleep-vs-rem-sleep": {
+    title: "Deep Sleep vs REM Sleep",
+    description:
+      "Physical recovery and cognitive restoration — two stages, different jobs, one balanced night.",
+    readMinutes: 11,
+  },
   "how-to-get-more-deep-sleep": {
     title: "How to Get More Deep Sleep",
     description:
@@ -172,6 +186,8 @@ const BETTER_SLEEP_POPULAR_SEARCH_LABELS: Partial<
   "sleep-stages-explained": "sleep stages explained",
   "why-is-sleep-important": "why is sleep important",
   "sleep-cycle-explained": "sleep cycle explained",
+  "what-is-rem-sleep": "what is rem sleep",
+  "deep-sleep-vs-rem-sleep": "deep sleep vs rem sleep",
   "how-to-get-more-deep-sleep": "how to get more deep sleep",
   "sleep-hygiene-guide": "sleep hygiene guide",
   "how-to-improve-sleep-quality-naturally": "improve sleep quality naturally",

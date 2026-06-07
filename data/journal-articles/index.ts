@@ -26,6 +26,8 @@ import { journalArticleSleepStagesExplained } from "@/data/journal-articles/slee
 import { journalArticleWhyIsSleepImportant } from "@/data/journal-articles/why-is-sleep-important";
 import { journalArticleSleepCycleExplained } from "@/data/journal-articles/sleep-cycle-explained";
 import { journalArticleHowToGetMoreDeepSleep } from "@/data/journal-articles/how-to-get-more-deep-sleep";
+import { journalArticleWhatIsRemSleep } from "@/data/journal-articles/what-is-rem-sleep";
+import { journalArticleDeepSleepVsRemSleep } from "@/data/journal-articles/deep-sleep-vs-rem-sleep";
 
 /** Full PDP overrides for hand-authored guide templates. */
 const journalHandArticleOverrides: Record<string, JournalArticleTemplate> = {
@@ -62,6 +64,8 @@ const journalHandArticleOverrides: Record<string, JournalArticleTemplate> = {
   [journalArticleWhyIsSleepImportant.slug]: journalArticleWhyIsSleepImportant,
   [journalArticleSleepCycleExplained.slug]: journalArticleSleepCycleExplained,
   [journalArticleHowToGetMoreDeepSleep.slug]: journalArticleHowToGetMoreDeepSleep,
+  [journalArticleWhatIsRemSleep.slug]: journalArticleWhatIsRemSleep,
+  [journalArticleDeepSleepVsRemSleep.slug]: journalArticleDeepSleepVsRemSleep,
 };
 
 /** Index-listed articles — auto-filled from card + `content/essays` MDX when available. */

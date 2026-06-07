@@ -77,6 +77,8 @@ export const journalDiscoverySearchIntents = [
   { label: "sleep stages explained", href: journalPath("sleep-stages-explained") },
   { label: "why is sleep important", href: journalPath("why-is-sleep-important") },
   { label: "sleep cycle explained", href: journalPath("sleep-cycle-explained") },
+  { label: "what is rem sleep", href: journalPath("what-is-rem-sleep") },
+  { label: "deep sleep vs rem sleep", href: journalPath("deep-sleep-vs-rem-sleep") },
   { label: "how to get more deep sleep", href: journalPath("how-to-get-more-deep-sleep") },
   { label: "why bad sleep happens", href: journalPath("why-bad-sleep-happens") },
   { label: "green noise for sleep", href: journalPath("green-noise-for-sleep") },

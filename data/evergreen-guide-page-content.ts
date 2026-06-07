@@ -218,6 +218,16 @@ export const evergreenGuidePageContent: Record<EvergreenGuideSlug, EvergreenGuid
         description: "",
       },
       {
+        slug: "what-is-rem-sleep",
+        title: "What Is REM Sleep?",
+        description: "",
+      },
+      {
+        slug: "deep-sleep-vs-rem-sleep",
+        title: "Deep Sleep vs REM Sleep",
+        description: "",
+      },
+      {
         slug: "sleep-cycle-explained",
         title: "Sleep Cycle Explained",
         description: "",

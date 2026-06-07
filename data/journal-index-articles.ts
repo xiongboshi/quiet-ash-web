@@ -21,6 +21,36 @@ export type JournalIndexArticleCard = {
 /** Hand-authored guide templates — topic-clustered for discovery hubs. */
 export const journalGuidesTipsHandCards: readonly JournalIndexArticleCard[] = [
   {
+    slug: "what-is-rem-sleep",
+    categoryId: "better-sleep",
+    categoryLabel: "BETTER SLEEP",
+    headline: "What Is REM Sleep?",
+    seoTitle: "What Is REM Sleep?",
+    title: "What Is REM Sleep?",
+    description:
+      "What REM sleep is, why it matters for memory and dreams, and how it fits into healthy sleep cycles alongside deep sleep.",
+    readMinutes: 10,
+    date: "2026-06-07",
+    imageSrc: "/images/generated/essay-night-incense-ritual.webp",
+    imageAlt: "Calm bedroom with soft evening light and a restful atmosphere",
+    tags: ["sleep", "relaxation"],
+  },
+  {
+    slug: "deep-sleep-vs-rem-sleep",
+    categoryId: "better-sleep",
+    categoryLabel: "BETTER SLEEP",
+    headline: "Deep Sleep vs REM Sleep",
+    seoTitle: "Deep Sleep vs REM Sleep",
+    title: "Deep Sleep vs REM Sleep",
+    description:
+      "How deep sleep and REM sleep differ — physical recovery vs memory and dreams — and why both matter in a healthy sleep cycle.",
+    readMinutes: 11,
+    date: "2026-06-07",
+    imageSrc: "/images/generated/essay-night-incense-ritual.webp",
+    imageAlt: "Calm bedroom with soft evening light and a restful atmosphere",
+    tags: ["sleep", "relaxation"],
+  },
+  {
     slug: "tips-for-better-sleep-quality",
     categoryId: "better-sleep",
     categoryLabel: "BETTER SLEEP",
