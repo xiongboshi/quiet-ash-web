@@ -28,6 +28,8 @@ import { journalArticleSleepCycleExplained } from "@/data/journal-articles/sleep
 import { journalArticleHowToGetMoreDeepSleep } from "@/data/journal-articles/how-to-get-more-deep-sleep";
 import { journalArticleWhatIsRemSleep } from "@/data/journal-articles/what-is-rem-sleep";
 import { journalArticleDeepSleepVsRemSleep } from "@/data/journal-articles/deep-sleep-vs-rem-sleep";
+import { journalArticleWhatCausesSleepDeprivation } from "@/data/journal-articles/what-causes-sleep-deprivation";
+import { journalArticleEffectsOfSleepDeprivation } from "@/data/journal-articles/effects-of-sleep-deprivation";
 
 /** Full PDP overrides for hand-authored guide templates. */
 const journalHandArticleOverrides: Record<string, JournalArticleTemplate> = {
@@ -66,6 +68,10 @@ const journalHandArticleOverrides: Record<string, JournalArticleTemplate> = {
   [journalArticleHowToGetMoreDeepSleep.slug]: journalArticleHowToGetMoreDeepSleep,
   [journalArticleWhatIsRemSleep.slug]: journalArticleWhatIsRemSleep,
   [journalArticleDeepSleepVsRemSleep.slug]: journalArticleDeepSleepVsRemSleep,
+  [journalArticleWhatCausesSleepDeprivation.slug]:
+    journalArticleWhatCausesSleepDeprivation,
+  [journalArticleEffectsOfSleepDeprivation.slug]:
+    journalArticleEffectsOfSleepDeprivation,
 };
 
 /** Index-listed articles — auto-filled from card + `content/essays` MDX when available. */

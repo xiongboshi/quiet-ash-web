@@ -21,6 +21,36 @@ export type JournalIndexArticleCard = {
 /** Hand-authored guide templates — topic-clustered for discovery hubs. */
 export const journalGuidesTipsHandCards: readonly JournalIndexArticleCard[] = [
   {
+    slug: "what-causes-sleep-deprivation",
+    categoryId: "better-sleep",
+    categoryLabel: "BETTER SLEEP",
+    headline: "What Causes Sleep Deprivation?",
+    seoTitle: "What Causes Sleep Deprivation?",
+    title: "What Causes Sleep Deprivation?",
+    description:
+      "Common causes of sleep deprivation — stress, screens, irregular schedules, and poor habits — and practical steps toward better rest.",
+    readMinutes: 10,
+    date: "2026-06-08",
+    imageSrc: "/images/generated/essay-night-incense-ritual.webp",
+    imageAlt: "Calm bedroom with soft evening light and a restful atmosphere",
+    tags: ["sleep", "relaxation"],
+  },
+  {
+    slug: "effects-of-sleep-deprivation",
+    categoryId: "better-sleep",
+    categoryLabel: "BETTER SLEEP",
+    headline: "Effects of Sleep Deprivation",
+    seoTitle: "Effects of Sleep Deprivation",
+    title: "Effects of Sleep Deprivation",
+    description:
+      "How sleep deprivation affects the brain, mood, energy, and daily productivity — and habits that may help prevent ongoing sleep loss.",
+    readMinutes: 11,
+    date: "2026-06-08",
+    imageSrc: "/images/generated/essay-night-incense-ritual.webp",
+    imageAlt: "Calm bedroom with soft evening light and a restful atmosphere",
+    tags: ["sleep", "relaxation"],
+  },
+  {
     slug: "what-is-rem-sleep",
     categoryId: "better-sleep",
     categoryLabel: "BETTER SLEEP",

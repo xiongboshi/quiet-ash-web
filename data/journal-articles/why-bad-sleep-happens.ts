@@ -1,5 +1,4 @@
 import type { JournalArticleTemplate } from "@/types/journal-article";
-import { betterSleepRelatedBlock } from "@/data/journal-sleep-hub";
 import { JOURNAL_INDEX, journalPath } from "@/lib/site-paths";
 
 const CATEGORY_HREF = `${JOURNAL_INDEX}/better-sleep`;
@@ -251,7 +250,15 @@ export const journalArticleWhyBadSleepHappens: JournalArticleTemplate = {
       { slug: "small-agarwood-box" },
     ],
   },
-  related: betterSleepRelatedBlock("why-bad-sleep-happens"),
+  related: {
+    heading: "Related Reading",
+    items: [
+      { slug: "how-to-fix-bad-sleep" },
+      { slug: "what-causes-sleep-deprivation" },
+      { slug: "effects-of-sleep-deprivation" },
+      { slug: "tips-for-better-sleep-quality" },
+    ],
+  },
   articleNote:
     "This article is for general lifestyle and bedroom atmosphere information — not medical advice. Talk with a qualified professional if sleep problems persist.",
 };

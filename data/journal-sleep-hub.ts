@@ -34,6 +34,8 @@ export const BETTER_SLEEP_CORE_SLUGS = [
   "why-bad-sleep-happens",
   "green-noise-for-sleep",
   "how-to-fix-bad-sleep",
+  "what-causes-sleep-deprivation",
+  "effects-of-sleep-deprivation",
   "sleep-meditation",
   "best-incense-for-sleep",
 ] as const;
@@ -168,6 +170,18 @@ const BETTER_SLEEP_TOPIC_CARD_OVERRIDES: Partial<
       "Practical lifestyle steps to fix bad sleep through calmer evenings, bedroom atmosphere, and steady routines.",
     readMinutes: 9,
   },
+  "what-causes-sleep-deprivation": {
+    title: "What Causes Sleep Deprivation?",
+    description:
+      "Stress, screens, irregular rhythms — understanding what drains sleep is the first step toward better nights.",
+    readMinutes: 10,
+  },
+  "effects-of-sleep-deprivation": {
+    title: "Effects of Sleep Deprivation",
+    description:
+      "Fatigue, focus, mood, and recovery — what happens when sleep falls short night after night.",
+    readMinutes: 11,
+  },
   "sleep-meditation": {
     title: "Sleep Meditation",
     description:
@@ -194,6 +208,8 @@ const BETTER_SLEEP_POPULAR_SEARCH_LABELS: Partial<
   "why-bad-sleep-happens": "why bad sleep happens",
   "green-noise-for-sleep": "green noise for sleep",
   "how-to-fix-bad-sleep": "how to fix bad sleep",
+  "what-causes-sleep-deprivation": "what causes sleep deprivation",
+  "effects-of-sleep-deprivation": "effects of sleep deprivation",
   "sleep-meditation": "sleep meditation",
   "best-incense-for-sleep": "best incense for sleep",
   "bedroom-scents-for-better-sleep": "bedroom scents for sleep",

@@ -246,6 +246,16 @@ export const evergreenGuidePageContent: Record<EvergreenGuideSlug, EvergreenGuid
       { slug: "why-bad-sleep-happens", title: "Why Bad Sleep Happens", description: "" },
       { slug: "green-noise-for-sleep", title: "Green Noise for Sleep", description: "" },
       { slug: "how-to-fix-bad-sleep", title: "How to Fix Bad Sleep", description: "" },
+      {
+        slug: "what-causes-sleep-deprivation",
+        title: "What Causes Sleep Deprivation?",
+        description: "",
+      },
+      {
+        slug: "effects-of-sleep-deprivation",
+        title: "Effects of Sleep Deprivation",
+        description: "",
+      },
       { slug: "sleep-meditation", title: "Sleep Meditation", description: "" },
       { slug: "best-incense-for-sleep", title: "Best Incense for Sleep", description: "" },
     ],
