@@ -21,6 +21,36 @@ export type JournalIndexArticleCard = {
 /** Hand-authored guide templates — topic-clustered for discovery hubs. */
 export const journalGuidesTipsHandCards: readonly JournalIndexArticleCard[] = [
   {
+    slug: "understanding-sleep-patterns",
+    categoryId: "better-sleep",
+    categoryLabel: "BETTER SLEEP",
+    headline: "Understanding Sleep Patterns",
+    seoTitle: "Understanding Sleep Patterns",
+    title: "Understanding Sleep Patterns",
+    description:
+      "What sleep patterns are, why consistency matters, and how timing, duration, and quality shape restful nights over time.",
+    readMinutes: 10,
+    date: "2026-06-09",
+    imageSrc: "/images/generated/essay-night-incense-ritual.webp",
+    imageAlt: "Calm bedroom with soft evening light and a restful atmosphere",
+    tags: ["sleep", "relaxation"],
+  },
+  {
+    slug: "why-sleep-patterns-change",
+    categoryId: "better-sleep",
+    categoryLabel: "BETTER SLEEP",
+    headline: "Why Sleep Patterns Change",
+    seoTitle: "Why Sleep Patterns Change",
+    title: "Why Sleep Patterns Change",
+    description:
+      "Why sleep patterns shift with stress, age, screens, travel, and daily habits — and how to support more consistent rest.",
+    readMinutes: 11,
+    date: "2026-06-09",
+    imageSrc: "/images/generated/essay-night-incense-ritual.webp",
+    imageAlt: "Calm bedroom with soft evening light and a restful atmosphere",
+    tags: ["sleep", "relaxation"],
+  },
+  {
     slug: "what-causes-sleep-deprivation",
     categoryId: "better-sleep",
     categoryLabel: "BETTER SLEEP",

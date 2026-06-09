@@ -209,8 +209,8 @@ export const journalArticleDeepSleepVsRemSleep: JournalArticleTemplate = {
     heading: "Related Reading",
     items: [
       { slug: "what-is-rem-sleep" },
-      { slug: "how-to-get-more-deep-sleep" },
       { slug: "sleep-stages-explained" },
+      { slug: "understanding-sleep-patterns" },
       { slug: "sleep-cycle-explained" },
     ],
   },

@@ -23,6 +23,8 @@ export const BETTER_SLEEP_CORE_SLUGS = [
   "why-is-sleep-important",
   "sleep-cycle-explained",
   "sleep-stages-explained",
+  "understanding-sleep-patterns",
+  "why-sleep-patterns-change",
   "what-is-rem-sleep",
   "deep-sleep-vs-rem-sleep",
   "how-to-get-more-deep-sleep",
@@ -134,6 +136,18 @@ const BETTER_SLEEP_TOPIC_CARD_OVERRIDES: Partial<
       "How light sleep, deep sleep, and REM fit together — and why some mornings feel clearer than others.",
     readMinutes: 12,
   },
+  "understanding-sleep-patterns": {
+    title: "Understanding Sleep Patterns",
+    description:
+      "Timing, duration, and consistency — the rhythm behind nights that feel restful versus restless.",
+    readMinutes: 10,
+  },
+  "why-sleep-patterns-change": {
+    title: "Why Sleep Patterns Change",
+    description:
+      "Stress, age, screens, and travel — why nights rarely stay the same, and what steadier habits can do.",
+    readMinutes: 11,
+  },
   "what-is-rem-sleep": {
     title: "What Is REM Sleep?",
     description:
@@ -200,6 +214,8 @@ const BETTER_SLEEP_POPULAR_SEARCH_LABELS: Partial<
   "sleep-stages-explained": "sleep stages explained",
   "why-is-sleep-important": "why is sleep important",
   "sleep-cycle-explained": "sleep cycle explained",
+  "understanding-sleep-patterns": "understanding sleep patterns",
+  "why-sleep-patterns-change": "why sleep patterns change",
   "what-is-rem-sleep": "what is rem sleep",
   "deep-sleep-vs-rem-sleep": "deep sleep vs rem sleep",
   "how-to-get-more-deep-sleep": "how to get more deep sleep",

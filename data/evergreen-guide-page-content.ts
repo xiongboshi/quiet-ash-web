@@ -218,6 +218,16 @@ export const evergreenGuidePageContent: Record<EvergreenGuideSlug, EvergreenGuid
         description: "",
       },
       {
+        slug: "understanding-sleep-patterns",
+        title: "Understanding Sleep Patterns",
+        description: "",
+      },
+      {
+        slug: "why-sleep-patterns-change",
+        title: "Why Sleep Patterns Change",
+        description: "",
+      },
+      {
         slug: "what-is-rem-sleep",
         title: "What Is REM Sleep?",
         description: "",

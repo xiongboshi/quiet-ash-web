@@ -196,10 +196,10 @@ export const journalArticleWhatIsSleep: JournalArticleTemplate = {
   related: {
     heading: "Related Reading",
     items: [
-      { slug: "why-is-sleep-important" },
-      { slug: "sleep-stages-explained" },
       { slug: "sleep-cycle-explained" },
-      { slug: "how-to-get-more-deep-sleep" },
+      { slug: "sleep-stages-explained" },
+      { slug: "understanding-sleep-patterns" },
+      { slug: "why-sleep-patterns-change" },
     ],
   },
   articleNote:
