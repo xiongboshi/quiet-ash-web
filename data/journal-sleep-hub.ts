@@ -28,6 +28,8 @@ export const BETTER_SLEEP_CORE_SLUGS = [
   "what-is-rem-sleep",
   "deep-sleep-vs-rem-sleep",
   "how-to-get-more-deep-sleep",
+  "why-do-we-need-deep-sleep",
+  "signs-you-are-not-getting-enough-deep-sleep",
   "how-to-sleep-well-naturally",
   "tips-for-better-sleep-quality",
   "sleep-hygiene-tips",
@@ -166,6 +168,18 @@ const BETTER_SLEEP_TOPIC_CARD_OVERRIDES: Partial<
       "What deep sleep does for recovery and practical habits that may support deeper rest at night.",
     readMinutes: 11,
   },
+  "why-do-we-need-deep-sleep": {
+    title: "Why Do We Need Deep Sleep?",
+    description:
+      "Physical recovery, energy restoration, and nightly maintenance — the restorative stage your body depends on.",
+    readMinutes: 10,
+  },
+  "signs-you-are-not-getting-enough-deep-sleep": {
+    title: "Signs You Are Not Getting Enough Deep Sleep",
+    description:
+      "Tired mornings, low focus, and low energy — when hours in bed do not feel like enough rest.",
+    readMinutes: 11,
+  },
   "why-bad-sleep-happens": {
     title: "Why Bad Sleep Happens",
     description:
@@ -219,6 +233,9 @@ const BETTER_SLEEP_POPULAR_SEARCH_LABELS: Partial<
   "what-is-rem-sleep": "what is rem sleep",
   "deep-sleep-vs-rem-sleep": "deep sleep vs rem sleep",
   "how-to-get-more-deep-sleep": "how to get more deep sleep",
+  "why-do-we-need-deep-sleep": "why do we need deep sleep",
+  "signs-you-are-not-getting-enough-deep-sleep":
+    "signs of not getting enough deep sleep",
   "sleep-hygiene-guide": "sleep hygiene guide",
   "how-to-improve-sleep-quality-naturally": "improve sleep quality naturally",
   "why-bad-sleep-happens": "why bad sleep happens",

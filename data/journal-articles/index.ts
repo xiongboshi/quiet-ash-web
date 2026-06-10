@@ -32,6 +32,8 @@ import { journalArticleWhatCausesSleepDeprivation } from "@/data/journal-article
 import { journalArticleEffectsOfSleepDeprivation } from "@/data/journal-articles/effects-of-sleep-deprivation";
 import { journalArticleUnderstandingSleepPatterns } from "@/data/journal-articles/understanding-sleep-patterns";
 import { journalArticleWhySleepPatternsChange } from "@/data/journal-articles/why-sleep-patterns-change";
+import { journalArticleWhyDoWeNeedDeepSleep } from "@/data/journal-articles/why-do-we-need-deep-sleep";
+import { journalArticleSignsYouAreNotGettingEnoughDeepSleep } from "@/data/journal-articles/signs-you-are-not-getting-enough-deep-sleep";
 
 /** Full PDP overrides for hand-authored guide templates. */
 const journalHandArticleOverrides: Record<string, JournalArticleTemplate> = {
@@ -78,6 +80,9 @@ const journalHandArticleOverrides: Record<string, JournalArticleTemplate> = {
     journalArticleUnderstandingSleepPatterns,
   [journalArticleWhySleepPatternsChange.slug]:
     journalArticleWhySleepPatternsChange,
+  [journalArticleWhyDoWeNeedDeepSleep.slug]: journalArticleWhyDoWeNeedDeepSleep,
+  [journalArticleSignsYouAreNotGettingEnoughDeepSleep.slug]:
+    journalArticleSignsYouAreNotGettingEnoughDeepSleep,
 };
 
 /** Index-listed articles — auto-filled from card + `content/essays` MDX when available. */

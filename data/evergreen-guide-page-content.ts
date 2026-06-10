@@ -247,6 +247,16 @@ export const evergreenGuidePageContent: Record<EvergreenGuideSlug, EvergreenGuid
         title: "How to Get More Deep Sleep",
         description: "",
       },
+      {
+        slug: "why-do-we-need-deep-sleep",
+        title: "Why Do We Need Deep Sleep?",
+        description: "",
+      },
+      {
+        slug: "signs-you-are-not-getting-enough-deep-sleep",
+        title: "Signs You Are Not Getting Enough Deep Sleep",
+        description: "",
+      },
       { slug: "sleep-hygiene-guide", title: "Sleep Hygiene Guide", description: "" },
       {
         slug: "how-to-improve-sleep-quality-naturally",

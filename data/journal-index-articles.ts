@@ -21,6 +21,36 @@ export type JournalIndexArticleCard = {
 /** Hand-authored guide templates — topic-clustered for discovery hubs. */
 export const journalGuidesTipsHandCards: readonly JournalIndexArticleCard[] = [
   {
+    slug: "why-do-we-need-deep-sleep",
+    categoryId: "better-sleep",
+    categoryLabel: "BETTER SLEEP",
+    headline: "Why Do We Need Deep Sleep?",
+    seoTitle: "Why Do We Need Deep Sleep?",
+    title: "Why Do We Need Deep Sleep?",
+    description:
+      "Why deep sleep matters for physical recovery, energy restoration, and overall health — and how it fits alongside REM sleep.",
+    readMinutes: 10,
+    date: "2026-06-10",
+    imageSrc: "/images/generated/essay-night-incense-ritual.webp",
+    imageAlt: "Calm bedroom with soft evening light and a restful atmosphere",
+    tags: ["sleep", "relaxation"],
+  },
+  {
+    slug: "signs-you-are-not-getting-enough-deep-sleep",
+    categoryId: "better-sleep",
+    categoryLabel: "BETTER SLEEP",
+    headline: "Signs You Are Not Getting Enough Deep Sleep",
+    seoTitle: "Signs You Are Not Getting Enough Deep Sleep",
+    title: "Signs You Are Not Getting Enough Deep Sleep",
+    description:
+      "Common signs of insufficient deep sleep — fatigue, low focus, and unrefreshed mornings — and habits that may support better recovery at night.",
+    readMinutes: 11,
+    date: "2026-06-10",
+    imageSrc: "/images/generated/essay-night-incense-ritual.webp",
+    imageAlt: "Calm bedroom with soft evening light and a restful atmosphere",
+    tags: ["sleep", "relaxation"],
+  },
+  {
     slug: "understanding-sleep-patterns",
     categoryId: "better-sleep",
     categoryLabel: "BETTER SLEEP",

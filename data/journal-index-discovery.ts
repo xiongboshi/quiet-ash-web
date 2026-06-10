@@ -88,6 +88,14 @@ export const journalDiscoverySearchIntents = [
   { label: "what is rem sleep", href: journalPath("what-is-rem-sleep") },
   { label: "deep sleep vs rem sleep", href: journalPath("deep-sleep-vs-rem-sleep") },
   { label: "how to get more deep sleep", href: journalPath("how-to-get-more-deep-sleep") },
+  {
+    label: "why do we need deep sleep",
+    href: journalPath("why-do-we-need-deep-sleep"),
+  },
+  {
+    label: "signs of not getting enough deep sleep",
+    href: journalPath("signs-you-are-not-getting-enough-deep-sleep"),
+  },
   { label: "why bad sleep happens", href: journalPath("why-bad-sleep-happens") },
   {
     label: "what causes sleep deprivation",
