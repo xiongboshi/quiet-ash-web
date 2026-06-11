@@ -27,7 +27,7 @@ export const journalArticleSignsYouAreNotGettingEnoughDeepSleep: JournalArticleT
       subtitle:
         "Tired mornings, low focus, and low energy — when hours in bed do not feel like enough rest.",
       readMinutes: 11,
-      updatedLabel: "Updated June 10, 2026",
+      updatedLabel: "Updated June 11, 2026",
       imageSrc: "/images/generated/essay-night-incense-ritual.webp",
       imageAlt: "Calm bedroom with soft evening light and a restful atmosphere",
     },

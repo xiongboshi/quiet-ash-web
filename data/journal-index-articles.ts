@@ -30,7 +30,7 @@ export const journalGuidesTipsHandCards: readonly JournalIndexArticleCard[] = [
     description:
       "Why deep sleep matters for physical recovery, energy restoration, and overall health — and how it fits alongside REM sleep.",
     readMinutes: 10,
-    date: "2026-06-10",
+    date: "2026-06-11",
     imageSrc: "/images/generated/essay-night-incense-ritual.webp",
     imageAlt: "Calm bedroom with soft evening light and a restful atmosphere",
     tags: ["sleep", "relaxation"],
@@ -45,7 +45,7 @@ export const journalGuidesTipsHandCards: readonly JournalIndexArticleCard[] = [
     description:
       "Common signs of insufficient deep sleep — fatigue, low focus, and unrefreshed mornings — and habits that may support better recovery at night.",
     readMinutes: 11,
-    date: "2026-06-10",
+    date: "2026-06-11",
     imageSrc: "/images/generated/essay-night-incense-ritual.webp",
     imageAlt: "Calm bedroom with soft evening light and a restful atmosphere",
     tags: ["sleep", "relaxation"],

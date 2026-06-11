@@ -26,7 +26,7 @@ export const journalArticleWhyDoWeNeedDeepSleep: JournalArticleTemplate = {
     subtitle:
       "Physical recovery, energy restoration, and nightly maintenance — the restorative stage your body depends on.",
     readMinutes: 10,
-    updatedLabel: "Updated June 10, 2026",
+    updatedLabel: "Updated June 11, 2026",
     imageSrc: "/images/generated/essay-night-incense-ritual.webp",
     imageAlt: "Calm bedroom with soft evening light and a restful atmosphere",
   },
