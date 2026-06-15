@@ -199,10 +199,10 @@ export const journalArticleSleepHygieneTips: JournalArticleTemplate = {
   related: {
     heading: "Related Reading",
     items: [
+      { slug: "how-screen-time-affects-sleep" },
+      { slug: "can-screens-affect-sleep-quality" },
       { slug: "tips-for-better-sleep-quality" },
       { slug: "how-to-sleep-well-naturally" },
-      { slug: "why-is-sleep-important" },
-      { slug: "sleep-cycle-explained" },
     ],
   },
   articleNote:

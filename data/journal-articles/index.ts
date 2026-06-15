@@ -34,6 +34,8 @@ import { journalArticleUnderstandingSleepPatterns } from "@/data/journal-article
 import { journalArticleWhySleepPatternsChange } from "@/data/journal-articles/why-sleep-patterns-change";
 import { journalArticleWhyDoWeNeedDeepSleep } from "@/data/journal-articles/why-do-we-need-deep-sleep";
 import { journalArticleSignsYouAreNotGettingEnoughDeepSleep } from "@/data/journal-articles/signs-you-are-not-getting-enough-deep-sleep";
+import { journalArticleHowScreenTimeAffectsSleep } from "@/data/journal-articles/how-screen-time-affects-sleep";
+import { journalArticleCanScreensAffectSleepQuality } from "@/data/journal-articles/can-screens-affect-sleep-quality";
 
 /** Full PDP overrides for hand-authored guide templates. */
 const journalHandArticleOverrides: Record<string, JournalArticleTemplate> = {
@@ -83,6 +85,10 @@ const journalHandArticleOverrides: Record<string, JournalArticleTemplate> = {
   [journalArticleWhyDoWeNeedDeepSleep.slug]: journalArticleWhyDoWeNeedDeepSleep,
   [journalArticleSignsYouAreNotGettingEnoughDeepSleep.slug]:
     journalArticleSignsYouAreNotGettingEnoughDeepSleep,
+  [journalArticleHowScreenTimeAffectsSleep.slug]:
+    journalArticleHowScreenTimeAffectsSleep,
+  [journalArticleCanScreensAffectSleepQuality.slug]:
+    journalArticleCanScreensAffectSleepQuality,
 };
 
 /** Index-listed articles — auto-filled from card + `content/essays` MDX when available. */

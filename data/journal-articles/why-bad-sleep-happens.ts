@@ -254,9 +254,9 @@ export const journalArticleWhyBadSleepHappens: JournalArticleTemplate = {
     heading: "Related Reading",
     items: [
       { slug: "how-to-fix-bad-sleep" },
+      { slug: "how-screen-time-affects-sleep" },
+      { slug: "can-screens-affect-sleep-quality" },
       { slug: "what-causes-sleep-deprivation" },
-      { slug: "effects-of-sleep-deprivation" },
-      { slug: "tips-for-better-sleep-quality" },
     ],
   },
   articleNote:

@@ -21,6 +21,36 @@ export type JournalIndexArticleCard = {
 /** Hand-authored guide templates — topic-clustered for discovery hubs. */
 export const journalGuidesTipsHandCards: readonly JournalIndexArticleCard[] = [
   {
+    slug: "how-screen-time-affects-sleep",
+    categoryId: "better-sleep",
+    categoryLabel: "BETTER SLEEP",
+    headline: "How Screen Time Affects Sleep",
+    seoTitle: "How Screen Time Affects Sleep",
+    title: "How Screen Time Affects Sleep",
+    description:
+      "How evening screen use may affect sleep quality, bedtime, and rest — and habits that may reduce the impact of phones and devices at night.",
+    readMinutes: 10,
+    date: "2026-06-15",
+    imageSrc: "/images/generated/essay-night-incense-ritual.webp",
+    imageAlt: "Calm bedroom with soft evening light and a restful atmosphere",
+    tags: ["sleep", "relaxation"],
+  },
+  {
+    slug: "can-screens-affect-sleep-quality",
+    categoryId: "better-sleep",
+    categoryLabel: "BETTER SLEEP",
+    headline: "Can Screens Affect Sleep Quality?",
+    seoTitle: "Can Screens Affect Sleep Quality?",
+    title: "Can Screens Affect Sleep Quality?",
+    description:
+      "How phones, tablets, and evening screen light may affect sleep quality, duration, and deep sleep — plus habits for healthier bedtime routines.",
+    readMinutes: 11,
+    date: "2026-06-15",
+    imageSrc: "/images/generated/essay-night-incense-ritual.webp",
+    imageAlt: "Calm bedroom with soft evening light and a restful atmosphere",
+    tags: ["sleep", "relaxation"],
+  },
+  {
     slug: "why-do-we-need-deep-sleep",
     categoryId: "better-sleep",
     categoryLabel: "BETTER SLEEP",

@@ -40,6 +40,8 @@ export const BETTER_SLEEP_CORE_SLUGS = [
   "how-to-fix-bad-sleep",
   "what-causes-sleep-deprivation",
   "effects-of-sleep-deprivation",
+  "how-screen-time-affects-sleep",
+  "can-screens-affect-sleep-quality",
   "sleep-meditation",
   "best-incense-for-sleep",
 ] as const;
@@ -210,6 +212,18 @@ const BETTER_SLEEP_TOPIC_CARD_OVERRIDES: Partial<
       "Fatigue, focus, mood, and recovery — what happens when sleep falls short night after night.",
     readMinutes: 11,
   },
+  "how-screen-time-affects-sleep": {
+    title: "How Screen Time Affects Sleep",
+    description:
+      "Phones, tablets, and late-night scrolling — how screens can shift bedtime and sleep quality.",
+    readMinutes: 10,
+  },
+  "can-screens-affect-sleep-quality": {
+    title: "Can Screens Affect Sleep Quality?",
+    description:
+      "Light, stimulation, and late-night scrolling — what screens may do to rest before you close your eyes.",
+    readMinutes: 11,
+  },
   "sleep-meditation": {
     title: "Sleep Meditation",
     description:
@@ -243,6 +257,8 @@ const BETTER_SLEEP_POPULAR_SEARCH_LABELS: Partial<
   "how-to-fix-bad-sleep": "how to fix bad sleep",
   "what-causes-sleep-deprivation": "what causes sleep deprivation",
   "effects-of-sleep-deprivation": "effects of sleep deprivation",
+  "how-screen-time-affects-sleep": "screen time and sleep",
+  "can-screens-affect-sleep-quality": "screens affect sleep quality",
   "sleep-meditation": "sleep meditation",
   "best-incense-for-sleep": "best incense for sleep",
   "bedroom-scents-for-better-sleep": "bedroom scents for sleep",

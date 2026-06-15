@@ -276,6 +276,16 @@ export const evergreenGuidePageContent: Record<EvergreenGuideSlug, EvergreenGuid
         title: "Effects of Sleep Deprivation",
         description: "",
       },
+      {
+        slug: "how-screen-time-affects-sleep",
+        title: "How Screen Time Affects Sleep",
+        description: "",
+      },
+      {
+        slug: "can-screens-affect-sleep-quality",
+        title: "Can Screens Affect Sleep Quality?",
+        description: "",
+      },
       { slug: "sleep-meditation", title: "Sleep Meditation", description: "" },
       { slug: "best-incense-for-sleep", title: "Best Incense for Sleep", description: "" },
     ],

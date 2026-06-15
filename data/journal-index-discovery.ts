@@ -72,6 +72,14 @@ export const journalDiscoveryHubOrder: readonly JournalTopicHubId[] = [
 export const journalDiscoverySearchIntents = [
   { label: "tips for better sleep quality", href: journalPath("tips-for-better-sleep-quality") },
   { label: "sleep hygiene tips", href: journalPath("sleep-hygiene-tips") },
+  {
+    label: "screen time and sleep",
+    href: journalPath("how-screen-time-affects-sleep"),
+  },
+  {
+    label: "screens affect sleep quality",
+    href: journalPath("can-screens-affect-sleep-quality"),
+  },
   { label: "what is sleep", href: journalPath("what-is-sleep") },
   { label: "sleep well naturally", href: journalPath("how-to-sleep-well-naturally") },
   { label: "sleep stages explained", href: journalPath("sleep-stages-explained") },
